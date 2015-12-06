@@ -1,0 +1,49 @@
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none !important;
+}
+
+img.profilePic {
+    max-width: 250px;
+    border-radius: 50%;
+}
+
+.header {
+    /*border-bottom: 1px dotted #8C1515;*/
+    text-align: center;
+    padding: 20px 0 20px;
+}
+
+.contact {
+    padding-top: 1em;
+}
+
+.section {
+
+}
+
+.section h1 {
+    color: #8C1515; /* Cardinal Red */
+    text-align: center;
+
+}
+
+.footer {
+    padding-top: 3em;
+    text-align: center;
+}
+
+.cardinalRed {
+    color: #8C1515; /* Cardinal Red */
+}

@@ -1,0 +1,11 @@
+body {
+    color: red;
+}
+
+.special {
+    text-align: right;
+}
+
+.normal {
+    text-align: left;
+}
