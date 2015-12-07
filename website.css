@@ -15,6 +15,7 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 img.profilePic {
+    width: 90%;
     max-width: 250px;
     border-radius: 50%;
 }
@@ -40,7 +41,7 @@ img.profilePic {
 }
 
 .footer {
-    padding-top: 3em;
+    padding: 3em 0 1em;
     text-align: center;
 }
 
