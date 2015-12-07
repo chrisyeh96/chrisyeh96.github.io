@@ -1,11 +1,49 @@
-body {
-    color: red;
+.italic {
+    font-style: italic;
 }
 
-.special {
-    text-align: right;
+.bold {
+    font-weight: bold;
 }
 
-.normal {
-    text-align: left;
+.center {
+    text-align: center;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none !important;
+}
+
+img.profilePic {
+    width: 90%;
+    max-width: 250px;
+    border-radius: 50%;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0 20px;
+}
+
+.contact {
+    padding-top: 1em;
+}
+
+.section {
+
+}
+
+.section h1 {
+    color: #8C1515; /* Cardinal Red */
+    text-align: center;
+
+}
+
+.footer {
+    padding: 3em 0 1em;
+    text-align: center;
+}
+
+.cardinalRed {
+    color: #8C1515; /* Cardinal Red */
 }
