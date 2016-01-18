@@ -22,21 +22,44 @@ img.profilePic {
 
 .header {
     text-align: center;
-    padding: 20px 0 20px;
+    padding: 20px 0 0;
+}
+
+.header h1 {
+    font-size: 50px;
 }
 
 .contact {
     padding-top: 1em;
 }
 
-.section {
-
-}
-
-.section h1 {
+h1.section-title {
     color: #8C1515; /* Cardinal Red */
     text-align: center;
+    margin: 1em 0em 0.7em;
+}
 
+div.image-wrapper {
+    text-align: center;
+}
+
+.row img {
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.row h3 {
+    margin-top: 0px;
+}
+
+button.btn.collapsed:before {
+    content: 'Show More';
+}
+
+button.btn:before {
+    content: 'Show Less';
 }
 
 .footer {

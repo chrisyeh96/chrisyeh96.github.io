@@ -25,73 +25,117 @@
         <div class="col-xs-12 col-sm-8">
             <h1>Christopher Yeh</h1>
             <h3 class="cardinalRed bold">Stanford University</h3>
-            <h4 class="italic">Computer Science (2018)</h4>
+            <h4 class="italic">Computer Science, 2018</h4>
 
             <!-- Contact -->
             <div class="contact center">
                 <a href="Christopher Yeh - Resume.pdf" class="btn btn-link">
-                    <i class="fa fa-file"></i> Resume
+                    <i class="fa fa-file-pdf-o fa-lg"></i> Resume
                 </a>
+                <br>
                 <a href="mailto:chrisyeh@stanford.edu" class="btn btn-link">
-                    <i class="fa fa-envelope-o"></i> Email
+                    <i class="fa fa-envelope-o fa-lg"></i> chrisyeh (at) stanford.edu
                 </a>
+                <br>
                 <a href="http://www.linkedin.com/in/chrisyeh96" class="btn btn-link">
-                    <i class="fa fa-linkedin-square"></i> LinkedIn
+                    <i class="fa fa-linkedin-square fa-3x"></i>
                 </a>
                 <a href="http://www.github.com/chrisyeh96" class="btn btn-link">
-                    <i class="fa fa-github-square"></i> GitHub
+                    <i class="fa fa-github fa-3x"></i>
                 </a>
             </div>
         </div>
     </div>
 
     <!-- Bio -->
-    <div class="col-xs-12 section">
-        <h1>Bio</h1>
-        <p>I am a sophomore at Stanford University studying computer science with a focus on artificial intelligence. In particular, I enjoy projects that involve machine learning and computer vision. Originally from Southern California, I love the outdoors, from camping in the Sierra Nevadas to playing sand volleyball at the beach.</p>
+    <h1 class="section-title">Bio</h1>
+
+    <div class="row">
+    <div class="col-xs-12 col-sm-4">
+        <img src="images\bio.jpg">
+    </div>
+    <div class="col-xs-12 col-sm-8">
+        <p>I am a sophomore at Stanford University pursuing a computer science degree with a focus on artificial intelligence and machine learning. Currently, I am working with <a href="http://cs.stanford.edu/~ermon/">Professor Stefano Ermon</a> to research how satellite imagery can be used to predict economic and environmental conditions in regions of the world where such data is sparse. In my free time, I am always looking for opportunities to use my computer science skills for social good, through organizations such as <a href="https://codethechange.org/">Code the Change</a>.</p>
+
+        <p>Outside of academia, I enjoy playing piano and cello, and I am a member of the Stanford Symphony Orchestra. Originally from Southern California, I also love the outdoors, from camping in the Sierra Nevadas to playing sand volleyball at the beach.</p>
+
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#inspiration" aria-expanded="false" aria-controls="inspiration"></button>
+        <div id="inspiration" class="collapse">
+        <h2>Inspiration</h2>
+        <p>Coding is weird but fun. That was my reaction when I wrote my first piece of code in fourth grade, a simple HTML webpage that read, “This is Christopher Yeh’s website!” Looking back, what attracted me to computer science was the adrenaline rush of developing programs. I was no longer just a consumer, but also a creator. I could build a website and introduce myself to the rest of the world. I could write a calculator program to play Pacman during math class. At that time, my dreams were huge, and the first steps seemed so simple.</p>
+
+        <p>Today, my affinity for coding still exists, but my experiences at Stanford have instilled in me an even stronger source of motivation: to use my computer science skills to help the world in a meaningful way. Just this past year, I joined a student organization called Code the Change and helped build an online visualization tool to help doctors in Bangladesh track the spread of cholera. This year, I am leading a team to work with the U.S. Copyright Office to build an online platform that reduces photo copyright infringement by significantly simplifying the process of purchasing legal photo licenses.</p>
+
+        <p>Despite my efforts thus far, every day at Stanford I am reminded of just how little knowledge I really know and how many global problems there are waiting to be solved. Yet, my thirst for problem solving is exactly what drives me day in and day out to excel in my classes. Someday, what I learn about data mining will help me fight human trafficking, what I learn about optimization will create energy-efficient energy grids, and what I learn about computer vision will help self-driving cars prevent fatal car accidents. My dreams remain huge, and even though the steps now are no longer so easy, I am rising to this challenge.</p>
+        </div>
+    </div>
     </div>
 
     <!-- Research -->
-    <div class="col-xs-12 section">
-        <h1>Research</h1>
-        <h3>Conditional Random Fields for Dense Stereo Matching (2013)</h3>
-        <h4>Abstract</h4>
-        <p>Various algorithms have been developed over the past two decades for solving the stereo correspondence problem, which is defined as the identification of the offset or disparity of an object in a pair of stereo images. Recent work has shown that conditional random fields (CRFs) have the potential to be faster and more accurate than traditional local matching algorithms. The canonical CRF for solving dense stereo matching problems uses a basic energy function that accounts for both local intensity matching and smoothness costs. Traditionally, the smoothness term relies on a binary Potts Model which fails to assign different costs to different disparities. In this paper, we extend the smoothness term in the energy function to be more robust. Specifically, we explore using a logarithmic function modulated by discrete edge gradient bins and binary edge detection features. The logarithmic function is able to distinguish between different disparities and therefore assign more appropriate costs. Our results suggest that our algorithm exceeds the performance of the traditional smoothness term based on a Potts Model. However, further optimization in our CRF evaluation process is necessary to achieve real-time outputs.</p>
-        <h4>Mentor</h4>
-        <p>Dr. Alex Ihler, UC Irvine</p>
-        <h4>Presentation</h4>
-        <p>2013 Southern California Conference for Undergraduate Research (SCCUR) at Whittier College, CA</p>
+    <h1 class="section-title">Research</h1>
+
+    <div class="row">
+    <div class="col-xs-12 col-sm-4 image-wrapper">
+        <img src="images/research_stereo_ihler.jpg">
+    </div>
+    <div class="col-xs-12 col-sm-8">
+        <h3>Conditional Random Fields for Dense Stereo Matching</h3>
+        <p class="time">Summer 2012 to Summer 2014</p>
+        <p><span class="bold">Abstract:</span> Various algorithms have been developed over the past two decades for solving the stereo correspondence problem, which is defined as the identification of the offset or disparity of an object in a pair of stereo images. Recent work has shown that conditional random fields (CRFs) have the potential to be faster and more accurate than traditional local matching algorithms. The canonical CRF for solving dense stereo matching problems uses a basic energy function that accounts for both local intensity matching and smoothness costs. Traditionally, the smoothness term relies on a binary Potts Model which fails to assign different costs to different disparities. In this paper, we extend the smoothness term in the energy function to be more robust. Specifically, we explore using a logarithmic function modulated by discrete edge gradient bins and binary edge detection features. The logarithmic function is able to distinguish between different disparities and therefore assign more appropriate costs. Our results suggest that our algorithm exceeds the performance of the traditional smoothness term based on a Potts Model. However, further optimization in our CRF evaluation process is necessary to achieve real-time outputs.</p>
+        <p><span class="bold">Mentor:</span> Dr. Alex Ihler, UC Irvine</p>
+        <p><span class="bold">Presentation:</span> 2013 Southern California Conference for Undergraduate Research (SCCUR) at Whittier College, CA</p>
         <a href="Christopher Yeh - SCCUR Presentation.pdf" class="btn btn-link">
             <i class="fa fa-file"></i> Presentation Slides
         </a>
         <a href="https://youtu.be/Q3Iml7WxyKw" class="btn btn-link">
-            <i class="fa fa-youtube-square"></i> Presentation Video
+            <i class="fa fa-youtube-play"></i> Presentation Video
         </a>
+    </div>
+    </div>
+    <hr>
 
-        <h3>Effect of Aging on the Foam Fractionation of Lactoferrin (2011)</h3>
-        <h4>Abstract</h4>
-        <p>Foam fractionation is an inexpensive and simple technique for concentrating proteins. The foamability of a protein can drastically change with the age of the protein. The foamability of solutions created from ten year old bovine lactoferrin (bLF) protein was investigated with varying concentration protein, air flow velocity, and the pH of the solution. The results suggest the foamability of the aged protein decreased to an insignificant level except at high pH with a protein concentration of 0.1 mg/mL.</p>
-        <h4>Mentor</h4>
-        <p>Dr. Robert Tanner, Caltech</p>
-        <h4>Presentation</h4>
-        <p>43rd American Chemistry Society Western Regional Meeting, Pasadena, CA</p>
+    <div class="row">
+    <div class="col-xs-12 col-sm-4">
+        <img src="images/research_foam_tanner.jpg">
+    </div>
+    <div class="col-xs-12 col-sm-8 section">
+        <h3>Effect of Aging on the Foam Fractionation of Lactoferrin</h3>
+        <p class="time">Summer 2011</p>
+        <p><span class="bold">Abstract:</span> Foam fractionation is an inexpensive and simple technique for concentrating proteins. The foamability of a protein can drastically change with the age of the protein. The foamability of solutions created from ten year old bovine lactoferrin (bLF) protein was investigated with varying concentration protein, air flow velocity, and the pH of the solution. The results suggest the foamability of the aged protein decreased to an insignificant level except at high pH with a protein concentration of 0.1 mg/mL.</p>
+        <p><span class="bold">Mentor:</span> Dr. Robert Tanner, Caltech</p>
+        <p><span class="bold">Collaborators:</span> Benjamin Yeh, Yuehan Huang</p>
+        <p><span class="bold">Presentation:</span> 43rd American Chemistry Society Western Regional Meeting, Pasadena, CA</p>
+    </div>
     </div>
 
     <!-- Projects -->
-    <div class="col-xs-12 section">
-        <h1>Projects</h1>
-        <p>Lorum Ipsum</p>
+    <h1 class="section-title">Projects</h1>
+
+    <div class="row">
+    <div class="col-xs-12 col-sm-4">
+        <img src="images\ctc.png">
+    </div>
+    <div class="col-xs-12 col-sm-8">
+        <h3>Photo Licensing Platform</h3>
+        <p class="time">September 2015 to present</p>
+        <p>Currently, there is no centralized platform for media consumers to easily purhcase licenses from photographers and graphic designers. Through Stanford Code the Change, I am leading a team to create a prototype web application that simplifies the process of creating and purchasing licenses for copyrighted photos and images. This proof-of-concept app was built in collaboration with the U.S. Copyright Office and the Stanford Law School. For this project, I used Python, Flask, and SQL, and then deployed the app to Heroku.</p>
+        <a href="http://copyright-license.herokuapp.com/" class="btn btn-link">
+            <i class="fa fa-external-link-square"></i> Demo
+        </a>
+    </div>
     </div>
 
     <!-- Footer -->
+    <div class="row">
     <div class="col-xs-12 footer italic bold">
-        &copy; Christopher Yeh, 2015
+        &copy; Christopher Yeh, 2016
+    </div>
     </div>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<script src="js/jquery-1.12.0.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<!-- <script src="js/bootstrap.min.js"></script> -->
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
