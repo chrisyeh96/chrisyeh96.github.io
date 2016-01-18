@@ -54,6 +54,10 @@ div.image-wrapper {
     margin-top: 0px;
 }
 
+.time {
+    font-style: italic;
+}
+
 button.btn.collapsed:before {
     content: 'Show More';
 }
