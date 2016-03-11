@@ -33,6 +33,11 @@ img.profilePic {
     padding-top: 1em;
 }
 
+.contact a {
+    border: 2px solid black;
+    margin: 0 10px 0;
+}
+
 h1.section-title {
     color: #8C1515; /* Cardinal Red */
     text-align: center;
@@ -73,4 +78,33 @@ button.btn:before {
 
 .cardinalRed {
     color: #8C1515; /* Cardinal Red */
+}
+
+.btn {
+    border-radius: 0 !important;
+    font-family: Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.btn-default {
+    border: 2px solid #4C4C4C;
+    color: #4C4C4C;
+    background-color: transparent;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    border: 2px solid #4C4C4C;
+    outline: 0;
+    color: #fff;
+    background-color: #4C4C4C;
+}
+
+ul.banner-social-buttons li {
+    margin-bottom: 20px;
+    padding: 0;
+    text-transform: uppercase;
 }
