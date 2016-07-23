@@ -89,14 +89,14 @@ button.btn:before {
     transition: all .3s ease-in-out;
 }
 
-.btn-default {
+.btn-default,
+.btn-default:focus {
     border: 2px solid #4C4C4C;
     color: #4C4C4C;
     background-color: transparent;
 }
 
-.btn-default:hover,
-.btn-default:focus {
+.btn-default:hover {
     border: 2px solid #4C4C4C;
     outline: 0;
     color: #fff;
