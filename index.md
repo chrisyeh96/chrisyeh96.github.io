@@ -1,6 +1,5 @@
 ---
-layout: home
-title: Christopher Yeh - Stanford Unviersity
+layout: default
 ---
 
 <div class="container">

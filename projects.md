@@ -1,6 +1,6 @@
 ---
-title: projects
-layout: page
+title: Projects
+layout: default
 ---
 
 <!-- Research -->

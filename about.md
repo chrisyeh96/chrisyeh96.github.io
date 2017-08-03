@@ -1,6 +1,6 @@
 ---
-title: about
-layout: page
+title: About
+layout: default
 ---
 
 # Bio
