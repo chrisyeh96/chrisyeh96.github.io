@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Christopher Yeh - Stanford University</title>
+---
+layout: default
+title: Christopher Yeh - Stanford Unviersity
+---
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/website.css">
-</head>
-
-<body>
 <div class="container">
     
     <!-- Header -->
@@ -200,5 +190,3 @@
 <script src="js/jquery-1.12.0.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
