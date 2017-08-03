@@ -1,27 +1,38 @@
 {% if page.layout == 'home' %}
 
-<div class="jumbotron header header-home">
+<div class="jumbotron jumbotron-fluid header header-home">
   <div class="container">
-    <div class="row center">
-      <div class="col-xs-12 col-sm-4"><img id="profile-pic" src="images/chrisyeh_700px_square.jpg"></div><!-- vertically center align this -->
-      <div class="col-xs-12 col-sm-8">
-        <h1 class="bold">Chris Yeh</h1>
-        <h2 class="bold">Stanford University | CS | 2018</h2>
+
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3">
+        <img id="profile-pic" src="images/chrisyeh_700px_square.jpg"><!-- vertically center align this -->
+      </div>
+      <div class="col-12 col-md-8 col-lg-9">
+        <h1>Chris Yeh</h1>
+        <h2>Stanford University | CS | 2018</h2>
         
         <!-- Contact -->
         <div class="contact">
           <ul class="list-inline banner-social-buttons">
-            <li>
-              <a class="btn btn-default btn-lg square-btn" href="https://drive.google.com/file/d/0B-7rmGyO0CsvVEhxXzRiQVZhUXc/view"><i class="fa fa-file-pdf-o fa-fw"></i> Resume</a>
+            <li class="list-inline-item">
+              <a class="btn btn-secondary btn-lg" href="https://drive.google.com/file/d/0B-7rmGyO0CsvVEhxXzRiQVZhUXc/view">
+                <i class="fa fa-file-pdf-o fa-fw"></i> Resume
+              </a>
             </li>
-            <li>
-              <a class="btn btn-default btn-lg square-btn" href="mailto:chrisyeh@stanford.edu"><i class="fa fa-envelope-o fa-fw"></i> Email</a>
+            <li class="list-inline-item">
+              <a class="btn btn-secondary btn-lg" href="mailto:chrisyeh@stanford.edu">
+                <i class="fa fa-envelope-o fa-fw"></i> Email
+              </a>
             </li>
-            <li>
-              <a class="btn btn-default btn-lg square-btn" href="http://www.linkedin.com/in/chrisyeh96"><i class="fa fa-linkedin-square fa-fw"></i> LinkedIn</a>
+            <li class="list-inline-item">
+              <a class="btn btn-secondary btn-lg" href="https://www.linkedin.com/in/chrisyeh96">
+                <i class="fa fa-linkedin-square fa-fw"></i> LinkedIn
+              </a>
             </li>
-            <li>
-              <a class="btn btn-default btn-lg square-btn" href="http://www.github.com/chrisyeh96"><i class="fa fa-github fa-fw"></i> GitHub</a>
+            <li class="list-inline-item">
+              <a class="btn btn-secondary btn-lg" href="https://www.github.com/chrisyeh96">
+                <i class="fa fa-github fa-fw"></i> GitHub
+              </a>
             </li>
           </ul>
         </div>
@@ -32,10 +43,10 @@
 
 {% else %}
 
-<div class="jumbotron header header-page">
+<div class="jumbotron jumbotron-fluid header header-page">
   <div class="container">
-    <h1 class="header-title">{{ page.title }}</h1>
-    <h2 class="header-description">{{ page.description }}</h2>
+    <h1>{{ page.title }}</h1>
+    <h2>{{ page.description }}</h2>
   </div>
 </div>
 
