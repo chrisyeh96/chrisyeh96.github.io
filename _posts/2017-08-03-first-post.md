@@ -1,6 +1,7 @@
 ---
 title: First Post
 layout: default
+use_math: true
 ---
 
 Hello, this is my first post.

@@ -46,12 +46,16 @@ a, a:link, a:visited, a:hover, a:active {
   background: url("../images/banner.jpg") center center/cover;
 }
 
+.page-description {
+  padding-top: 0.25em;
+}
+
 #profile-pic {
   width: 90%;
   max-width: 250px;
   border-radius: 50%;
   border: 8px solid white;
-  padding: 0;
+  box-shadow: 0 0 1.5em black;
 }
 
 ul.banner-social-buttons li {
@@ -88,15 +92,6 @@ ul.banner-social-buttons li {
 }
 
 /*******************
- * GENERAL
- ******************/
-/* Make buttons rectangular: override the Bootstrap default */
-.btn {
-  border-radius: 0;
-  transition: all .3s ease-in-out;
-}
-
-/*******************
  * HOME
  ******************/
 .post-list {
@@ -114,28 +109,36 @@ ul.banner-social-buttons li {
 }
 
 /*******************
- * OTHER
+ * PROJECTS and ABOUT
  ******************/
-h1.section-title {
-  color: #8C1515; /* Cardinal Red */
-  margin: 1em 0em 0.7em;
-}
-
-div.image-wrapper {
-  text-align: center;
-}
-
-.row img {
+.content-row img {
   max-width: 100%;
   height: auto;
   padding-bottom: 1em;
+}
+
+.content-row .image-wrapper {
   text-align: center;
 }
 
-.row h3 {
-  margin-top: 0px;
+.content-row div a.btn {
+  margin-bottom: 0.5em;
 }
 
-.time {
-  font-style: italic;
+/*******************
+ * GENERAL
+ ******************/
+.main-content {
+  word-wrap: break-word;
+}
+
+/* Make buttons rectangular: override the Bootstrap default */
+.btn {
+  border-radius: 0;
+  transition: all .3s ease-in-out;
+}
+
+h1.section-title {
+  color: #8C1515; /* Cardinal Red */
+  margin: 1em 0em 0.7em;
 }

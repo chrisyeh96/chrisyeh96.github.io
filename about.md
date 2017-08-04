@@ -3,7 +3,7 @@ title: About
 layout: default
 ---
 
-<div class="row">
+<div class="row content-row">
 <div class="col-12 col-sm-4">
     <img src="images/bio.jpg">
 </div>
