@@ -2,6 +2,7 @@
 title: First Post
 layout: default
 use_math: true
+use_code: true
 ---
 
 Hello, this is my first post.

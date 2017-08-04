@@ -1,6 +1,7 @@
 ---
-layout: default
 title: "Example content"
+layout: default
+use_code: true
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
