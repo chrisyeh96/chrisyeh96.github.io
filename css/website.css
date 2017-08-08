@@ -62,13 +62,8 @@ img {
   box-shadow: 0 0 1.5em black;
 }
 
-ul.banner-social-buttons li {
-  margin-bottom: 1.5em;
-  text-transform: uppercase;
-}
-
-.contact {
-  padding-top: 1.5em;
+.contact li {
+  margin-top: 1em;
 }
 
 .contact a,
