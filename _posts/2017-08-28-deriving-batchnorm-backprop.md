@@ -1,10 +1,11 @@
 ---
 title: Deriving Batch-Norm Backprop Equations
 layout: default
+excerpt_separator: <!--more-->
 use_math: true
 ---
 
-A batch normalization layer is given a batch of $$N$$ examples, each of which is a $$D$$-dimensional vector. We can represent the inputs as a matrix $$X \in \mathbb{R}^{N \times D}$$ where each row $$x_i$$ is a single example. Each example $$x_i$$ is normalized by
+A batch normalization layer is given a batch of $$N$$ examples, each of which is a $$D$$-dimensional vector. We can represent the inputs as a matrix $$X \in \mathbb{R}^{N \times D}$$ where each row $$x_i$$ is a single example. <!--more--> Each example $$x_i$$ is normalized by
 
 $$ \hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} $$
 
@@ -32,7 +33,7 @@ $$
 
 **Notation**: $$\odot$$ denotes the Hadamard (element-wise) product. In the case of $$\gamma \odot \hat{X}$$, where $$\gamma$$ is a row vector and $$\hat{X}$$ is a matrix, each row of $$\hat{X}$$ is multiplied element-wise by $$\gamma$$.
 
-**Gradient Notes**: Several times throughout this post, I mention my "gradient notes" which is [this document](https://www.overleaf.com/read/cxjrxqhkvfyb).
+**Gradient Notes**: Several times throughout this post, I mention my "gradient notes" which refers to [this document](https://www.overleaf.com/read/cxjrxqhkvfyb).
 
 ## Backpropagation Basics
 
