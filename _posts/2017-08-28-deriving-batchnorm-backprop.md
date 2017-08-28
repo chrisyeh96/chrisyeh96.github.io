@@ -244,6 +244,15 @@ $$\boxed{
 
 
 ## References
+
+- [Batch Normalization](https://arxiv.org/abs/1502.03167)
+  - the original paper by Sergey Ioffe and Christian Szegedy
 - [Efficient Batch Normalization](https://costapt.github.io/2016/07/09/batch-norm-alt/)
-- [Understanding the backward pass through Batch Normalization Layer](https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html)
+  - row-wise derivation of $$\frac{\partial J}{\partial X}$$
 - [Deriving the Gradient for the Backward Pass of Batch Normalization](https://kevinzakka.github.io/2016/09/14/batch_normalization/)
+  - another take on row-wise derivation of $$\frac{\partial J}{\partial X}$$
+- [Understanding the backward pass through Batch Normalization Layer](https://kratzert.github.io/2016/02/12/understanding-the-gradient-flow-through-the-batch-normalization-layer.html)
+  - (slow) step-by-step backpropagation through the batch normalization layer
+- [Batch Normalization - What the Hey?](https://gab41.lab41.org/batch-normalization-what-the-hey-d480039a9e3b)
+  - explains some intuition behind batch normalization
+  - clarifies the difference between using batch statistics during training and sample statistics during inference
