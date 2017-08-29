@@ -2,11 +2,11 @@
 {% assign page_paths = site.header_pages | default: default_paths %}
 
 <div class="container">
-  <nav class="navbar navbar-toggleable-md navbar-light bg-white">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-md navbar-light bg-white">
+    <a class="navbar-brand" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
     {% if page_paths %}
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
