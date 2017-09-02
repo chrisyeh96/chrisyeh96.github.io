@@ -16,10 +16,10 @@ layout: default
     <p><span class="bold">Abstract:</span> Various algorithms have been developed over the past two decades for solving the stereo correspondence problem, which is defined as the identification of the offset or disparity of an object in a pair of stereo images. Recent work has shown that conditional random fields (CRFs) have the potential to be faster and more accurate than traditional local matching algorithms. The canonical CRF for solving dense stereo matching problems uses a basic energy function that accounts for both local intensity matching and smoothness costs. Traditionally, the smoothness term relies on a binary Potts Model which fails to assign different costs to different disparities. In this paper, we extend the smoothness term in the energy function to be more robust. Specifically, we explore using a logarithmic function modulated by discrete edge gradient bins and binary edge detection features. The logarithmic function is able to distinguish between different disparities and therefore assign more appropriate costs. Our results suggest that our algorithm exceeds the performance of the traditional smoothness term based on a Potts Model. However, further optimization in our CRF evaluation process is necessary to achieve real-time outputs.</p>
     <p><span class="bold">Mentor:</span> Dr. Alex Ihler, UC Irvine</p>
     <p><span class="bold">Presentation:</span> 2013 Southern California Conference for Undergraduate Research (SCCUR) at Whittier College, CA</p>
-    <a href="https://drive.google.com/file/d/0B-7rmGyO0CsvVC1aVVlPUzEtTkE/view" class="btn btn-secondary">
+    <a href="https://drive.google.com/file/d/0B-7rmGyO0CsvVC1aVVlPUzEtTkE/view" class="btn btn-light">
         <i class="fa fa-file"></i> Presentation Slides
     </a>
-    <a href="https://youtu.be/Q3Iml7WxyKw" class="btn btn-secondary">
+    <a href="https://youtu.be/Q3Iml7WxyKw" class="btn btn-light">
         <i class="fa fa-youtube-play"></i> Presentation Video
     </a>
 </div>
@@ -78,10 +78,10 @@ layout: default
     <h3>Photo Licensing Platform</h3>
     <p class="italic">September 2015 — present</p>
     <p>Currently, there is no centralized platform for media consumers to easily purhcase licenses from photographers and graphic designers. Through Stanford Code the Change, I am leading a team to create a prototype web application that simplifies the process of creating and purchasing licenses for copyrighted photos and images. This proof-of-concept app was built in collaboration with the U.S. Copyright Office and the Stanford Law School. For this project, I used Python, Flask, and SQL, and then deployed the app to Heroku.</p>
-    <a href="https://copyright-license.herokuapp.com/" class="btn btn-secondary">
+    <a href="https://copyright-license.herokuapp.com/" class="btn btn-light">
         <i class="fa fa-external-link-square"></i> Demo
     </a>
-    <a href="https://github.com/chrisyeh96/copyright-license" class="btn btn-secondary">
+    <a href="https://github.com/chrisyeh96/copyright-license" class="btn btn-light">
         <i class="fa fa-github"></i> GitHub
     </a>
 </div>
@@ -100,13 +100,13 @@ layout: default
         HackUCI Hackathon, Top 10 Hacks and Best Rdio Hack
     </p>
     <p>Mood Music is a Firefox add-on that provides users with content-relevant music that reflects the mood of the websites they visit. It uses a combination of text-extraction through Diffbot, natural language processing of mood, and integration with the Rdio API to create this Firefox add-on. The inspiration behind this lies in alleviating the burden of finding good music during a user’s browsing experience.</p>
-    <a href="https://github.com/skswbwt/bgradio" class="btn btn-secondary">
+    <a href="https://github.com/skswbwt/bgradio" class="btn btn-light">
         <i class="fa fa-github"></i> GitHub
     </a>
-    <a href="https://devpost.com/software/mood-music" class="btn btn-secondary">
+    <a href="https://devpost.com/software/mood-music" class="btn btn-light">
         <i class="fa fa-info"></i> Project Profile
     </a>
-    <a href="https://youtu.be/oYl99kzciQA" class="btn btn-secondary">
+    <a href="https://youtu.be/oYl99kzciQA" class="btn btn-light">
         <i class="fa fa-youtube-play"></i> Presentation Video
     </a>
 </div>

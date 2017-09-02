@@ -3,3 +3,9 @@ title: Chris Yeh
 description: Stanford University, Class of 2018
 
 highlighter: rouge
+
+# strip all unncessary whitespace and comments
+# http://jch.penibelst.de/
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
