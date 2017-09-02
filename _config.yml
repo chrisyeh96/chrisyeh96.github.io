@@ -4,6 +4,9 @@ description: Stanford University, Class of 2018
 
 highlighter: rouge
 
+##### BUILD SETTINGS #####
+incremental: true
+
 # strip all unncessary whitespace and comments
 # http://jch.penibelst.de/
 compress_html:
