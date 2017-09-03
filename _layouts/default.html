@@ -12,12 +12,15 @@ layout: compress
 
   <!-- Required CSS: Bootstrap v4.0.0-beta, Font Awesome 4.7.0, custom CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ site.url }}/css/website.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/website.css">
   <!-- <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> -->
 
+  {% if page.use_fontawesome %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  {% endif %}
+
   {% if page.use_code %}
-    <link rel="stylesheet" href="{{ site.url }}/css/rouge-github.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/rouge-github.css">
   {% endif %}
 
   {% if page.use_math %}
@@ -32,7 +35,7 @@ layout: compress
 <body>
   {% include navbar.html %}
   {% include header.html %}
-  
+
   <div class="container">
     <section class="main-content">
       {{ content }}

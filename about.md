@@ -5,7 +5,7 @@ layout: default
 
 <div class="row content-row">
 <div class="col-12 col-sm-4">
-    <img src="images/bio.jpg">
+    <img src="{{ site.baseurl }}/images/bio.jpg">
 </div>
 <div class="col-12 col-sm-8">
     <p>I am a senior at Stanford University pursuing a computer science degree with a focus on artificial intelligence and machine learning. Currently, I am working with <a href="http://cs.stanford.edu/~ermon/">Professor Stefano Ermon</a> to research how satellite imagery can be used to predict economic and environmental conditions in regions of the world where such data is sparse. In my free time, I am always looking for opportunities to use my computer science skills for social good, through organizations such as <a href="https://codethechange.org/">Code the Change</a>.</p>

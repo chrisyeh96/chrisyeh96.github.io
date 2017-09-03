@@ -1,6 +1,7 @@
 ---
 title: Projects
 layout: default
+use_fontawesome: true
 ---
 
 <!-- Research -->
@@ -8,7 +9,7 @@ layout: default
 
 <div class="row content-row">
 <div class="col-12 col-sm-4 image-wrapper">
-    <img src="images/research_stereo_ihler.jpg">
+    <img src="{{ site.baseurl }}/images/research_stereo_ihler.png">
 </div>
 <div class="col-12 col-sm-8">
     <h3>Conditional Random Fields for Dense Stereo Matching</h3>
@@ -28,7 +29,7 @@ layout: default
 
 <div class="row content-row">
 <div class="col-12 col-sm-4">
-    <img src="images/research_foam_tanner.jpg">
+    <img src="{{ site.baseurl }}/images/research_foam_tanner.jpg">
 </div>
 <div class="col-12 col-sm-8 section">
     <h3>Effect of Aging on the Foam Fractionation of Lactoferrin</h3>
@@ -57,7 +58,7 @@ layout: default
 
 <div class="row content-row">
 <div class="col-12 col-sm-4">
-    <img src="images/qb_ios.png">
+    <img src="{{ site.baseurl }}/images/qb_ios.png">
 </div>
 <div class="col-12 col-sm-8">
     <h3>Intuit Software Engineer Intern</h3>
@@ -72,7 +73,7 @@ layout: default
 
 <div class="row content-row">
 <div class="col-12 col-sm-4">
-    <img src="images/ctc.png">
+    <img src="{{ site.baseurl }}/images/ctc.png">
 </div>
 <div class="col-12 col-sm-8">
     <h3>Photo Licensing Platform</h3>
@@ -90,7 +91,7 @@ layout: default
 
 <div class="row content-row">
 <div class="col-12 col-sm-4">
-    <img src="images/moodmusic.png">
+    <img src="{{ site.baseurl }}/images/moodmusic.png">
 </div>
 <div class="col-12 col-sm-8">
     <h3>Mood Music Firefox Add-on</h3>
