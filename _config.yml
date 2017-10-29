@@ -10,5 +10,4 @@ incremental: true
 # strip all unncessary whitespace and comments
 # http://jch.penibelst.de/
 compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
+  blanklines: true
