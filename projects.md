@@ -9,6 +9,23 @@ use_fontawesome: true
 
 <div class="row content-row">
 <div class="col-12 col-sm-4 image-wrapper">
+    <img src="{{ site.baseurl }}/images/research_poverty_ermon.jpg">
+</div>
+<div class="col-12 col-sm-8">
+    <h3>Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning</h3>
+    <p class="italic">Summer 2017 — Present</p>
+    <p><span class="bold">Abstract:</span> Obtaining detailed and reliable data about local economic livelihoods in developing countries is expensive, and data are consequently scarce. Previous work has shown that it is possible to measure local-level economic livelihoods using high-resolution satellite imagery. However, such imagery is relatively expensive to acquire, often not updated frequently, and is mainly available for recent years. We train CNN models on free and publicly available multispectral daytime satellite images of the African continent from the Landsat 7 satellite, which has collected imagery with global coverage for almost two decades. We show that despite these images' lower resolution, we can achieve accuracies that exceed previous benchmarks.</p>
+    <p><span class="bold">Mentors:</span> Stefano Ermon, Marshall Burke, David Lobell</p>
+    <p><span class="bold">Conference Workshop Paper:</span> NIPS Conference 2017, Machine Learning for Development Workshop</p>
+    <a href="https://arxiv.org/pdf/1711.03654.pdf" class="btn btn-light">
+        <i class="fa fa-file"></i> Paper
+    </a>
+</div>
+</div>
+<hr>
+
+<div class="row content-row">
+<div class="col-12 col-sm-4 image-wrapper">
     <img src="{{ site.baseurl }}/images/research_stereo_ihler.png">
 </div>
 <div class="col-12 col-sm-8">
