@@ -271,7 +271,7 @@ In general, absolute imports are preferred over relative imports. They avoid the
 
 ## Case 1: `sys.path` is known ahead of time
 
-If you only ever call `python start.py` or `python other.py`, then it is very easy to set up the imports for all of the modules. In this case, `sys.path` will alwasy include `test/` in its search path. Therefore, all of the import statements can be written relative to the `test/` folder.
+If you only ever call `python start.py` or `python other.py`, then it is very easy to set up the imports for all of the modules. In this case, `sys.path` will always include `test/` in its search path. Therefore, all of the import statements can be written relative to the `test/` folder.
 
 Ex: a file in the `test` project needs to import the `helloWorld()` function in `sa1.py`
 - Solution: `from packA.subA.sa1 import helloWorld` (or any of the other equivalent import syntaxes demonstrated above)
