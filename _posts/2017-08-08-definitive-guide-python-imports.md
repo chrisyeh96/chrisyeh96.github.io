@@ -148,7 +148,7 @@ def a1_func():
 
 `test/packA/__init__.py`
 ```python
-# this import makes a1_func directly accessible from packA1.a1_func
+# this import makes a1_func directly accessible from packA.a1_func
 from packA.a1 import a1_func
 
 def packA_func():
