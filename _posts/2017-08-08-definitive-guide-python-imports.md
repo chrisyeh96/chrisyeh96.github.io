@@ -17,6 +17,7 @@ I've almost never been able to write correct Python `import` statements on the f
 # Basic Definitions
 
 - **module**: any `*.py` file. Its name is the file name.
+- **built-in module**: a "module" (written in C) that is compiled into the Python interpreter, and therefore does not have a `*.py` file.
 - **package**: any folder containing a file named `__init__.py` in it. Its name is the name of the folder.
     - in Python 3.3 and above, any folder (even without a `__init__.py` file) is considered a package
 - **object**: in Python, almost everything is an object - functions, classes, variables, etc.
@@ -38,11 +39,13 @@ test/                      # root folder
         b1.py
         b2.py
     math.py
+    random.py
     other.py
     start.py
 ```
 
 Note that we do not place a `__init__.py` file in our root `test/` folder.
+
 
 # What is an `import`?
 
@@ -55,20 +58,32 @@ According to Python documentation, here is how an `import` statement searches fo
 
 > When a module named `spam` is imported, the interpreter first searches for a built-in module with that name. If not found, it then searches for a file named `spam.py` in a list of directories given by the variable `sys.path`. `sys.path` is initialized from these locations:
 > - The directory containing the input script (or the current directory when no file is specified).
-> - PYTHONPATH (a list of directory names, with the same syntax as the shell variable PATH).
+> - `PYTHONPATH` (a list of directory names, with the same syntax as the shell variable PATH).
 > - The installation-dependent default.
 >
+> After initialization, Python programs can modify `sys.path`. The directory containing the script being run is placed at the beginning of the search path, ahead of the standard library path. This means that scripts in that directory will be loaded instead of modules of the same name in the library directory.
 > *Source: Python [2](https://docs.python.org/2/tutorial/modules.html#the-module-search-path) and [3](https://docs.python.org/3/tutorial/modules.html#the-module-search-path)*
 
-Technically, this explanation is incomplete. The interpreter will not only look for a *file* (i.e. module) named `spam.py`, it will also look for a *folder* (i.e. package) named `spam`.
+Technically, Python's documentation is incomplete. The interpreter will not only look for a *file* (i.e. module) named `spam.py`, it will also look for a *folder* (i.e. package) named `spam`.
+
+Note that the Python interpreter first searches through the list of *built-in modules*, modules that are compiled directly into the Python interpreter. This list of built-in modules is installation-dependent and can be found in `sys.builtin_module_names` (Python [2](https://docs.python.org/2/library/sys.html#sys.builtin_module_names) and [3](https://docs.python.org/3/library/sys.html#sys.builtin_module_names)). Some built-in modules that are commonly included are `sys` (always included), `math`, `itertools`, and `time`, among others.
+
+Unlike built-in modules which are first in the search path, the rest of the modules in Python's standard library (not built-ins) come after the directory of the current script. This leads to confusing behavior: it is possible to "replace" some but not all modules in Python's standard library. For example, `import math` in `start.py` will import the `math` module from the standard library, NOT my own `math.py` file in the same directory. However, `import random` in `start.py` will import my `random.py` file, NOT the `random` module from the standard library.
 
 Also, **Python imports are case-sensitive.** `import Spam` is not the same as `import spam`.
 
-The Python documentation goes on to mention the following:
+The function `pkgutil.iter_modules` (Python [2](https://docs.python.org/2/library/pkgutil.html#pkgutil.iter_modules) and [3](https://docs.python.org/3/library/pkgutil.html#pkgutil.iter_modules)) can be used to get a list of all importable modules from a given path:
+```python
+import pkgutil
+search_path = '.' # set to None to see all modules importable from sys.path
+all_modules = [x[1] for x in pkgutil.iter_modules(path=search_path)]
+print(all_modules)
+```
 
-> The directory containing the script being run is placed at the beginning of the search path, ahead of the standard library path. This means that scripts in that directory will be loaded instead of modules of the same name in the library directory.
+*Sources*
+- [How to get a list of built-in modules in python?](https://stackoverflow.com/q/8370206)
+- Thank you [etene](https://github.com/etene) for pointing out the difference between built-in modules and other modules in Python's standard library (Issue [2](https://github.com/chrisyeh96/chrisyeh96.github.io/issues/2))
 
-This seems to be a mistake. For example, calling `import math` in `start.py` will import the standard `math` module, NOT my own `math.py` file in the same directory.
 
 ## More on `sys.path`
 
@@ -114,6 +129,7 @@ An `__init__.py` file has 2 functions.
 1. convert a folder of scripts into an importable package of modules (before Python 3.3)
 2. run package initialization code
 
+
 ## Converting a folder of scripts into an importable package of modules
 
 In order to import a module or package from a directory that is not in the same directory as the script we are writing (or the directory from which we run the Python interactive interpreter), that module needs to be in a package.
@@ -133,6 +149,7 @@ For example, `packB` is a namespace package because it doesn't have a `__init__.
 *Sources*
 1. [What is __init__.py for?](https://stackoverflow.com/q/448271)
 2. [PEP 420: Implicit Namespace Packages](https://www.python.org/dev/peps/pep-0420/)
+
 
 ## Running package initialization code
 
@@ -172,6 +189,7 @@ running a1_func()
 ```
 
 *Note: if `a1.py` calls `import a2` and we run `python a1.py`, then `test/packA/__init__.py` will NOT be called, even though it seems like `a2` is part of the `packA` package. This is because when Python runs a script (in this case `a1.py`), its containing folder is not considered a package.
+
 
 # Using Objects from the Imported Module or Package
 
@@ -361,9 +379,9 @@ Sources:
 # Miscellaneous topics and readings not covered here, but worth exploring
 
 - using `__all__` variable in `__init__.py` for specifying what gets imported by `from <module> import *`
-    - documentation for Python [2](https://docs.python.org/2.7/tutorial/modules.html#importing-from-a-package) and [3](https://docs.python.org/3/tutorial/modules.html#importing-from-a-package)
+    - documentation for Python [2](https://docs.python.org/2/tutorial/modules.html#importing-from-a-package) and [3](https://docs.python.org/3/tutorial/modules.html#importing-from-a-package)
 - using `if __name__ == '__main__'` to check if a script is imported or run directly
-    - documentation for Python [2](https://docs.python.org/2.7/library/__main__.html) and [3](https://docs.python.org/3/library/__main__.html)
+    - documentation for Python [2](https://docs.python.org/2/library/__main__.html) and [3](https://docs.python.org/3/library/__main__.html)
 - installing a project as a package (in developer mode) with `pip install -e <project>` to add the project root directory to `sys.path`
     - [How to run tests without installing package?](https://stackoverflow.com/q/23984973)
 - `from <module> import *` does not import names from `<module>` that begin with an underscore `_`
