@@ -1,6 +1,6 @@
 ---
 title: HTML and CSS References
-layout: default
+layout: post
 ---
 
 This post is meant to be a running-list of useful web resources related to HTML and CSS.

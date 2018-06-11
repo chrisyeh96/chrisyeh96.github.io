@@ -1,6 +1,6 @@
 ---
 title: "Example content"
-layout: default
+layout: post
 use_code: true
 ---
 

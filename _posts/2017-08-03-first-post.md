@@ -1,6 +1,6 @@
 ---
 title: First Post
-layout: default
+layout: post
 use_math: true
 use_code: true
 ---

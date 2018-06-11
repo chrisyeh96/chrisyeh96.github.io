@@ -1,20 +1,19 @@
 ---
 title: The Definitive Guide to Python import Statements
-layout: default
+layout: post
 use_code: true
+use_toc: true
+excerpt: I've almost never been able to write correct Python `import` statements on the first go. Behavior is inconsistent between Python 2.7 and Python 3.6 (the two versions that I test here), and there is no single method for guaranteeing that imports will always work. This post is my dive into how to resolve common importing problems. Unless otherwise stated, all examples here work with both Python 2.7 and 3.6.
 ---
 
-I've almost never been able to write correct Python `import` statements on the first go. Behavior is inconsistent between Python 2.7 and Python 3.6 (the two versions that I test here), and there is no single method for guaranteeing that imports will always work. This post is my dive into how to resolve common importing problems. Unless otherwise stated, all examples here work with both Python 2.7 and 3.6.
-
-
-# Summary / Key Points
+## Summary / Key Points
 
 - `import` statements search through the list of paths in `sys.path`
 - `sys.path` always includes the path of the script invoked on the command line and is agnostic to the working directory on the command line.
 - importing a package is conceptually the same as importing that package's `__init__.py` file
 
 
-# Basic Definitions
+## Basic Definitions
 
 - **module**: any `*.py` file. Its name is the file name.
 - **built-in module**: a "module" (written in C) that is compiled into the Python interpreter, and therefore does not have a `*.py` file.
@@ -23,7 +22,7 @@ I've almost never been able to write correct Python `import` statements on the f
 - **object**: in Python, almost everything is an object - functions, classes, variables, etc.
 
 
-# Example Directory Structure
+## Example Directory Structure
 
 ```
 test/                      # root folder
@@ -47,12 +46,12 @@ test/                      # root folder
 Note that we do not place a `__init__.py` file in our root `test/` folder.
 
 
-# What is an `import`?
+## What is an `import`?
 
 When a module is imported, Python runs all of the code in the module file. When a package is imported, Python runs all of the code in the package's `__init__.py` file, if such a file exists. All of the objects defined in the module or the package's `__init__.py` file are made available to the importer.
 
 
-# Basics of the Python `import` and `sys.path`
+## Basics of the Python `import` and `sys.path`
 
 According to Python documentation, here is how an `import` statement searches for the correct module or package to import:
 
@@ -85,7 +84,7 @@ print(all_modules)
 - Thank you [etene](https://github.com/etene) for pointing out the difference between built-in modules and other modules in Python's standard library (Issue [2](https://github.com/chrisyeh96/chrisyeh96.github.io/issues/2))
 
 
-## More on `sys.path`
+### More on `sys.path`
 
 To see what is in `sys.path`, run the following in the interpreter or as a script:
 ```python
@@ -123,14 +122,14 @@ Note that **when running a Python script, `sys.path` doesn't care what your curr
 Additionally, `sys.path` is shared across all imported modules. For example, suppose we call `python start.py`. Let `start.py` import `packA.a1`, and let `a1.py` print out `sys.path`. Then `sys.path` will include `test/` (the path to `start.py`), but NOT `test/packA/` (the path to `a1.py`). What this means is that `a1.py` can call `import other` since `other.py` is a file in `test/`.
 
 
-# All about `__init__.py`
+## All about `__init__.py`
 
 An `__init__.py` file has 2 functions.
 1. convert a folder of scripts into an importable package of modules (before Python 3.3)
 2. run package initialization code
 
 
-## Converting a folder of scripts into an importable package of modules
+### Converting a folder of scripts into an importable package of modules
 
 In order to import a module or package from a directory that is not in the same directory as the script we are writing (or the directory from which we run the Python interactive interpreter), that module needs to be in a package.
 
@@ -151,7 +150,7 @@ For example, `packB` is a namespace package because it doesn't have a `__init__.
 2. [PEP 420: Implicit Namespace Packages](https://www.python.org/dev/peps/pep-0420/)
 
 
-## Running package initialization code
+### Running package initialization code
 
 The first time that a package or one of its modules is imported, Python will execute the `__init__.py` file in the root folder of the package if the file exists. All objects and functions defined in `__init__.py` are considered part of the package namespace.
 
@@ -165,7 +164,7 @@ def a1_func():
 
 `test/packA/__init__.py`
 ```python
-# this import makes a1_func directly accessible from packA.a1_func
+## this import makes a1_func directly accessible from packA.a1_func
 from packA.a1 import a1_func
 
 def packA_func():
@@ -191,7 +190,7 @@ running a1_func()
 *Note: if `a1.py` calls `import a2` and we run `python a1.py`, then `test/packA/__init__.py` will NOT be called, even though it seems like `a2` is part of the `packA` package. This is because when Python runs a script (in this case `a1.py`), its containing folder is not considered a package.
 
 
-# Using Objects from the Imported Module or Package
+## Using Objects from the Imported Module or Package
 
 There are 4 different syntaxes for writing import statements.
 1. `import <package>`
@@ -217,7 +216,7 @@ Example: `start.py` needs to import the `helloWorld()` function in `sa1.py`
 - Solution 3: `import packA.subA.sa1`.
     - we need to use the full path: `x = packA.subA.sa1.helloWorld()`
 
-## Use `dir()` to examine the contents of an imported module
+### Use `dir()` to examine the contents of an imported module
 
 After importing a module, use the `dir()` function to get a list of accessible names from the module. For example, suppose I import `sa1`. If `sa1.py` defines a `helloWorld()` function, then `dir(sa1)` would include `helloWorld`.
 
@@ -227,7 +226,7 @@ After importing a module, use the `dir()` function to get a list of accessible n
 ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'helloWorld']
 ```
 
-## Importing Packages
+### Importing Packages
 
 Importing a package is conceptually equivalent to importing the package's `__init__.py` file as a module. Indeed, this is what Python treats the package as:
 
@@ -240,7 +239,7 @@ Importing a package is conceptually equivalent to importing the package's `__ini
 Only objects declared in the imported package's `__init__.py` are accessible to the importer. For example, since `packB` lacks a `__init__.py` file, calling `import packB` (in Python 3.3+) has very little use because no objects in the `packB` package are made available. A subsequent call to `packB.b1` would fail because it has not been imported yet.
 
 
-# Absolute vs. Relative Import
+## Absolute vs. Relative Import
 
 An **absolute import** uses the full path (starting from the project's root folder) to the desired module to import.
 
@@ -285,16 +284,16 @@ In general, absolute imports are preferred over relative imports. They avoid the
 - [How to accomplish relative import in python](https://stackoverflow.com/q/4655526)
 - [Changes in import statement python3](https://stackoverflow.com/q/12172791)
 
-# Case Examples
+## Case Examples
 
-## Case 1: `sys.path` is known ahead of time
+### Case 1: `sys.path` is known ahead of time
 
 If you only ever call `python start.py` or `python other.py`, then it is very easy to set up the imports for all of the modules. In this case, `sys.path` will always include `test/` in its search path. Therefore, all of the import statements can be written relative to the `test/` folder.
 
 Ex: a file in the `test` project needs to import the `helloWorld()` function in `sa1.py`
 - Solution: `from packA.subA.sa1 import helloWorld` (or any of the other equivalent import syntaxes demonstrated above)
 
-## Case 2: `sys.path` could change
+### Case 2: `sys.path` could change
 
 Often, we want to be flexible in how we use a Python script, whether run directly on the command line or imported as a module into another script. As shown below, this is where we run into problems, especially on Python 3.
 
@@ -342,13 +341,13 @@ For completeness sake, I also tried using relative imports: `from .subA import s
     - This solution is not portable, so I recommend against it.
     - instructions here: [Permanently add a directory to PYTHONPATH](https://stackoverflow.com/q/3402168)
 
-## Case 3: `sys.path` could change (take 2)
+### Case 3: `sys.path` could change (take 2)
 
 A harder problem to deal with is the following example. Suppose `a2.py` never needs to be run directly, but it is imported by both `start.py` and `a1.py` which are run directly.
 
 In this case, using *Solution 1* described above won't work. However, the other solutions are still valid.
 
-## Case 4: Importing from Parent Directory
+### Case 4: Importing from Parent Directory
 
 If we do not modify `PYTHONPATH` and avoid modifying `sys.path` programmtically, then the following is a major limitation of Python imports:
 
@@ -361,7 +360,7 @@ At first, it may seem that relative imports (e.g. `from .. import a1`) could wor
 My approach is to avoid writing scripts that have to import from the parent directory. In cases where this must happen, the preferred workaround is to modify `sys.path`.
 
 
-# Python 2 vs. Python 3
+## Python 2 vs. Python 3
 
 The most important differences between how Python 2 and Python 3 treat `import` statements have been documented above. They are re-stated again here, along with some other less important differences.
 
@@ -376,7 +375,7 @@ Sources:
 - [What's New in Python 3.0](https://docs.python.org/3.0/whatsnew/3.0.html)
 
 
-# Miscellaneous topics and readings not covered here, but worth exploring
+## Miscellaneous topics and readings not covered here, but worth exploring
 
 - using `__all__` variable in `__init__.py` for specifying what gets imported by `from <module> import *`
     - documentation for Python [2](https://docs.python.org/2/tutorial/modules.html#importing-from-a-package) and [3](https://docs.python.org/3/tutorial/modules.html#importing-from-a-package)

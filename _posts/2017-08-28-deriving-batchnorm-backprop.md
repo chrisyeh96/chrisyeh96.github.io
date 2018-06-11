@@ -1,11 +1,14 @@
 ---
 title: Deriving Batch-Norm Backprop Equations
-layout: default
-excerpt_separator: <!--more-->
+layout: post
 use_math: true
+use_toc: true
+excerpt: I present a derivation of efficient backpropagation equations for batch-normalization layers.
 ---
 
-A batch normalization layer is given a batch of $$N$$ examples, each of which is a $$D$$-dimensional vector. We can represent the inputs as a matrix $$X \in \mathbb{R}^{N \times D}$$ where each row $$x_i$$ is a single example. <!--more--> Each example $$x_i$$ is normalized by
+## Introduction
+
+A batch normalization layer is given a batch of $$N$$ examples, each of which is a $$D$$-dimensional vector. We can represent the inputs as a matrix $$X \in \mathbb{R}^{N \times D}$$ where each row $$x_i$$ is a single example. Each example $$x_i$$ is normalized by
 
 $$ \hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} $$
 
