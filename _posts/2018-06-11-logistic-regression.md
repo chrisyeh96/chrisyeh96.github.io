@@ -13,7 +13,7 @@ For a scalar real number $$z$$, the **sigmoid** function (aka. **standard logist
 
 $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
 
-It outputs values in the range $$(0, 1)$$, not inclusive. This property makes it very useful for interpretting a real-valued score $$z$$ as a probability.
+It outputs values in the range $$(0, 1)$$, not inclusive. This property makes it very useful for interpreting a real-valued score $$z$$ as a probability.
 - as $$z \to -\infty$$, then $$\sigma(z) \to 0$$
 - when $$z = 0$$, $$\sigma(z) = 1/2$$
 - as $$z \to +\infty$$, then $$\sigma(z) \to 1$$
@@ -40,7 +40,7 @@ $$
 \end{align*}
 $$
 
-This property of the softmax function is often exploited to improve numerical stability. If we choose $$c = - \max_i x_i$$, then $$\max_i e^{x_i + c} = 1$$. We also have $$\min_i e^{x_i} > 0$$ since the exponential function is always positive. Thus, we can always constrain each term in the range [0, 1].
+This property of the softmax function is often exploited to improve numerical stability. If we choose $$c = - \max_i x_i$$, then $$\max_i e^{x_i + c} = 1$$. We also have $$\min_i e^{x_i} > 0$$ since the exponential function is always positive. Thus, we can always constrain each term of the denominator to the range $$(0, 1]$$.
 
 Doing so helps avoid underflow when the $$x_i$$ are all very small. When the $$x_i$$ are all small, $$e^{x_i}$$ may underflow to 0, leading to division by 0. When we shift the $$x_i$$ by $$c = - \max_i x_i$$, at least one of the terms in the denominator is $$\max_i e^{x_i + c} = 1$$, thus avoiding the division-by-zero error.
 
@@ -81,7 +81,7 @@ For this post, assume the following true statements about convex functions:
 
 **Goal**: predict $$y$$ for a given $$x$$
 
-**Model**: For an example $$x$$, we calculate the **score** as $$z = w^T x + b$$ where vector $$w \in \mathbb{R}^M$$ and scalar $$b \in \mathbb{R}$$ are parameters to be learned from data. If we just want to predict the binary value of $$y$$, then we would set a threshold (typically 0) on the score: $$\hat{y} = \mathbf{1}[z \geq 0]$$. While 0 is the most commonly used threshold, we could actually choose any threshold, since we could always change the scalar $$b$$ to compensate accordingly.
+**Model**: For an example $$x$$, we calculate the **score** as $$z = w^T x + b$$ where vector $$w \in \mathbb{R}^M$$ and scalar $$b \in \mathbb{R}$$ are parameters to be learned from data. If we just want to predict the binary value of $$y$$, then we would set a threshold (typically 0) on the score: $$\hat{y} = \mathbf{1}[z \geq 0]$$. While 0 is the most commonly used threshold, we could actually choose any threshold since we could always change the scalar $$b$$ to compensate accordingly.
 
 There are two issues with the model which uses a simple threshold on the score. First, it is difficult to define a differentiable loss function $$\text{loss}(y, \hat{y})$$ when both $$y$$ and $$\hat{y}$$ are discrete numbers 0 or 1. Second, we frequently want a probabilistic interpretation for the score. Thus, we introduce the sigmoid function $$\sigma$$ which maps all scores into the range $$(0,1)$$:
 
@@ -146,7 +146,7 @@ We've assumed that the binary label is $$y \in \{0, 1\}$$. However, it is also c
 
 ### Generalization: Multi-Label Classification
 
-So far we have examined the situation where each training example $$x$$ either belongs to a particular class ($$y=1$$) or it does not ($$y=0$$). However, we can generalize this notion to the case where $$x$$ can belong to many classes simlutaneously, with $$y \in \{0, 1\}^C$$ where $$C$$ is the number of classes. Concretely, if inputs are images, and we have 3 classes ("dog", "car", "tree"), then $$y = [0, 1, 1]$$ could indicate that a particular image contains a car and a tree.
+So far we have examined the situation where each training example $$x$$ either belongs to a particular class ($$y=1$$) or it does not ($$y=0$$). However, we can generalize this notion to the case where $$x$$ can belong to many classes simultaneously, with $$y \in \{0, 1\}^C$$ where $$C$$ is the number of classes. Concretely, if inputs are images, and we have 3 classes ("dog", "car", "tree"), then $$y = [0, 1, 1]$$ could indicate that a particular image contains a car and a tree.
 
 **General model**: For an example $$x \in \mathbb{R}^M$$, we calculate the **score** as $$z = W^T x + b$$ where matrix $$W \in \mathbb{R}^{C \times M}$$ and vector $$b \in \mathbb{R}^C$$ are parameters to be learned from data. The probabilities for each class are given by the sigmoid of each class score: $$p(y_c=1) = \sigma(z_c) = \sigma(W_c^T x + b)$$. This is basically a vectorized implementation of $$C$$ separate binary logistic regression models, one for each class.
 
@@ -207,7 +207,7 @@ $$
 \end{align*}
 $$
 
-Thus, if the loss function $$J(W)$$ is is minimized by some setting of the parameters $$(W_1, \dots, W_C, b_1, \dots, b_C)$$, then it is also minimized by $$(W_1 - v, \dots, W_C - v, b_1 - d, \dots, b_C - d)$$ for any vector $$v$$ and any scalar $$d$$. There is no unique set of weights that minimizes the loss function. Even so, the loss function is still convex (though clearly not strictly convex) so gradient descent will still find a global minimum ([source](http://ufldl.stanford.edu/wiki/index.php/Softmax_Regression)).
+Thus, if the loss function $$J(W)$$ is minimized by some setting of the parameters $$(W_1, \dots, W_C, b_1, \dots, b_C)$$, then it is also minimized by $$(W_1 - v, \dots, W_C - v, b_1 - d, \dots, b_C - d)$$ for any vector $$v$$ and any scalar $$d$$. There is no unique set of weights that minimizes the loss function. Even so, the loss function is still convex (though clearly not strictly convex) so gradient descent will still find a global minimum ([source](http://ufldl.stanford.edu/wiki/index.php/Softmax_Regression)).
 
 For each example $$x$$, we could always choose $$v=−W_C$$ and $$d=−b_C$$ such that the last class has score 0. In other words, we could actually just have weights and biases for just the first $$C−1$$ classes only.
 
