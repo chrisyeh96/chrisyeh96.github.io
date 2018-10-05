@@ -245,7 +245,7 @@ An **absolute import** uses the full path (starting from the project's root fold
 
 A **relative import** uses the relative path (starting from the path of the current module) to the desired module to import. There are two types of relative imports:
 - an *explicit* relative import follows the format `from .<module/package> import X`, where `<module/package>` is prefixed by dots `.` that indicate how many directories upwards to traverse. A single dot `.` corresponds to the current directory; two dots `..` indicate one folder up; etc.
-- an *implicit* relative import is written as if the current directoy is part of `sys.path`. **Implicit relative imports are only supported in Python 2. They are NOT SUPPORTED IN PYTHON 3.**
+- an *implicit* relative import is written as if the current directory is part of `sys.path`. **Implicit relative imports are only supported in Python 2. They are NOT SUPPORTED IN PYTHON 3.**
 
 The Python documentation says the following about Python 3's handling of relative imports:
 > The only acceptable syntax for relative imports is from .[module] import name. All import forms not starting with . are interpreted as absolute imports.
@@ -349,7 +349,7 @@ In this case, using *Solution 1* described above won't work. However, the other 
 
 ### Case 4: Importing from Parent Directory
 
-If we do not modify `PYTHONPATH` and avoid modifying `sys.path` programmtically, then the following is a major limitation of Python imports:
+If we do not modify `PYTHONPATH` and avoid modifying `sys.path` programmatically, then the following is a major limitation of Python imports:
 
 **When running a script directly, it is impossible to import anything from its parent directory.**
 
