@@ -243,7 +243,7 @@ Only objects declared in the imported package's `__init__.py` are accessible to 
 
 An **absolute import** uses the full path (starting from the project's root folder) to the desired module to import.
 
-A **relative import** uses the relative path (starting from the path of the current module) to the desired desired module to import. There are two types of relative imports:
+A **relative import** uses the relative path (starting from the path of the current module) to the desired module to import. There are two types of relative imports:
 - an *explicit* relative import follows the format `from .<module/package> import X`, where `<module/package>` is prefixed by dots `.` that indicate how many directories upwards to traverse. A single dot `.` corresponds to the current directory; two dots `..` indicate one folder up; etc.
 - an *implicit* relative import is written as if the current directoy is part of `sys.path`. **Implicit relative imports are only supported in Python 2. They are NOT SUPPORTED IN PYTHON 3.**
 
