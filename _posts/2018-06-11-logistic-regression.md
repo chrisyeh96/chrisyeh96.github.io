@@ -203,7 +203,7 @@ $$
   \hat{y}_c
   &= \frac{e^{(W_c + v) \cdot x + (b_c + d)}}{\sum_i e^{(W_i + v) \cdot x + (b_i + d)}} \\
   & = \frac{e^{W_c \cdot x + b_c} e^{v \cdot x + d}}{\sum_i e^{W_i \cdot x + b_i} e^{v \cdot x + d}} \\
-  & = \frac{e^{W_c \cdot x + b_c}}{\sum_i e^{W_c \cdot x + b_i}}
+  & = \frac{e^{W_c \cdot x + b_c}}{\sum_i e^{W_i \cdot x + b_i}}
 \end{align*}
 $$
 
@@ -223,7 +223,7 @@ e^{W_2 \cdot x + b_2}
 \end{bmatrix}
 $$
 
-Suppose our model has learned $$W$$ and $$b$$. Taking advantage of the over-parameterization of our model, we know that the scores are equivalent if we subtract some constant vector $$v$$ from the weights $$W_1, W_2$$ and scalar $$d$$ from the biases $$b_1, b_2$$. Choosing $$v = W_2$$ and $$d = b_2$$, we get
+Suppose our model has learned $$W$$ and $$b$$. Taking advantage of the over-parameterization of our model, we know that the predicted probabilities are equivalent if we subtract some constant vector $$v$$ from the weights $$W_1, W_2$$ and scalar $$d$$ from the biases $$b_1, b_2$$. Choosing $$v = W_2$$ and $$d = b_2$$, we get
 
 $$
 \begin{align*}
@@ -234,7 +234,7 @@ $$
     \end{bmatrix} \\
   &= \begin{bmatrix}
     \frac{ e^{W'^T x + b'} }{ 1 + e^{W'^T x + b'} } \\
-    \frac{ 1 }{ 1 + e^{W'^T x} }
+    \frac{ 1 }{ 1 + e^{W'^T x + b'} }
     \end{bmatrix} \\
   &= \begin{bmatrix}
     1 - \sigma (W'^T x + b') \\
@@ -243,7 +243,7 @@ $$
 \end{align*}
 $$
 
-where $$W' = W_1 - W_2$$ and $$b' = b_1 - b_2$$. We see that the learned scores have the same form as logistic regression.
+where $$W' = W_1 - W_2$$ and $$b' = b_1 - b_2$$. We see that the learned probabilities have the same form as logistic regression.
 
 Likewise, the cross-entropy loss with two classes, where the correct class is $$c$$, becomes
 
@@ -280,7 +280,7 @@ In TensorFlow (as of version r1.8), there are several built-in functions for the
 
 Given a binary classification algorithm (including binary logistic regression, binary SVM classifier, etc.), there are two common approaches to use them for multi-class classification: **one-vs-rest** (also known as **one-vs-all**) and **one-vs-one**. Each has its strengths and weaknesses. There is no clear "best" multi-class classification model; it depends on the dataset.
 
-In **one-vs-rest**, we train $$C$$ separate binary classification models. Each classifier $$f_c$$, for $$c \in \{ 1, \dotsc C\}$$ is trained to determine whether or not an example is part of class $$c$$ or not. To predict the class for a new example $$x$$, we run all $$C$$ classifiers on $$x$$ and choose the class with the highest score: $$\hat{y} = \arg\max_{c \in \{ 1, \dotsc C\}} f_c(x)$$. One main drawback is that when there are lots of classes, each binary classifier sees a highly imbalanced dataset, which may degrade performance.
+In **one-vs-rest**, we train $$C$$ separate binary classification models. Each classifier $$f_c$$, for $$c \in \{ 1, \dotsc, C\}$$ is trained to determine whether or not an example is part of class $$c$$ or not. To predict the class for a new example $$x$$, we run all $$C$$ classifiers on $$x$$ and choose the class with the highest score: $$\hat{y} = \arg\max_{c \in \{ 1, \dotsc, C\}} f_c(x)$$. One main drawback is that when there are lots of classes, each binary classifier sees a highly imbalanced dataset, which may degrade performance.
 
 In **one-vs-one**, we train $${C \choose 2} = C(C-1)/2$$ separate binary classification models, one for each possible pair of classes. To predict the class for a new example $$x$$, we run all $${C \choose 2}$$ classifiers on $$x$$ and choose the class with the most "votes." A major drawback is that there can exist fairly large regions in the decision space with ties for the class with the most number of votes.
 
