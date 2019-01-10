@@ -21,7 +21,7 @@ It outputs values in the range $$(0, 1)$$, not inclusive. This property makes it
 The derivative of the sigmoid function is $$\sigma'(z) = \sigma(z)(1-\sigma(z))$$.
 
 ### Softmax
-For a vector $$x \in \mathbb{R}^n$$, the **softmax** function is defined as
+For a vector $$x \in \R^n$$, the **softmax** function is defined as
 
 $$\text{softmax}(x)_i = \frac{ e^{x_i} }{ \sum_{j=1}^n e^{x_j} }$$
 
@@ -49,7 +49,7 @@ Shifting the $$x_i$$ by $$c$$ also helps avoid overflow, since the exponential f
 ### Cross-Entropy
 For two probability distributions $$p(x)$$ and $$q(x)$$, the **cross-entropy** function is a measure of how different they are. It is defined as
 
-$$H(p,q) = - \mathbb{E}_{x \sim p} [\log q(x)]$$
+$$H(p,q) = - \E_{x \sim p} [\log q(x)]$$
 
 If $$p$$ and $$q$$ are discrete, then we have $$H(p,q) = - \sum_{x} p(x) \log q(x)$$.
 
@@ -65,14 +65,14 @@ When used as a loss function, we set $$p = y$$ (the labels) and $$q = \hat{y}$$ 
 
 ### Convex Functions
 
-A function $$f : \mathbb{R}^n \to \mathbb{R}$$ is **convex** if for all $$x, y$$ in its domain, and with $$0 \leq a \leq 1$$, we have
+A function $$f : \R^n \to \R$$ is **convex** if for all $$x, y$$ in its domain, and with $$0 \leq a \leq 1$$, we have
 
 $$f(ax + (1-a)y) \leq a f(x) + (1-a) f(y) $$
 
 A function $$f$$ is **strictly convex** if strict inequality holds whenever $$x \neq y$$ and $$0 < a < 1$$.
 
 For this post, assume the following true statements about convex functions:
-- Performing gradient descent on $$f(w)$$ with a small enough step size is guaranteed to converge to the global minimum of $$f$$.
+- If $$f$$ is convex, performing gradient descent on $$f(w)$$ with a small enough step size is guaranteed to converge to a global minimum of $$f$$.
 - If $$f$$ is strictly convex, then it has a unique global minimum. (The converse is not necessarily true.)
 
 ## Binary Logistic Regression
@@ -81,7 +81,7 @@ For this post, assume the following true statements about convex functions:
 
 **Goal**: predict $$y$$ for a given $$x$$
 
-**Model**: For an example $$x$$, we calculate the **score** as $$z = w^T x + b$$ where vector $$w \in \mathbb{R}^M$$ and scalar $$b \in \mathbb{R}$$ are parameters to be learned from data. If we just want to predict the binary value of $$y$$, then we would set a threshold (typically 0) on the score: $$\hat{y} = \mathbf{1}[z \geq 0]$$. While 0 is the most commonly used threshold, we could actually choose any threshold since we could always change the scalar $$b$$ to compensate accordingly.
+**Model**: For an example $$x$$, we calculate the **score** as $$z = w^T x + b$$ where vector $$w \in \R^M$$ and scalar $$b \in \R$$ are parameters to be learned from data. If we just want to predict the binary value of $$y$$, then we would set a threshold (typically 0) on the score: $$\hat{y} = \mathbf{1}[z \geq 0]$$. While 0 is the most commonly used threshold, we could actually choose any threshold since we could always change the scalar $$b$$ to compensate accordingly.
 
 There are two issues with the model which uses a simple threshold on the score. First, it is difficult to define a differentiable loss function $$\text{loss}(y, \hat{y})$$ when both $$y$$ and $$\hat{y}$$ are discrete numbers 0 or 1. Second, we frequently want a probabilistic interpretation for the score. Thus, we introduce the sigmoid function $$\sigma$$ which maps all scores into the range $$(0,1)$$:
 
@@ -148,7 +148,7 @@ We've assumed that the binary label is $$y \in \{0, 1\}$$. However, it is also c
 
 So far we have examined the situation where each training example $$x$$ either belongs to a particular class ($$y=1$$) or it does not ($$y=0$$). However, we can generalize this notion to the case where $$x$$ can belong to many classes simultaneously, with $$y \in \{0, 1\}^C$$ where $$C$$ is the number of classes. Concretely, if inputs are images, and we have 3 classes ("dog", "car", "tree"), then $$y = [0, 1, 1]$$ could indicate that a particular image contains a car and a tree.
 
-**General model**: For an example $$x \in \mathbb{R}^M$$, we calculate the **score** as $$z = W^T x + b$$ where matrix $$W \in \mathbb{R}^{C \times M}$$ and vector $$b \in \mathbb{R}^C$$ are parameters to be learned from data. The probabilities for each class are given by the sigmoid of each class score: $$p(y_c=1) = \sigma(z_c) = \sigma(W_c^T x + b)$$. This is basically a vectorized implementation of $$C$$ separate binary logistic regression models, one for each class.
+**General model**: For an example $$x \in \R^M$$, we calculate the **score** as $$z = W^T x + b$$ where matrix $$W \in \R^{C \times M}$$ and vector $$b \in \R^C$$ are parameters to be learned from data. The probabilities for each class are given by the sigmoid of each class score: $$p(y_c=1) = \sigma(z_c) = \sigma(W_c^T x + b)$$. This is basically a vectorized implementation of $$C$$ separate binary logistic regression models, one for each class.
 
 One downside of training a separate binary logistic regression model for each class is that it assumes the probabilities for each class are independent. For example, suppose we have a dataset of images of objects, and each image is labeled for two binary attributes: "is/isn't expensive" and "is/isn't a car". If all cars are expensive, then the model should be able to learn to predict "is expensive" for every image that "is a car". However, because we have separate classifiers for each attribute, the classifiers may output "isn't expensive" for an image that "is a car."
 

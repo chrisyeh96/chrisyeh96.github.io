@@ -8,11 +8,11 @@ excerpt: I present a derivation of efficient backpropagation equations for batch
 
 ## Introduction
 
-A batch normalization layer is given a batch of $$N$$ examples, each of which is a $$D$$-dimensional vector. We can represent the inputs as a matrix $$X \in \mathbb{R}^{N \times D}$$ where each row $$x_i$$ is a single example. Each example $$x_i$$ is normalized by
+A batch normalization layer is given a batch of $$N$$ examples, each of which is a $$D$$-dimensional vector. We can represent the inputs as a matrix $$X \in \R^{N \times D}$$ where each row $$x_i$$ is a single example. Each example $$x_i$$ is normalized by
 
 $$ \hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} $$
 
-where $$\mu, \sigma^2 \in \mathbb{R}^{1 \times D}$$ are the mean and variance, respectively, of each input dimension across the batch. $$\epsilon$$ is some small constant that prevents division by 0. The mean and variance are computed by
+where $$\mu, \sigma^2 \in \R^{1 \times D}$$ are the mean and variance, respectively, of each input dimension across the batch. $$\epsilon$$ is some small constant that prevents division by 0. The mean and variance are computed by
 
 $$
 \begin{align*}
@@ -25,7 +25,7 @@ An affine transform is then applied to the normalized rows to produce the final 
 
 $$ y_i = \gamma \cdot \hat{x}_i + \beta $$
 
-where $$\gamma, \beta \in \mathbb{R}^{1 \times D}$$ are learnable scale parameters for each input dimension. For notational simplicity, we can express the entire layer as
+where $$\gamma, \beta \in \R^{1 \times D}$$ are learnable scale parameters for each input dimension. For notational simplicity, we can express the entire layer as
 
 $$
 \begin{align*}
@@ -40,13 +40,13 @@ $$
 
 ## Backpropagation Basics
 
-Let $$J$$ be the training loss. We are given $$\frac{\partial J}{\partial Y} \in \mathbb{R}^{N \times D}$$, the gradient signal with respect to $$Y$$. Our goal is to calculate three gradients:
+Let $$J$$ be the training loss. We are given $$\frac{\partial J}{\partial Y} \in \R^{N \times D}$$, the gradient signal with respect to $$Y$$. Our goal is to calculate three gradients:
 
-1. $$\frac{\partial J}{\partial \gamma} \in \mathbb{R}^{1 \times D}$$, to perform a gradient descent update on $$\gamma$$
-2. $$\frac{\partial J}{\partial \beta} \in \mathbb{R}^{1 \times D}$$, to perform a gradient descent update on $$\beta$$
-3. $$\frac{\partial J}{\partial X} \in \mathbb{R}^{N \times D}$$, to pass on the gradient signal to lower layers
+1. $$\frac{\partial J}{\partial \gamma} \in \R^{1 \times D}$$, to perform a gradient descent update on $$\gamma$$
+2. $$\frac{\partial J}{\partial \beta} \in \R^{1 \times D}$$, to perform a gradient descent update on $$\beta$$
+3. $$\frac{\partial J}{\partial X} \in \R^{N \times D}$$, to pass on the gradient signal to lower layers
 
-Both $$\frac{\partial J}{\partial \gamma}$$ and $$\frac{\partial J}{\partial \beta}$$ are straightforward. Let $$y_i$$ be the $$i$$-th row of $$Y$$. We refer to our gradient notes to get 
+Both $$\frac{\partial J}{\partial \gamma}$$ and $$\frac{\partial J}{\partial \beta}$$ are straightforward. Let $$y_i$$ be the $$i$$-th row of $$Y$$. We refer to our gradient notes to get
 
 $$\boxed{
 \frac{\partial J}{\partial \gamma} = \sum_i \frac{\partial J}{\partial y_i} \odot \hat{x}_i
@@ -76,17 +76,17 @@ Since we are taking the gradient of $$J$$ with respect to each **column** in $$X
 
 ### Lemma
 
-Let $$a(B) \in \mathbb{R}$$ be a real-valued function of vector $$B \in \mathbb{R}^n$$. Suppose $$\frac{\partial a}{\partial B} \in \mathbb{R}^n$$ is known. If $$B = c(D) \cdot D$$ where $$c(D) \in \mathbb{R}$$ and $$D \in \mathbb{R}^n$$, then
+Let $$a(B) \in \R$$ be a real-valued function of vector $$B \in \R^n$$. Suppose $$\frac{\partial a}{\partial B} \in \R^n$$ is known. If $$B = c(D) \cdot D$$ where $$c(D) \in \R$$ and $$D \in \R^n$$, then
 
-$$ \frac{\partial a}{\partial D} = \bigg( \frac{\partial c}{\partial D} D^T + c(D) I \bigg) \frac{\partial a}{\partial B} $$
- 
+$$ \frac{\partial a}{\partial D} = \left( \frac{\partial c}{\partial D} D^T + c(D) I \right) \frac{\partial a}{\partial B} $$
+
 *Proof*
 
 First we compute the gradient of $$B$$ for a single element in $$D$$.
 
 $$
 \frac{\partial B_k}{\partial D_i}
-= \frac{\partial}{\partial D_i} \big[ c(D) \cdot D_k \big]
+= \frac{\partial}{\partial D_i} \left[ c(D) \cdot D_k \right]
 = \frac{\partial c}{\partial D_i} D_k + \mathbf{1}[i=k]c(D)
 $$
 
@@ -96,9 +96,9 @@ $$
 \begin{align*}
 \frac{\partial a}{\partial D_i}
 &= \sum_k \frac{\partial a}{\partial B_k} \frac{\partial B_k}{\partial D_i} \\
-&= \sum_k \frac{\partial a}{\partial B_k} \bigg( \frac{\partial c}{\partial D_i} D_k + \mathbf{1}[i=k]c(D) \bigg) \\
-&= \frac{\partial c}{\partial D_i} \bigg( \sum_k \frac{\partial a}{\partial B_k} D_k \bigg) + c(D) \frac{\partial a}{\partial B_i} \\
-&= \frac{\partial c}{\partial D_i} \bigg( D^T \frac{\partial a}{\partial B} \bigg) + c(D) \frac{\partial a}{\partial B_i}
+&= \sum_k \frac{\partial a}{\partial B_k} \left( \frac{\partial c}{\partial D_i} D_k + \mathbf{1}[i=k]c(D) \right) \\
+&= \frac{\partial c}{\partial D_i} \left( \sum_k \frac{\partial a}{\partial B_k} D_k \right) + c(D) \frac{\partial a}{\partial B_i} \\
+&= \frac{\partial c}{\partial D_i} \left( D^T \frac{\partial a}{\partial B} \right) + c(D) \frac{\partial a}{\partial B_i}
 \end{align*}
 $$
 
@@ -106,8 +106,8 @@ Now we can write the gradient for all elements in $$D$$, where $$I$$ is the $$n 
 
 $$
 \frac{\partial a}{\partial D}
-= \frac{\partial c}{\partial D} \bigg( D^T \frac{\partial a}{\partial B} \bigg) + c(D) \frac{\partial a}{\partial B}
-= \bigg( \frac{\partial c}{\partial D} D^T + c(D) I \bigg) \frac{\partial a}{\partial B}
+= \frac{\partial c}{\partial D} \left( D^T \frac{\partial a}{\partial B} \right) + c(D) \frac{\partial a}{\partial B}
+= \left( \frac{\partial c}{\partial D} D^T + c(D) I \right) \frac{\partial a}{\partial B}
 \tag*{$\blacksquare$}
 $$
 
@@ -120,7 +120,7 @@ $$
 = \frac{\text{d}c}{\text{d}d} \cdot d + c(d) \\
 \frac{\text{d}a}{\text{d}d}
 &= \frac{\text{d}a}{\text{d}b} \cdot \frac{\text{d}b}{\text{d}d}
-= \bigg( \frac{\text{d}c}{\text{d}d} \cdot d + c(d) \bigg) \frac{\text{d}a}{\text{d}b}
+= \left( \frac{\text{d}c}{\text{d}d} \cdot d + c(d) \right) \frac{\text{d}a}{\text{d}b}
 \end{align*}
 $$
 
@@ -139,7 +139,7 @@ $$
     = \frac{1}{N} (X-\mu)^T (X-\mu)
     = \frac{1}{N} R^T R \\
   \hat{X} = \frac{X - \mu}{\sqrt{\sigma^2 + \epsilon}}
-    = \bigg( \frac{1}{N} R^T R + \epsilon \bigg)^{-1/2} \cdot R
+    = \left( \frac{1}{N} R^T R + \epsilon \right)^{-1/2} \cdot R
     = c(R) \cdot R
 \end{gather*}
 $$
@@ -148,7 +148,7 @@ where $$c(R) = (\sigma^2 + \epsilon)^{-1/2} = (\frac{1}{N} R^T R + \epsilon)^{-1
 
 $$
 \frac{\partial J}{\partial R}
-= \bigg( \frac{\partial c}{\partial R} R^T + c(R) I \bigg) \frac{\partial J}{\partial \hat{X}}
+= \left( \frac{\partial c}{\partial R} R^T + c(R) I \right) \frac{\partial J}{\partial \hat{X}}
 $$
 
 $$R$$ can be written as a matrix multiplication with $$X$$, where $$\mathbf{1}$$ is a $$N \times N$$ matrix of all ones.
@@ -156,15 +156,15 @@ $$R$$ can be written as a matrix multiplication with $$X$$, where $$\mathbf{1}$$
 $$ R
 = X - \mu
 = X - \frac{1}{N} \mathbf{1} X
-= \bigg(I - \frac{1}{N} \mathbf{1} \bigg) \cdot X
+= \left(I - \frac{1}{N} \mathbf{1} \right) \cdot X
 $$
 
 Using our gradient rules, we get
 
 $$
 \frac{\partial J}{\partial X}
-= \bigg(I - \frac{1}{N} \mathbf{1} \bigg)^T \frac{\partial J}{\partial R}
-= \bigg(I - \frac{1}{N} \mathbf{1} \bigg) \bigg[ \frac{\partial c}{\partial R} R^T + c(R) I \bigg] \frac{\partial J}{\partial \hat{X}}
+= \left(I - \frac{1}{N} \mathbf{1} \right)^T \frac{\partial J}{\partial R}
+= \left(I - \frac{1}{N} \mathbf{1} \right) \left[ \frac{\partial c}{\partial R} R^T + c(R) I \right] \frac{\partial J}{\partial \hat{X}}
 $$
 
 ### Simplifying the expression
@@ -174,10 +174,10 @@ First, we calculate
 $$
 \begin{align*}
 \frac{\partial c}{\partial R}
-&= \frac{\partial}{\partial R} \bigg( \frac{1}{N} R^T R + \epsilon \bigg)^{-1/2} \\
-&= -\frac{1}{2} \bigg( \frac{1}{N} R^T R + \epsilon \bigg)^{-3/2} \cdot \frac{\partial}{\partial R} \bigg( \frac{1}{N} R^T R + \epsilon \bigg) \\
-&= -\frac{1}{2} \bigg( \frac{1}{N} R^T R + \epsilon \bigg)^{-3/2} \cdot \frac{2}{N} R \\
-&= -\frac{1}{N} \bigg( \frac{1}{N} R^T R + \epsilon \bigg)^{-3/2} \cdot R \\
+&= \frac{\partial}{\partial R} \left( \frac{1}{N} R^T R + \epsilon \right)^{-1/2} \\
+&= -\frac{1}{2} \left( \frac{1}{N} R^T R + \epsilon \right)^{-3/2} \cdot \frac{\partial}{\partial R} \left( \frac{1}{N} R^T R + \epsilon \right) \\
+&= -\frac{1}{2} \left( \frac{1}{N} R^T R + \epsilon \right)^{-3/2} \cdot \frac{2}{N} R \\
+&= -\frac{1}{N} \left( \frac{1}{N} R^T R + \epsilon \right)^{-3/2} \cdot R \\
 &= -\frac{1}{N} (\sigma^2 + \epsilon)^{-3/2} (X - \mu)
 \end{align*}
 $$
@@ -187,12 +187,12 @@ We plug this into our equation for $$\frac{\partial J}{\partial X}$$ and rewrite
 $$
 \begin{align*}
 \frac{\partial J}{\partial X}
-&= \bigg(I - \frac{1}{N} \mathbf{1} \bigg) \bigg[ \frac{\partial c}{\partial R} R^T + c(R) I \bigg] \frac{\partial J}{\partial \hat{X}} \\
-&= \bigg(I - \frac{1}{N} \mathbf{1} \bigg) \bigg[ -\frac{1}{N} (\sigma^2 + \epsilon)^{-3/2} (X-\mu) (X-\mu)^T + (\sigma^2 + \epsilon)^{-1/2} I \bigg] \frac{\partial J}{\partial \hat{X}} \\
-&= (\sigma^2 + \epsilon)^{-1/2} \bigg(I - \frac{1}{N} \mathbf{1} \bigg) \bigg[ -\frac{1}{N} \frac{(X-\mu)}{\sqrt{\sigma^2 + \epsilon}} \frac{(X-\mu)^T}{\sqrt{\sigma^2 + \epsilon}} + I \bigg] \frac{\partial J}{\partial \hat{X}} \\
-&= (\sigma^2 + \epsilon)^{-1/2} \bigg(I - \frac{1}{N} \mathbf{1} \bigg) \bigg[ -\frac{1}{N} \hat{X} \hat{X}^T + I \bigg] \frac{\partial J}{\partial \hat{X}} \\
-&= (\sigma^2 + \epsilon)^{-1/2} \bigg[-\frac{1}{N} \hat{X} \hat{X}^T + I + \frac{1}{N^2} \mathbf{1} \hat{X} \hat{X}^T - \frac{1}{N} \mathbf{1} \bigg] \frac{\partial J}{\partial \hat{X}} \\
-&= (\sigma^2 + \epsilon)^{-1/2} \bigg[-\frac{1}{N} \hat{X} \hat{X}^T + I - \frac{1}{N} \mathbf{1} \bigg] \frac{\partial J}{\partial \hat{X}}
+&= \left(I - \frac{1}{N} \mathbf{1} \right) \left[ \frac{\partial c}{\partial R} R^T + c(R) I \right] \frac{\partial J}{\partial \hat{X}} \\
+&= \left(I - \frac{1}{N} \mathbf{1} \right) \left[ -\frac{1}{N} (\sigma^2 + \epsilon)^{-3/2} (X-\mu) (X-\mu)^T + (\sigma^2 + \epsilon)^{-1/2} I \right] \frac{\partial J}{\partial \hat{X}} \\
+&= (\sigma^2 + \epsilon)^{-1/2} \left(I - \frac{1}{N} \mathbf{1} \right) \left[ -\frac{1}{N} \frac{(X-\mu)}{\sqrt{\sigma^2 + \epsilon}} \frac{(X-\mu)^T}{\sqrt{\sigma^2 + \epsilon}} + I \right] \frac{\partial J}{\partial \hat{X}} \\
+&= (\sigma^2 + \epsilon)^{-1/2} \left(I - \frac{1}{N} \mathbf{1} \right) \left[ -\frac{1}{N} \hat{X} \hat{X}^T + I \right] \frac{\partial J}{\partial \hat{X}} \\
+&= (\sigma^2 + \epsilon)^{-1/2} \left[-\frac{1}{N} \hat{X} \hat{X}^T + I + \frac{1}{N^2} \mathbf{1} \hat{X} \hat{X}^T - \frac{1}{N} \mathbf{1} \right] \frac{\partial J}{\partial \hat{X}} \\
+&= (\sigma^2 + \epsilon)^{-1/2} \left[-\frac{1}{N} \hat{X} \hat{X}^T + I - \frac{1}{N} \mathbf{1} \right] \frac{\partial J}{\partial \hat{X}}
 \end{align*}
 $$
 
@@ -219,9 +219,9 @@ Note that when the inputs are scalars, $$\frac{\partial J}{\partial \hat{X}} = \
 $$
 \begin{align*}
 \frac{\partial J}{\partial X}
-&= (\sigma^2 + \epsilon)^{-1/2} \bigg[-\frac{1}{N} \hat{X} \hat{X}^T + I - \frac{1}{N} \mathbf{1} \bigg] \frac{\partial J}{\partial \hat{X}} \\
-&= \gamma (\sigma^2 + \epsilon)^{-1/2} \bigg[-\frac{1}{N} \hat{X} \hat{X}^T \frac{\partial J}{\partial Y} + \frac{\partial J}{\partial Y} - \frac{1}{N} \mathbf{1} \frac{\partial J}{\partial Y} \bigg] \\
-&= \frac{1}{N} \gamma (\sigma^2 + \epsilon)^{-1/2} \bigg[-\frac{\partial J}{\partial \gamma} \hat{X} + N \frac{\partial J}{\partial Y} - \mathbf{1}_N \cdot \frac{\partial J}{\partial \beta} \bigg]
+&= (\sigma^2 + \epsilon)^{-1/2} \left[-\frac{1}{N} \hat{X} \hat{X}^T + I - \frac{1}{N} \mathbf{1} \right] \frac{\partial J}{\partial \hat{X}} \\
+&= \gamma (\sigma^2 + \epsilon)^{-1/2} \left[-\frac{1}{N} \hat{X} \hat{X}^T \frac{\partial J}{\partial Y} + \frac{\partial J}{\partial Y} - \frac{1}{N} \mathbf{1} \frac{\partial J}{\partial Y} \right] \\
+&= \frac{1}{N} \gamma (\sigma^2 + \epsilon)^{-1/2} \left[-\frac{\partial J}{\partial \gamma} \hat{X} + N \frac{\partial J}{\partial Y} - \mathbf{1}_N \cdot \frac{\partial J}{\partial \beta} \right]
 \end{align*}
 $$
 
@@ -242,7 +242,7 @@ Finally, we generalize to the case when the input examples are $$D$$-dimensional
 
 $$\boxed{
 \frac{\partial J}{\partial X}
-= \frac{1}{N} \gamma \odot (\sigma^2 + \epsilon)^{-1/2} \bigg[-\frac{\partial J}{\partial \gamma} \odot \hat{X} + N \frac{\partial J}{\partial Y} - \mathbf{1}_N \cdot \frac{\partial J}{\partial \beta} \bigg]
+= \frac{1}{N} \gamma \odot (\sigma^2 + \epsilon)^{-1/2} \left[-\frac{\partial J}{\partial \gamma} \odot \hat{X} + N \frac{\partial J}{\partial Y} - \mathbf{1}_N \cdot \frac{\partial J}{\partial \beta} \right]
 }$$
 
 

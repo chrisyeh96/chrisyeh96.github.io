@@ -62,8 +62,12 @@ img {
   box-shadow: 0 0 1.5em black;
 }
 
-.contact li {
-  margin-top: 1em;
+ul.contact {
+  margin: 0;
+}
+
+.contact li.list-inline-item {
+  margin: 1em 10px 0 10px;
 }
 
 .contact a,
@@ -71,7 +75,6 @@ img {
 .contact a:focus {
   color: white !important;
   border: 3px solid white;
-  margin: 0 10px 0;
   box-shadow: 0 0 1.5em black;
   background-color: rgba(128, 128, 128, 0.4);
 }
@@ -206,11 +209,6 @@ pre code:before, pre code:after,
 pre tt:before,
 pre tt:after {
   content: normal;
-}
-
-ul,
-ol {
-  margin-top: 0;
 }
 
 blockquote {

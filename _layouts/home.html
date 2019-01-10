@@ -7,10 +7,10 @@ layout: default
 <h2>Latest Posts</h2>
 
 <ul class="post-list">
-{% for post in site.posts %}
+{%- for post in site.posts -%}
   <li>
 
-    {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
+    {%- assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" -%}
     <span class="post-meta">{{ post.date | date: date_format }}</span>
 
     <h2>
@@ -20,5 +20,5 @@ layout: default
     <span>{{ post.excerpt | markdownify | truncatewords: 50 }}</span>
 
   </li>
-{% endfor %}
+{%- endfor -%}
 </ul>

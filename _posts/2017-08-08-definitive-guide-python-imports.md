@@ -272,7 +272,7 @@ For example, suppose we are running `start.py` which imports `a1` which in turn 
     import subA.sa1
     ```
 
-Note that for relative imports, the dots `.` can go up only up to (but not including) the directory containing the script run from the command line. Thus, `from .. import other` is invalid in `a1.py`. Doing so results in the error `ValueError: attempted relative import beyond top-level package`. 
+Note that for relative imports, the dots `.` can go up only up to (but not including) the directory containing the script run from the command line. Thus, `from .. import other` is invalid in `a1.py`. Doing so results in the error `ValueError: attempted relative import beyond top-level package`.
 
 In general, absolute imports are preferred over relative imports. They avoid the confusion between explicit vs. implicit relative imports. In addition, any script that uses explicit relative imports cannot be run directly:
 
