@@ -74,7 +74,7 @@ Also, **Python imports are case-sensitive.** `import Spam` is not the same as `i
 The function `pkgutil.iter_modules` (Python [2](https://docs.python.org/2/library/pkgutil.html#pkgutil.iter_modules) and [3](https://docs.python.org/3/library/pkgutil.html#pkgutil.iter_modules)) can be used to get a list of all importable modules from a given path:
 ```python
 import pkgutil
-search_path = '.' # set to None to see all modules importable from sys.path
+search_path = ['.'] # set to None to see all modules importable from sys.path
 all_modules = [x[1] for x in pkgutil.iter_modules(path=search_path)]
 print(all_modules)
 ```
