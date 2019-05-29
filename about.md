@@ -21,25 +21,6 @@ layout: default
         <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
     </div>
 </div>
-</div>
-<div class="row">
-  <div class="col-12 col-sm-8">
-    <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
-  <div class="col-12 col-sm-8">
-    <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
-  <div class="col-12 col-sm-8">
-    <img src="{{ site.baseurl }}/images/collabs/BirdVox.png">
-</div>
-
-
-<div class="flex-container">
-  <div>1</div>
-    <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
-  <div>2</div>
-    <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
-  <div>3</div>
-    <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
-</div>
 
 <div class="container">
   <div class="row">
@@ -112,6 +93,3 @@ layout: default
     <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
   </div>
 </div>
-
-
-
