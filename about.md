@@ -27,23 +27,23 @@ layout: default
 <div class="container">
   <div class="row">
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+        <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
       </div>
     <div class="col">
         <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
       </div>
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+        <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
       </div>
     <div class="w-100"></div>
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+        <img src="{{ site.baseurl }}/images/collabs/CLO.png">
       </div>
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+        <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
       </div>
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+        <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
       </div>
   </div>
 </div>
