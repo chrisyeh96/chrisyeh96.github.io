@@ -24,8 +24,6 @@ layout: default
 <div class="col-4">
     <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
   </div>
-<div class="w-100">
-    </div>
 <div class="col-6">
     <img src="{{ site.baseurl }}/images/collabs/CLO.png">
   </div>
