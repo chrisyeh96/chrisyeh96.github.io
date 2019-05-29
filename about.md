@@ -109,7 +109,7 @@ layout: default
     <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
   </div>
 <div class="col-12 col-sm-4">
-    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+    <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
   </div>
 </div>
 
