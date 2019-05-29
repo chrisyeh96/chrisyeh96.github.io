@@ -90,6 +90,28 @@ layout: default
 </div>
 
 
+<div class="row content-row">
+<div class="col-12 col-sm-4">
+    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+  </div>
+<div class="col-12 col-sm-4">
+    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+  </div>
+<div class="col-12 col-sm-4">
+    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+  </div>
+<div class="w-100">
+    </div>
+<div class="col-12 col-sm-4">
+    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+  </div>
+<div class="col-12 col-sm-4">
+    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+  </div>
+<div class="col-12 col-sm-4">
+    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+  </div>
+</div>
 
 
 
