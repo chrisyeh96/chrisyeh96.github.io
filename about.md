@@ -24,7 +24,7 @@ layout: default
     <div class="col-4">
         <img src="{{ site.baseurl }}/images/collabs/CLO.png">
       </div>
-    <div class="col-4">
+    <div class="col-6">
         <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
       </div>
     <div class="col-3">
