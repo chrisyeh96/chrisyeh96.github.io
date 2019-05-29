@@ -21,8 +21,8 @@ layout: default
         <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
     </div>
 </div>
-    
-    
+ 
+<hr>
 
 <div class="container">
   <div class="row">
@@ -48,9 +48,7 @@ layout: default
   </div>
 </div>
 
-
-
-
+<hr>
 
 <div class="flex-container">
   <div class="row">
@@ -76,6 +74,7 @@ layout: default
   </div>
 </div>
 
+<hr>
 
 <div class="row content-row">
 <div class="col-12 col-sm-4">
