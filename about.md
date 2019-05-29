@@ -30,3 +30,13 @@ layout: default
   <div class="col-12 col-sm-8">
     <img src="{{ site.baseurl }}/images/collabs/BirdVox.png">
 </div>
+
+
+<div class="flex-container">
+  <div>1</div>
+    <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
+  <div>2</div>
+    <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
+  <div>3</div>
+    <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
+</div>
