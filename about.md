@@ -19,7 +19,7 @@ layout: default
         <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
       </div>
     <div class="col-2">
-        <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
+        <img src="{{ site.baseurl }}/images/collabs/UMass.png">
       </div>
     <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/CLO.png">
