@@ -26,13 +26,13 @@ layout: default
   </div>
 <div class="w-100">
     </div>
-<div class="col">
+<div class="col-6">
     <img src="{{ site.baseurl }}/images/collabs/CLO.png">
   </div>
-<div class="col">
+<div class="col-3">
     <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
   </div>
-<div class="col">
+<div class="col-3">
     <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
   </div>
 </div>
