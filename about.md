@@ -12,13 +12,22 @@ layout: default
 </div>
 </div>
 <div class="row content-row">
-<div class="col-12 col-sm-4">
-    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
-    <img src="{{ site.baseurl }}/images/collabs/CLO.png">
+    <div class="col-12 col-sm-4">
+        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+        <img src="{{ site.baseurl }}/images/collabs/CLO.png">
 </div>
 </div>
 <div class="row content-row">
 <div class="col-12 col-sm-10">
+    <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
+    <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
+</div>
+    
+<div class="row">
+  <div class="col-sm-8">col-sm-8</div>
+    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+    <img src="{{ site.baseurl }}/images/collabs/CLO.png">
+  <div class="col-sm-4">col-sm-4</div>
     <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
     <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
 </div>
