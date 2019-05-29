@@ -14,6 +14,12 @@ layout: default
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <h1>Collaborators</h1>
 
 <div class="row justify-content-md-center">
