@@ -23,3 +23,7 @@ layout: default
     <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
     <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
 </div>
+
+<img src="{{ site.baseurl }}/images/collabs/SDZ.png"
+     alt="SDZ"
+     style="float: right; margin-right: 10px;" />
