@@ -20,8 +20,15 @@ layout: default
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <h1>Collaborators</h1>
-
+<br>
 <div class="row justify-content-md-center">
 <div class="row content-row">
 <div class="col-12 col-sm-4">
