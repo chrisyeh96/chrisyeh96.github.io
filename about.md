@@ -65,6 +65,30 @@ layout: default
   </div>
 </div>
 
+<div class="flex-container">
+  <div class="row">
+    <div class="col">
+        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+      </div>
+    <div class="col">
+        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+      </div>
+    <div class="col">
+        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+      </div>
+    <div class="w-100"></div>
+    <div class="col">
+        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+      </div>
+    <div class="col">
+        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+      </div>
+    <div class="col">
+        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+      </div>
+  </div>
+</div>
+
 
 
 
