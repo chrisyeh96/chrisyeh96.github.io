@@ -16,10 +16,10 @@ layout: default
 <br>
 <div class="row justify-content-md-center">
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
+        <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
       </div>
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
+        <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
       </div>
     <div class="col">
         <img src="{{ site.baseurl }}/images/collabs/CLO.png">
