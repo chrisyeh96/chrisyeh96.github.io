@@ -29,8 +29,7 @@ layout: default
 <br>
     <h1>Collaborators</h1>
 <br>
-#<div class="row justify-content-md-center">
-<div class="row content-row">
+<div class="row justify-content-md-center">
 <div class="col-12 col-sm-4">
     <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
   </div>
