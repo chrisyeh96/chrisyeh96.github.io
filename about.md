@@ -11,7 +11,12 @@ layout: default
     <p>Incoming PhD student at UMass Amherst with Dr. Chris Sutherland working on optimal sampling design to estimate range-wide density of Snow Leopards and Jaguars.</p>
 <br>
 <hr>
+<br>
+<br>
+<br>
     <h1>Collaborators</h1>
+
+<div class="row justify-content-md-center">
 <div class="row content-row">
 <div class="col-12 col-sm-4">
     <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
