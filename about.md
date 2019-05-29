@@ -21,6 +21,8 @@ layout: default
         <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
     </div>
 </div>
+    
+    
 
 <div class="container">
   <div class="row">
@@ -45,6 +47,10 @@ layout: default
       </div>
   </div>
 </div>
+
+
+
+
 
 <div class="flex-container">
   <div class="row">
