@@ -18,7 +18,7 @@ layout: default
 </div>
 </div>
 <div class="row content-row">
-<div class="col-6 col-sm-4">
+<div class="col-12 col-sm-1">
     <img src="{{ site.baseurl }}/images/collabs/Umass.png">
     <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
     <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
