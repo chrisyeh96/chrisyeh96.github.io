@@ -21,4 +21,5 @@ layout: default
 <div class="col-6 col-sm-4">
     <img src="{{ site.baseurl }}/images/collabs/Umass.png">
     <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
+    <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
 </div>
