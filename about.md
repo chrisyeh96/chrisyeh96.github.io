@@ -13,5 +13,6 @@ layout: default
 </div>
 <div class="row content-row">
 <div class="col-12 col-sm-4">
+    <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
     <img src="{{ site.baseurl }}/images/collabs/CLO.png">
 </div>
