@@ -13,10 +13,13 @@ layout: default
 <div class="row">
     <div class="col">
         <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
+    </div>
     <div class="col">
         <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+    </div>
     <div class="col">
         <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
+    </div>
 </div>
 </div>
 <div class="row">
