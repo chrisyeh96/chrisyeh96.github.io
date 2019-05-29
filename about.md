@@ -15,13 +15,13 @@ layout: default
 <h1>Collaborators</h1>
 <br>
 <div class="row justify-content-md-center">
-<div class="col-8">
+<div class="col-5">
     <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
   </div>
-<div class="col-2">
+<div class="col-3">
     <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
   </div>
-<div class="col-2">
+<div class="col-4">
     <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
   </div>
 <div class="w-100">
