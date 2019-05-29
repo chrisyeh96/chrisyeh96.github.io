@@ -19,13 +19,13 @@ layout: default
         <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
       </div>
     <div class="col-5">
-        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
-      </div>
-    <div class="col-4">
         <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
       </div>
-    <div class="col-6">
+    <div class="col-4">
         <img src="{{ site.baseurl }}/images/collabs/CLO.png">
+      </div>
+    <div class="col-6">
+        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
       </div>
     <div class="col-3">
         <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
