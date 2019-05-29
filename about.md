@@ -40,3 +40,20 @@ layout: default
   <div>3</div>
     <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col"><img src="{{ site.baseurl }}/images/collabs/MassAudubon.png"></div>
+    <div class="col"><img src="{{ site.baseurl }}/images/collabs/MassAudubon.png"></div>
+    <div class="col"><img src="{{ site.baseurl }}/images/collabs/MassAudubon.png"></div>
+    <div class="w-100"></div>
+    <div class="col"><img src="{{ site.baseurl }}/images/collabs/MassAudubon.png"></div>
+    <div class="col"><img src="{{ site.baseurl }}/images/collabs/MassAudubon.png"></div>
+    <div class="col"><img src="{{ site.baseurl }}/images/collabs/MassAudubon.png"></div>
+  </div>
+</div>
+
+
+
+
+
