@@ -18,7 +18,7 @@ layout: default
         <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
     </div>
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
+        <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
     </div>
 </div>
  
@@ -35,7 +35,7 @@ layout: default
         <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
       </div>
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
+        <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
       </div>
     <div class="w-100"></div>
     <div class="col">
@@ -90,7 +90,7 @@ layout: default
     <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
   </div>
 <div class="col-12 col-sm-4">
-    <img src="{{ site.baseurl }}/images/collabs/SDZ.jpeg">
+    <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
   </div>
 <div class="w-100">
     </div>
