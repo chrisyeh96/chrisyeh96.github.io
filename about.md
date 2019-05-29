@@ -22,7 +22,9 @@ layout: default
     </div>
 </div>
  
+<br>
 <hr>
+<br>
 
 <div class="container">
   <div class="row">
@@ -48,7 +50,9 @@ layout: default
   </div>
 </div>
 
+<br>
 <hr>
+<br>
 
 <div class="flex-container">
   <div class="row">
@@ -74,7 +78,9 @@ layout: default
   </div>
 </div>
 
+<br>
 <hr>
+<br>
 
 <div class="row content-row">
 <div class="col-12 col-sm-4">
