@@ -84,7 +84,7 @@ layout: default
         <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
       </div>
     <div class="col">
-        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+        <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
       </div>
   </div>
 </div>
