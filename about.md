@@ -15,22 +15,22 @@ layout: default
 <h1>Collaborators</h1>
 <br>
 <div class="row justify-content-md-center">
-    <div class="col">
+    <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
       </div>
-    <div class="col">
+    <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/UMass.jpg">
       </div>
-    <div class="col">
+    <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/CLO.png">
       </div>
-    <div class="col">
+    <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
       </div>
-    <div class="col">
+    <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
       </div>
-    <div class="col">
+    <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
       </div>
 </div>
