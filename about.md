@@ -16,3 +16,7 @@ layout: default
     <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
     <img src="{{ site.baseurl }}/images/collabs/CLO.png">
 </div>
+<div class="col-8 col-sm-4">
+    <img src="{{ site.baseurl }}/images/collabs/Umass.png">
+    <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
+</div>
