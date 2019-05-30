@@ -46,3 +46,23 @@ detect = expand.grid(
 
 ### Converting to model formulas
 
+This next part is a little less straightforward. In the first line, we create a`list` vector with 256 blank elements, which is the total number of models (1 global + 255 nested). This is because there are 4 paramters with two option (variant vs invariant) in each of the 2 steps, so: 2<sup>4</sup> * 2<sup>4</sup> = 256
+
+```r
+model.formulas = vector("list", 256)
+k = 1
+for (i in 1:length(count[, 1])) {
+  a = as.character(unlist(count[i, ])) %>%
+    str_flatten(collapse = " + ")
+  
+  for (j in 1:length(detect[, 1])) {
+    b = as.character(unlist(detect[j, ])) %>%
+      str_flatten(collapse = " + ")
+    
+    model.formulas[[k]] = list(formula(str_glue("maxFlock", " ~ ", a)),
+                         formula(str_glue(" ~ ", b)))
+    k = k + 1
+  }
+}
+```
+
