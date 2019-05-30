@@ -23,12 +23,7 @@ a:link {
   color: #71b2c9 !important;
 }
 
-a:visited {
-  text-decoration: none !important;
-  color: ##003b5c !important;
-}
-
-a:hover {
+a:visited, a:hover {
   text-decoration: none !important;
   color: ##003b5c !important;
 }
