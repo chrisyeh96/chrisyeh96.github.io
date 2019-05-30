@@ -26,7 +26,9 @@ library(qpcR)
 
 ### Generating all possible covariate combinations
 
-In a single function, we'll specify all of the explanatory variables for both stages of our full model and then generate all the possible combinations of those variables. This is possible through the use of the `expand.grid()`, which generates the cartesian product of the supplied values. Although our end goal is to create a model formula, `exapand.grid()` ouputs a `data.frame` where each row represents a nested model formula. We'll convert these rows to formulas in the next step.
+In a single function, we'll specify all of the explanatory variables for both stages of our full model and then generate all the possible combinations of those variables. This is possible through the use of the `expand.grid()`, which generates the cartesian product of the supplied values. Although our end goal is to create a model formula, `exapand.grid()` ouputs a `data.frame` object, where each row represents a nested model formula. We'll convert these rows to formulas in the next step.
+
+It's important to note here that we assume the original data has a "dummy" column which is just filled with 1s. In this example from my thesis, `efforDays` and `effortHours` are categorical variable and should not be smoothed with the smoothing function `s()`, which `yr`, `lat`, and `lon` are continuons and should be smoothed to make use of the power of GAMs.
 
 ```r
 count = expand.grid(
@@ -46,7 +48,11 @@ detect = expand.grid(
 
 ### Converting to model formulas
 
-This next part is a little less straightforward. In the first line, we create a`list` vector with 256 blank elements, which is the total number of models (1 global + 255 nested). This is because there are 4 paramters with two option (variant vs invariant) in each of the 2 steps, so: 2<sup>4</sup> * 2<sup>4</sup> = 256
+This next part is a little less straightforward. In the first line, we create a`list` vector with 256 blank elements, which is the total number of models (1 global + 255 nested). This is because there are 4 paramters with two option (variant vs invariant) in each of the 2 steps, so: 2<sup>4</sup> * 2<sup>4</sup> = 256. The model formulas need to be saved in a list form as this is what the `mgcv::gam()` function expects. 
+
+We set `k = 1` as the initial position for iteration through the nested loops. We then loop through both stages of the forumla, unlisting each row from the `data.frame` and converting it to a `character` vector. During this process, the selected parameters are concatenated with a `+` symbol as expected by the `mgcv::gam()` function. The final model uses `~` in concatenating both stages from the `i` and `j` loops, and again using `~` after specifiying the predictor (here, `maxFlock`).
+
+Finally, `k = k + 1` increments the process through the 256 iterations.
 
 ```r
 model.formulas = vector("list", 256)
