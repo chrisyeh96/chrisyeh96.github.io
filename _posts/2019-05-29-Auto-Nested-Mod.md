@@ -1,6 +1,7 @@
 ---
-title: "Automatically Generating Nested Models and AIC Model Averaging"
+title: "Automatically Generating Nested Models + AIC Model Averaging"
 layout: post
+published: true
 use_code: true
 ---
 
