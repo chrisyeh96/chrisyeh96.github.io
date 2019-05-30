@@ -20,17 +20,17 @@
 
 a, a:link {
   text-decoration: none !important;
-  color: #71b2c9 !important;
+  color: #003b5c !important;
 }
 
 a, a:visited, a:hover {
   text-decoration: none !important;
-  color: #003b5c !important;
+  color: #71b2c9 !important;
 }
 
 a, a:active {
   text-decoration: none !important;
-  color: #71b2c9 !important;
+  color: #003b5c !important;
 }
 
 .cardinal-red {
