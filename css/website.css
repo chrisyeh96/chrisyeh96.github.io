@@ -24,12 +24,12 @@ a, a:link {
 }
 
 a, a:visited {
-  color: red;
+  color: #71b2c9;
   text-decoration: none !important;
 }
 
 a, a:hover{
-  color: #003b5c;
+  color: red;
   text-decoration: none !important;
 }
 
