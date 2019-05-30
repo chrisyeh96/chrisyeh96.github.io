@@ -8,7 +8,6 @@ use_code: true
 <p style="text-align:center;"><i>This is a tutorial on model comparison for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
 
 <br>
-<br>
 
 ### Introduction
 
@@ -20,7 +19,6 @@ In my undergrad thesis on avian populations and West Nile virus, I used a GAM to
 
 This is all well and good, but the two-stage nature of the modeling process and respective formula makes it far more difficult to generate and test all nested models. However, this is a necessary part of the process, especially as step-wise model selection is becoming less accepted. Given this issue, I've written this tutorial on how to go about this process for the ziplss GAM, hoping it's useful to someone in the field. Additionally, I'll also include the model comparison process, which makes use of parallel computing. This is increasingly useful with more explanatory variables, as fitting GAMs is computationally intensive, and therefore, time-consuming. Parallelizing the process allows for each core in a cluster to run a model. On my computer, I have 16 cores, 15 of which I add to a cluster, allowing me to run 15 of these GAMs simultaneously. This reduces the run-time by over 93%.
 
-<br>
 <br>
 
 ### Setup
@@ -34,7 +32,6 @@ library(stringr)
 library(qpcR)
 ```
 
-<br>
 <br>
 
 ### Generating all possible covariate combinations
@@ -79,7 +76,6 @@ head(detect, 3)
 ```
 
 <br>
-<br>
 
 ### Converting to model formulas
 
@@ -122,7 +118,6 @@ print(model.formulas[[1]])
 
 In the resulting formula for this global model, we see that the formula is in a nested-list structure, where `model.formulas[[1]][[1]]` is the count stage and `model.formulas[[1]][[2]]` is the detection stage.
 
-<br>
 <br>
 
 ### Generating model names
@@ -177,7 +172,6 @@ head(model.names, 3)
 ```
 
 <br>
-<br>
 
 ### Running all models in parallel
 
@@ -214,7 +208,6 @@ for (i in 1:256) {
 }
 ```
 
-<br>
 <br>
 
 ### AIC model comparison
