@@ -65,8 +65,8 @@ a.nav-link:active {
 }
 
 .navbar-nav > li{
-  padding-left:30px;
-  padding-right:30px;
+  padding-left:1px;
+  padding-right:1px;
 }
 
 /*******************
