@@ -235,3 +235,15 @@ models.aictab = cbind(models.aic, models.weights)
 models.aictab = models.aictab[order(models.aictab["deltaAIC"]), ]
 models.aictab$weights = round(models.aictab$weights, 4)
 ```
+
+Finally, we can print the first 3 elements of our model comparison table.
+
+```r
+head(models.aictab, 3)
+                   model    df      AIC deltaAIC    re.LL weights
+    1 `N(.HYL)Phi(DHYL)` 76.13 117287.4     0.00 1.00e+00  0.7723
+    2 `N(DHYL)Phi(DHYL)` 77.61 117289.9     2.44 2.95e-01  0.2276
+    3 `N(.H.L)Phi(DHYL)` 68.68 117305.9    18.52 9.53e-05  0.0001
+```
+
+In this example, one of the nested models performs signficiantly better that the global model (&DeltaAIC > 2), although the global model still has a weight of ~22.76%. Further analysis would be able to use these AIC weights for model averaging.
