@@ -12,7 +12,7 @@ layout: default
 </div>
 </div>
     
-<h1>Collaborators</h1>
+<h2>Collaborators</h2>
 <br>
 <div class="row justify-content-md-center">
     <div class="col-2">
