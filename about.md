@@ -13,7 +13,7 @@ layout: default
 </div>
 <br>    
 <h2>Collaborators</h2>
-<br>
+<hr>
 <div class="row justify-content-md-center">
     <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/UMass.png">
