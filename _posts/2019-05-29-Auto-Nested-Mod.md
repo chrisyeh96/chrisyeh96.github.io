@@ -5,7 +5,7 @@ published: true
 use_code: true
 ---
 
-<i>This is a tutorial on model averaging ziplss GAMs after automatically generating all nested models and running them in parallel.</i>
+<i>This is a tutorial on model averaging for ziplss GAMs after automatically generating all nested models and running them in parallel.</i>
 
 ### Introduction
 
@@ -17,6 +17,7 @@ In my undergrad thesis on avian populations and West Nile virus, I used a GAM to
 
 This is all well and good, but two-stage nature of the modelling process and respective formula makes it far more difficult to generate and test all nested models. However, this is a necessary part of the process, especially as step-wise model selection is becoming less accepted. Given this issue, I've written this tutorial on how to go about this process for the ziplss GAM, hoping it's useful to someone in the field. Additionally, I'll also include the model averaging process, which makes use of parallel computing. This is increasingly useful with more explanatory variables, as fitting GAMs is computationally intensive, and therefore, time-consuming. Parallelizing the process allows for each core in a cluster to run a model. On my computer, I have 16 cores, 15 of which I add to a cluster, allowing me to run 15 of these GAMs simultaneously. This reduces the run-time by over 93%.
 
+
 ### Setup
 
 First, we'll load the required packages. The `mgcv` package is the leading package for fitting GAMs, `tidyr` greatly improves coding efficient by tapping into the tidyverse framework, `stringr` allows for better methods to manipulate strings, and `qpcR` provides some neat functionality for model averaging.
@@ -27,6 +28,7 @@ library(tidyr)
 library(stringr)
 library(qpcR)
 ```
+
 
 ### Generating all possible covariate combinations
 
@@ -52,7 +54,9 @@ detect = expand.grid(
 head(count, 3)
 head(detect, 3)
 ```
+
 This gives us the following output:
+
 ```r
       count_days count_hours count_years count_latlon
     1 effortDays effortHours s(yr, k=11) s(lat, long)
@@ -91,17 +95,18 @@ for (i in 1:length(count[, 1])) {
   }
 }
 
-print(model.formulas[1])
+print(model.formulas[[1]])
 ```
-Printing the first item in the list results in the appropriately-formatted model formula of the global model, while `model.formulas[2:256]` contains all of the nested models.
+
+Printing the first item in the list results in the appropriately-formatted model formula of the global model, while `model.formulas[[2:256]]` contains all of the nested models.
 
 ```r
     [[1]]
-    [[1]][[1]]
-    maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, long)
+    maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
+        long)
 
-    [[1]][[2]]
+    [[2]]
     ~effortDays + effortHours + s(yr, k = 11) + s(lat, long)
 ```
 
-
+In the resulting formula for this global model, we see that the formula is in a nested-list structure, where `model.formulas[[1]][[1]]` is the count stage and `model.formulas[[1]][[2]]` is the detection stage.
