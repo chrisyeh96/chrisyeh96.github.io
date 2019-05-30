@@ -18,22 +18,17 @@
   color: #71b2c9;
 }*/
 
-a {
-  text-decoration: none !important;
-  color: #71b2c9;
-}
-
-a:link {
+a, a:link {
   text-decoration: none !important;
   color: #71b2c9 !important;
 }
 
-a:visited, a:hover {
+a, a:visited, a:hover {
   text-decoration: none !important;
   color: #003b5c !important;
 }
 
-a:active {
+a, a:active {
   text-decoration: none !important;
   color: #71b2c9 !important;
 }
