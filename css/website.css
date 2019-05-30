@@ -43,7 +43,7 @@ img {
 
 .header-page {
   background-color: #881c1c; /* VAR: $header-bg-color */
-  background-image: linear-gradient(120deg, #881c1c, #a89968); /* VARS: $header-bg-color, $header-bg-color-secondar */
+  background-image: linear-gradient(120deg, #881c1c, #71b2c9); /* VARS: $header-bg-color, $header-bg-color-secondar */
   padding: 1.25em 0; /* padding for top and bottom only */
 }
 
