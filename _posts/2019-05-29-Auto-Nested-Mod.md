@@ -11,13 +11,13 @@ use_code: true
 
 ### Introduction
 
-Statistical models are widely used in ecology to improve our understand of ecological dynamics and processes. At their foundation, these models quantify the relationships between a predictor variable and a suite of explanatory covariates, be it linear or non-linear. Such covariates can be observational or environmental. However, determining which covariates to include in a model can be a bit tricky. One of the most commmonly accepted methods to determine a model formula is through AIC model comparison and averaging of nested models within a global model. A global model is one that is fully-defined with the inclusion of all considered covariates, while nested models include only a subset of the considered covariates. While it might not sound intuitive, a nested model can (sometimes) perform better than it's global model, as predicted by the principle of parsimony. Also known as Occam's Razor, this principle states that the simplest explanation is often correct, supporting the case for a more parsimonious model. 
+Statistical models are widely used in ecology to improve our understanding of ecological dynamics and processes. At their foundation, these models quantify the relationships between a predictor variable and a suite of explanatory covariates, be it linear or non-linear. Such covariates can be observational or environmental. However, determining which covariates to include in a model can be a bit tricky. One of the most commonly accepted methods to determine a model formula is through AIC model comparison and averaging of nested models within a global model. A global model is one that is fully-defined with the inclusion of all considered covariates, while nested models include only a subset of the considered covariates. While it might not sound intuitive, a nested model can (sometimes) perform better than it's global model, as predicted by the principle of parsimony. Also known as Occam's Razor, this principle states that the simplest explanation is often correct, supporting the case for a more parsimonious model. 
 
-Generating a set of nested models from a global model is typically automated in the popular statistical softwares available, but this mostly applies to linear models. As many biological relationships are nonlinear, other forms of models have become increasingly used due to their ability to capture these more sophisiticated relationship. One of the most popular methods to model nonlinear relationships is the Generalized Addidtive Model ('GAM'). GAMs are a powerful tool throughout the field of data science, and have been used to predict things from the trajectory of stock markets to changes in species distributions under climate change emissions scenarios. 
+Generating a set of nested models from a global model is typically automated in the popular statistical softwares available, but this mostly applies to linear models. As many biological relationships are nonlinear, other forms of models have become increasingly used due to their ability to capture these more sophisiticated relationship. One of the most popular methods to model nonlinear relationships is the Generalized Additive Model ('GAM'). GAMs are a powerful tool throughout the field of data science and have been used to predict things from the trajectory of stock markets to changes in species distributions under climate change emissions scenarios. 
 
 In my undergrad thesis on avian populations and West Nile virus, I used a GAM to model citizen-science count data. It was a special type of model, though, known as a Zero Inflated Poisson Location-Scale Model ('ziplss'), as developed by the highly-regarded Dr. Simon Wood. This model is separated into two stages: the first stage models the probability of presence, while the second stage models the average abundance given presence. From a biological perspective, it allows us to ask: 1) was a species present? and 2) if so, how many of them were there?
 
-This is all well and good, but two-stage nature of the modelling process and respective formula makes it far more difficult to generate and test all nested models. However, this is a necessary part of the process, especially as step-wise model selection is becoming less accepted. Given this issue, I've written this tutorial on how to go about this process for the ziplss GAM, hoping it's useful to someone in the field. Additionally, I'll also include the model comparison process, which makes use of parallel computing. This is increasingly useful with more explanatory variables, as fitting GAMs is computationally intensive, and therefore, time-consuming. Parallelizing the process allows for each core in a cluster to run a model. On my computer, I have 16 cores, 15 of which I add to a cluster, allowing me to run 15 of these GAMs simultaneously. This reduces the run-time by over 93%.
+This is all well and good, but the two-stage nature of the modeling process and respective formula makes it far more difficult to generate and test all nested models. However, this is a necessary part of the process, especially as step-wise model selection is becoming less accepted. Given this issue, I've written this tutorial on how to go about this process for the ziplss GAM, hoping it's useful to someone in the field. Additionally, I'll also include the model comparison process, which makes use of parallel computing. This is increasingly useful with more explanatory variables, as fitting GAMs is computationally intensive, and therefore, time-consuming. Parallelizing the process allows for each core in a cluster to run a model. On my computer, I have 16 cores, 15 of which I add to a cluster, allowing me to run 15 of these GAMs simultaneously. This reduces the run-time by over 93%.
 
 
 
@@ -36,9 +36,9 @@ library(qpcR)
 
 ### Generating all possible covariate combinations
 
-In a single function, we'll specify all of the explanatory variables for both stages of our full model and then generate all the possible combinations of those variables. This is possible through the use of the `expand.grid()`, which generates the cartesian product of the supplied values. Although our end goal is to create a model formula, `exapand.grid()` ouputs a `data.frame` object, where each row represents a nested model formula. We'll convert these rows to formulas in the next step.
+In a single function, we'll specify all of the explanatory variables for both stages of our full model and then generate all the possible combinations of those variables. This is possible through the use of the `expand.grid()`, which generates the cartesian product of the supplied values. Although our end goal is to create a model formula, `exapand.grid()` outputs a `data.frame` object, where each row represents a nested model formula. We'll convert these rows to formulas in the next step.
 
-It's important to note here that we assume the original data has a "dummy" column which is just filled with 1s. In this example from my thesis, `efforDays` and `effortHours` are categorical variable and should not be smoothed with the smoothing function `s()`, which `yr`, `lat`, and `lon` are continuons and should be smoothed to make use of the power of GAMs.
+It's important to note here that we assume the original data has a "dummy" column which is just filled with 1s. In this example from my thesis, `efforDays` and `effortHours` are categorical variable and should not be smoothed with the smoothing function `s()`, which `yr`, `lat`, and `lon` are continuous and should be smoothed to make use of the power of GAMs.
 
 ```r
 count = expand.grid(
@@ -79,9 +79,9 @@ head(detect, 3)
 
 ### Converting to model formulas
 
-This next part is a little less straightforward. In the first line, we create a`list` vector with 256 blank elements, which is the total number of models (1 global + 255 nested). This is because there are 4 paramters with two option (variant vs invariant) in each of the 2 steps, so: $$2<sup>4</sup> * 2<sup>4</sup> = 256$$. The model formulas need to be saved in a list form as this is what the `mgcv::gam()` function expects. 
+This next part is a little less straightforward. In the first line, we create a`list` vector with 256 blank elements, which is the total number of models (1 global + 255 nested). This is because there are 4 parameters with two option (variant vs invariant) in each of the 2 steps, so: $$2<sup>4</sup> * 2<sup>4</sup> = 256$$. The model formulas need to be saved in a list form as this is what the `mgcv::gam()` function expects. 
 
-We set `k = 1` as the initial position for iteration through the nested loops. We then loop through both stages of the forumla, unlisting each row from the `data.frame` and converting it to a `character` vector. During this process, the selected parameters are concatenated with a `+` symbol as expected by the `mgcv::gam()` function. The final model uses `~` in concatenating both stages from the `i` and `j` loops, and again using `~` after specifiying the predictor (here, `maxFlock`).
+We set `k = 1` as the initial position for iteration through the nested loops. We then loop through both stages of the formula, unlisting each row from the `data.frame` and converting it to a `character` vector. During this process, the selected parameters are concatenated with a `+` symbol as expected by the `mgcv::gam()` function. The final model uses `~` in concatenating both stages from the `i` and `j` loops, and again using `~` after specifying the predictor (here, `maxFlock`).
 
 Finally, `k = k + 1` increments the process through the 256 iterations.
 
@@ -175,7 +175,7 @@ head(model.names, 3)
 
 ### Running all models in parallel
 
-The first step of this process is to setup and register the core cluster so we can run multiple models simultaneously. Here we use `detectCores()` to get the number of cores we have, and then we subtract one from the number in order for the machine to work on other tasks (and make sure R/RStudio doesn't crash). Note that we've chosen the `doParallel` package here, which includes the `foreach()` function, which is one of the fastest and most intuitive parellelization methods in R.
+The first step of this process is to set up and register the core cluster so we can run multiple models simultaneously. Here we use `detectCores()` to get the number of cores we have, and then we subtract one from the number in order for the machine to work on other tasks (and make sure R/RStudio doesn't crash). Note that we've chosen the `doParallel` package here, which includes the `foreach()` function, which is one of the fastest and most intuitive parallelization methods in R.
 
 ```r
 library(doParallel)
@@ -184,7 +184,7 @@ cl = makeCluster(cores[1] - 1)
 registerDoParallel(cl)
 ```
 
-Next, using `doParallel::foreach()`, we loop through all of the model names and formulas and fit our GAM model in the `mgcv` package. Finally, after running these models, `stopCluster` unassigns our core cluster allowing all cores to be used as normal. Forgetting to do this can cause glitches later. If you're using a Mac OS machine, you can exlude `.packages = c("mgcv")`, which is required on a Windows machine. Even though we're using parallel computing to expedite the process, we can still expect that this will still take a considerable amount of time, especially as more covariates are included in the model.
+Next, using `doParallel::foreach()`, we loop through all of the model names and formulas and fit our GAM model in the `mgcv` package. Finally, after running these models, `stopCluster` unassigns our core cluster allowing all cores to be used as normal. Forgetting to do this can cause glitches later. If you're using a Mac OS machine, you can exclude `.packages = c("mgcv")`, which is required on a Windows machine. Even though we're using parallel computing to expedite the process, we can still expect that this will still take a considerable amount of time, especially as more covariates are included in the model.
 
 ```r
 model.fits = foreach(i = 1:256, .packages = c("mgcv")) %dopar% {
@@ -209,11 +209,12 @@ for (i in 1:256) {
 ```
 
 
+
 # AIC model comparison
 
-After fitting all of the models and assigning their names, we can calculate the Akaike information criterion ('AIC') score for each model using the `AIC()` function. However, this function requires that all model names are listed within the function call, which would required a lot of typing and room for error if done manually. Instead, we'll let R do the heavy lifting here with just a few lines of code.
+After fitting all of the models and assigning their names, we can calculate the Akaike information criterion ('AIC') score for each model using the `AIC()` function. However, this function requires that all model names are listed within the function call, which would require a lot of typing and room for error if done manually. Instead, we'll let R do the heavy lifting here with just a few lines of code.
 
-The first step is to paste tick marks around the model names, since the names include special characters. We then use `str_flatten` to concatenate the model names separated by a comma. Finally, we put the entire string of model names within the `AIC()` call, resulting in one (quite large) character string for the call.
+The first step is to paste tick marks around the model names since the names include special characters. We then use `str_flatten` to concatenate the model names separated by a comma. Finally, we put the entire string of model names within the `AIC()` call, resulting in one (quite large) character string for the call.
 
 ```r
 aic.call = paste0("`", model.names, "`") %>%
@@ -227,7 +228,7 @@ Next, we'll use the `eval()` function to evaluate this character string as an ac
 models.aic = eval(parse(text = aic.call))
 ```
 
-At this point, we have an AIC score for each model, which then be used to calculate model weights for the final model comaprison table. We can calculate model weights by using `qpcR::akaike.weights()`, and then format the results in a table as a `data.frame()`, ordered by the &DeltaAIC metric. this allows us to determine the top model as well as model significance. We also round the weights to make them more immediately recognizeable.
+At this point, we have an AIC score for each model, which then be used to calculate model weights for the final model comparison table. We can calculate model weights by using `qpcR::akaike.weights()`, and then format the results in a table as a `data.frame()`, ordered by the &DeltaAIC metric. this allows us to determine the top model as well as model significance. We also round the weights to make them more immediately interpretable.
 
 ```r
 models.weights = akaike.weights(models.aic$AIC)
@@ -236,7 +237,7 @@ models.aictab = models.aictab[order(models.aictab["deltaAIC"]), ]
 models.aictab$weights = round(models.aictab$weights, 4)
 ```
 
-Finally, we can print the first 3 elements of our model comparison table.
+Finally, we can print the first three elements of our model comparison table.
 
 ```r
 head(models.aictab, 3)
@@ -246,4 +247,4 @@ head(models.aictab, 3)
     3 `N(.H.L)Phi(DHYL)` 68.68 117305.9    18.52 9.53e-05  0.0001
 ```
 
-In this example, one of the nested models performs signficiantly better that the global model (&DeltaAIC > 2), although the global model still has a weight of ~22.76%. Further analysis would be able to use these AIC weights for model averaging.
+In this example, one of the nested models performs significantly better than the global model (&DeltaAIC > 2), although the global model still has a weight of ~22.76%. Further analysis would be able to use these AIC weights for model averaging.
