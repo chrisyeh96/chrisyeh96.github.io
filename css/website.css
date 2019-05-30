@@ -52,6 +52,10 @@ img {
  *  todo: add colors
  ******************/
 
+.nav-link {color: black;}
+.nav-link:hover {color: gray;}
+.nav-link:active {color: gray;}
+
 /*******************
  * HEADERS - DONE
  ******************/
