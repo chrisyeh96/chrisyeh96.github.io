@@ -1,5 +1,6 @@
 ----
 title: "Model-updating using Bayes Theorem"
 layout: post
-publish: false
+published: false
+use_code: true
 ----
