@@ -5,7 +5,7 @@ published: true
 use_code: true
 ---
 
-<p style="text-align:center;"><i>This is a tutorial on model averaging for ziplss GAMs after automatically</i></p><p style="text-align:center;"><i>generating all nested models and running them in parallel.</i></p>
+<p style="text-align:center;"><i>This is a tutorial on model averaging for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
 
 ### Introduction
 
