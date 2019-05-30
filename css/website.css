@@ -52,15 +52,15 @@ img {
  *  todo: add colors
  ******************/
 
-.nav-link {
+a.nav-link {
   color: black;
 }
 
-.nav-link:hover {
+a.nav-link:hover {
   color: gray;
 }
 
-.nav-link:active {
+a.nav-link:active {
   color: gray;
 }
 
