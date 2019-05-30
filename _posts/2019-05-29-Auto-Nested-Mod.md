@@ -70,5 +70,7 @@ for (i in 1:length(count[, 1])) {
     k = k + 1
   }
 }
+
+print(model.formulas[[1:3]]
 ```
 
