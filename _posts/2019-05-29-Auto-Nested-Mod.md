@@ -50,18 +50,20 @@ detect = expand.grid(
   detect_years   = c("s(yr, k=11)", "dummy"),
   detect_latlon  = c("s(lat, long)", "dummy")
 )
-
-head(count, 3)
-head(detect, 3)
 ```
 
 This gives us the following output:
 
 ```r
+head(count, 3)
+
       count_days count_hours count_years count_latlon
     1 effortDays effortHours s(yr, k=11) s(lat, long)
     2      dummy effortHours s(yr, k=11) s(lat, long)
     3 effortDays       dummy s(yr, k=11) s(lat, long)
+
+
+head(detect, 3)
 
       detect_days detect_hours detect_years detect_latlon
     1  effortDays  effortHours  s(yr, k=11)  s(lat, long)
@@ -94,13 +96,13 @@ for (i in 1:length(count[, 1])) {
     k = k + 1
   }
 }
-
-print(model.formulas[[1]])
 ```
 
 Printing the first item in the list results in the appropriately-formatted model formula of the global model, while `model.formulas[[2:256]]` contains all of the nested models.
 
 ```r
+print(model.formulas[[1]])
+
     [[1]]
     maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
         long)
@@ -110,3 +112,55 @@ Printing the first item in the list results in the appropriately-formatted model
 ```
 
 In the resulting formula for this global model, we see that the formula is in a nested-list structure, where `model.formulas[[1]][[1]]` is the count stage and `model.formulas[[1]][[2]]` is the detection stage.
+
+
+### Generating model names
+
+The next step uses the same structure as above, but instead of concatenating model formulas, we'll generate the model names.
+
+```r
+count.names = expand.grid(
+  count_days    = c("D", "."),
+  count_hours   = c("H", "."),
+  count_years   = c("Y", "."),
+  count_latlon  = c("L", ".")
+)
+
+detect.names = expand.grid(
+  detect_days    = c("D", "."),
+  detect_hours   = c("H", "."),
+  detect_years   = c("Y", "."),
+  detect_latlon  = c("L", ".")
+)
+
+model.names = vector("list", 256)
+k = 1
+for (i in 1:length(count.names[, 1])) {
+  a = as.character(unlist(count.names[i, ]))
+  a = paste(a, collapse = "")
+  
+  for (j in 1:length(detect.names[, 1])) {
+    b = as.character(unlist(detect.names[j, ]))
+    b = paste(b, collapse = "")
+    
+    model.names[[k]] = paste(str_glue("N(", a, ")", "Phi(", b, ")"))
+    k = k + 1
+  }
+}
+```
+
+And again, we can see the resulting model names below, where the first model name represents the full model, and the next two model names represent models with the substitution of invariant terms in the detection portion.
+
+```r
+head(model.names, 3)
+
+    [[1]]
+    [1] "N(DHYL)Phi(DHYL)"
+
+    [[2]]
+    [1] "N(DHYL)Phi(.HYL)"
+
+    [[3]]
+    [1] "N(DHYL)Phi(D.YL)"
+
+```
