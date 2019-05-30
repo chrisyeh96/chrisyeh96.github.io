@@ -50,13 +50,11 @@ head(detect, 3)
 ```
 This gives us the following output:
 ```r
-    >head(count, 3)
       count_days count_hours count_years count_latlon
     1 effortDays effortHours s(yr, k=11) s(lat, long)
     2      dummy effortHours s(yr, k=11) s(lat, long)
     3 effortDays       dummy s(yr, k=11) s(lat, long)
 
-    >head(detect, 3)
       detect_days detect_hours detect_years detect_latlon
     1  effortDays  effortHours  s(yr, k=11)  s(lat, long)
     2       dummy  effortHours  s(yr, k=11)  s(lat, long)
