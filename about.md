@@ -11,7 +11,7 @@ layout: default
     <p>I'm an incoming PhD student at UMass Amherst with Dr. Chris Sutherland where I'll be working on optimal sampling design methods to estimate range-wide density of Snow Leopards and Jaguars.</p>
 </div>
 </div>
-    
+<br>    
 <h2>Collaborators</h2>
 <br>
 <div class="row justify-content-md-center">
