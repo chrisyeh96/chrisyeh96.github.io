@@ -8,7 +8,7 @@ layout: default
     <img src="{{ site.baseurl }}/images/ivy.png">
 </div>
 <div class="col-12 col-sm-8">
-    <p>Incoming PhD student at UMass Amherst with Dr. Chris Sutherland working on optimal sampling design to estimate range-wide density of Snow Leopards and Jaguars.</p>
+    <p>I'm an incoming PhD student at UMass Amherst with Dr. Chris Sutherland where I'll be working on optimal sampling design methods to estimate range-wide density of Snow Leopards and Jaguars.</p>
 </div>
 </div>
     
