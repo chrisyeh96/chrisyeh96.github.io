@@ -27,10 +27,10 @@ layout: default
     <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
       </div>
-    <div class="col-1">
+    <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/CLO.png">
       </div>
-    <div class="col-1">
+    <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
       </div>
 </div>
