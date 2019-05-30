@@ -207,9 +207,9 @@ for (i in 1:256) {
          model.fits[[i]])
 }
 ```
-
-
-
+&nbsp;
+&nbsp;
+&nbsp;
 ### AIC model comparison
 
 After fitting all of the models and assigning their names, we can calculate the Akaike information criterion ('AIC') score for each model using the `AIC()` function. However, this function requires that all model names are listed within the function call, which would require a lot of typing and room for error if done manually. Instead, we'll let R do the heavy lifting here with just a few lines of code.
