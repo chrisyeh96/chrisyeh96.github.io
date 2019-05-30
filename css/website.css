@@ -20,22 +20,22 @@
 
 a:link {
   text-decoration: none !important;
-  color: #71b2c9;
+  color: #71b2c9 !important;
 }
 
 a:visited {
   text-decoration: none !important;
-  color: ##003b5c;
+  color: ##003b5c !important;
 }
 
 a:hover {
   text-decoration: none !important;
-  color: ##003b5c;
+  color: ##003b5c !important;
 }
 
 a:active {
   text-decoration: none !important;
-  color: #71b2c9;
+  color: #71b2c9 !important;
 }
 
 .cardinal-red {
