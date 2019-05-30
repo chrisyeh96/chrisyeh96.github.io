@@ -50,17 +50,17 @@ head(detect, 3)
 ```
 This gives us the following output:
 ```r
->head(count, 3)
-  count_days count_hours count_years count_latlon
-1 effortDays effortHours s(yr, k=11) s(lat, long)
-2      dummy effortHours s(yr, k=11) s(lat, long)
-3 effortDays       dummy s(yr, k=11) s(lat, long)
+    >head(count, 3)
+      count_days count_hours count_years count_latlon
+    1 effortDays effortHours s(yr, k=11) s(lat, long)
+    2      dummy effortHours s(yr, k=11) s(lat, long)
+    3 effortDays       dummy s(yr, k=11) s(lat, long)
 
->head(detect, 3)
-  detect_days detect_hours detect_years detect_latlon
-1  effortDays  effortHours  s(yr, k=11)  s(lat, long)
-2       dummy  effortHours  s(yr, k=11)  s(lat, long)
-3  effortDays        dummy  s(yr, k=11)  s(lat, long)
+    >head(detect, 3)
+      detect_days detect_hours detect_years detect_latlon
+    1  effortDays  effortHours  s(yr, k=11)  s(lat, long)
+    2       dummy  effortHours  s(yr, k=11)  s(lat, long)
+    3  effortDays        dummy  s(yr, k=11)  s(lat, long)
 ```
 
 
@@ -93,31 +93,31 @@ print(model.formulas[[1:3]])
 ```
 And here we see the resulting, two-stage models:
 ```r
-[[1]]
-[[1]][[1]]
-maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
-    long)
+    [[1]]
+    [[1]][[1]]
+    maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
+        long)
 
-[[1]][[2]]
-~effortDays + effortHours + s(yr, k = 11) + s(lat, long)
-
-
-[[2]]
-[[2]][[1]]
-maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
-    long)
-
-[[2]][[2]]
-~dummy + effortHours + s(yr, k = 11) + s(lat, long)
+    [[1]][[2]]
+    ~effortDays + effortHours + s(yr, k = 11) + s(lat, long)
 
 
-[[3]]
-[[3]][[1]]
-maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
-    long)
+    [[2]]
+    [[2]][[1]]
+    maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
+        long)
 
-[[3]][[2]]
-~effortDays + dummy + s(yr, k = 11) + s(lat, long)
+    [[2]][[2]]
+    ~dummy + effortHours + s(yr, k = 11) + s(lat, long)
+
+
+    [[3]]
+    [[3]][[1]]
+    maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
+        long)
+
+    [[3]][[2]]
+    ~effortDays + dummy + s(yr, k = 11) + s(lat, long)
 ```
 
 
