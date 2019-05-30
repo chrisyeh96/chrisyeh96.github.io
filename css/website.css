@@ -64,6 +64,11 @@ a.nav-link:active {
   color: gray;
 }
 
+.navbar-nav > li{
+  padding-left:30px;
+  padding-right:30px;
+}
+
 /*******************
  * HEADERS - DONE
  ******************/
