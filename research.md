@@ -1,5 +1,5 @@
 ---
-title: Projects
+title: Research
 layout: default
 use_fontawesome: true
 ---
