@@ -14,3 +14,12 @@ In my undergrad thesis on avian populations and West Nile virus, I used a GAM to
 This is all well and good, but two-stage nature of the modelling process and respective formula makes it far more difficult to generate and test all nested models. However, this is a necessary part of the process, especially as step-wise model selection is becoming less accepted. Given this issue, I've written this tutorial on how to go about this process for the ziplss GAM, hoping it's useful to someone in the field.
 
 ### Setup
+
+First, we'll load the required packages. The `mgcv` package is the leading package for fitting GAMs, `tidyr` greatly improves coding efficient by tapping into the tidyverse framework, `stringr` allows for better methods to manipulate strings, and `qpcR` provides some neat functionality for model averaging.
+
+```r
+library(mgcv)
+library(tidyr)
+library(stringr)
+library(qpcR)
+```
