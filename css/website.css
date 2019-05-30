@@ -23,13 +23,18 @@ a:link {
   text-decoration: none !important;
 }
 
-a:visited, a:hover {
+a:visited {
+  color: #71b2c9 !important;
+  text-decoration: none !important;
+}
+
+a:hover{
   color: #003b5c !important;
   text-decoration: none !important;
 }
 
 a:active {
-  color: #71b2c9 !important;
+  color: #003b5c !important;
   text-decoration: none !important;
 }
 
