@@ -18,23 +18,23 @@
   color: #71b2c9;
 }*/
 
-a:link {
-  color: #71b2c9 !important;
+a, a:link {
+  color: #71b2c9;
   text-decoration: none !important;
 }
 
-a:visited {
-  color: #71b2c9 !important;
+a, a:visited {
+  color: #71b2c9;
   text-decoration: none !important;
 }
 
-a:hover{
-  color: #003b5c !important;
+a, a:hover{
+  color: #003b5c;
   text-decoration: none !important;
 }
 
-a:active {
-  color: #003b5c !important;
+a, a:active {
+  color: #003b5c;
   text-decoration: none !important;
 }
 
