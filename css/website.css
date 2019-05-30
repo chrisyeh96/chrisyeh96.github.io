@@ -18,7 +18,7 @@
   color: #71b2c9;
 }*/
 
-a, a:link, a:visited, a:hover, a:active {
+a {
   text-decoration: none !important;
   color: #71b2c9;
 }
