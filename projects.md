@@ -1,5 +1,5 @@
 ---
-title: Not projects
+title: Projects
 layout: default
 use_fontawesome: true
 ---
