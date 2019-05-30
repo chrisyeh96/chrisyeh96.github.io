@@ -15,7 +15,7 @@
 
 a, a:link, a:visited, a:hover, a:active {
   text-decoration: none !important;
-  color: #71b2c9 !important;
+  color: #71b2c9;
 }
 
 .cardinal-red {
