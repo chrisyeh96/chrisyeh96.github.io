@@ -23,3 +23,30 @@ library(tidyr)
 library(stringr)
 library(qpcR)
 ```
+We'll include a dummy variable column that we'll use to specify an invariant paramter.
+
+```r
+df$dummy = 1
+```
+
+### Generating all possible variable combinations
+
+In a single function, we'll specify all of the explanatory variables for both stages of our full model and then generate all the possible combinations of those variables. This is possible through the use of the `expand.grid()`, which generates the cartesian product of the supplied values. Although our end goal is to create a model formula, `exapand.grid` ouputs a `data.frame`. But we can deal with that later.
+
+```r
+count = expand.grid(
+  count_days    = c("effortDays", "dummy"),
+  count_hours   = c("effortHours", "dummy"),
+  count_years   = c("s(yr, k=11)", "dummy"),
+  count_latlon  = c("s(lat, long)", "dummy")
+)
+
+detect = expand.grid(
+  detect_days    = c("effortDays", "dummy"),
+  detect_hours   = c("effortHours", "dummy"),
+  detect_years   = c("s(yr, k=11)", "dummy"),
+  detect_latlon  = c("s(lat, long)", "dummy")
+)
+```
+
+
