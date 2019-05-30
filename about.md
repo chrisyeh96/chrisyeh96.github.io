@@ -9,7 +9,7 @@ layout: default
 </div>
 <div class="col-12 col-sm-9">
     <p>I'm an incoming PhD student at UMass Amherst with Dr. Chris Sutherland where I'll be working on optimal sampling design methods to estimate the range-wide density of Snow Leopards and Jaguars.</p>
-    <p>I have experience applying a variety of analytical methods in my research, primarily in a frequentist framework and a working knowledge of Bayesian statistics, which I intend to develop more fully during my graduate studies. These methods include population trend modeling from count data, mark-recapture analysis, spatial capture-recapture analysis, population viability analysis, and species distribution modeling (environmental niche modeling).</p>
+    <p>I have experience applying a variety of analytical methods in my research, primarily in a frequentist framework and a working knowledge of Bayesian statistics, which I intend to develop more fully during my graduate studies. These methods include population trend modeling from count data, mark-recapture analysis, spatial capture-recapture analysis, population viability analysis, and species distribution modeling (environmental niche modeling). I also have experience with decision and risk analysis for wildlife management, including single and multiple objective optimizations, multiple criteria decision analysis, expected value of information and incorporation of uncertainty in decision models.</p>
 </div>
 </div>
 <br>    
