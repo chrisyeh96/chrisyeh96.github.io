@@ -7,6 +7,8 @@ use_code: true
 
 <p style="text-align:center;"><i>This is a tutorial on model averaging for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
 
+
+
 ### Introduction
 
 Statistical models are widely used in ecology to improve our understand of ecological dynamics and processes. At their foundation, these models quantify the relationships between a predictor variable and a suite of explanatory covariates, be it linear or non-linear. Such covariates can be observational or environmental. However, determining which covariates to include in a model can be a bit tricky. One of the most commmonly accepted methods to determine a model formula is through AIC model comparison and averaging of nested models within a global model. A global model is one that is fully-defined with the inclusion of all considered covariates, while nested models include only a subset of the considered covariates. While it might not sound intuitive, a nested model can (sometimes) perform better than it's global model, as predicted by the principle of parsimony. Also known as Occam's Razor, this principle states that the simplest explanation is often correct, supporting the case for a more parsimonious model. 
@@ -16,6 +18,7 @@ Generating a set of nested models from a global model is typically automated in 
 In my undergrad thesis on avian populations and West Nile virus, I used a GAM to model citizen-science count data. It was a special type of model, though, known as a Zero Inflated Poisson Location-Scale Model ('ziplss'), as developed by the highly-regarded Dr. Simon Wood. This model is separated into two stages: the first stage models the probability of presence, while the second stage models the average abundance given presence. From a biological perspective, it allows us to ask: 1) was a species present? and 2) if so, how many of them were there?
 
 This is all well and good, but two-stage nature of the modelling process and respective formula makes it far more difficult to generate and test all nested models. However, this is a necessary part of the process, especially as step-wise model selection is becoming less accepted. Given this issue, I've written this tutorial on how to go about this process for the ziplss GAM, hoping it's useful to someone in the field. Additionally, I'll also include the model averaging process, which makes use of parallel computing. This is increasingly useful with more explanatory variables, as fitting GAMs is computationally intensive, and therefore, time-consuming. Parallelizing the process allows for each core in a cluster to run a model. On my computer, I have 16 cores, 15 of which I add to a cluster, allowing me to run 15 of these GAMs simultaneously. This reduces the run-time by over 93%.
+
 
 
 ### Setup
@@ -28,6 +31,7 @@ library(tidyr)
 library(stringr)
 library(qpcR)
 ```
+
 
 
 ### Generating all possible covariate combinations
@@ -72,6 +76,7 @@ head(detect, 3)
 ```
 
 
+
 ### Converting to model formulas
 
 This next part is a little less straightforward. In the first line, we create a`list` vector with 256 blank elements, which is the total number of models (1 global + 255 nested). This is because there are 4 paramters with two option (variant vs invariant) in each of the 2 steps, so: $$2<sup>4</sup> * 2<sup>4</sup> = 256$$. The model formulas need to be saved in a list form as this is what the `mgcv::gam()` function expects. 
@@ -112,6 +117,7 @@ print(model.formulas[[1]])
 ```
 
 In the resulting formula for this global model, we see that the formula is in a nested-list structure, where `model.formulas[[1]][[1]]` is the count stage and `model.formulas[[1]][[2]]` is the detection stage.
+
 
 
 ### Generating model names
@@ -166,8 +172,8 @@ head(model.names, 3)
 ```
 
 
-### Running all models in parallel
 
+### Running all models in parallel
 
 The first step of this process is to setup and register the core cluster so we can run multiple models simultaneously. Here we use `detectCores()` to get the number of cores we have, and then we subtract one from the number in order for the machine to work on other tasks (and make sure R/RStudio doesn't crash). Note that we've chosen the `doParallel` package here, which includes the `foreach()` function, which is one of the fastest and most intuitive parellelization methods in R.
 
