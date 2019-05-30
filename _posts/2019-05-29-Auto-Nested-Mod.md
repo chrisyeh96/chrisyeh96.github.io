@@ -228,7 +228,7 @@ Next, we'll use the `eval()` function to evaluate this character string as an ac
 models.aic = eval(parse(text = aic.call))
 ```
 
-At this point, we have an AIC score for each model, which then be used to calculate model weights for the final model comparison table. We can calculate model weights by using `qpcR::akaike.weights()`, and then format the results in a table as a `data.frame()`, ordered by the &DeltaAIC metric. this allows us to determine the top model as well as model significance. We also round the weights to make them more immediately interpretable.
+At this point, we have an AIC score for each model, which then be used to calculate model weights for the final model comparison table. We can calculate model weights by using `qpcR::akaike.weights()`, and then format the results in a table as a `data.frame()`, ordered by the &Delta AIC metric. this allows us to determine the top model as well as model significance. We also round the weights to make them more immediately interpretable.
 
 ```r
 models.weights = akaike.weights(models.aic$AIC)
@@ -247,4 +247,4 @@ head(models.aictab, 3)
     3 `N(.H.L)Phi(DHYL)` 68.68 117305.9    18.52 9.53e-05  0.0001
 ```
 
-In this example, one of the nested models performs significantly better than the global model (&DeltaAIC > 2), although the global model still has a weight of ~22.76%. Further analysis would be able to use these AIC weights for model averaging.
+In this example, one of the nested models performs significantly better than the global model (&Delta AIC > 2), although the global model still has a weight of ~22.76%. Further analysis would be able to use these AIC weights for model averaging.
