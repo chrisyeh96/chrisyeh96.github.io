@@ -23,15 +23,10 @@ library(tidyr)
 library(stringr)
 library(qpcR)
 ```
-We'll include a dummy variable column that we'll use to specify an invariant paramter.
 
-```r
-df$dummy = 1
-```
+### Generating all possible covariate combinations
 
-### Generating all possible variable combinations
-
-In a single function, we'll specify all of the explanatory variables for both stages of our full model and then generate all the possible combinations of those variables. This is possible through the use of the `expand.grid()`, which generates the cartesian product of the supplied values. Although our end goal is to create a model formula, `exapand.grid` ouputs a `data.frame`. But we can deal with that later.
+In a single function, we'll specify all of the explanatory variables for both stages of our full model and then generate all the possible combinations of those variables. This is possible through the use of the `expand.grid()`, which generates the cartesian product of the supplied values. Although our end goal is to create a model formula, `exapand.grid()` ouputs a `data.frame` where each row represents a nested model formula. We'll convert these rows to formulas in the next step.
 
 ```r
 count = expand.grid(
@@ -49,4 +44,5 @@ detect = expand.grid(
 )
 ```
 
+### Converting to model formulas
 
