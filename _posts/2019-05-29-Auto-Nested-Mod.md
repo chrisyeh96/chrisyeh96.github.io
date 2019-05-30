@@ -5,7 +5,7 @@ published: true
 use_code: true
 ---
 
-<p style="text-align:center;"><i>This is a tutorial on model averaging for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
+<p style="text-align:center;"><i>This is a tutorial on model comparison for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
 
 
 
@@ -17,13 +17,13 @@ Generating a set of nested models from a global model is typically automated in 
 
 In my undergrad thesis on avian populations and West Nile virus, I used a GAM to model citizen-science count data. It was a special type of model, though, known as a Zero Inflated Poisson Location-Scale Model ('ziplss'), as developed by the highly-regarded Dr. Simon Wood. This model is separated into two stages: the first stage models the probability of presence, while the second stage models the average abundance given presence. From a biological perspective, it allows us to ask: 1) was a species present? and 2) if so, how many of them were there?
 
-This is all well and good, but two-stage nature of the modelling process and respective formula makes it far more difficult to generate and test all nested models. However, this is a necessary part of the process, especially as step-wise model selection is becoming less accepted. Given this issue, I've written this tutorial on how to go about this process for the ziplss GAM, hoping it's useful to someone in the field. Additionally, I'll also include the model averaging process, which makes use of parallel computing. This is increasingly useful with more explanatory variables, as fitting GAMs is computationally intensive, and therefore, time-consuming. Parallelizing the process allows for each core in a cluster to run a model. On my computer, I have 16 cores, 15 of which I add to a cluster, allowing me to run 15 of these GAMs simultaneously. This reduces the run-time by over 93%.
+This is all well and good, but two-stage nature of the modelling process and respective formula makes it far more difficult to generate and test all nested models. However, this is a necessary part of the process, especially as step-wise model selection is becoming less accepted. Given this issue, I've written this tutorial on how to go about this process for the ziplss GAM, hoping it's useful to someone in the field. Additionally, I'll also include the model comparison process, which makes use of parallel computing. This is increasingly useful with more explanatory variables, as fitting GAMs is computationally intensive, and therefore, time-consuming. Parallelizing the process allows for each core in a cluster to run a model. On my computer, I have 16 cores, 15 of which I add to a cluster, allowing me to run 15 of these GAMs simultaneously. This reduces the run-time by over 93%.
 
 
 
 ### Setup
 
-First, we'll load the required packages. The `mgcv` package is the leading package for fitting GAMs, `tidyr` greatly improves coding efficient by tapping into the tidyverse framework, `stringr` allows for better methods to manipulate strings, and `qpcR` provides some neat functionality for model averaging.
+First, we'll load the required packages. The `mgcv` package is the leading package for fitting GAMs, `tidyr` greatly improves coding efficient by tapping into the tidyverse framework, `stringr` allows for better methods to manipulate strings, and `qpcR` provides some neat functionality for model comparison.
 
 ```r
 library(mgcv)
@@ -184,7 +184,7 @@ cl = makeCluster(cores[1] - 1)
 registerDoParallel(cl)
 ```
 
-Next, using `doParallel::foreach()`, we loop through all of the model names and formulas and fit our GAM model in the `mgcv` package. Finally, after running these models, `stopCluster` unassigns our core cluster allowing all cores to be used as normal. Forgetting to do this can cause glitches later. If you're using a Mac OS machine, you can exlude `.packages = c("mgcv")`, which is required on a Windows machine.
+Next, using `doParallel::foreach()`, we loop through all of the model names and formulas and fit our GAM model in the `mgcv` package. Finally, after running these models, `stopCluster` unassigns our core cluster allowing all cores to be used as normal. Forgetting to do this can cause glitches later. If you're using a Mac OS machine, you can exlude `.packages = c("mgcv")`, which is required on a Windows machine. Even though we're using parallel computing to expedite the process, we can still expect that this will still take a considerable amount of time, especially as more covariates are included in the model.
 
 ```r
 model.fits = foreach(i = 1:256, .packages = c("mgcv")) %dopar% {
@@ -199,11 +199,39 @@ model.fits = foreach(i = 1:256, .packages = c("mgcv")) %dopar% {
 stopCluster(cl)
 ```
 
-We can then assign the model names to the model formulas, which helps us more immediately understand the output from the model averaging process that comes next.
+We can then assign the model names to the model formulas, which helps us more immediately understand the output from the model comparison process that comes next.
 
 ```r
 for (i in 1:256) {
   assign(model.names[[i]],
          model.fits[[i]])
 }
+```
+
+
+# AIC model comparison
+
+After fitting all of the models and assigning their names, we can calculate the Akaike information criterion ('AIC') score for each model using the `AIC()` function. However, this function requires that all model names are listed within the function call, which would required a lot of typing and room for error if done manually. Instead, we'll let R do the heavy lifting here with just a few lines of code.
+
+The first step is to paste tick marks around the model names, since the names include special characters. We then use `str_flatten` to concatenate the model names separated by a comma. Finally, we put the entire string of model names within the `AIC()` call, resulting in one (quite large) character string for the call.
+
+```r
+aic.call = paste0("`", model.names, "`") %>%
+  str_flatten(., ", ") %>%
+  paste0("AIC(", ., ")")
+```
+
+Next, we'll use the `eval()` function to evaluate this character string as an actual function, which also requires the inclusion of `parse(text = ))`.
+
+```r
+models.aic = eval(parse(text = aic.call))
+```
+
+At this point, we have an AIC score for each model, which then be used to calculate model weights for the final model comaprison table. We can calculate model weights by using `qpcR::akaike.weights()`, and then format the results in a table as a `data.frame()`, ordered by the &DeltaAIC metric. this allows us to determine the top model as well as model significance. We also round the weights to make them more immediately recognizeable.
+
+```r
+models.weights = akaike.weights(models.aic$AIC)
+models.aictab = cbind(models.aic, models.weights)
+models.aictab = models.aictab[order(models.aictab["deltaAIC"]), ]
+models.aictab$weights = round(models.aictab$weights, 4)
 ```
