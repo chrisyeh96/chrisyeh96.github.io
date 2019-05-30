@@ -13,7 +13,32 @@
   text-align: center !important;
 }
 
-a, a:link, a:visited, a:hover, a:active {
+/* a, a:link, a:visited, a:hover, a:active {
+  text-decoration: none !important;
+  color: #71b2c9;
+} */
+
+a {
+  text-decoration: none !important;
+  color: #71b2c9;
+}
+
+a:link {
+  text-decoration: none !important;
+  color: #71b2c9;
+}
+
+a:visited {
+  text-decoration: none !important;
+  color: ##003b5c;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: ##003b5c;
+}
+
+a:active {
   text-decoration: none !important;
   color: #71b2c9;
 }
