@@ -89,9 +89,10 @@ for (i in 1:length(count[, 1])) {
   }
 }
 
-print(model.formulas[[1:3]])
+print(model.formulas[1])
 ```
-And here we see the resulting, two-stage models:
+Printing the first item in the list results in the appropriately-formatted model formula of the global model, while `model.formulas[2:256]` contains all of the nested models.
+
 ```r
     [[1]]
     [[1]][[1]]
@@ -100,24 +101,6 @@ And here we see the resulting, two-stage models:
 
     [[1]][[2]]
     ~effortDays + effortHours + s(yr, k = 11) + s(lat, long)
-
-
-    [[2]]
-    [[2]][[1]]
-    maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
-        long)
-
-    [[2]][[2]]
-    ~dummy + effortHours + s(yr, k = 11) + s(lat, long)
-
-
-    [[3]]
-    [[3]][[1]]
-    maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
-        long)
-
-    [[3]][[2]]
-    ~effortDays + dummy + s(yr, k = 11) + s(lat, long)
 ```
 
 
