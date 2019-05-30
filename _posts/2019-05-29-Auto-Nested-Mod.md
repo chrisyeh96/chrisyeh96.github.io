@@ -94,8 +94,7 @@ Printing the first item in the list results in the appropriately-formatted model
 ```r
     [[1]]
     [[1]][[1]]
-    maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, 
-        long)
+    maxFlock ~ effortDays + effortHours + s(yr, k = 11) + s(lat, long)
 
     [[1]][[2]]
     ~effortDays + effortHours + s(yr, k = 11) + s(lat, long)
