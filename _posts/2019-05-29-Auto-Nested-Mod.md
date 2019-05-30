@@ -48,7 +48,7 @@ detect = expand.grid(
 
 ### Converting to model formulas
 
-This next part is a little less straightforward. In the first line, we create a`list` vector with 256 blank elements, which is the total number of models (1 global + 255 nested). This is because there are 4 paramters with two option (variant vs invariant) in each of the 2 steps, so: 2<sup>4</sup> * 2<sup>4</sup> = 256. The model formulas need to be saved in a list form as this is what the `mgcv::gam()` function expects. 
+This next part is a little less straightforward. In the first line, we create a`list` vector with 256 blank elements, which is the total number of models (1 global + 255 nested). This is because there are 4 paramters with two option (variant vs invariant) in each of the 2 steps, so: $$2<sup>4</sup> * 2<sup>4</sup> = 256$$. The model formulas need to be saved in a list form as this is what the `mgcv::gam()` function expects. 
 
 We set `k = 1` as the initial position for iteration through the nested loops. We then loop through both stages of the forumla, unlisting each row from the `data.frame` and converting it to a `character` vector. During this process, the selected parameters are concatenated with a `+` symbol as expected by the `mgcv::gam()` function. The final model uses `~` in concatenating both stages from the `i` and `j` loops, and again using `~` after specifiying the predictor (here, `maxFlock`).
 
