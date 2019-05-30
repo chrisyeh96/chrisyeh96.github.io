@@ -164,3 +164,40 @@ head(model.names, 3)
     [1] "N(DHYL)Phi(D.YL)"
 
 ```
+
+
+### Running all models in parallel
+
+
+The first step of this process is to setup and register the core cluster so we can run multiple models simultaneously. Here we use `detectCores()` to get the number of cores we have, and then we subtract one from the number in order for the machine to work on other tasks (and make sure R/RStudio doesn't crash). Note that we've chosen the `doParallel` package here, which includes the `foreach()` function, which is one of the fastest and most intuitive parellelization methods in R.
+
+```r
+library(doParallel)
+cores = detectCores()
+cl = makeCluster(cores[1] - 1)
+registerDoParallel(cl)
+```
+
+Next, using `doParallel::foreach()`, we loop through all of the model names and formulas and fit our GAM model in the `mgcv` package. Finally, after running these models, `stopCluster` unassigns our core cluster allowing all cores to be used as normal. Forgetting to do this can cause glitches later. If you're using a Mac OS machine, you can exlude `.packages = c("mgcv")`, which is required on a Windows machine.
+
+```r
+model.fits = foreach(i = 1:256, .packages = c("mgcv")) %dopar% {
+  assign(model.names[[i]],
+         gam(
+           formula = model.formulas[[i]],
+           family = ziplss,
+           gamma = 1.4,
+           data = df
+         ))
+}
+stopCluster(cl)
+```
+
+We can then assign the model names to the model formulas, which helps us more immediately understand the output from the model averaging process that comes next.
+
+```r
+for (i in 1:256) {
+  assign(model.names[[i]],
+         model.fits[[i]])
+}
+```
