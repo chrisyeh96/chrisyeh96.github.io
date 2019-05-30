@@ -18,7 +18,7 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 .cardinal-red {
-  color: #8C1515 !important; /* Cardinal Red */
+  color: #881c1c !important; /* Cardinal Red */
 }
 
 img {
@@ -43,7 +43,7 @@ img {
 
 .header-page {
   background-color: #159957; /* VAR: $header-bg-color */
-  background-image: linear-gradient(120deg, #155799, #159957); /* VARS: $header-bg-color, $header-bg-color-secondar */
+  background-image: linear-gradient(120deg, #881c1c, #76881d); /* VARS: $header-bg-color, $header-bg-color-secondar */
   padding: 1.25em 0; /* padding for top and bottom only */
 }
 
