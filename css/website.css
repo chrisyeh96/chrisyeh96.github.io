@@ -13,11 +13,6 @@
   text-align: center !important;
 }
 
-/*a, a:link, a:visited, a:hover, a:active {
-  text-decoration: none !important;
-  color: #71b2c9;
-}*/
-
 a, a:link {
   color: #71b2c9;
   text-decoration: none !important;
@@ -64,9 +59,13 @@ a.nav-link:active {
   color: gray;
 }
 
-#nav li {
-  display: inline;
-  <font>padding-right: 10px;</font>
+nav { 
+  float:right;
+  font-size: 1.125em;
+  margin-right: 5%;
+  text-align:right;
+  width:45%;
+
 }
 
 /*******************
