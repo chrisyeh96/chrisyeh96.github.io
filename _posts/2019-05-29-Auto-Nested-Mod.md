@@ -230,6 +230,37 @@ head(model.names, 3)
 
 <br>
 
+### Viewing the models
+
+Before moving forward with the rest of this tutorial, let's take a moment to print all of the models, giving us an idea of what we're working with.
+
+```r
+data.frame(models=(unlist(model.names)))
+```
+```
+               models
+1  N(x2,x3)Phi(x0,x1)
+2   N(x2,x3)Phi(.,x1)
+3   N(x2,x3)Phi(x0,.)
+4    N(x2,x3)Phi(.,.)
+5   N(.,x3)Phi(x0,x1)
+6    N(.,x3)Phi(.,x1)
+7    N(.,x3)Phi(x0,.)
+8     N(.,x3)Phi(.,.)
+9   N(x2,.)Phi(x0,x1)
+10   N(x2,.)Phi(.,x1)
+11   N(x2,.)Phi(x0,.)
+12    N(x2,.)Phi(.,.)
+13   N(.,.)Phi(x0,x1)
+14    N(.,.)Phi(.,x1)
+15    N(.,.)Phi(x0,.)
+16     N(.,.)Phi(.,.)
+```
+
+We see the 16 models, with the global model in the first row, and the fully-invariant model in the last (16th) row. It's good to view all of these models as a quick check to make sure we're on the right track.
+
+<br>
+
 ### Running all models in parallel
 
 The first step of this process is to set up and register the core cluster so we can run multiple models simultaneously. Here we use `detectCores()` to get the number of cores we have on our machine, and we subtract one in order for the machine to work on other tasks (and to make sure R/RStudio doesn't crash). Note that we have chosen the `doParallel` package here, which includes the `foreach()` function -- one of the fastest and most intuitive parallelization methods in R.
