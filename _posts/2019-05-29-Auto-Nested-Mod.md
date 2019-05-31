@@ -368,6 +368,8 @@ In this example, one of the nested models performs significantly better than the
 <br>
 <br>
 
+### <a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">SOURCE CODE</a>
+
 ### References
 
 * Akaike, H. Information Theory and an Extension of the Maximum Likelihood Principle. in Proceedings of the Second International Symposium on Information Theory 199–213 (1998).
