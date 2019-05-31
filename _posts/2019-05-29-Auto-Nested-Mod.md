@@ -370,12 +370,12 @@ In this example, one of the nested models performs significantly better than the
 
 ### References
 
-* Akaike, H. Information Theory and an Extension of the Maximum Likelihood Principle. in Proceedings of the Second International Symposium on Information Theory 199–213 (1998).
+1. Akaike, H. Information Theory and an Extension of the Maximum Likelihood Principle. in Proceedings of the Second International Symposium on Information Theory 199–213 (1998).
 
-* Coelho, M. T. P., Diniz‐Filho, J. A. & Rangel, T. F. A parsimonious view of the parsimony principle in ecology and evolution. Ecography (Cop.). 42, 968–976 (2019).
+2. Coelho, M. T. P., Diniz‐Filho, J. A. & Rangel, T. F. A parsimonious view of the parsimony principle in ecology and evolution. Ecography (Cop.). 42, 968–976 (2019).
  
-* Robinson, O. J. et al. Using citizen science data in integrated population models to inform conservation. Biol. Conserv. 227, 361–368 (2018).
+3. Robinson, O. J. et al. Using citizen science data in integrated population models to inform conservation. Biol. Conserv. 227, 361–368 (2018).
 
-* Stoica, P. & Söderström, T. On the parsimony principle. Int. J. Control 36, 409–418 (1982).
+4. Stoica, P. & Söderström, T. On the parsimony principle. Int. J. Control 36, 409–418 (1982).
 
-* Wood, S. N., Pya, N. & Säfken, B. Smoothing Parameter and Model Selection for General Smooth Models. J. Am. Stat. Assoc. 111, 1548–1563 (2016).
+5. Wood, S. N., Pya, N. & Säfken, B. Smoothing Parameter and Model Selection for General Smooth Models. J. Am. Stat. Assoc. 111, 1548–1563 (2016).
