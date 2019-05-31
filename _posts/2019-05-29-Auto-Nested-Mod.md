@@ -5,6 +5,7 @@ published: true
 use_code: true
 ---
 
+## Summary
 <p style="text-align:center;"><i>This is a tutorial on model comparison for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
 
 <br>
@@ -22,8 +23,6 @@ This is all well and good, but the two-stage strcutre of the model formula makes
 <br>
 
 ## Methods
-
-<br>
 
 ### Borrowing simulated data for reproducibility
 
@@ -338,6 +337,8 @@ models.aictab = models.aictab[order(models.aictab["deltaAIC"]), ]
 models.aictab = round(models.aictab,2)
 ```
 
+## Results
+
 Finally, we can print the resulting model comparison table.
 
 ```r
@@ -362,6 +363,8 @@ print(models.aictab)
     `N(.,.)Phi(x0,.)`    6.13 3065.18  1345.71   0.00    0.00
     `N(.,.)Phi(.,.)`     2.00 3095.28  1375.81   0.00    0.00
 ```
+
+## Conclusion
 
 In this example, one of the nested models performs significantly better than the global model (ΔAIC > 2), although the global model still has a weight of ~22%. After this, we would be able to use these model weights for model averaging.
 
