@@ -364,7 +364,8 @@ In this example, one of the nested models performs significantly better than the
 <br>
 <br>
 
-# <a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">Source Code</a>
+# <a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">Source Code</a> {style=text-align:center}
+
 
 ### References
 
