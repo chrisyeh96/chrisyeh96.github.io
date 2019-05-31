@@ -23,7 +23,7 @@ This is all well and good, but the two-stage strcutre of the model formula makes
 
 <br>
 
-## Methods
+## <span style="color:#881c1c">Methods</span>
 ---
 ### Borrowing simulated data for reproducibility
 
