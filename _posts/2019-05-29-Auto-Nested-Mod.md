@@ -136,6 +136,8 @@ print(detect)
 
 In both stages, all covariates are fully-defined in the first row, which the following rows represent scenarios where a covariate is effectively removed. In the second row, `x2` becomes invariant, but in the third row, `x3` becomes invariant, and in the fourth row, both terms become invariant.
 
+<br>
+
 ### Converting to model formulas
 
 The next part of this code is a bit less straightforward. In the first line, we create a`list` vector with 256 blank elements, which is the total number of models we'll test (1 global + 255 nested). This is because there are 4 parameters with two options (variant vs invariant) in each of the 2 steps, so: $$2<sup>2</sup> * 2<sup>2</sup> = 16$$. The model formulas need to be saved in a list form as this is what the `mgcv::gam()` function expects. 
