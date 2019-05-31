@@ -372,7 +372,7 @@ print(models.aictab)
 ---
 In this example, one of the nested models performs significantly better than the global model (ΔAIC > 2), although the global model still has a weight of ~22%. After this, we would be able to use these model weights for model averaging.
 
-The advantage of model comparison is the ability to make inferences about the effect of individual covariates as well as to make model-averaged predictions. However, if you're only concerned with inference, the `mgcv` package includes a useful attribute in the `gam()` function to address this, which is much more efficient. By specifying `select = TRUE`, the function adds selection penalties to the smooth effects, allowing them to be effectively removed from the global model.
+The advantage of model comparison is the ability to make inferences about the effect of individual covariates as well as to make model-averaged predictions. However, if you're only concerned with inference, the `mgcv` package includes a useful attribute in the `gam()` function to address this, which is much more efficient (Huge thanks to <a href="https://www.fromthebottomoftheheap.net/about/">Dr. Gavin Simpson</a> for bringing this to my attention via <a href="https://twitter.com/gatesdupont/status/1134503530310569984">Twitter</a>). By specifying `select = TRUE`, the function adds selection penalties to the smooth effects, allowing them to be effectively removed from the global model.
 
 ```r
 testSelect = gam(list(y
