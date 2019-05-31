@@ -17,23 +17,33 @@ layout: default
 <hr>
 <div class="row justify-content-md-center">
     <div class="col-2">
-        <a href="http://gpls.cns.umass.edu/oeb">
+        <a href = "http://gpls.cns.umass.edu/oeb">
             <img src="{{ site.baseurl }}/images/collabs/UMass.png">
         </a>
       </div>
     <div class="col-2">
-        <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
+        <a href = "https://institute.sandiegozoo.org/population-sustainability">
+            <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
+        </a>
       </div>
     <div class="col-2">
-        <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+        <a href = "https://dnr.cals.cornell.edu/">
+            <img src="{{ site.baseurl }}/images/collabs/Cornell.png">
+        </a>
       </div>
     <div class="col-2">
-        <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
+        <a href = "https://www.mass.gov/orgs/division-of-fisheries-and-wildlife">
+            <img src="{{ site.baseurl }}/images/collabs/MassWildlife.png">
+        </a>
       </div>
     <div class="col-2">
-        <img src="{{ site.baseurl }}/images/collabs/CLO.png">
+        <a href = "https://www.birds.cornell.edu/home/">
+            <img src="{{ site.baseurl }}/images/collabs/CLO.png">
+        </a>
       </div>
     <div class="col-2">
-        <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
+        <a href = "https://www.massaudubon.org/our-conservation-work/wildlife-research-conservation">
+            <img src="{{ site.baseurl }}/images/collabs/MassAudubon.png">
+        </a>
       </div>
 </div>
