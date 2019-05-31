@@ -27,6 +27,9 @@ This is all well and good, but the two-stage strcutre of the model formula makes
 It's important to have reproducible data in a tutorial like this, as it allows others to have an easier time trying out the code. The model we'll be working with is fairly niche and the typical reproducible example data sets (`mtcars`, `iris`) don't quite fit. However, the developer of the `ziplss` model provided some code that allows us to simulate data for modeling. This first chunk is borrowed directly from the <a href="https://cran.r-project.org/web/packages/mgcv/mgcv.pdf" target="_blank">`mgcv` vignette</a> (Wood *et al.* 2016).
 
 ```r
+set.seed(1)
+```
+```r
 ## simulate some data...
 f0 <- function(x) 2 * sin(pi * x); f1 <- function(x) exp(2 * x)
 f2 <- function(x) 0.2 * x^11 * (10 * (1 - x))^6 + 10 * 
@@ -368,6 +371,68 @@ print(models.aictab)
 ## <span style="color:#881c1c">Discussion</span>
 ---
 In this example, one of the nested models performs significantly better than the global model (ΔAIC > 2), although the global model still has a weight of ~22%. After this, we would be able to use these model weights for model averaging.
+
+The advantage of model comparison is the ability to make inferences about the effect of individual covariates as well as to make model-averaged predictions. However, if you're only concerned with inference, the `mgcv` package includes a useful attribute in the `gam()` function to address this, which is much more efficient. By specifying `select = TRUE`, the function adds selection penalties to the smooth effects, allowing them to be effectively removed from the global model.
+
+```r
+testSelect = gam(list(y
+                      ~ s(x2) + s(x3),
+                      ~ s(x0) + s(x1)),
+                 family = ziplss(),
+                 select = T)
+```
+
+Once we fit this model, we can interpret the result of `select = T` by inspecting the effective degrees of freedom (`edf`). Smooth effects (covariates) that approach zero are effectively removed through the model through the penalizing process.
+
+```r
+summary(testSelect)
+```
+```
+Family: ziplss 
+Link function: identity identity 
+
+Formula:
+y ~ s(x2) + s(x3)
+~s(x0) + s(x1)
+
+Parametric coefficients:
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    1.14753    0.04936  23.247   <2e-16 ***
+(Intercept).1 -0.05239    0.06435  -0.814    0.416    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+             edf Ref.df  Chi.sq  p-value    
+s(x2)   7.386772      9 1077.61  < 2e-16 ***
+s(x3)   0.001149      9    0.00    0.674    
+s.1(x0) 3.566004      9   30.31 3.37e-07 ***
+s.1(x1) 0.987106      9   70.32  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Deviance explained = 61.5%
+-REML = 879.77  Scale est. = 1         n = 500
+```
+
+Here we see that `s(x3)`, in the count portion, is highly penalized as its edf approaches zero. This agrees with our model comparison table, which found that the model that treated x3 as invariant performed significantly better than the others.
+
+Comparing the AIC scores between the penalized model and this top performing model can provide further support for an agreement  between these two methods.
+
+```r 
+data.frame(AIC(testSelect, `N(x2,.)Phi(x0,x1)`)) %>%
+  mutate(model = rownames(.)) %>%
+  mutate(deltaAIC = AIC-min(AIC)) %>%
+  arrange(AIC) %>%
+  select(3,1,2,4)
+```
+```
+                model       df      AIC  deltaAIC
+1 `N(x2,.)Phi(x0,x1)` 14.94116 1719.463 0.0000000
+2          testSelect 15.05490 1719.592 0.1286585
+```
+
+We find that the two models are not significantly different from each other (ΔAIC << 2), meaning that the two methods agree on model structure and result in relatively similar models. Generally, using the penalization methods is comparable to AIC model comparison if inference is the primary goal. However, conducting the full AIC model comparison process is required to compute model-averaged predictions.
 
 <br>
 
