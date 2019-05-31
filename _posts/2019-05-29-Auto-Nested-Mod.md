@@ -320,7 +320,10 @@ Finally, we can print the resulting model comparison table
 
 In this example, one of the nested models performs significantly better than the global model (ΔAIC > 2), although the global model still has a weight of ~22%. After this, we would be able to use these model weights for model averaging.
 
-####References
+<br>
+<br>
+
+###References
 
 Wood, S.N., N. Pya and B. Saefken (2016), Smoothing parameter and model selection for general
 smooth models. Journal of the American Statistical Association 111, 1548-1575 http://dx.doi.
