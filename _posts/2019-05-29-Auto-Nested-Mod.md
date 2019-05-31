@@ -376,7 +376,7 @@ In this example, one of the nested models performs significantly better than the
 
 <br>
 
-### <span style="color:#881c1c">References</span>
+## <span style="color:#881c1c">References</span>
 ---
 1. Akaike, H. Information Theory and an Extension of the Maximum Likelihood Principle. in Proceedings of the Second International Symposium on Information Theory 199–213 (1998).
 
