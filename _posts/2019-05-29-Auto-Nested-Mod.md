@@ -78,8 +78,10 @@ df$invar = 1 # invariant term
 
 We can print the first five rows of this `data.frame` using the `head()` function, allowing us to get an idea of what it looks like.
 
-```
+```r
 > head(df, 5)
+```
+```
       y        x0        x1        x2        x3 invar
     1 4 0.2002145 0.3981236 0.4662433 0.5097162     1
     2 0 0.6852186 0.1971769 0.3769562 0.9663678     1
