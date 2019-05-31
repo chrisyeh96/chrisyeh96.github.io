@@ -11,7 +11,7 @@ use_code: true
 
 <br>
 
-## Introduction
+## <span style="color:#881c1c">Introduction</span>
 ---
 Statistical models are widely used in ecology to improve our understanding of ecological dynamics and processes. At their foundation, these models quantify the relationships between a response variable and a suite of explanatory covariates. These covariates can be observational or environmental, described in linear or non-linear fashion, depending on the modeling approach. However, determining which covariates to include in a model can be a bit tricky. One of the most commonly accepted methods to determine a model formula is through AIC model comparison and averaging of nested models within a global model. A global model is one that is fully-defined with the inclusion of all considered covariates, while nested models include only a subset of those covariates. Although a global model includes more information, nested models sometimes perform better, as predicted by the principle of parsimony. Also known as Occam's Razor, this principle states that the simplest explanation is often correct, supporting the case for a more parsimonious model (Stoica & Söderström 1982, and for a recent discussion on this topic, see: Coelho *et al.* 2019). This necessitates the model comparison process, as otherwsie we would always build and select a model with the greatest number of covariates.
 
@@ -338,7 +338,7 @@ models.aictab = models.aictab[order(models.aictab["deltaAIC"]), ]
 models.aictab = round(models.aictab,2)
 ```
 
-## Results
+## <span style="color:#881c1c">Results</span>
 ---
 Finally, we can print the resulting model comparison table.
 
@@ -365,7 +365,7 @@ print(models.aictab)
     `N(.,.)Phi(.,.)`     2.00 3095.28  1375.81   0.00    0.00
 ```
 
-## Discussion
+## <span style="color:#881c1c">Discussion</span>
 ---
 In this example, one of the nested models performs significantly better than the global model (ΔAIC > 2), although the global model still has a weight of ~22%. After this, we would be able to use these model weights for model averaging.
 
