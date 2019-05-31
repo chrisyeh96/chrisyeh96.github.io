@@ -79,7 +79,7 @@ df$invar = 1 # invariant term
 We can print the first five rows of this `data.frame` using the `head()` function, allowing us to get an idea of what it looks like.
 
 ```r
-> head(df, 5)
+head(df, 5)
 ```
 ```
       y        x0        x1        x2        x3 invar
@@ -112,7 +112,7 @@ detect = expand.grid(
 This gives us the following output:
 
 ```r
-> print(count)
+print(count)
 ```
 ```
       count_x2 count_x3
@@ -122,7 +122,7 @@ This gives us the following output:
     4    invar    invar
 ```
 ```r
-> print(detect)
+print(detect)
 ```
 ```
       detect_x0 detect_x1
@@ -281,7 +281,7 @@ aic.call = paste0("`", model.names, "`") %>%
 Again, this call ends up being quite large, and we can see that it would have been tedious to type manually.
 
 ```r
-> print(aic.call)
+print(aic.call)
 ```
 ```
 [1] "AIC(`N(x2,x3)Phi(x0,x1)`, `N(x2,x3)Phi(.,x1)`, `N(x2,x3)Phi(x0,.)`, `N(x2,x3)Phi(.,.)`, `N(.,x3)Phi(x0,x1)`, `N(.,x3)Phi(.,x1)`, `N(.,x3)Phi(x0,.)`, `N(.,x3)Phi(.,.)`, `N(x2,.)Phi(x0,x1)`, `N(x2,.)Phi(.,x1)`, `N(x2,.)Phi(x0,.)`, `N(x2,.)Phi(.,.)`, `N(.,.)Phi(x0,x1)`, `N(.,.)Phi(.,x1)`, `N(.,.)Phi(x0,.)`, `N(.,.)Phi(.,.)`)"
@@ -305,7 +305,7 @@ models.aictab = round(models.aictab,2)
 Finally, we can print the resulting model comparison table
 
 ```r
-> print(models.aictab)
+print(models.aictab)
 ```
 ```
                            df     AIC deltaAIC rel.LL weights
