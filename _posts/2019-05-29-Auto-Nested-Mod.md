@@ -85,7 +85,7 @@ We can print the first five rows of this `data.frame` using the `head()` functio
 ```r
 head(df, 5)
 ```
-```
+```txt
       y        x0        x1        x2        x3 invar
     1 4 0.2002145 0.3981236 0.4662433 0.5097162     1
     2 0 0.6852186 0.1971769 0.3769562 0.9663678     1
@@ -118,7 +118,7 @@ This gives us the following output:
 ```r
 print(count)
 ```
-```
+```txt
       count_x2 count_x3
     1    s(x2)    s(x3)
     2    invar    s(x3)
@@ -128,7 +128,7 @@ print(count)
 ```r
 print(detect)
 ```
-```
+```txt
       detect_x0 detect_x1
     1     s(x0)     s(x1)
     2     invar     s(x1)
@@ -173,7 +173,7 @@ Printing the first item in the list results in the appropriately-formatted model
 ```r
 print(model.formulas[[1]])
 ```
-```
+```txt
     [[1]]
     y ~ s(x2) + s(x3)
 
@@ -221,7 +221,7 @@ And again, we can see the results below, where the first model name represents t
 ```r
 head(model.names, 3)
 ```
-```
+```txt
     [[1]]
     [1] "N(x2,x3)Phi(x0,x1)"
 
@@ -241,24 +241,24 @@ Before moving forward with the rest of this tutorial, let's take a moment to pri
 ```r
 data.frame(models=(unlist(model.names)))
 ```
-```
-               models
-1  N(x2,x3)Phi(x0,x1)
-2   N(x2,x3)Phi(.,x1)
-3   N(x2,x3)Phi(x0,.)
-4    N(x2,x3)Phi(.,.)
-5   N(.,x3)Phi(x0,x1)
-6    N(.,x3)Phi(.,x1)
-7    N(.,x3)Phi(x0,.)
-8     N(.,x3)Phi(.,.)
-9   N(x2,.)Phi(x0,x1)
-10   N(x2,.)Phi(.,x1)
-11   N(x2,.)Phi(x0,.)
-12    N(x2,.)Phi(.,.)
-13   N(.,.)Phi(x0,x1)
-14    N(.,.)Phi(.,x1)
-15    N(.,.)Phi(x0,.)
-16     N(.,.)Phi(.,.)
+```txt
+                   models
+    1  N(x2,x3)Phi(x0,x1)
+    2   N(x2,x3)Phi(.,x1)
+    3   N(x2,x3)Phi(x0,.)
+    4    N(x2,x3)Phi(.,.)
+    5   N(.,x3)Phi(x0,x1)
+    6    N(.,x3)Phi(.,x1)
+    7    N(.,x3)Phi(x0,.)
+    8     N(.,x3)Phi(.,.)
+    9   N(x2,.)Phi(x0,x1)
+    10   N(x2,.)Phi(.,x1)
+    11   N(x2,.)Phi(x0,.)
+    12    N(x2,.)Phi(.,.)
+    13   N(.,.)Phi(x0,x1)
+    14    N(.,.)Phi(.,x1)
+    15    N(.,.)Phi(x0,.)
+    16     N(.,.)Phi(.,.)
 ```
 
 We see the 16 models, with the global model in the first row, and the fully-invariant model in the last (16<sup>th</sup>) row. It's good to view all of these models as a quick check to make sure we're on the right track.
@@ -319,7 +319,7 @@ Again, this call ends up being quite large, and we can see that it would have be
 ```r
 print(aic.call)
 ```
-```
+```txt
 [1] "AIC(`N(x2,x3)Phi(x0,x1)`, `N(x2,x3)Phi(.,x1)`, `N(x2,x3)Phi(x0,.)`, `N(x2,x3)Phi(.,.)`, `N(.,x3)Phi(x0,x1)`, `N(.,x3)Phi(.,x1)`, `N(.,x3)Phi(x0,.)`, `N(.,x3)Phi(.,.)`, `N(x2,.)Phi(x0,x1)`, `N(x2,.)Phi(.,x1)`, `N(x2,.)Phi(x0,.)`, `N(x2,.)Phi(.,.)`, `N(.,.)Phi(x0,x1)`, `N(.,.)Phi(.,x1)`, `N(.,.)Phi(x0,.)`, `N(.,.)Phi(.,.)`)"
 ```
 
@@ -346,7 +346,7 @@ Finally, we can print the resulting model comparison table.
 ```r
 print(models.aictab)
 ```
-```
+```txt
                            df     AIC deltaAIC rel.LL weights
     `N(x2,.)Phi(x0,x1)` 14.94 1719.46     0.00   1.00    0.78
     N(x2,x3)Phi(x0,x1)  16.24 1722.00     2.54   0.28    0.22
@@ -365,6 +365,8 @@ print(models.aictab)
     `N(.,.)Phi(x0,.)`    6.13 3065.18  1345.71   0.00    0.00
     `N(.,.)Phi(.,.)`     2.00 3095.28  1375.81   0.00    0.00
 ```
+
+The top-performing model is listed here in the first row as `N(x2,.)Phi(x0,x1)`. This model is fully-specified except for the removal of the x3 term in the count portion of the GAM. This slightly more parsimonious model is significantly better than the global model, represented in the second row (ΔAIC > 2).
 
 <br>
 
