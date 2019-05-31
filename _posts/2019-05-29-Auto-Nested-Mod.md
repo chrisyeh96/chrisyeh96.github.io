@@ -271,6 +271,14 @@ aic.call = paste0("`", model.names, "`") %>%
   paste0("AIC(", ., ")")
 ```
 
+Again, this call ends up being quite large, and we can see that it would have been tedious to type manually.
+
+```r
+> print(aic.call)
+
+[1] "AIC(`N(x2,x3)Phi(x0,x1)`, `N(x2,x3)Phi(.,x1)`, `N(x2,x3)Phi(x0,.)`, `N(x2,x3)Phi(.,.)`, `N(.,x3)Phi(x0,x1)`, `N(.,x3)Phi(.,x1)`, `N(.,x3)Phi(x0,.)`, `N(.,x3)Phi(.,.)`, `N(x2,.)Phi(x0,x1)`, `N(x2,.)Phi(.,x1)`, `N(x2,.)Phi(x0,.)`, `N(x2,.)Phi(.,.)`, `N(.,.)Phi(x0,x1)`, `N(.,.)Phi(.,x1)`, `N(.,.)Phi(x0,.)`, `N(.,.)Phi(.,.)`)"
+```
+
 Next, we'll use the `eval()` function to evaluate this character string as an actual line of R code, which also requires the use of `parse(text = ))` due to an R technicality.
 
 ```r
