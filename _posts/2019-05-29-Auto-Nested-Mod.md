@@ -426,7 +426,7 @@ data.frame(AIC(testSelect, `N(x2,.)Phi(x0,x1)`)) %>%
   arrange(AIC) %>%
   select(3,1,2,4)
 ```
-```
+```txt
                 model       df      AIC  deltaAIC
 1 `N(x2,.)Phi(x0,x1)` 14.94116 1719.463 0.0000000
 2          testSelect 15.05490 1719.592 0.1286585
