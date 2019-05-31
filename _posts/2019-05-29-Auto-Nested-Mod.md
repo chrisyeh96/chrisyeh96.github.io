@@ -5,7 +5,7 @@ published: true
 use_code: true
 ---
 
-## <span style="color:#881c1c">Summary</span>
+## <b><span style="color:#881c1c">Summary</span></b>
 ---
 <i>This is a tutorial on model comparison for ziplss GAMs after automatically generating all nested models and running them in parallel.</i>
 
@@ -376,7 +376,7 @@ In this example, one of the nested models performs significantly better than the
 
 <br>
 
-### References
+### <span style="color:#881c1c">References</span>
 ---
 1. Akaike, H. Information Theory and an Extension of the Maximum Likelihood Principle. in Proceedings of the Second International Symposium on Information Theory 199–213 (1998).
 
