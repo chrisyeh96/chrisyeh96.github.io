@@ -389,7 +389,7 @@ Once we fit this model, we can interpret the result of `select = T` by inspectin
 ```r
 summary(testSelect)
 ```
-```
+```txt
 Family: ziplss 
 Link function: identity identity 
 
