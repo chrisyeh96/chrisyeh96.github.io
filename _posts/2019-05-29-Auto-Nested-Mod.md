@@ -257,7 +257,7 @@ data.frame(models=(unlist(model.names)))
 16     N(.,.)Phi(.,.)
 ```
 
-We see the 16 models, with the global model in the first row, and the fully-invariant model in the last (16th) row. It's good to view all of these models as a quick check to make sure we're on the right track.
+We see the 16 models, with the global model in the first row, and the fully-invariant model in the last (16<sup>th</sup>) row. It's good to view all of these models as a quick check to make sure we're on the right track.
 
 <br>
 
