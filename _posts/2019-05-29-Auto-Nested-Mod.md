@@ -226,7 +226,6 @@ head(model.names, 3)
 
     [[3]]
     [1] "N(x2,x3)Phi(x0,.)"
-
 ```
 
 <br>
