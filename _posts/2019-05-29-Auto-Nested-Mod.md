@@ -5,7 +5,7 @@ published: true
 use_code: true
 ---
 
-<p style="text-align:center;"><i>This is a reproducible-example tutorial on model comparison for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
+<p style="text-align:center;"><i>This is a tutorial on model comparison for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
 
 <br>
 
@@ -23,7 +23,7 @@ This is all well and good, but the two-stage strcutre of the model formula makes
 
 ### Borrowing simulated data from `mgcv` vignette
 
-It's important to have reproducible data in a tutorial like this, as it allows others to have an easier time trying out the code. The model we'll be working with is fairly niche and the typical reproducible example data sets (`mtcars`, `iris`) don't quite fit. However, the developer of the `ziplss` model provided some code that allows us to simulate data for modeling. This first chunk is borrowed directly from the `mgcv` vignette.
+It's important to have reproducible data in a tutorial like this, as it allows others to have an easier time trying out the code. The model we'll be working with is fairly niche and the typical reproducible example data sets (`mtcars`, `iris`) don't quite fit. However, the developer of the `ziplss` model provided some code that allows us to simulate data for modeling. This first chunk is borrowed directly from the <a href="https://cran.r-project.org/web/packages/mgcv/mgcv.pdf" target="_blank">`mgcv` vignette</a>.
 
 ```r
 ## simulate some data...
