@@ -3,6 +3,8 @@
 # By Gates Dupont                                                 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+set.seed(1)
+
 "Borrowed from mgcv vignette"
 
 ## simulate some data...
@@ -27,7 +29,8 @@ y[ind] <- rpois(exp(eta2),exp(eta2))
 b <- mgcv::gam(list(y
                     ~ s(x2) + s(x3),
                     ~ s(x0) + s(x1)),
-               family = ziplss())
+               family = ziplss()
+               )
 
 "End borrowed code"
 
@@ -150,3 +153,17 @@ models.aictab = cbind(models.aic, models.weights)
 models.aictab = models.aictab[order(models.aictab["deltaAIC"]), ]
 models.aictab = round(models.aictab, 2)
 View(models.aictab)
+
+#----select = T----
+testSelect = gam(list(y
+                      ~ s(x2) + s(x3),
+                      ~ s(x0) + s(x1)),
+                 family = ziplss(),
+                 select = T)
+summary(testSelect)
+
+data.frame(AIC(testSelect, `N(x2,.)Phi(x0,x1)`)) %>%
+  mutate(model = rownames(.)) %>%
+  mutate(deltaAIC = AIC-min(AIC)) %>%
+  arrange(AIC) %>%
+  select(3,1,2,4)
