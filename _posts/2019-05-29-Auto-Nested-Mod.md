@@ -4,7 +4,7 @@ layout: post
 published: true
 use_code: true
 ---
-<i>This is a tutorial on model comparison for ziplss GAMs after automatically generating all nested models and running them in parallel.</i>
+<i>This is a tutorial on model comparison for ziplss GAMs by automatically generating all nested models and running them in parallel.</i>
 
 <br>
 
