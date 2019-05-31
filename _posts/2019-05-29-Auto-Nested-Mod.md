@@ -7,12 +7,12 @@ use_code: true
 
 ## Summary
 ---
-<i>This is a tutorial on model comparison for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i>
+<i>This is a tutorial on model comparison for ziplss GAMs after automatically generating all nested models and running them in parallel.</i>
 
 <br>
 
 ## Introduction
-
+---
 Statistical models are widely used in ecology to improve our understanding of ecological dynamics and processes. At their foundation, these models quantify the relationships between a response variable and a suite of explanatory covariates. These covariates can be observational or environmental, described in linear or non-linear fashion, depending on the modeling approach. However, determining which covariates to include in a model can be a bit tricky. One of the most commonly accepted methods to determine a model formula is through AIC model comparison and averaging of nested models within a global model. A global model is one that is fully-defined with the inclusion of all considered covariates, while nested models include only a subset of those covariates. Although a global model includes more information, nested models sometimes perform better, as predicted by the principle of parsimony. Also known as Occam's Razor, this principle states that the simplest explanation is often correct, supporting the case for a more parsimonious model (Stoica & Söderström 1982, and for a recent discussion on this topic, see: Coelho *et al.* 2019). This necessitates the model comparison process, as otherwsie we would always build and select a model with the greatest number of covariates.
 
 Generating a set of nested models from a global model is typically automated in popular statistical softwares, but this primarily applies to linear models. However, as many biological relationships are nonlinear, models that can more accurately describe such relations have become increasingly prominent in scientific literature. One of the most popular methods to model nonlinear relationships is with Generalized Additive Models ('GAMs'). GAMs are a powerful tool in all analytical fields and have been used to predict things from the trajectory of stock markets to changes in species distributions under climate change emissions scenarios. 
@@ -24,7 +24,7 @@ This is all well and good, but the two-stage strcutre of the model formula makes
 <br>
 
 ## Methods
-
+---
 ### Borrowing simulated data for reproducibility
 
 It's important to have reproducible data in a tutorial like this, as it allows others to have an easier time trying out the code. The model we'll be working with is fairly niche and the typical reproducible example data sets (`mtcars`, `iris`) don't quite fit. However, the developer of the `ziplss` model provided some code that allows us to simulate data for modeling. This first chunk is borrowed directly from the <a href="https://cran.r-project.org/web/packages/mgcv/mgcv.pdf" target="_blank">`mgcv` vignette</a> (Wood *et al.* 2016).
@@ -339,7 +339,7 @@ models.aictab = round(models.aictab,2)
 ```
 
 ## Results
-
+---
 Finally, we can print the resulting model comparison table.
 
 ```r
@@ -366,18 +366,18 @@ print(models.aictab)
 ```
 
 ## Conclusion
-
+---
 In this example, one of the nested models performs significantly better than the global model (ΔAIC > 2), although the global model still has a weight of ~22%. After this, we would be able to use these model weights for model averaging.
 
 <br>
 <br>
 
-### <center><a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">Source Code</a></center>
+## <center><a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">Source Code</a></center>
 
 <br>
 
 ### References
-
+---
 1. Akaike, H. Information Theory and an Extension of the Maximum Likelihood Principle. in Proceedings of the Second International Symposium on Information Theory 199–213 (1998).
 
 2. Coelho, M. T. P., Diniz‐Filho, J. A. & Rangel, T. F. A parsimonious view of the parsimony principle in ecology and evolution. Ecography (Cop.). 42, 968–976 (2019).
