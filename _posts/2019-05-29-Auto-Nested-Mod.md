@@ -15,7 +15,7 @@ Statistical models are widely used in ecology to improve our understanding of ec
 
 Generating a set of nested models from a global model is typically automated in popular statistical softwares, but this primarily applies to linear models. However, as many biological relationships are nonlinear, models that can more accurately describe such relations have become increasingly prominent in scientific literature. One of the most popular methods to model nonlinear relationships is with Generalized Additive Models ('GAMs'). GAMs are a powerful tool in all analytical fields and have been used to predict things from the trajectory of stock markets to changes in species distributions under climate change emissions scenarios. 
 
-Personally, my experience with GAMs is from my undergraduated thesis on avian populations and West Nile virus, where I used a GAM to constrcut a spatiotemporal model of count data from Project FeederWatch. It was a special type of model, known as a Zero Inflated Poisson Location-Scale Model ('ziplss'), as developed by the highly-regarded Dr. Simon Wood. This is a hierarchical model, separated into two stages: the first stage models the probability of presence, while the second stage models the average abundance given presence. From a biological perspective, it allows us to ask: 1) is a species present? and 2) if so, how many of them are there?
+Personally, my experience with GAMs is from my undergraduated thesis on avian populations and West Nile virus, where I used a GAM to constrcut a spatiotemporal model of count data from Project FeederWatch. It was a special type of model, known as a Zero Inflated Poisson Location-Scale Model ('ziplss' or 'ZIP(LSS)'), as developed by the highly-regarded Dr. Simon Wood. This is a hierarchical model, separated into two stages: the first stage models the probability of presence, while the second stage models the average abundance given presence. From a biological perspective, it allows us to ask: 1) is an individual detected? and 2) if so, how many of them are there? (Robinson et al. 2018, Appendix 2)
 
 This is all well and good, but the two-stage strcutre of the model formula makes it far more difficult to generate and test all nested models. However, this is a necessary part of the process, especially as step-wise model selection (which works in the other direction) has become less accepted. I've written this tutorial on how to go about this process for the ziplss GAM, hoping it's useful to others in the field. Additionally, I'll include the model comparison process, which makes use of parallel computing to speed up the process. This is increasingly useful as more explanatory variables are included, as fitting GAMs is computationally intensive, and therefore, time-consuming. In this case, parallelizing the process allows for each core in a cluster to run a model, so that multiple models can be run simultaneously across all assigned cores. On my computer, I have 16 cores, 15 of which I add to a cluster, allowing me to run 15 GAMs simultaneously, which greatly reduces the run-time of the program.
 
@@ -272,7 +272,7 @@ cl = makeCluster(cores[1] - 1)
 registerDoParallel(cl)
 ```
 
-Next, using `doParallel::foreach()`, we loop through all of the model names and formulas and fit our GAM model in the `mgcv` package. After running these models, `stopCluster` unassigns our core cluster allowing all cores to be used as normal. Forgetting to do this can cause glitches later. If you're using a Mac OS machine, you can exclude `.packages = c("mgcv")`, which is required on a Windows machine. Although we're using parallel computing to expedite the process, we can still expect that this will still take a considerable amount of time with large datasets, especially as more covariates are included in the model.
+Next, using `doParallel::foreach()`, we loop through all of the model names and formulas and fit our GAM model in the `mgcv` package. After running these models, `stopCluster()` unassigns our core cluster allowing all cores to be used as normal. Forgetting to do this can cause glitches later. If you're using a Mac OS machine, you can exclude `.packages = c("mgcv")`, which is required on a Windows machine. Although we're using parallel computing to expedite the process, we can still expect that this will still take a considerable amount of time with large datasets, especially as more covariates are included in the model.
 
 ```r
 model.fits = foreach(i = 1:16, .packages = c("mgcv")) %dopar% {
@@ -300,7 +300,7 @@ for (i in 1:16) {
 
 ### AIC model comparison
 
-After fitting all of the models, we can calculate the Akaike information criterion ('AIC') score for each model using the `AIC()` function. However, this function requires that all model names are listed within the function call, which, if done manually, would require a lot of typing and more room for error. Instead, we'll let R do the heavy lifting here with just a few lines of code.
+After fitting all of the models, we can calculate the Akaike information criterion ('AIC', Akaike 1998) score for each model using the `AIC()` function. However, this function requires that all model names are listed within the function call, which, if done manually, would require a lot of typing and more room for error. Instead, we'll let R do the heavy lifting here with just a few lines of code.
 
 The first step is to paste tick marks around the model names since the names include special characters. We then use `str_flatten` to concatenate the model names separated by a comma. Finally, we put the entire string of model names within the `AIC()` call, resulting in one (quite large) character string for the call.
 
@@ -365,5 +365,9 @@ In this example, one of the nested models performs significantly better than the
 <br>
 
 ### References
+
+* Akaike, H. Information Theory and an Extension of the Maximum Likelihood Principle. in Proceedings of the Second International Symposium on Information Theory 199–213 (1998).
  
-* Wood, S.N., N. Pya and B. Saefken (2016), Smoothing parameter and model selection for general smooth models. Journal of the American Statistical Association 111, 1548-1575 <a href="http://dx.doi.org/10.1080/01621459.2016.1180986">http://dx.doi.org/10.1080/01621459.2016.1180986</a>
+* Robinson, O. J. et al. Using citizen science data in integrated population models to inform conservation. Biol. Conserv. 227, 361–368 (2018).
+
+* Wood, S. N., Pya, N. & Säfken, B. Smoothing Parameter and Model Selection for General Smooth Models. J. Am. Stat. Assoc. 111, 1548–1563 (2016).
