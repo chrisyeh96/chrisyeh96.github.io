@@ -303,7 +303,7 @@ models.aictab = models.aictab[order(models.aictab["deltaAIC"]), ]
 models.aictab = round(models.aictab,2)
 ```
 
-Finally, we can print the resulting model comparison table
+Finally, we can print the resulting model comparison table.
 
 ```r
 print(models.aictab)
