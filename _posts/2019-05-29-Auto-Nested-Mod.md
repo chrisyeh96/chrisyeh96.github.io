@@ -134,7 +134,7 @@ print(detect)
 
 <br>
 
-In both stages, all covariates are fully-defined in the first row, which the following rows represent scenarios where a covariate is effectively removed. In the second row, `x2` becomes invariant, but in the third row, `x3` becomes invariant, and in the fourth row, both terms become invariant.
+In both stages, all covariates are fully-defined in the first row, which the following rows represent scenarios where a covariate is effectively removed. Looking at the count stage, we see that in the second row, `x2` becomes invariant, but in the third row, `x3` becomes invariant, and in the fourth row, both terms become invariant.
 
 <br>
 
