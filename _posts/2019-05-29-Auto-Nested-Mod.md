@@ -4,9 +4,6 @@ layout: post
 published: true
 use_code: true
 ---
-
-## <span style="color:#881c1c">Summary</span>
----
 <i>This is a tutorial on model comparison for ziplss GAMs after automatically generating all nested models and running them in parallel.</i>
 
 <br>
