@@ -5,7 +5,7 @@ published: true
 use_code: true
 ---
 
-<p style="text-align:center;"><i>This is a tutorial on model comparison for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
+<p style="text-align:center;"><i>This is a tutorial on model comparison for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.<br><a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">Source Code</a></i></p>
 
 <br>
 
