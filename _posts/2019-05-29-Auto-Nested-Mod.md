@@ -334,6 +334,7 @@ models.aictab = cbind(models.aic, models.weights)
 models.aictab = models.aictab[order(models.aictab["deltaAIC"]), ]
 models.aictab = round(models.aictab,2)
 ```
+<br>
 
 ## <span style="color:#881c1c">Results</span>
 ---
@@ -361,6 +362,8 @@ print(models.aictab)
     `N(.,.)Phi(x0,.)`    6.13 3065.18  1345.71   0.00    0.00
     `N(.,.)Phi(.,.)`     2.00 3095.28  1375.81   0.00    0.00
 ```
+
+<br>
 
 ## <span style="color:#881c1c">Discussion</span>
 ---
