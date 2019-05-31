@@ -6,20 +6,7 @@ use_code: true
 ---
 
 <p style="text-align:center;"><i>This is a tutorial on model comparison for ziplss GAMs after automatically <br> generating all nested models and running them in parallel.</i></p>
-
-<br>
-
-<p style="text-align:center;"><button type="input"><b><a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">Source Code!!</a></b></button></p>
-
-
-<p style="text-align:center;">
-  <li class="list-inline-item">
-    <a class="btn btn-secondary" href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R" target="_blank">
-      <i class="fab fa-github"></i> Source Code
-    </a>
-  </li>
-</p>
-
+<p style="text-align:center;"><button type="button"><b><a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">SOURCE CODE</a></b></button></p>
 
 <br>
 
