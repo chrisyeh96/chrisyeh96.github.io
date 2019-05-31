@@ -113,15 +113,18 @@ This gives us the following output:
 
 ```r
 > print(count)
-
+```
+```
       count_x2 count_x3
     1    s(x2)    s(x3)
     2    invar    s(x3)
     3    s(x2)    invar
     4    invar    invar
-
+```
+```r
 > print(detect)
-
+```
+```
       detect_x0 detect_x1
     1     s(x0)     s(x1)
     2     invar     s(x1)
@@ -163,7 +166,8 @@ Printing the first item in the list results in the appropriately-formatted model
 
 ```r
 print(model.formulas[[1]])
-
+```
+```
     [[1]]
     y ~ s(x2) + s(x3)
 
@@ -210,7 +214,8 @@ And again, we can see the results below, where the first model name represents t
 
 ```r
 head(model.names, 3)
-
+```
+```
     [[1]]
     [1] "N(x2,x3)Phi(x0,x1)"
 
@@ -277,7 +282,8 @@ Again, this call ends up being quite large, and we can see that it would have be
 
 ```r
 > print(aic.call)
-
+```
+```
 [1] "AIC(`N(x2,x3)Phi(x0,x1)`, `N(x2,x3)Phi(.,x1)`, `N(x2,x3)Phi(x0,.)`, `N(x2,x3)Phi(.,.)`, `N(.,x3)Phi(x0,x1)`, `N(.,x3)Phi(.,x1)`, `N(.,x3)Phi(x0,.)`, `N(.,x3)Phi(.,.)`, `N(x2,.)Phi(x0,x1)`, `N(x2,.)Phi(.,x1)`, `N(x2,.)Phi(x0,.)`, `N(x2,.)Phi(.,.)`, `N(.,.)Phi(x0,x1)`, `N(.,.)Phi(.,x1)`, `N(.,.)Phi(x0,.)`, `N(.,.)Phi(.,.)`)"
 ```
 
@@ -300,7 +306,8 @@ Finally, we can print the resulting model comparison table
 
 ```r
 > print(models.aictab)
-
+```
+```
                            df     AIC deltaAIC rel.LL weights
     `N(x2,.)Phi(x0,x1)` 14.94 1719.46     0.00   1.00    0.78
     N(x2,x3)Phi(x0,x1)  16.24 1722.00     2.54   0.28    0.22
