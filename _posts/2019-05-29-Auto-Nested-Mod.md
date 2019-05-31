@@ -450,4 +450,4 @@ We find that the two models are not significantly different from each other (ΔA
 
 <br>
 
-## <center><a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R" target="_blank">Source Code</a></center>
+## <center><a href="https://github.com/GatesDupont/gatesdupont.github.io/blob/master/post-source-code/ReproAutoNested.R" target="_blank">Source Code</a></center>
