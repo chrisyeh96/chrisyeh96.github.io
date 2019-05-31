@@ -17,7 +17,9 @@ layout: default
 <hr>
 <div class="row justify-content-md-center">
     <div class="col-2">
-        <a href="http://gpls.cns.umass.edu/oeb"><img src="{{ site.baseurl }}/images/collabs/UMass.png">
+        <a href="http://gpls.cns.umass.edu/oeb">
+            <img src="{{ site.baseurl }}/images/collabs/UMass.png">
+        </a>
       </div>
     <div class="col-2">
         <img src="{{ site.baseurl }}/images/collabs/SDZ.png">
