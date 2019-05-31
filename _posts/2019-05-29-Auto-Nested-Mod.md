@@ -12,11 +12,13 @@ use_code: true
 <p style="text-align:center;"><button type="button"><b><a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">Source Code</a></b></button></p>
 
 
-<li class="list-inline-item">
-  <a class="btn btn-secondary" href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R" target="_blank">
-    <i class="fab fa-github"></i> Source Code
-  </a>
-</li>
+<p style="text-align:center;">
+  <li class="list-inline-item">
+    <a class="btn btn-secondary" href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R" target="_blank">
+      <i class="fab fa-github"></i> Source Code
+    </a>
+  </li>
+</p>
 
 
 <br>
