@@ -233,7 +233,7 @@ cl = makeCluster(cores[1] - 1)
 registerDoParallel(cl)
 ```
 
-Next, using `doParallel::foreach()`, we loop through all of the model names and formulas and fit our GAM model in the `mgcv` package. After running these models, `stopCluster` unassigns our core cluster allowing all cores to be used as normal. Forgetting to do this can cause glitches later. If you're using a Mac OS machine, you can exclude `.packages = c("mgcv")`, which is required on a Windows machine. Although we're using parallel computing to expedite the process, we can still expect that this will still take a considerable amount of time, especially as more covariates are included in the model.
+Next, using `doParallel::foreach()`, we loop through all of the model names and formulas and fit our GAM model in the `mgcv` package. After running these models, `stopCluster` unassigns our core cluster allowing all cores to be used as normal. Forgetting to do this can cause glitches later. If you're using a Mac OS machine, you can exclude `.packages = c("mgcv")`, which is required on a Windows machine. Although we're using parallel computing to expedite the process, we can still expect that this will still take a considerable amount of time with large datasets, especially as more covariates are included in the model.
 
 ```r
 model.fits = foreach(i = 1:16, .packages = c("mgcv")) %dopar% {
@@ -318,4 +318,4 @@ Finally, we can print the resulting model comparison table
     `N(.,.)Phi(.,.)`     2.00 3095.28  1375.81   0.00    0.00
 ```
 
-In this example, one of the nested models performs significantly better than the global model (ΔAIC > 2), although the global model still has a weight of ~22.76%. After this, we would be able to use these model weights for model averaging.
+In this example, one of the nested models performs significantly better than the global model (ΔAIC > 2), although the global model still has a weight of ~22%. After this, we would be able to use these model weights for model averaging.
