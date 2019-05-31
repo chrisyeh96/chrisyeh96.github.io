@@ -370,11 +370,6 @@ print(models.aictab)
 In this example, one of the nested models performs significantly better than the global model (ΔAIC > 2), although the global model still has a weight of ~22%. After this, we would be able to use these model weights for model averaging.
 
 <br>
-<br>
-
-## <center><a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">Source Code</a></center>
-
-<br>
 
 ## <span style="color:#881c1c">References</span>
 ---
@@ -383,6 +378,11 @@ In this example, one of the nested models performs significantly better than the
 2. Coelho, M. T. P., Diniz‐Filho, J. A. & Rangel, T. F. A parsimonious view of the parsimony principle in ecology and evolution. Ecography (Cop.). 42, 968–976 (2019).
  
 3. Robinson, O. J. et al. Using citizen science data in integrated population models to inform conservation. Biol. Conserv. 227, 361–368 (2018).
+
+<br>
+<br>
+
+## <center><a href="{{ site.baseurl }}/post-source-code/ReproAutoNested.R">Source Code</a></center>
 
 4. Stoica, P. & Söderström, T. On the parsimony principle. Int. J. Control 36, 409–418 (1982).
 
