@@ -381,6 +381,7 @@ testSelect = gam(list(y
                       ~ s(x2) + s(x3),
                       ~ s(x0) + s(x1)),
                  family = ziplss(),
+                 gamma = 1.4,
                  select = T)
 ```
 
@@ -399,22 +400,22 @@ y ~ s(x2) + s(x3)
 
 Parametric coefficients:
               Estimate Std. Error z value Pr(>|z|)    
-(Intercept)    1.14753    0.04936  23.247   <2e-16 ***
-(Intercept).1 -0.05239    0.06435  -0.814    0.416    
+(Intercept)    1.14782    0.04947  23.205   <2e-16 ***
+(Intercept).1 -0.05015    0.06411  -0.782    0.434    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Approximate significance of smooth terms:
-             edf Ref.df  Chi.sq  p-value    
-s(x2)   7.386772      9 1077.61  < 2e-16 ***
-s(x3)   0.001149      9    0.00    0.674    
-s.1(x0) 3.566004      9   30.31 3.37e-07 ***
-s.1(x1) 0.987106      9   70.32  < 2e-16 ***
+              edf Ref.df  Chi.sq  p-value    
+s(x2)   7.1981202      9 1075.34  < 2e-16 ***
+s(x3)   0.0002672      9    0.00    0.667    
+s.1(x0) 3.1043704      9   28.27 5.52e-07 ***
+s.1(x1) 0.9809639      9   70.34  < 2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Deviance explained = 61.5%
--REML = 879.77  Scale est. = 1         n = 500
+Deviance explained = 61.4%
+-REML = 636.54  Scale est. = 1         n = 500
 ```
 
 Here we see that `s(x3)`, in the count portion, is highly penalized as its edf approaches zero. This agrees with our model comparison table, which found that the model that treated x3 as invariant performed significantly better than the others.
@@ -429,12 +430,12 @@ data.frame(AIC(testSelect, `N(x2,.)Phi(x0,x1)`)) %>%
   select(3,1,2,4)
 ```
 ```txt
-                model       df      AIC  deltaAIC
-1 `N(x2,.)Phi(x0,x1)` 14.94116 1719.463 0.0000000
-2          testSelect 15.05490 1719.592 0.1286585
+                model       df      AIC deltaAIC
+1 `N(x2,.)Phi(x0,x1)` 14.94116 1719.463 0.000000
+2          testSelect 14.71669 1720.730 1.267047
 ```
 
-We find that the two models are not significantly different from each other (ΔAIC << 2), meaning that the two methods agree on model structure and result in relatively similar models. Generally, using the penalization methods is comparable to AIC model comparison if inference is the primary goal. However, conducting the full AIC model comparison process is required to compute model-averaged predictions.
+We find that the two models are not significantly different from each other (ΔAIC < 2), meaning that the two methods agree on model structure and result in relatively similar models. Generally, using the penalization methods is comparable to AIC model comparison if inference is the primary goal. However, conducting the full AIC model comparison process is required to compute model-averaged predictions.
 
 <br>
 
