@@ -159,6 +159,7 @@ testSelect = gam(list(y
                       ~ s(x2) + s(x3),
                       ~ s(x0) + s(x1)),
                  family = ziplss(),
+                 gamma = 1.4,
                  select = T)
 summary(testSelect)
 
