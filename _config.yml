@@ -4,6 +4,13 @@ description: Stanford University, Class of 2018
 
 highlighter: rouge
 
+# By default, the navbar creates a link for every "page" containing a `title`
+# attribute, so long as the title does not include "404". Override the
+# default links by defining a `site.header_paths` array:
+# header_paths:
+# - about.md
+# - projects.md
+
 ##### BUILD SETTINGS #####
 # incremental: true
 
