@@ -6,6 +6,13 @@ highlighter: rouge
 ##### BUILD SETTINGS #####
 # incremental: true
 
+# By default, the navbar creates a link for every "page" containing a `title`
+# attribute, so long as the title does not include "404". Override the
+# default links by defining a `site.header_paths` array:
+# header_paths:
+# - about.md
+# - projects.md
+
 # strip all unncessary whitespace and comments
 # http://jch.penibelst.de/
 compress_html:
