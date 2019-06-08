@@ -239,7 +239,7 @@ head(model.names, 3)
 Before moving forward with the rest of this tutorial, let's take a moment to print all of the models, giving us an idea of what we're working with.
 
 ```r
-data.frame(models=(unlist(model.names)))
+data.frame(models=unlist(model.names))
 ```
 ```txt
                    models
