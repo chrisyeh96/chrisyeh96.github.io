@@ -224,9 +224,24 @@ blockquote > :last-child {
   margin-bottom: 0;
 }
 
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  background-color: lightgray;
+  padding: 0.2rem 0.5rem;
+}
+summary {
+  font-style: italic;
+}
+details[open] > summary {
+  padding-bottom: .5em;
+}
+
 table {
   display: block;
   width: 100%;
+  margin-bottom: 1rem;  /* to match paragraphs */
   overflow: auto;
   word-break: normal;
   word-break: keep-all;
