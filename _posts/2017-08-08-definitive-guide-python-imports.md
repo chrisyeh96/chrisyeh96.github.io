@@ -205,7 +205,7 @@ Let `X` be whatever name comes after `import`.
 
 Optionally, `as Y` can be added after any `import X` statement: `import X as Y`. This renames `X` to `Y` within the script. Note that the name `X` itself is no longer valid. A common example is `import numpy as np`.
 
-The argument to the `import` function can be a single name, or a list of multiple names. Each of these names can be optionally renamed via `as`. For example, this is would be a valid import statement in `start.py`: `import packA as pA, packA.a1, packA.subA.sa1 as sa1`
+The argument to the `import` function can be a single name, or a list of multiple names. Each of these names can be optionally renamed via `as`. For example, this would be a valid import statement in `start.py`: `import packA as pA, packA.a1, packA.subA.sa1 as sa1`
 
 Example: `start.py` needs to import the `helloWorld()` function in `sa1.py`
 - Solution 1: `from packA.subA.sa1 import helloWorld`

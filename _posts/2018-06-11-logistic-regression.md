@@ -171,7 +171,7 @@ The difference between the 2 different TensorFlow functions is that the `tf.loss
 
 ## Multinomial Logistic Regression (via Cross-Entropy)
 
-The multi-class setting is similar to the binary case, except the label $$y$$ is now an integer in $$1, \dots, C$$ where $$C$$ is the number of classes. As before, we use a score function. However, now we calculate scores for all classes, instead for just the positive class.
+The multi-class setting is similar to the binary case, except the label $$y$$ is now an integer in $$\{1, \dots, C\}$$ where $$C$$ is the number of classes. As before, we use a score function. However, now we calculate scores for all classes, instead for just the positive class.
 
 **Model**: For an example $$x$$, the class **scores** are given by vector $$z = Wx + b$$, where $$W$$ is a $$C \times M$$ matrix and $$b$$ is a length $$C$$ vector of biases. If we just want to predict the class label $$y$$, then we just choose the class with the highest score: $$\hat{y} = \arg\max_i z_i$$.
 
