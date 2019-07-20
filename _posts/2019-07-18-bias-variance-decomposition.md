@@ -740,11 +740,10 @@ The expected value of the 3rd term (with respect to $$x$$) is 0.
 $$
 \begin{aligned}
 &\E_x\left[ \left( f(x) - w_\star^T x \right)\left( w_\star^T x - \wh^T x \right) \right] \\
-&= \E_x[ f(x) w_\star^T x ] - \E_x[ (w_\star^T x)^2 ] - \E_x \left[ \wh^T x (f(x) - w_\star^T x) \right] \\
-&= \left( \E_x[ f(x) x^T ] - w_\star^T \E_x[x x^T] \right) w_\star - \wh^T \E_x \left[ x f(x) - x x^T w_\star \right] \\
-&= \left( \E_x[ f(x) x^T ] - \E_x[f(x) x^T] \E_x[x x^T]^{-1} \E_x[x x^T] \right) w_\star - \wh^T \left( \E_x[x f(x)] - \E_x[x x^T] \E_x[x x^T]^{-1} \E_x[x f(x)] \right) \\
-&= \left( \E_x[ f(x) x^T ] - \E_x[f(x) x^T] \right) w_\star - \wh^T \left( \E_x[x f(x)] - \E_x[x f(x)] \right) \\
-&= 0 - 0 = 0
+&= \E_x\left[ ( f(x) - w_\star^T x) x^T (w_\star - \wh) \right] \\
+&= \left( \E_x\left[ f(x) x^T \right] - \E_x\left[ w_\star^T x x^T \right] \right) (w_\star - \wh) \\
+&= \left( \E_x\left[ f(x) x^T \right] - \E_x\left[ f(x) x^T \right] \E_x\left[ x x^T \right]^{-1} \E_x\left[ x x^T \right] \right) (w_\star - \wh) \\
+&= 0
 \end{aligned}
 $$
 
