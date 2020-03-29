@@ -278,8 +278,8 @@ We also show that the variance of the ridge regression estimator is strictly les
   <tr>
     <td rowspan="2">OLS</td>
     <td>Bias</td>
-    <td style="background-color: beige;">0</td>
-    <td style="background-color: beige;">$$\E_\bfX[ \wh_{\bfX, f} ] - w_\star$$</td>
+    <td markdown="span" style="background-color: beige;">0</td>
+    <td markdown="span" style="background-color: beige;">$$\E_\bfX[ \wh_{\bfX, f} ] - w_\star$$</td>
     <td>0</td>
     <td>0</td>
   </tr>
@@ -293,10 +293,10 @@ We also show that the variance of the ridge regression estimator is strictly les
   <tr>
     <td rowspan="2">Ridge Regression</td>
     <td>Bias</td>
-    <td style="background-color: beige;">$$\bfZ_{\bfX, \alpha} \bfX w_\star - w_\star$$</td>
-    <td style="background-color: beige;">$$\E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star - w_\star$$</td>
-    <td>$$\wh_{\bfX, f, \alpha} - w$$</td>
-    <td>$$\E_\bfX\left[ \wh_{\bfX, f, \alpha} \right] - w$$</td>
+    <td markdown="span" style="background-color: beige;">$$\bfZ_{\bfX, \alpha} \bfX w_\star - w_\star$$</td>
+    <td markdown="span" style="background-color: beige;">$$\E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star - w_\star$$</td>
+    <td markdown="span">$$\wh_{\bfX, f, \alpha} - w$$</td>
+    <td markdown="span">$$\E_\bfX\left[ \wh_{\bfX, f, \alpha} \right] - w$$</td>
   </tr>
   <tr>
     <td>Variance</td>
@@ -690,10 +690,10 @@ As before, we separately consider the cases where the true $$f$$ is an arbitrary
   <tr>
     <td rowspan="2">Ridge Regression</td>
     <td>Bias</td>
-    <td>$$\bfZ_{\bfX, \alpha} \bfX w_\star^T x - w_\star^T x$$</td>
-    <td>$$\E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star^T x - w_\star^T x$$</td>
-    <td>$$\wh_{\bfX, f, \alpha}^T x - w^T x$$</td>
-    <td>$$\E_\bfX\left[ \wh_{\bfX, f, \alpha} \right]^T x - w^T x$$</td>
+    <td markdown="span">$$\bfZ_{\bfX, \alpha} \bfX w_\star^T x - w_\star^T x$$</td>
+    <td markdown="span">$$\E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star^T x - w_\star^T x$$</td>
+    <td markdown="span">$$\wh_{\bfX, f, \alpha}^T x - w^T x$$</td>
+    <td markdown="span">$$\E_\bfX\left[ \wh_{\bfX, f, \alpha} \right]^T x - w^T x$$</td>
   </tr>
   <tr>
     <td>Variance</td>
