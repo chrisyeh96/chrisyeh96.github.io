@@ -92,33 +92,33 @@ For a given $$x$$, if $$p(y=1) \geq 0.5$$, then we predict $$\hat{y}=1$$. Otherw
 In the equation above, if we solve for the score $$z$$, we see that we can interpret the score as the log-odds of $$y=1$$ (a.k.a. the **logits**).
 
 $$
-\begin{equation*}
+\begin{gather*}
     p(y=1) = \sigma(z) = \frac{1}{1 + e^{-z}} \\
     1 + e^{-z} = \frac{1}{p(y=1)} \\
     e^{-z} = \frac{1}{p(y=1)} - 1 = \frac{1 - p(y=1)}{p(y=1)} \\
     e^z = \frac{p(y=1)}{1 - p(y=1)} \\
-    z = \log \frac{p(y=1)}{1 - p(y=1)} \\
-\end{equation*}
+    z = \log \frac{p(y=1)}{1 - p(y=1)}
+\end{gather*}
 $$
 
 **Loss function**: For a single example $$x$$ with score $$z$$ and label $$y$$, the logistic loss function is
 
 $$
 \begin{align*}
-\text{loss}
-&= -y\log(\sigma(z)) - (1-y)\log(1 - \sigma(z)) \\
-&= \begin{cases}
+  \text{loss}
+  &= -y\log(\sigma(z)) - (1-y)\log(1 - \sigma(z)) \\
+  &= \begin{cases}
     -\log(1 - \sigma(z)) & y = 0 \\
     -\log(\sigma(z))     & y = 1
-   \end{cases} \\
-&= \begin{cases}
-    -\log(\frac{e^{-z}}{1 + e^{-z}}) & y = 0 \\
+    \end{cases} \\
+  &= \begin{cases}
+    -\log\left( \frac{e^{-z}}{1 + e^{-z}} \right) & y = 0 \\
     \log(1 + e^{-z})                 & y = 1
-   \end{cases} \\
-&= \begin{cases}
+    \end{cases} \\
+  &= \begin{cases}
     \log(1 + e^z)    & y = 0 \\
     \log(1 + e^{-z}) & y = 1
-   \end{cases} \\
+    \end{cases}
 \end{align*}
 $$
 
@@ -126,13 +126,15 @@ In the 2nd line of the equation above, it is clear that in the probabilistic int
 
 $$
 \begin{align*}
-  p(y|x; w,b) &=
-    \begin{cases}
-    \sigma(z),     & y=1 \\
-    1 - \sigma(z), & y=0
-    \end{cases}
-    = \sigma(z)^y (1-\sigma(z))^{(1-y)} \\
-  \log p(y|x; w,b) &= y \log \sigma(z) + (1-y) \log (1-\sigma(z))
+  p(y|x; w,b)
+  &= \begin{cases}
+    1 - \sigma(z) & y=0 \\
+    \sigma(z)     & y=1
+    \end{cases} \\
+  &= \sigma(z)^y (1-\sigma(z))^{(1-y)}
+  \\
+  \log p(y|x; w,b)
+  &= y \log \sigma(z) + (1-y) \log (1-\sigma(z))
 \end{align*}
 $$
 
@@ -202,8 +204,8 @@ $$
 \begin{align*}
   \hat{y}_c
   &= \frac{e^{(W_c + v) \cdot x + (b_c + d)}}{\sum_i e^{(W_i + v) \cdot x + (b_i + d)}} \\
-  & = \frac{e^{W_c \cdot x + b_c} e^{v \cdot x + d}}{\sum_i e^{W_i \cdot x + b_i} e^{v \cdot x + d}} \\
-  & = \frac{e^{W_c \cdot x + b_c}}{\sum_i e^{W_i \cdot x + b_i}}
+  &= \frac{e^{W_c \cdot x + b_c} e^{v \cdot x + d}}{\sum_i e^{W_i \cdot x + b_i} e^{v \cdot x + d}} \\
+  &= \frac{e^{W_c \cdot x + b_c}}{\sum_i e^{W_i \cdot x + b_i}}
 \end{align*}
 $$
 
@@ -255,7 +257,7 @@ $$
   &= \begin{cases}
     -\log(1 - \sigma(z)) & y = 0 \\
     -\log(\sigma(z))     & y = 1
-   \end{cases} \\
+    \end{cases}
 \end{align*}
 $$
 
