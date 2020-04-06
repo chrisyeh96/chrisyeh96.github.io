@@ -63,9 +63,9 @@ According to Python documentation, here is how an `import` statement searches fo
 > After initialization, Python programs can modify `sys.path`. The directory containing the script being run is placed at the beginning of the search path, ahead of the standard library path. This means that scripts in that directory will be loaded instead of modules of the same name in the library directory.
 > *Source: Python [2](https://docs.python.org/2/tutorial/modules.html#the-module-search-path) and [3](https://docs.python.org/3/tutorial/modules.html#the-module-search-path)*
 
-Technically, Python's documentation is incomplete. The interpreter will not only look for a *file* (i.e. module) named `spam.py`, it will also look for a *folder* (i.e. package) named `spam`.
+Technically, Python's documentation is incomplete. The interpreter will not only look for a *file* (i.e., module) named `spam.py`, it will also look for a *folder* (i.e., package) named `spam`.
 
-Note that the Python interpreter first searches through the list of *built-in modules*, modules that are compiled directly into the Python interpreter. This list of built-in modules is installation-dependent and can be found in `sys.builtin_module_names` (Python [2](https://docs.python.org/2/library/sys.html#sys.builtin_module_names) and [3](https://docs.python.org/3/library/sys.html#sys.builtin_module_names)). Some built-in modules that are commonly included are `sys` (always included), `math`, `itertools`, and `time`, among others.
+Note that the Python interpreter first searches through the list of *built-in modules*, modules that are compiled directly into the Python interpreter. This list of built-in modules is installation-dependent and can be found in `sys.builtin_module_names` (Python [2](https://docs.python.org/2/library/sys.html#sys.builtin_module_names) and [3](https://docs.python.org/3/library/sys.html#sys.builtin_module_names)). Some modules that are commonly built-in include `sys`, `math`, `itertools`, and `time`, among others. See the [appendix](#appendix-list-of-always-built-in-modules) below for a list of always-included built-in modules.
 
 Unlike built-in modules which are first in the search path, the rest of the modules in Python's standard library (not built-ins) come after the directory of the current script. This leads to confusing behavior: it is possible to "replace" some but not all modules in Python's standard library. For example, on my computer (Windows 10, Python 3.6), the `math` module is a built-in module, whereas the `random` module is not. Thus, `import math` in `start.py` will import the `math` module from the standard library, NOT my own `math.py` file in the same directory. However, `import random` in `start.py` will import my `random.py` file, NOT the `random` module from the standard library.
 
@@ -107,15 +107,14 @@ The documentation for Python's command line interface adds the following about r
 > *Source: Python [2](https://docs.python.org/2/using/cmdline.html) and [3](https://docs.python.org/3/using/cmdline.html)*
 
 Let's recap the order in which Python searches for modules to import:
-1. modules in the Python Standard Library (e.g. `math`, `os`)
+1. built-in modules from the Python Standard Library (e.g. `sys`, `math`)
 2. modules or packages in a directory specified by `sys.path`:
-    1. If the Python interpreter is run interactively:
-        - `sys.path[0]` is the empty string `''`. This tells Python to search the current working directory from which you launched the interpreter, i.e. the output of `pwd` on Unix systems.
+    1. If the Python interpreter is run interactively, `sys.path[0]` is the empty string `''`. This tells Python to search the current working directory from which you launched the interpreter, i.e., the output of `pwd` on Unix systems.
 
-       If we run a script with `python <script>.py`:
-       - `sys.path[0]` is the path to `<script>.py`
+       If we run a script with `python <script>.py`, `sys.path[0]` is the path to `<script>.py`.
+
     2. directories in the `PYTHONPATH` environment variable
-    3. default `sys.path` locations
+    3. default `sys.path` locations, including remaining Python Standard Library modules which are not built-in
 
 Note that **when running a Python script, `sys.path` doesn't care what your current "working directory" is. It only cares about the path to the script**. For example, if my shell is currently at the `test/` folder and I run `python ./packA/subA/subA1.py`, then `sys.path` includes `test/packA/subA/` but NOT `test/`.
 
@@ -320,11 +319,11 @@ For completeness sake, I also tried using relative imports: `from .subA import s
 
 **Solutions (Workarounds)**: I am unaware of a clean solution to this problem. Here are some workarounds:
 
-1. Use absolute imports rooted at the `test/` directory (i.e. middle column in the table above). This guarantees that running `start.py` directly will always work. In order to run `a2.py` directly, run it as an imported module instead of as a script:
+1. Use absolute imports rooted at the `test/` directory (i.e., middle column in the table above). This guarantees that running `start.py` directly will always work. In order to run `a2.py` directly, run it as an imported module instead of as a script:
     1. change directories to `test/` in the console
     2. `python -m packA.a2`
 
-2. Use absolute imports rooted at the `test/` directory (i.e. middle column in the table above). This guarantees that running `start.py` directly will always work. In order to run `a2.py` directly, we can modify `sys.path` in `a2.py` to include `test/packA/`, before `sa2` is imported.
+2. Use absolute imports rooted at the `test/` directory (i.e., middle column in the table above). This guarantees that running `start.py` directly will always work. In order to run `a2.py` directly, we can modify `sys.path` in `a2.py` to include `test/packA/`, before `sa2` is imported.
     ```python
     import os, sys
     sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -335,7 +334,7 @@ For completeness sake, I also tried using relative imports: `from .subA import s
 
     NOTE: This method usually works. However, under some Python installations, the `__file__` variable might not be correct. In this case, we would need to use the Python built-in `inspect` package. See [this StackOverflow answer](https://stackoverflow.com/a/11158224) for instructions.
 
-3. Only use Python 2, and use implicit relative imports (i.e. the right column in the table above)
+3. Only use Python 2, and use implicit relative imports (i.e., the right column in the table above)
 
 4. Use absolute imports rooted at the `test/` directory, and add `test/` to the `PYTHONPATH` environment variable.
     - This solution is not portable, so I recommend against it.
@@ -373,6 +372,17 @@ Sources:
 - [Python 2 modules documentation](https://docs.python.org/2/tutorial/modules.html#intra-package-references)
 - [Python 3 modules documentation](https://docs.python.org/3/tutorial/modules.html#intra-package-references)
 - [What's New in Python 3.0](https://docs.python.org/3.0/whatsnew/3.0.html)
+
+
+## Appendix: List of Always Built-in Modules
+
+Back in Python 1.5, the [documentation](https://docs.python.org/release/1.5/lib/lib.html) explicitly labeled each package as either "Built-in" or "Standard." However, documentation for Python 2 and 3 are less explicit. Here, I aim to track modules that are always built-in (i.e., compiled) into the Python interpreter.
+
+- `__builtin__`: Python [2](https://docs.python.org/2/reference/simple_stmts.html#the-exec-statement) only
+- `builtins`: Python [3](https://docs.python.org/3/library/functions.html#eval) only
+- `math`: Python [2](https://docs.python.org/2.7/reference/datamodel.html#the-standard-type-hierarchy) and [3](https://docs.python.org/3/reference/datamodel.html#the-standard-type-hierarchy)
+- `pwd`: only on Unix systems, Python [2](https://docs.python.org/2.7/library/os.path.html#os.path.expanduser) and [3](https://docs.python.org/3/library/os.path.html#os.path.expanduser)
+- `sys`: Python [2](https://docs.python.org/2/reference/simple_stmts.html#the-print-statement)
 
 
 ## Miscellaneous topics and readings not covered here, but worth exploring
