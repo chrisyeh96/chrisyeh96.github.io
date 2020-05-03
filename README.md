@@ -1,17 +1,8 @@
 # chrisyeh
-Personal website
 
-Live websites at [https://chrisyeh96.github.io/](https://chrisyeh96.github.io/) and [https://stanford.edu/~chrisyeh](https://stanford.edu/~chrisyeh).
+**Build locally**: `jekyll build [options]`
+**Serve locally**: `jekyll serve [options]`
 
-**Build Locally**
-
-- GitHub Pages: `jekyll build`
-- Stanford: `jekyll build --baseurl /~chrisyeh`
-
-**Run Locally**
-
-`jekyll serve --baseurl /~chrisyeh`
-
-Add `--drafts` to show drafts as the latest posts.
-
-We need the `baseurl` parameter for Stanford because the live website is not at the root domain. However, we don't include `baseurl` in the `_config.yml` file so that [https://chrisyeh96.github.io/](https://chrisyeh96.github.io/) also works.
+Options
+- `--baseurl /~chrisyeh`: add this if hosting this site at some non-root domain (e.g., `*.com/~chrisyeh`)
+- `--drafts`: to show drafts among the latest posts
