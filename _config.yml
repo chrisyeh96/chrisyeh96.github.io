@@ -4,6 +4,8 @@ description: Stanford University, Class of 2019
 
 highlighter: rouge
 
+date_format: "%b %-d, %Y"
+
 # By default, the navbar creates a link for every "page" containing a `title`
 # attribute, so long as the title does not include "404". Override the
 # default links by defining a `site.header_paths` array:
