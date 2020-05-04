@@ -15,11 +15,6 @@ img {
 }
 
 /*******************
- * NAVBAR
- *  todo: add colors
- ******************/
-
-/*******************
  * HEADERS - DONE
  ******************/
 .header {
@@ -119,7 +114,7 @@ ul.contact {
  * GENERAL
  ******************/
 .main-content {
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Make buttons rectangular: override the Bootstrap default */
@@ -133,60 +128,41 @@ h1.section-title {
   margin: 1em 0em 0.7em;
 }
 
-code {
-  padding: 2px 4px;
+/* Code
+ * - inline code is simply <code>...</code>
+ * - code blocks are <div class="highlight"><pre class="highlight"><code>...</code></pre></div>
+ */
+
+pre, code { /* all code */
+  color: #567482;
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.9rem;
-  color: #567482;
+}
+
+/* Properties for inline code only. They are overwritten by the `pre code`
+ * selector below for code blocks. */
+code {
   background-color: #f3f6fa;
   border-radius: 0.3rem;
+  padding: 2px 4px;
 }
 
-pre {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  color: #567482;
-  word-wrap: normal;
-  background-color: #f3f6fa;
-  border: solid 1px #dce6f0;
-}
-pre > code {
-  word-break: normal;
-  white-space: pre;
-}
-
-.highlight {
-  margin-bottom: 1rem;
-}
-.highlight pre {
-  margin-bottom: 0;
-  word-break: normal;
-}
-
-.highlight pre,
-pre {
+pre { /* generic <pre> */
   padding: 0.8rem;
-  overflow: auto;
-  font-size: 0.9rem;
-  line-height: 1.45;
+  margin-bottom: 1rem;
+  border: solid 1px #dce6f0;
   border-radius: 0.3rem;
+  line-height: 1.45;
+  word-break: normal;
   -webkit-overflow-scrolling: touch;
 }
 
-pre code {
-  display: inline;
-  max-width: initial;
+pre code { /* code blocks only */
   padding: 0;
   margin: 0;
-  overflow: initial;
-  line-height: inherit;
-  word-wrap: normal;
-  background-color: transparent;
   border: 0;
-}
-pre code:before, pre code:after {
-  content: normal;
+  overflow-wrap: normal;
+  background-color: transparent;
 }
 
 blockquote {
