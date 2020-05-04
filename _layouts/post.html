@@ -13,11 +13,11 @@ layout: default
 
 {%- if page.use_toc -%}
     <div class="row">
-        <div class="col-xl-9">
+        <main class="col-xl-9">
             <h2>Contents</h2>
             {% include toc.html html=content %}
             {{ content }}
-        </div>
+        </main>
 
         <nav class="d-none d-xl-block col-xl-3 toc-nav">
             <h5 class="toc-nav-title">Contents</h5>

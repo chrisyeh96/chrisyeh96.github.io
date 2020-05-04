@@ -113,8 +113,8 @@ ul.contact {
 /*******************
  * GENERAL
  ******************/
-.main-content {
-  overflow-wrap: break-word;
+body {
+  overflow-wrap: break-word;  /* put long words on new line before trying to break them */
 }
 
 /* Make buttons rectangular: override the Bootstrap default */
@@ -137,6 +137,10 @@ pre, code { /* all code */
   color: #567482;
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.9rem;
+
+  /* do not break words */
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 /* Properties for inline code only. They are overwritten by the `pre code`
@@ -153,7 +157,6 @@ pre { /* generic <pre> */
   border: solid 1px #dce6f0;
   border-radius: 0.3rem;
   line-height: 1.45;
-  word-break: normal;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -161,7 +164,6 @@ pre code { /* code blocks only */
   padding: 0;
   margin: 0;
   border: 0;
-  overflow-wrap: normal;
   background-color: transparent;
 }
 
@@ -198,7 +200,6 @@ table {
   margin-bottom: 1rem;  /* to match paragraphs */
   overflow: auto;
   word-break: normal;
-  word-break: keep-all;
   -webkit-overflow-scrolling: touch;
 }
 table th {
