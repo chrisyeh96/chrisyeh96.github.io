@@ -1,5 +1,6 @@
 ---
 layout: default
+toc_nav_id: toc-nav
 ---
 
 <p>
@@ -19,9 +20,9 @@ layout: default
             {{ content }}
         </main>
 
-        <nav class="d-none d-xl-block col-xl-3 toc-nav">
+        <nav class="d-none d-xl-block col-xl-3 toc-nav" id="{{ layout.toc_nav_id }}">
             <h5 class="toc-nav-title">Contents</h5>
-            {% include toc.html html=content %}
+            {% include toc.html html=content class="nav" anchor_class="nav-link" %}
         </nav>
     </div>
 {%- else -%}

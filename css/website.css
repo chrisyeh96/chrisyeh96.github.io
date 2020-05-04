@@ -114,6 +114,7 @@ ul.contact {
  * GENERAL
  ******************/
 body {
+  position: relative;  /* for Scrollspy */
   overflow-wrap: break-word;  /* put long words on new line before trying to break them */
 }
 
@@ -257,15 +258,18 @@ hr {
   margin: 0;
   padding-left: 1rem;  /* indent each level by an additional 1rem */
   list-style-type: none;
+  display: block;
 }
 
 .toc-nav li a {
   display: block;
   margin-top: 0.3rem;
   color: #77757a;
+  padding: 0;
 }
 
-.toc-nav li a:hover {
+.toc-nav li a:hover,
+.toc-nav li a.active {
   color: #007bff;
   text-decoration: none;
 }

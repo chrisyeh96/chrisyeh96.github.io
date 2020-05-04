@@ -57,7 +57,11 @@ layout: compress
   {% include analytics.html %}
 </head>
 
+{%- if layout.toc_nav_id -%}
+<body data-spy="scroll" data-target="#{{ layout.toc_nav_id }}">
+{%- else -%}
 <body>
+{%- endif -%}
   {% include navbar.html %}
   {% include header.html %}
 
