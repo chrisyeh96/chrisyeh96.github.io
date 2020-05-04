@@ -259,7 +259,7 @@ We separately consider 2 cases:
 
 We also show that the variance of the ridge regression estimator is strictly less than the variance of the linear regression estimator when $$\bfX$$ are considered fixed. Furthermore, there always exists some choice of $$\alpha$$ such that the mean squared error of $$\whR$$ is less than the mean squared error of $$\wh$$.
 
-<table class="center">
+<table class="text-center">
   <tr>
     <th colspan="2"></th>
     <th colspan="2" markdown="span">arbitrary $$f(X)$$</th>
@@ -656,7 +656,7 @@ As before, we separately consider the cases where the true $$f$$ is an arbitrary
 
 ### Main Results
 
-<table class="center">
+<table class="text-center">
   <tr>
     <th colspan="2"></th>
     <th colspan="2" markdown="span">arbitrary $$f(X)$$</th>
