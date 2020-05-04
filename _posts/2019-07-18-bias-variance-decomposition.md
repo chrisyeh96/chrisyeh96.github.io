@@ -3,6 +3,7 @@ title: Bias-Variance Decomposition of Mean Squared Error
 layout: post
 use_math: true
 use_toc: true
+last_updated: 2020-05-04
 excerpt: I derive the bias-variance decomposition of mean squared error for both estimators and predictors, and I show how they are related for linear models.
 ---
 
@@ -82,13 +83,13 @@ MSE(\Th)
 $$
 
 Terminology for an estimator $$\Th$$:
-- **standard error**: $$SE(\Th) = \sqrt{\var[\Th]}$$
-- **unbiased**: $$\Bias[\Th] = 0$$
-- **efficient**: $$\var[\Th]$$ equals the Cramer-Rao lower bound $$I(T)^{-1} / N$$ where $$I(T)$$ is the Fisher Information matrix of $$T$$
-    - **_asymptotically_ efficient**: the estimator achieves this bound asymptotically as the number of samples $$N \to \infty$$
-- **consistent**: $$\Th \to T$$ in probability as $$N \to \infty$$
+- The **standard error** of $$\Th$$ is $$SE(\Th) = \sqrt{\var[\Th]}$$.
+- $$\Th$$ is **unbiased** if $$\Bias[\Th] = 0$$.
+- $$\Th$$ is **efficient** if $$\var[\Th]$$ equals the Cramer-Rao lower bound $$I(T)^{-1} / N$$ where $$I(T)$$ is the Fisher Information matrix of $$T$$.
+    - $$\Th$$ is **_asymptotically_ efficient** if it achieves this bound asymptotically as the number of samples $$N \to \infty$$.
+- $$\Th$$ is **consistent** if $$\Th \to T$$ in probability as $$N \to \infty$$.
 
-**Sources**
+*Sources*
 
 - Fan, Zhou. Lecture Notes from STATS 200 course, Stanford University. Autumn 2016. [link](https://web.stanford.edu/class/archive/stats/stats200/stats200.1172/lectures.html).
 - "What is the difference between a consistent estimator and an unbiased estimator?" *StackExchange*. [link](https://stats.stackexchange.com/a/31047).
@@ -103,7 +104,7 @@ $$
 
 is consistent and asymptotically efficient. See *Rice* 8.5.2 and 8.7.
 
-**Sources**
+*Sources*
 
 - Rice, John A. *Mathematical statistics and data analysis*. 3rd ed., Cengage Learning, 2006.
     - General statistics reference. Good discussion on maximum likelihood estimation.
@@ -174,7 +175,7 @@ $$
 
 In fact, within the family of estimators of the form $$S_k^2$$, the estimator with the lowest mean squared error is actually $$k = N+1$$. In most real-world scenarios, though, any of $$S_{N-1}$$, $$S_N$$, and $$S_{N+1}$$ works well enough for large $$N$$.
 
-**Sources**
+*Sources*
 
 - Giles, David. "Variance Estimators That Minimize MSE." *Econometrics Beat: Dave Giles' Blog*, 21 May 2013. [link](https://davegiles.blogspot.com/2013/05/variance-estimators-that-minimize-mse.html).
 - Taboga, Marco. "Normal Distribution - Maximum Likelihood Estimation." *StatLect*. [link](https://www.statlect.com/fundamentals-of-statistics/normal-distribution-maximum-likelihood).
@@ -182,13 +183,9 @@ In fact, within the family of estimators of the form $$S_k^2$$, the estimator wi
 
 ## Example: Linear Regression
 
-In the setting of parameter estimation for linear regression, the task is to estimate the coefficients $$w$$ that relate a scalar output $$Y$$ to a vector of regressors $$X$$. It is typically assumed that $$Y$$ and $$X$$ are random variables related by $$ Y = w^T W + \epsilon $$ for some noise $$\epsilon$$. However, we will take the unusual step of not necessarily assuming that the relationship between $$X$$ and $$Y$$ is truly linear, but instead that their relationship is given by $$Y = f(X) + \epsilon$$ for some arbitrary $$f$$.
+In the setting of parameter estimation for linear regression, the task is to estimate the coefficients $$w \in \R^p$$ that relate a scalar output $$Y$$ to a vector of regressors $$X \in \R^p$$. It is typically assumed that $$Y$$ and $$X$$ are random variables related by $$ Y = w^T X + \epsilon $$ for some noise $$\epsilon \in \R$$. However, we will take the unusual step of not necessarily assuming that the relationship between $$X$$ and $$Y$$ is truly linear, but instead that their relationship is given by $$Y = f(X) + \epsilon$$ for some arbitrary function $$f: \R^p \to \R$$.
 
-Concretely, consider 3 random variables $$X \in \R^p$$, $$Y \in \R$$, and $$\epsilon \in \R$$, where the relationship between them is given by
-
-$$ Y = f(X) + \epsilon $$
-
-for some function $$f: \R^p \to \R$$. Suppose that the *noise* $$\epsilon \sim \Noise$$ is independent of $$X$$ and that $$\Noise$$ is some arbitrary distribution with mean 0 and constant variance $$\sigma^2$$. One example of such a noise distribution is $$\epsilon \sim \mathcal{N}(0, \sigma^2)$$, although our following analysis does not require a Gaussian distribution.
+Suppose that the noise $$\epsilon \sim \Noise$$ is independent of $$X$$ and that $$\Noise$$ is some arbitrary distribution with mean 0 and constant variance $$\sigma^2$$. One example of such a noise distribution is $$\epsilon \sim \mathcal{N}(0, \sigma^2)$$, although our following analysis does not require a Gaussian distribution.
 
 Thus, for a given $$x$$,
 
@@ -201,7 +198,7 @@ $$
 
 Note that if $$\sigma^2 = 0$$, then $$Y$$ is deterministically related to $$X$$, i.e. $$Y = f(X)$$.
 
-We aim to estimate a regression function $$\fh$$ that approximates the true $$f$$ over some given training set of $$N$$ labeled examples $$D = \left\{ \left(x^{(i)}, y^{(i)} \right) \right\}_{i=1}^N$$ sampled from an underlying joint distribution $$P(X,Y)$$. In matrix notation, we can write $$D = (\bfX, \bfy)$$ where $$\bfX \in \R^{N \times p}$$ and $$\bfy \in \R^N$$ have the training examples arranged in rows.
+We aim to estimate a linear regression function $$\fh$$ that approximates the true $$f$$ over some given training set of $$N$$ labeled examples $$D = \left\{ \left(x^{(i)}, y^{(i)} \right) \right\}_{i=1}^N$$ sampled from an underlying joint distribution $$P(X,Y)$$. In matrix notation, we can write $$D = (\bfX, \bfy)$$ where $$\bfX \in \R^{N \times p}$$ and $$\bfy \in \R^N$$ have the training examples arranged in rows.
 
 We can factor $$P(X,Y) = P(Y \mid X) P(X)$$. We have assumed that $$P(Y \mid X)$$ has mean $$f(X)$$ and variance $$\sigma^2$$. However, we do not assume anything about the marginal distribution $$P(X)$$ of the inputs, which is arbitrary depending on the dataset.
 
@@ -307,7 +304,7 @@ We also show that the variance of the ridge regression estimator is strictly les
   </tr>
 </table>
 
-### Linear Regression Estimator for arbitrary $$f$$
+**Linear Regression Estimator for arbitrary $$f$$**
 
 <details markdown="block"><summary>Details</summary>
 
@@ -384,7 +381,7 @@ $$
 
 </details>
 
-### Linear Regression Estimator for linear $$f$$
+**Linear Regression Estimator for linear $$f$$**
 
 In this setting, we assume that $$f(x) = w^T x$$ for some true $$w$$. As a special case, if the noise is Gaussian distributed $$\epsilon \sim \mathcal{N}(0, \sigma^2)$$, then $$\wh$$ is the maximum likelihood estimator (MLE) for $$w$$, so it is consistent and asymptotically efficient.
 
@@ -422,7 +419,7 @@ so $$\var[\wh] = \sigma^2 \E_\bfX\left[ (\bfX^T \bfX)^{-1} \right]$$.
 </details>
 
 
-### Ridge Regression Estimator
+**Ridge Regression Estimator**
 
 The ridge regression estimator $$\whR$$ is a linear function of the least-squares estimator $$\wh$$.
 
@@ -559,7 +556,7 @@ Having shown that the ridge regression estimator is biased but has lower varianc
 
 As the proof for this is quite involved, we refer readers to Theorem 1.2 of *Wieringen, 2015* or Theorem 4.3 of *Hoerl and Kennard, 1970* for different proofs of this theorem.
 
-**Sources**
+*Sources*
 
 - Hoerl, Arthur E., and Robert W. Kennard. "Ridge regression: Biased estimation for nonorthogonal problems." *Technometrics* 12.1 (1970): 55-67. [link](https://www.tandfonline.com/doi/abs/10.1080/00401706.1970.10488634).
     - Proves that the MSE of ridge regression estimator is less than the MSE of the least-squares estimator for certain values of $$\alpha$$.
@@ -760,13 +757,13 @@ $$
 
 </details>
 
-**Sources**
+*Sources*
 
 - "Decomposition of average squared bias." *StackExchange*. [link](https://stats.stackexchange.com/q/201779).
 - Hastie, Trevor, et al. *The Elements of Statistical Learning*. 2nd ed., Springer, 2009. [link](https://web.stanford.edu/~hastie/Papers/ESLII.pdf).
     - Discussion leading up to equation (2.27), and Sections 7.1-7.3.
 
-### Linear Regression for Arbitrary $$f(x)$$
+**Linear Regression for Arbitrary $$f$$**
 
 Beyond deriving the values in the chart, we also prove that if the training data $$\bfX$$ are fixed, then the average in-sample variance is $$\frac{1}{N}\sum_{i=1}^N \var[\fh(x^{(i)})] = \frac{p}{N} \sigma^2$$.
 
@@ -835,7 +832,7 @@ $$
 
 </details>
 
-### Linear Regression for Linear $$f(x)$$
+**Linear Regression for Linear $$f$$**
 
 For linear $$f$$, in addition to proving the bias and variance results in the table above, we show that for large $$N$$ and assuming $$\E[X] = 0$$, the expected variance is $$\E_x[\var[\fh(x)]] = \frac{p}{N} \sigma^2$$. Then, the expected MSE is
 
@@ -887,12 +884,12 @@ $$
 
 </details>
 
-**Sources**
+*Sources*
 
 - Weatherwax, John L., and David Epstein. *A Solution Manual and Notes for: The Elements of Statistical Learning*. 2019. [link](https://waxworksmath.com/Authors/G_M/Hastie/WriteUp/Weatherwax_Epstein_Hastie_Solution_Manual.pdf).
     - Chapter 2, variance of linear regression model when actual data relationship is linear.
 
-### Ridge Regression
+**Ridge Regression**
 
 The bias and variance expressions for ridge regression come as a straightforward application of the equations (copied again below) that use the existing results for the bias and variance of the ridge regression estimators.
 
