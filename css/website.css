@@ -277,3 +277,40 @@ hr {
   background-color: #eff0f1;
   border: 0;
 }
+
+/*******************
+ * TOC
+ * - inspired by the right sidebar on https://getbootstrap.com/docs/4.4/
+ ******************/
+
+.toc-nav { /* <nav> */
+  position: sticky;
+  top: 0;
+  height: min-content;
+  max-height: 100vh;
+  overflow-y: auto;
+  border-left: 1px solid #eee;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.toc-nav-title {
+  padding-left: 1rem;
+}
+
+.toc-nav ul {
+  margin: 0;
+  padding-left: 1rem;  /* indent each level by an additional 1rem */
+  list-style-type: none;
+}
+
+.toc-nav li a {
+  display: block;
+  margin-top: 0.3rem;
+  color: #77757a;
+}
+
+.toc-nav li a:hover {
+  color: #007bff;
+  text-decoration: none;
+}

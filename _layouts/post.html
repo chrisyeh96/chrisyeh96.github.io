@@ -2,10 +2,28 @@
 layout: default
 ---
 
-{%- if page.use_toc -%}
-    <span>{{ page.excerpt | markdownify }}</span>
-    <h2>Table of Contents</h2>
-    {% include toc.html html=content %}
+<p>
+<em>Posted: {{ page.date | date: site.date_format }}.</em>
+{%- if page.last_updated -%}
+     <em class="ml-3">Last updated: {{ page.last_updated | date: site.date_format }}.</em>
 {%- endif -%}
+</p>
 
-{{ content }}
+{{ page.excerpt | markdownify }}
+
+{%- if page.use_toc -%}
+    <div class="row">
+        <div class="col-xl-9">
+            <h2>Contents</h2>
+            {% include toc.html html=content %}
+            {{ content }}
+        </div>
+
+        <nav class="d-none d-xl-block col-xl-3 toc-nav">
+            <h5 class="toc-nav-title">Contents</h5>
+            {% include toc.html html=content %}
+        </nav>
+    </div>
+{%- else -%}
+    {{ content }}
+{%- endif -%}
