@@ -3,6 +3,7 @@ title: The Definitive Guide to Python import Statements
 layout: post
 use_code: true
 use_toc: true
+last_updated: 2020-05-04
 excerpt: I've almost never been able to write correct Python `import` statements on the first go. Behavior is inconsistent between Python 2.7 and Python 3.6 (the two versions that I test here), and there is no single method for guaranteeing that imports will always work. This post is my dive into how to resolve common importing problems. Unless otherwise stated, all examples here work with both Python 2.7 and 3.6.
 ---
 
@@ -253,23 +254,23 @@ The Python documentation says the following about Python 3's handling of relativ
 
 For example, suppose we are running `start.py` which imports `a1` which in turn imports `other`, `a2`, and `sa1`. Then the import statements in `a1.py` would look as follows:
 - absolute imports:
-    ```python
-    import other
-    import packA.a2
-    import packA.subA.sa1
-    ```
+  ```python
+  import other
+  import packA.a2
+  import packA.subA.sa1
+  ```
 - explicit relative imports:
-    ```python
-    import other
-    from . import a2
-    from .subA import sa1
-    ```
+  ```python
+  import other
+  from . import a2
+  from .subA import sa1
+  ```
 - implicit relative imports (NOT SUPPORTED IN PYTHON 3):
-    ```python
-    import other
-    import a2
-    import subA.sa1
-    ```
+  ```python
+  import other
+  import a2
+  import subA.sa1
+  ```
 
 Note that for relative imports, the dots `.` can go up only up to (but not including) the directory containing the script run from the command line. Thus, `from .. import other` is invalid in `a1.py`. Doing so results in the error `ValueError: attempted relative import beyond top-level package`.
 
