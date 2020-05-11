@@ -3,7 +3,7 @@ title: The Definitive Guide to Python import Statements
 layout: post
 use_code: true
 use_toc: true
-last_updated: 2020-05-04
+last_updated: 2020-05-11
 excerpt: I've almost never been able to write correct Python `import` statements on the first go. Behavior is inconsistent between Python 2.7 and Python 3.6 (the two versions that I test here), and there is no single method for guaranteeing that imports will always work. This post is my dive into how to resolve common importing problems. Unless otherwise stated, all examples here work with both Python 2.7 and 3.6.
 ---
 
@@ -324,7 +324,7 @@ For completeness sake, I also tried using relative imports: `from .subA import s
     1. change directories to `test/` in the console
     2. `python -m packA.a2`
 
-2. Use absolute imports rooted at the `test/` directory (i.e., middle column in the table above). This guarantees that running `start.py` directly will always work. In order to run `a2.py` directly, we can modify `sys.path` in `a2.py` to include `test/packA/`, before `sa2` is imported.
+2. Use absolute imports rooted at the `test/` directory (i.e., middle column in the table above). This guarantees that running `start.py` directly will always work. In order to run `a2.py` directly, we can modify `sys.path` in `a2.py` to include `test/`, before `sa2` is imported.
     ```python
     import os, sys
     sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -335,7 +335,7 @@ For completeness sake, I also tried using relative imports: `from .subA import s
 
     NOTE: This method usually works. However, under some Python installations, the `__file__` variable might not be correct. In this case, we would need to use the Python built-in `inspect` package. See [this StackOverflow answer](https://stackoverflow.com/a/11158224) for instructions.
 
-3. Only use Python 2, and use implicit relative imports (i.e., the right column in the table above)
+3. Only use Python 2, and use implicit relative imports (i.e., the right column in the table above).
 
 4. Use absolute imports rooted at the `test/` directory, and add `test/` to the `PYTHONPATH` environment variable.
     - This solution is not portable, so I recommend against it.
