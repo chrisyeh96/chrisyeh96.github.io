@@ -16,6 +16,9 @@ date_format: "%b %-d, %Y"
 ##### BUILD SETTINGS #####
 # incremental: true
 
+exclude:
+  - env.yml         # conda environment file
+
 # strip all unncessary whitespace and comments
 # http://jch.penibelst.de/
 compress_html:

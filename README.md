@@ -1,3 +1,15 @@
+# Install Jekyll
+
+Assuming conda is installed, use the following commands to install Jekyll and the `github-pages` gem:
+
+```bash
+conda env create -f env.yml
+conda activate gh-pages
+```
+
+Note that conda-forge may not have the most up-to-date version of the `github-pages` gem, but it should work fine.
+
+
 # Build
 
 **Build locally**: `jekyll build [options]`
