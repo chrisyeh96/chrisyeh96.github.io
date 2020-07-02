@@ -60,10 +60,25 @@ layout: compress
     </script>
   {%- endif -%}
 
+  {% if page.use_toc %}
+  <script>
+    function toggleNav() {
+      var nav_toc = document.getElementById("{{ layout.toc_nav_id }}");
+      var main = document.getElementById("main");
+      var show_sidebar_button = document.getElementById("show-sidebar");
+
+      nav_toc.classList.toggle("d-xl-block");
+      main.classList.toggle("col-xl-9");
+      main.classList.toggle("col-xl-12");
+      show_sidebar_button.classList.toggle("d-xl-block");
+    }
+  </script>
+  {% endif %}
+
   {% include analytics.html %}
 </head>
 
-{%- if layout.toc_nav_id -%}
+{%- if page.use_toc -%}
 <body data-spy="scroll" data-target="#{{ layout.toc_nav_id }}">
 {%- else -%}
 <body>

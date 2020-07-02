@@ -246,12 +246,16 @@ hr {
   max-height: 100vh;
   overflow-y: auto;
   border-left: 1px solid #eee;
-  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-.toc-nav-title {
-  padding-left: 1rem;
+/* Hide scrollbar for Chrome, Safari and Opera */
+.toc-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .toc-nav ul {
@@ -272,4 +276,18 @@ hr {
 .toc-nav li a.active {
   color: #007bff;
   text-decoration: none;
+}
+
+.toc-nav nav {
+  position: sticky;
+  top: 0;
+  padding-right: 0;  /* remove extra padding from Bootstrap's .navbar */
+}
+
+#show-sidebar {
+  position: sticky;
+  top: 0.5rem;
+  margin-top: 0.5rem;  /* match `top: 0.5rem` when the button isn't "stuck" yet */
+  float: right;
+  background-color: white;
 }

@@ -14,14 +14,24 @@ toc_nav_id: toc-nav
 
 {%- if page.use_toc -%}
     <div class="row">
-        <main class="col-xl-9">
+        <main class="col-xl-9" id="main">
+            <nav class="navbar-light d-inline">
+                <button class="navbar-toggler d-none" type="button" id="show-sidebar" onclick="toggleNav()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
             <h2>Contents</h2>
             {% include toc.html html=content %}
             {{ content }}
         </main>
 
         <nav class="d-none d-xl-block col-xl-3 toc-nav" id="{{ layout.toc_nav_id }}">
-            <h5 class="toc-nav-title">Contents</h5>
+            <nav class="navbar navbar-light bg-white">
+                <span class="navbar-brand">Contents</span>
+                <button class="navbar-toggler" type="button" onclick="toggleNav()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
             {% include toc.html html=content class="nav" anchor_class="nav-link" %}
         </nav>
     </div>
