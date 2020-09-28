@@ -248,12 +248,12 @@ hr {
   border-left: 1px solid #eee;
   padding-bottom: 0.5rem;
 
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  /* Hide scrollbar */
+  -ms-overflow-style: none;  /* IE and Edge (old) */
   scrollbar-width: none;  /* Firefox */
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* Hide scrollbar for webkit browsers */
 .toc-nav::-webkit-scrollbar {
   display: none;
 }
@@ -289,5 +289,4 @@ hr {
   top: 0.5rem;
   margin-top: 0.5rem;  /* match `top: 0.5rem` when the button isn't "stuck" yet */
   float: right;
-  background-color: white;
 }
