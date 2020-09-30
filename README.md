@@ -1,4 +1,4 @@
-# Install Jekyll
+# Install Jekyll-A Static Site Genenrator
 
 Assuming conda is installed, use the following commands to install Jekyll and the `github-pages` gem:
 
