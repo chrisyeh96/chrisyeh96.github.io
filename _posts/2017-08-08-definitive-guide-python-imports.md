@@ -3,7 +3,7 @@ title: The Definitive Guide to Python import Statements
 layout: post
 use_code: true
 use_toc: true
-last_updated: 2020-05-11
+last_updated: 2020-09-30
 excerpt: I've almost never been able to write correct Python `import` statements on the first go. Behavior is inconsistent between Python 2.7 and Python 3.6 (the two versions that I test here), and there is no single method for guaranteeing that imports will always work. This post is my dive into how to resolve common importing problems. Unless otherwise stated, all examples here work with both Python 2.7 and 3.6.
 ---
 
@@ -187,7 +187,7 @@ running a1_func()
 running a1_func()
 ```
 
-*Note: if `a1.py` calls `import a2` and we run `python a1.py`, then `test/packA/__init__.py` will NOT be called, even though it seems like `a2` is part of the `packA` package. This is because when Python runs a script (in this case `a1.py`), its containing folder is not considered a package.
+*Note*: If `a1.py` calls `import a2` and we run `python a1.py`, then `test/packA/__init__.py` will NOT be called, even though it seems like `a2` is part of the `packA` package. This is because when Python runs a script (in this case `a1.py`), its containing folder is not considered a package.
 
 
 ## Using Objects from the Imported Module or Package
@@ -215,6 +215,9 @@ Example: `start.py` needs to import the `helloWorld()` function in `sa1.py`
     - This is sometimes preferred over Solution 1 in order to make it explicit that we are calling the `helloWorld` function from the `sa1` module.
 - Solution 3: `import packA.subA.sa1`.
     - we need to use the full path: `x = packA.subA.sa1.helloWorld()`
+
+*Note*: The official syntax for import statements can be found in the documentation (Python [2](https://docs.python.org/2/reference/simple_stmts.html#the-import-statement) and [3](https://docs.python.org/3/reference/simple_stmts.html#the-import-statement)). I find it difficult to parse the context-free grammar notation, and I have tried my best to summarize the key points here. However, this post does not cover details such as importing multiple identifiers from the same module.
+
 
 ### Use `dir()` to examine the contents of an imported module
 
@@ -250,7 +253,7 @@ A **relative import** uses the relative path (starting from the path of the curr
 The Python documentation says the following about Python 3's handling of relative imports:
 > The only acceptable syntax for relative imports is from .[module] import name. All import forms not starting with . are interpreted as absolute imports.
 >
-> Source: [What's New in Python 3.0](https://docs.python.org/3.0/whatsnew/3.0.html)
+> *Source: [What's New in Python 3.0](https://docs.python.org/3.0/whatsnew/3.0.html)*
 
 For example, suppose we are running `start.py` which imports `a1` which in turn imports `other`, `a2`, and `sa1`. Then the import statements in `a1.py` would look as follows:
 - absolute imports:
@@ -341,13 +344,7 @@ For completeness sake, I also tried using relative imports: `from .subA import s
     - This solution is not portable, so I recommend against it.
     - instructions here: [Permanently add a directory to PYTHONPATH](https://stackoverflow.com/q/3402168)
 
-### Case 3: `sys.path` could change (take 2)
-
-A harder problem to deal with is the following example. Suppose `a2.py` never needs to be run directly, but it is imported by both `start.py` and `a1.py` which are run directly.
-
-In this case, using *Solution 1* described above won't work. However, the other solutions are still valid.
-
-### Case 4: Importing from Parent Directory
+### Case 3: Importing from Parent Directory
 
 If we do not modify `PYTHONPATH` and avoid modifying `sys.path` programmatically, then the following is a major limitation of Python imports:
 
@@ -368,10 +365,9 @@ The most important differences between how Python 2 and Python 3 treat `import` 
 2. Python 2 requires `__init__.py` files inside a folder in order for the folder to be considered a package and made importable. In Python 3.3 and above, thanks to its support of implicit namespace packages, all folders are packages regardless of the presence of a `__init__.py` file.
 3. In Python 2, one could write `from <module> import *` within a function. In Python 3, the `from <module> import *` syntax is only allowed at the module level, no longer inside functions.
 
-Sources:
+*Sources*
 - [Changes in import statement python3](https://stackoverflow.com/q/12172791)
-- [Python 2 modules documentation](https://docs.python.org/2/tutorial/modules.html#intra-package-references)
-- [Python 3 modules documentation](https://docs.python.org/3/tutorial/modules.html#intra-package-references)
+- Python modules documentation for Python [2](https://docs.python.org/2/tutorial/modules.html#intra-package-references) and [3](https://docs.python.org/3/tutorial/modules.html#intra-package-references)
 - [What's New in Python 3.0](https://docs.python.org/3.0/whatsnew/3.0.html)
 
 
