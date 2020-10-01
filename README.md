@@ -17,8 +17,8 @@ Note that conda-forge may not have the most up-to-date version of the `github-pa
 **Serve locally**: `jekyll serve [options]`
 
 Options
-- `--baseurl /~chrisyeh`: add this if hosting this site at some non-root domain (e.g., `*.com/~chrisyeh`)
-- `--drafts`: to show drafts among the latest posts
+- `--baseurl /~chrisyeh`: Add this if hosting this site at some non-root domain. (e.g., `*.com/~chrisyeh`)
+- `--drafts`: To show drafts among the latest posts.
 
 # Page Frontmatter Options
 
