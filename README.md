@@ -24,11 +24,11 @@ Options
 
 Variable            | Description
 --------------------|------------
-`excerpt`           | text to show on blog list and at top of post
-`last_updated`      | date in `YYYY-MM-DD` format
-`layout`            | name of layout from `_layout/` folder
-`title`             | title of post
-`use_code`          | boolean, set to `true` to include code-highlighting CSS
-`use_fontawesome`   | boolean, set to `true` to include FontAwesome CSS
-`use_math`          | boolean, set to `true` to include MathJax JS
-`use_toc`           | boolean, set to `true` to include a table of contents
+`excerpt`           | Text to show on blog list and at top of post
+`last_updated`      | Date in `YYYY-MM-DD` format
+`layout`            | Name of layout from `_layout/` folder
+`title`             | Title of post
+`use_code`          | Boolean, set to `true` to include code-highlighting CSS
+`use_fontawesome`   | Boolean, set to `true` to include FontAwesome CSS
+`use_math`          | Boolean, set to `true` to include MathJax JS
+`use_toc`           | Boolean, set to `true` to include a table of contents
