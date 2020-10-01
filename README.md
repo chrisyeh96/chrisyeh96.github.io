@@ -32,3 +32,8 @@ Variable            | Description
 `use_fontawesome`   | boolean, set to `true` to include FontAwesome CSS
 `use_math`          | boolean, set to `true` to include MathJax JS
 `use_toc`           | boolean, set to `true` to include a table of contents
+
+
+# Usage
+<hr>
+Please feel free to copy any part of this repo for your own uses -- although make sure you delete my actual website contents and replace them with your own! See the License for actual legal details.
