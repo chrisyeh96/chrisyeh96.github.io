@@ -1,7 +1,7 @@
 /*******************
  * BASICS
  ******************/
-
+@import url('https://fonts.googleapis.com/css2?family=Peddana&display=swap');
 a, a:link, a:visited, a:hover, a:active {
   text-decoration: none !important;
 }
@@ -116,6 +116,8 @@ ul.contact {
 body {
   position: relative;  /* for Scrollspy */
   overflow-wrap: break-word;  /* put long words on new line before trying to break them */
+font-family: 'Peddana', serif;
+
 }
 
 /* Make buttons rectangular: override the Bootstrap default */
