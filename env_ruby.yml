@@ -1,0 +1,7 @@
+name: ruby
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - ruby
+  - gxx_linux-64  # for compiling "native" gem extensions
