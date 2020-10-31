@@ -39,18 +39,18 @@ $$ \E[\|X-c\|_2^2] = \tr\var[X] + \|\E[X]-c\|_2^2. $$
 
 <details markdown="block"><summary>Proof</summary>
 
-All of the expectations and the variance are taken with respect to $$P(X)$$.
+All of the expectations and the variance are taken with respect to $$P(X)$$. Let $$\mu := \E[X]$$.
 
 $$
 \begin{aligned}
-\E[\|X-c\|_2^2]
+\tr \var(X) + \|\mu-c\|_2^2
+&= \sum_{i=1}^N \var(X_i) + \|\mu-c\|_2^2 \\
+&= \sum_{i=1}^N \E\left[ (X_i - \mu_i)^2 \right] + \|\mu-c\|_2^2 \\
+&= \E\left[\sum_{i=1}^N (X_i - \mu_i)^2 \right] + \|\mu-c\|_2^2 \\
+&= \E[(X-\mu)^T (X-\mu)] + (\mu-c)^T (\mu-c) \\
+&= \E[X^T X] \underbrace{- 2 \E[X]^T \mu + \mu^T \mu + \mu^T \mu}_{=0} - 2 \mu^T c + c^T c \\
 &= \E[X^T X - 2 X^T c + c^T c] \\
-&= \E[X^T X] \underbrace{- 2 E[X]^T \E[X] + E[X]^T \E[X] + E[X]^T \E[X]}_{=0} - 2 \E[X]^T c + c^T c \\
-&= \E[(X-\E[X])^T (X-\E[X])] + (E[X]-c)^T (\E[X]-c) \\
-&= \E\left[\sum_{i=1}^N (X_i - \E[X_i])^2 \right] + \|\E[X]-c\|_2^2 \\
-&= \sum_{i=1}^N \E\left[ (X_i - \E[X_i])^2 \right] + \|\E[X]-c\|_2^2 \\
-&= \sum_{i=1}^N \var(X_i) + \|\E[X]-c\|_2^2 \\
-&= \tr \var(X) + \|\E[X]-c\|_2^2
+&= \E[\|X-c\|_2^2]
 \end{aligned}
 $$
 
