@@ -15,16 +15,17 @@ Note that conda-forge may not have the most up-to-date version of the `github-pa
 
 **2. Use conda to install ruby, then use ruby to install the `github-pages` gem.**
 
-If it is absolutely necessary to use the latest version of the `github-pages` gem, run the following commands:
+To install the latest version of the `github-pages` gem, run the following commands:
 
 ```bash
 conda env update -f env_ruby.yml --prune
 conda activate ruby
 
-gem install github-pages
+# don't install documentation
+gem install github-pages --no-document
 ```
 
-This should just work. In case it doesn't, try the following commands and then try installing the `github-pages` gem again:
+If the commands above cause an error, try the following commands and then try installing the `github-pages` gem again:
 
 ```bash
 sudo apt update  # update package index

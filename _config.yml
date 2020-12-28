@@ -1,9 +1,7 @@
-# theme: jekyll-theme-cayman
 title: Chris Yeh
 description: Stanford BS/MS 2019, Caltech PhD 2020+
 
 highlighter: rouge
-
 date_format: "%b %-d, %Y"
 
 # By default, the navbar creates a link for every "page" containing a `title`
@@ -17,7 +15,10 @@ date_format: "%b %-d, %Y"
 # incremental: true
 
 exclude:
-  - env.yml         # conda environment file
+  - env.yml
+  - env_ruby.yml
+  - LICENSE
+  - README.md
 
 # strip all unncessary whitespace and comments
 # http://jch.penibelst.de/
