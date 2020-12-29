@@ -1,8 +1,10 @@
 title: Chris Yeh
-description: Stanford BS/MS 2019, Caltech PhD 2020+
+description: ML for Sustainability | PhD Student @ Caltech
 
 highlighter: rouge
 date_format: "%b %-d, %Y"
+
+permalink: /blog/:year_:month_:day_:title:output_ext
 
 # By default, the navbar creates a link for every "page" containing a `title`
 # attribute, so long as the title does not include "404". Override the
