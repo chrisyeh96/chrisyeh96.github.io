@@ -4,7 +4,7 @@
   {%- assign page_paths = '' | split: '' -%}
   {%- for my_page in site.pages -%}
     {%- if my_page.title -%}
-      {%- unless my_page.title contains "404" -%}
+      {%- unless my_page.title contains "404" or my_page.nav_hidden -%}
       {%- assign page_paths = page_paths | push: my_page.path -%}
       {%- endunless -%}
     {%- endif -%}

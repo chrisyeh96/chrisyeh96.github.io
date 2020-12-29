@@ -4,6 +4,7 @@ layout: post
 use_math: false
 use_toc: true
 excerpt: In this post, I explore how terminals display color, a two-stage process involving ANSI escape codes and user-defined color schemes.
+tags: [unix]
 ---
 
 

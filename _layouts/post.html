@@ -3,38 +3,63 @@ layout: default
 toc_nav_id: toc-nav
 ---
 
-<p>
-<em>Posted: {{ page.date | date: site.date_format }}.</em>
-{%- if page.last_updated -%}
-     <em class="ml-3">Last updated: {{ page.last_updated | date: site.date_format }}.</em>
-{%- endif -%}
-</p>
+<header class="header-page mb-1">
+  <div class="container">
+  <h1>{{ page.title }}</h1>
+  {%- if page.description -%}
+    <h2>{{ page.description }}</h2>
+  {%- endif -%}
+  </div>
+</header>
 
-{{ page.excerpt | markdownify }}
-
-{%- if page.use_toc -%}
-    <div class="row">
-        <main class="col-xl-9" id="main">
-            <nav class="navbar-light d-inline">
-                <button class="navbar-toggler d-none bg-white" type="button" id="show-sidebar" onclick="toggleNav()">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-            <h2>Contents</h2>
-            {% include toc.html html=content %}
-            {{ content }}
-        </main>
-
-        <nav class="d-none d-xl-block col-xl-3 toc-nav" id="{{ layout.toc_nav_id }}">
-            <nav class="navbar navbar-light bg-white">
-                <span class="navbar-brand">Contents</span>
-                <button class="navbar-toggler" type="button" onclick="toggleNav()">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-            {% include toc.html html=content class="nav" anchor_class="nav-link" %}
-        </nav>
+<div class="container">
+  <div class="post-meta-container">
+    {%- if page.date -%}
+    <div>
+      <em>Posted: {{ page.date | date: site.date_format }}.</em>
+      {% if page.last_updated %}
+      <em>Last updated: {{ page.last_updated | date: site.date_format }}.</em>
+      {% endif %}
     </div>
-{%- else -%}
+    {%- endif -%}
+    {%- if page.tags.size > 0 -%}
+    <div>
+      <em>Tags: </em>
+      {%- for tag in page.tags -%}
+        <a href="/tags/#{{ tag }}" class="post-meta post-tag">{{ tag }}</a>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+  </div>
+
+  {%- if page.excerpt -%}
+    {{ page.excerpt | markdownify }}
+  {%- endif -%}
+
+  {%- if page.use_toc -%}
+    <div class="row">
+      <main class="col-xl-9" id="main">
+        <nav class="navbar-light d-inline">
+          <button class="navbar-toggler d-none bg-white" type="button" id="show-sidebar" onclick="toggleNav()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        <h2>Contents</h2>
+        {% include toc.html html=content %}
+        {{ content }}
+      </main>
+
+      <nav class="d-none d-xl-block col-xl-3 toc-nav" id="{{ layout.toc_nav_id }}">
+        <nav class="navbar navbar-light bg-white">
+          <span class="navbar-brand">Contents</span>
+          <button class="navbar-toggler" type="button" onclick="toggleNav()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        {% include toc.html html=content class="nav" anchor_class="nav-link" %}
+      </nav>
+    </div>
+  {%- else -%}
     {{ content }}
-{%- endif -%}
+  {%- endif -%}
+</div>

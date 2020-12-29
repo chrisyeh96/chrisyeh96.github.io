@@ -5,6 +5,7 @@ use_code: true
 use_toc: true
 last_updated: 2020-05-04
 excerpt: Re-formatting a LaTeX document for use as a blog post took more work than expected. MathJax only supports the LaTeX math-mode commands, and there are additional formatting considerations as well. Here are some tools that I found to make the transition easier.
+tags: [web dev]
 ---
 
 ## Converting LaTeX to Markdown/MathJax

@@ -1,13 +1,24 @@
 /*******************
  * BASICS
  ******************/
+:root {
+  --cardinal-red: #8C1515;
+  --caltech-orange: #FF6C0C;
+  --schwarzman-purple: #80298F;
+}
 
 a, a:link, a:visited, a:hover, a:active {
   text-decoration: none !important;
 }
 
 .cardinal-red {
-  color: #8C1515 !important; /* Cardinal Red */
+  color: var(--cardinal-red) !important;
+}
+.caltech-orange {
+  color: var(--caltech-orange) !important;
+}
+.schwarzman-purple {
+  color: var(--schwarzman-purple) !important;
 }
 
 img {
@@ -15,70 +26,64 @@ img {
 }
 
 /*******************
- * HEADERS - DONE
+ * HEADERS
  ******************/
-.header {
+header {
   color: white;
-  font-weight: bold;
+  padding: 1rem 0;
   text-align: center;
-  text-shadow: 0 0 1.5em black;
+  text-shadow: 0 0 1.5rem black;
 }
 
 .header-page {
-  background-color: #159957; /* VAR: $header-bg-color */
-  background-image: linear-gradient(120deg, #155799, #159957); /* VARS: $header-bg-color, $header-bg-color-secondar */
-  padding: 1.25em 0; /* padding for top and bottom only */
-}
-
-.header-home {
-  background: url("../images/banner_home.jpg") center center/cover;
+  background-color: #159957;
+  background-image: linear-gradient(120deg, #155799, #159957);
 }
 
 .page-description {
-  padding-top: 0.25em;
-}
-
-#profile-pic {
-  width: 90%;
-  max-width: 250px;
-  border-radius: 50%;
-  border: 8px solid white;
-  box-shadow: 0 0 1.5em black;
-}
-
-ul.contact {
-  margin: 0;
-}
-
-.contact li.list-inline-item {
-  margin: 1em 10px 0 10px;
-}
-
-.contact a,
-.contact a:visited,
-.contact a:focus {
-  color: white !important;
-  border: 3px solid white;
-  box-shadow: 0 0 1.5em black;
-  background-color: rgba(128, 128, 128, 0.4);
-}
-
-.contact a:hover,
-.contact a:active {
-  border-color: black !important;
-  background-color: black !important;
-  outline: 0;
+  padding-top: 0.25rem;
 }
 
 /*******************
  * FOOTER
  ******************/
 .site-footer {
-  padding: 1em 0;
+  padding: 1rem 0;
 }
 
 /*******************
  * HOME
+ ******************/
+.header-home {
+  background: url("../images/banner_home.jpg") center center/cover;
+}
+
+#profile-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profile-pic img {
+  width: 90%;
+  max-width: 8rem;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 0 1.5em black;
+}
+
+.social a {
+  color: white;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/*******************
+ * POSTS LIST
  ******************/
 .post-list {
   margin-left: 0;
@@ -92,6 +97,20 @@ ul.contact {
 .post-meta {
   font-size: 0.8rem;
   color: grey;
+}
+
+.post-tag {
+  background: #f8f9fa;
+  border-radius: 0.3rem;
+  padding: 0 0.3rem;
+  margin: 0 0.3rem;
+}
+
+/*******************
+ * POSTS
+ ******************/
+.post-meta-container {
+  margin: 1rem 0;
 }
 
 /*******************
@@ -125,7 +144,7 @@ body {
 }
 
 h1.section-title {
-  color: #8C1515; /* Cardinal Red */
+  color: var(--cardinal-red);
   margin: 1em 0em 0.7em;
 }
 
@@ -238,7 +257,6 @@ hr {
  * TOC
  * - inspired by the right sidebar on https://getbootstrap.com/docs/4.4/
  ******************/
-
 .toc-nav { /* <nav> */
   position: sticky;
   top: 0;

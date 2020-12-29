@@ -13,6 +13,13 @@ permalink: /blog/:year_:month_:day_:title:output_ext
 # - about.md
 # - projects.md
 
+##### SOCIAL INTEGRATION #####
+github_username: chrisyeh96
+linkedin_username: chrisyeh96
+twitter_username: yeh_im_excited
+scholar_userid: 6Omq2pcAAAAJ
+orcid_id: 0000-0002-7624-6168
+
 ##### BUILD SETTINGS #####
 # incremental: true
 

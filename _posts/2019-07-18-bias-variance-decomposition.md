@@ -5,6 +5,7 @@ use_math: true
 use_toc: true
 last_updated: 2020-05-04
 excerpt: I derive the bias-variance decomposition of mean squared error for both estimators and predictors, and I show how they are related for linear models.
+tags: [ML]
 ---
 
 $$

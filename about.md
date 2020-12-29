@@ -1,6 +1,6 @@
 ---
 title: About
-layout: default
+layout: post
 ---
 
 <div class="row content-row">
