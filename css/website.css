@@ -116,17 +116,24 @@ header {
 /*******************
  * PROJECTS and ABOUT
  ******************/
+.content-row {
+  margin-bottom: 1rem;
+}
+
 .content-row img {
   height: auto;
-  padding-bottom: 1em;
+  margin-bottom: 0.5rem;
 }
 
 .content-row .image-wrapper {
+  color: grey;
+  font-size: 0.8rem;
+  font-style: italic;
   text-align: center;
 }
 
-.content-row div a.btn {
-  margin-bottom: 0.5em;
+.content-row a.btn {
+  margin-bottom: 0.5rem;
 }
 
 /*******************

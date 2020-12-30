@@ -1,0 +1,37 @@
+<div class="row content-row">
+<div class="col-sm-4 col-lg-3 image-wrapper">
+  {%- if project.thumbnail -%}
+    {%- assign thumbnail_start = project.thumbnail | slice: 0 3 -%}
+    {%- if thumbnail_start == "http" -%}
+      <img class="thumbnail rounded" src="{{ project.thumbnail }}">
+    {%- else -%}
+      <img class="thumbnail rounded" src="{{ site.baseurl }}/images/{{ project.thumbnail }}">
+    {%- endif -%}
+  {%- endif -%}
+  {%- if project.thumbnail_caption -%}
+    {{ project.thumbnail_caption | markdownify }}
+  {%- endif -%}
+</div>
+<div class="col-sm-8 col-lg-9">
+  <h3>{{ project.title }}</h3>
+  {%- if project.setting -%}
+  <em>{{ project.setting | markdownify }}</em>
+  {%- endif -%}
+  {{ project.description | markdownify}}
+  {%- if project.info -%}
+    {{ project.info | markdownify }}
+  {%- endif -%}
+  {%- for media in project.media -%}
+    <a href="{{ media.url }}" class="btn btn-light me-3">
+      {%- if media.type == "pdf" -%}<i class="fas fa-file">
+      {%- elsif media.type == "github" -%}<i class="fab fa-github">
+      {%- elsif media.type == "code" -%}<i class="fas fa-code">
+      {%- elsif media.type == "youtube" -%}<i class="fab fa-youtube">
+      {%- elsif media.type == "video" -%}<i class="fas fa-play-circle">
+      {%- else -%}<i class="fas fa-external-link-alt">
+      {%- endif -%}
+      </i> {{ media.name }}
+    </a>
+  {%- endfor -%}
+</div>
+</div>

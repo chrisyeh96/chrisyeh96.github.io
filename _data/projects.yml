@@ -1,0 +1,130 @@
+- category: research
+  title: |
+    Selection via Proxy: Efficient Data Selection for Deep Learning
+  setting: Stanford University, Summer 2018 - 2019
+  thumbnail: project_2018_research_svp.png
+  thumbnail_caption: In both active learning and core-set selection settings, our "selection via proxy" approach uses a smaller proxy model to select data for a larger target model.
+  description: |
+    Data selection methods, such as active learning and core-set selection, are useful tools for machine learning on large datasets. However, they can be prohibitively expensive to apply in deep learning because they depend on feature representations that need to be learned. We show that we can greatly improve the computational efficiency by using a small proxy model to perform data selection (*e.g.*, selecting data points to label for active learning). By removing hidden layers from the target model, using smaller architectures, and training for fewer epochs, we create proxies that are an order of magnitude faster to train. Although these small proxy models have higher error rates, we find that they empirically provide useful signals for data selection. We evaluate this "selection via proxy" (SVP) approach on several data selection tasks across five datasets: CIFAR10, CIFAR100, ImageNet, Amazon Review Polarity, and Amazon Review Full. For active learning, applying SVP can give an order of magnitude improvement in data selection runtime (*i.e.*, the time it takes to repeatedly train and select points) without significantly increasing the final error (often within 0.1%). For core-set selection on CIFAR10, proxies that are over 10x faster to train than their larger, more accurate targets can remove up to 50% of the data without harming the final accuracy of the target, leading to a 1.6x end-to-end training time improvement.
+  info: |
+    **Mentors:** Prof. Matei Zaharia, Prof. Peter Bailis, Prof. Jure Leskovec, Prof. Percy Liang
+
+    **Collaborators:** Cody Coleman, Stephen Mussmann, Baharan Mirzasoleiman
+
+    **Publications:**
+    1. C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Efficient Data Selection for Deep Learning," in *International Conference on Learning  Representations*, Apr. 2020. [Online]. Available: [https://openreview.net/forum?id=HJg2b0VYDr](https://openreview.net/forum?id=HJg2b0VYDr).
+    2. C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning," in *Practical Machine Learning for Developing Countries Workshop at ICLR 2020*, Apr. 2020. [Online]. Available: [https://pml4dc.github.io/iclr2020/program/pml4dc_25.html](https://pml4dc.github.io/iclr2020/program/pml4dc_25.html).
+  media:
+    - type: pdf
+      name: Paper (ICLR 2020)
+      url: https://drive.google.com/file/d/11qAbjizrAB9hGPOwwadK7TH27i7ZSmqX/view?usp=sharing
+    - type: youtube
+      name: Presentation
+      url: https://www.youtube.com/watch?v=_7B_yr_C8fs
+    - type: url
+      name: Blog Post
+      url: https://dawn.cs.stanford.edu/2020/04/23/selection-via-proxy/
+    - type: github
+      name: Code
+      url: https://github.com/stanford-futuredata/selection-via-proxy
+
+- category: research
+  title: Deep learning for understanding economic well-being in Africa from publicly available satellite imagery
+  setting: Stanford University, Sustainability and AI Lab, Summer 2017 - 2020
+  thumbnail: project_2017_research_poverty.jpg
+  thumbnail_caption: Nighttime light satellite imagery provides valuable information about economic development.
+  description: |
+    Accurate and comprehensive measurements of economic well-being are fundamental inputs into both research and policy, but such measures are unavailable at a local level in many parts of the world. We train deep learning models to predict survey-based estimates of asset wealth across ~20,000 African villages from publicly-available multispectral daytime and nightlight satellite imagery with broad temporal and spatial coverage. Models are able to explain 70% of the variation in ground-measured village wealth in countries where the model was not trained, outperforming previous benchmarks from high-resolution imagery. Comparison with independent wealth measurements from censuses suggests that errors in satellite estimates are comparable to errors in existing ground data. Validating estimates of temporal changes in wealth across ~1,500 villages is also hampered by noise in training data, but district-aggregated satellite-based estimates explain up to 50% of the variation in ground-estimated changes in wealth over time, with daytime imagery particularly useful in this task. We quantitatively demonstrate the utility of satellite-based estimates for research and policy, and demonstrate their scalability by creating a wealth map for Africa's most populous country.
+  info: |
+      **Mentors:** Prof. Stefano Ermon, Prof. Marshall Burke, Prof. David Lobell
+
+      **Collaborators:** Anthony Perez, Anne Driscoll, George Azzari, Zhongyi Tang
+
+      **Publications**
+      1. A. Perez, **C. Yeh**, G. Azzari, M. Burke, D. Lobell, and S. Ermon, "Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning," in *NIPS 2017 Workshop on Machine Learning for the Developing World*, Long Beach, CA, USA, Dec. 2017. arXiv:1711.03654. [Online]. Available: [https://arxiv.org/abs/1711.03654](https://arxiv.org/abs/1711.03654).
+      2. **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Using publicly available satellite imagery and deep learning to understand economic well-being in Africa," *Nature Communications*, vol. 11, no. 1, May 2020, ISSN: 2041-1723. DOI: 10.1038/s41467-020-16185-w. [Online]. Available: [https://www.nature.com/articles/s41467-020-16185-w](https://www.nature.com/articles/s41467-020-16185-w).
+      3. **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Deep learning for understanding economic well-being in Africa from publicly available satellite imagery," in *Workshop on Machine Learning for Economic Policy at NeurIPS 2020*, Dec. 2020. [Online]. Available: [http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf](http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf).
+  media:
+    - type: pdf
+      name: Paper (Nature Communications, May 2020)
+      url: https://drive.google.com/file/d/1SPkuGXeTNiQZxkxb4tBjRMI26RgtWghr/view?usp=sharing
+    - type: pdf
+      name: Poster (NeurIPS 2020 Workshop)
+      url: https://drive.google.com/file/d/1S-lBZhyEh6fYP1B2Cj2erbGoQA47zuzG/view?usp=sharing
+    - type: github
+      name: Code
+      url: https://github.com/sustainlab-group/africa_poverty
+
+- category: research
+  title: Conditional Random Fields for Dense Stereo Matching
+  setting: UC Irvine, Summer 2012 - Summer 2014
+  thumbnail: project_2012_research_stereo.png
+  thumbnail_caption: |
+    Estimated stereo disparity map from our model on the "Art" dataset from the [Middlebury Stereo Vision Page](https://vision.middlebury.edu/stereo/).
+  info: |
+    **Mentor:** Prof. Alex Ihler
+
+    Presented at *2013 Southern California Conference for Undergraduate Research (SCCUR)* at Whittier College, CA.
+  description: Various algorithms have been developed over the past two decades for solving the stereo correspondence problem, which is defined as the identification of the offset or disparity of an object in a pair of stereo images. Recent work has shown that conditional random fields (CRFs) have the potential to be faster and more accurate than traditional local matching algorithms. The canonical CRF for solving dense stereo matching problems uses a basic energy function that accounts for both local intensity matching and smoothness costs. Traditionally, the smoothness term relies on a binary Potts Model which fails to assign different costs to different disparities. In this paper, we extend the smoothness term in the energy function to be more robust. Specifically, we explore using a logarithmic function modulated by discrete edge gradient bins and binary edge detection features. The logarithmic function is able to distinguish between different disparities and therefore assign more appropriate costs. Our results suggest that our algorithm exceeds the performance of the traditional smoothness term based on a Potts Model. However, further optimization in our CRF evaluation process is necessary to achieve real-time outputs.
+  media:
+    - type: pdf
+      name: Slides
+      url: https://drive.google.com/file/d/0B-7rmGyO0CsvVC1aVVlPUzEtTkE/view
+    - type: youtube
+      name: Presentation
+      url: https://youtu.be/Q3Iml7WxyKw
+
+- category: research
+  title: Effect of Aging on the Foam Fractionation of Lactoferrin
+  setting: Caltech, Summer 2011
+  thumbnail: project_2011_research_foam.jpg
+  thumbnail_caption: Foam fractionation of a dilute solution of bovine lactoferrin into a glass beaker.
+  info: |
+    **Mentor:** Prof. Robert Tanner, Prof. Julia Kornfield
+
+    **Collaborators:** Benjamin Yeh, Yuehan Huang
+
+    Presented at *43rd American Chemistry Society Western Regional Meeting*, Pasadena, CA.
+  description: Foam fractionation is an inexpensive and simple technique for concentrating proteins. The foamability of a protein can drastically change with the age of the protein. The foamability of solutions created from ten year old bovine lactoferrin (bLF) protein was investigated with varying concentration protein, air flow velocity, and the pH of the solution. The results suggest the foamability of the aged protein decreased to an insignificant level except at high pH with a protein concentration of 0.1 mg/mL.
+
+- category: project
+  title: Photo Licensing Platform
+  thumbnail: project_2015_photo.jpg
+  thumbnail_caption: A proof-of-concept web app for simplifying the process of creating and purchasing licenses for copyrighted photos and images.
+  setting: Stanford University, September 2015 - June 2019
+  description: |
+    Millions of copyrighted photographs and other visual works are uploaded to the Internet daily without permission from copyright owners. In democratizing the creation and distribution of visual works, digital technologies have also transformed the landscape that effectively defines creators' rights and consumers' ability to track ownership information. The Stanford Law School and U.S. Copyright Office sought to address the limited licensing options and high transaction costs of existing solutions which act as barriers to lawful, licensed uses of photographs or other images.
+
+    Through [Stanford Code the Change](https://codethechange.stanford.edu/), I led a student team to create a prototype web application that simplifies the process of creating and purchasing licenses for copyrighted photos and images. For this project, I used Python, Flask, and SQL, and then deployed the app to Heroku. Our proof-of-concept web app was included as part of a report submitted to the U.S. Copyright Office.
+  info: |
+    **Mentors:** Prof. Paul Goldstein, Luciana Herman
+
+    **Publication**: A. Itai, S. Yadav, W. Zhong, L. Zhu, **C. Yeh**, E. Shayer, R. Barcelo, T. Liu, H. Stoyanov, P. Goldstein, L. Herman, and A. Terra, "A Low-Cost Digital Licensing Platform for Photographs: Documentation for a Prototype," Stanford Law School Law and Policy Lab, Stanford, CA, USA, Tech. Rep., Jun. 2017. [Online]. Available: [https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/](https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/).
+  media:
+    - type: link
+      name: Demo
+      url: https://copyright-license.herokuapp.com/
+    - type: pdf
+      name: Report
+      url: https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/copyright-license
+
+- category: project
+  title: Mood Music Firefox Add-on
+  thumbnail: project_2014_moodmusic.png
+  setting: |
+    HackUCI Hackathon, May 2014, <i class="fa fa-star"></i> Top 10 Hacks and Best Rdio Hack
+  description: |
+    Mood Music is a Firefox add-on that provides users with content-relevant music that reflects the mood of the websites they visit. It uses a combination of text-extraction through Diffbot, natural language processing of mood, and integration with the (*now-defunct*) Rdio API to create this Firefox add-on. The inspiration behind this lies in alleviating the burden of finding good music during a user's browsing experience.
+  media:
+    - type: github
+      name: Code
+      url: https://github.com/skswbwt/bgradio
+    - type: link
+      name: Project Profile
+      url: https://devpost.com/software/mood-music
+    - type: youtube
+      name: Presentation
+      url: https://youtu.be/oYl99kzciQA

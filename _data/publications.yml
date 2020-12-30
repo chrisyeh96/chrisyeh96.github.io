@@ -118,9 +118,9 @@
         year = {2020}
     }
   media:
-    # - type: pdf
-    #   name: PDF
-    #   url: TODO
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1HfNbn9xDire8f8vssvE3AWU1a9TsuhZI/view?usp=sharing
     - type: pdf
       name: Slides
       url: https://drive.google.com/file/d/1h-qU7XZlUWoTjXP-k-2T3QDNogxdf94D/view?usp=sharing
