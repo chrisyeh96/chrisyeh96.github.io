@@ -1,0 +1,264 @@
+####################
+# 2020
+####################
+- formatted: |
+    **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Deep learning for understanding economic well-being in Africa from publicly available satellite imagery," in *Workshop on Machine Learning for Economic Policy at NeurIPS 2020*, Dec. 2020. [Online]. Available: [http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf](http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf).
+  bibtex: |
+    @inproceedings{yeh2020deep,
+        author = {Yeh, Christopher and Perez, Anthony and Driscoll, Anne and Azzari, George and Tang, Zhongyi and Lobell, David and Ermon, Stefano and Burke, Marshall},
+        booktitle = {{Workshop on Machine Learning for Economic Policy at NeurIPS 2020}},
+        month = {12},
+        title = {{Deep learning for understanding economic well-being in Africa from publicly available satellite imagery}},
+        url = {http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf},
+        year = {2020}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1-31AanhAmQYu59qd2_xWc9J567uJSJ_m/view?usp=sharing
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1S-lBZhyEh6fYP1B2Cj2erbGoQA47zuzG/view?usp=sharing
+    - type: github
+      name: Code
+      url: https://github.com/sustainlab-group/africa_poverty
+
+- formatted: |
+    S. Zhao, **C. Yeh**, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in *The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)*, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [http://proceedings.mlr.press/v10 8/zhao20e.html](http://proceedings.mlr.press/v108/zhao20e.html).
+  bibtex: |
+    @inproceedings{zhao2020interval,
+        author = {Zhao, Shengjia and Yeh, Christopher, and Ermon, Stefano},
+        booktitle = {{The 23rd International Conference on Artificial Intelligence and Statistics}},
+        editor = {Silvia Chiappa and Roberto Calandra},
+        month = {8},
+        pages = {4583--4592},
+        pdf = {http://proceedings.mlr.press/v108/zhao20e/zhao20e.pdf},
+        publisher = {PMLR},
+        series = {Proceedings of Machine Learning Research},
+        title = {{A Framework for Sample Efficient Interval Estimation with Control Variates}},
+        url = {http://proceedings.mlr.press/v108/zhao20e.html},
+        volume = {108},
+        year = {2020}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1tWRELSeydjDL5cmr76h2bx60i050bYRM/view?usp=sharing
+    - type: pdf
+      name: Appendix PDF
+      url: https://drive.google.com/file/d/1VgpDBXDBAxa8m77Pc6xqyswzlW9VGrIy/view?usp=sharing
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2006.10287
+    - type: video
+      name: Presentation
+      url: https://slideslive.com/embed/presentation/38930370
+    # - type: pdf
+    #   name: Poster
+    #   url: TODO
+    # - type: github
+    #   name: Code
+    #   url: TODO
+
+- formatted: |
+    **C. Yeh**, "Quantifying the value of using machine learning to improve solar irradiance forecasting," Master’s thesis, Schwarzman College, Tsinghua University, Beijing, China, Jun. 2020.
+  bibtex: |
+    @mastersthesis{yeh2020quantifying,
+        address = {Beijing, China},
+        author = {Yeh, Christopher},
+        month = {6},
+        school = {Schwarzman College, Tsinghua University},
+        title = {Quantifying the Value of Using Machine Learning to Improve Solar Irradiance Forecasting},
+        year = {2020}
+    }
+
+- formatted: |
+    **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Using publicly available satellite imagery and deep learning to understand economic well-being in Africa," *Nature Communications*, vol. 11, no. 1, May 2020, ISSN: 2041-1723. DOI: 10.1038/s41467-020-16185-w. [Online]. Available: [https://www.nature.com/articles/s41467-020-16185-w](https://www.nature.com/articles/s41467-020-16185-w).
+  altmetric_id: 82554710
+  bibtex: |
+    @article{yeh2020using,
+        author = {Yeh, Christopher and Perez, Anthony and Driscoll, Anne and Azzari, George and Tang, Zhongyi and Lobell, David and Ermon, Stefano and Burke, Marshall},
+        day = {22},
+        doi = {10.1038/s41467-020-16185-w},
+        issn = {2041-1723},
+        journal = {{Nature Communications}},
+        month = {5},
+        number = {1},
+        title = {{Using publicly available satellite imagery and deep learning to understand economic well-being in Africa}},
+        url = {https://www.nature.com/articles/s41467-020-16185-w},
+        volume = {11},
+        year = {2020}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1SPkuGXeTNiQZxkxb4tBjRMI26RgtWghr/view?usp=sharing
+    - type: pdf
+      name: Supplementary PDF
+      url: https://drive.google.com/file/d/1w33lzrrQU8fqHA77Hw4UtT1hSDbG6YQl/view?usp=sharing
+    - type: url
+      name: Nature Communications
+      url: https://www.nature.com/articles/s41467-020-16185-w
+    - type: url
+      name: Stanford News
+      url: https://news.stanford.edu/2020/05/22/using-satellites-ai-help-fight-poverty-africa/
+    - type: github
+      name: Code
+      url: https://github.com/sustainlab-group/africa_poverty
+
+- formatted: |
+    C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning," in *Practical Machine Learning for Developing Countries Workshop at ICLR 2020*, Apr. 2020. [Online]. Available: [https://pml4dc.github.io/iclr2020/program/pml4dc_25.html](https://pml4dc.github.io/iclr2020/program/pml4dc_25.html).
+  bibtex: |
+    @inproceedings{coleman2020active,
+        author = {Coleman, Cody and Yeh, Christopher and Mussmann, Stephen and Mirzasoleiman, Baharan and Bailis, Peter and Liang, Percy and Leskovec, Jure and Zaharia, Matei},
+        booktitle = {{Practical Machine Learning for Developing Countries Workshop at ICLR 2020}},
+        month = {4},
+        title = {{Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning}},
+        url = {https://pml4dc.github.io/iclr2020/program/pml4dc_25.html},
+        year = {2020}
+    }
+  media:
+    # - type: pdf
+    #   name: PDF
+    #   url: TODO
+    - type: pdf
+      name: Slides
+      url: https://drive.google.com/file/d/1h-qU7XZlUWoTjXP-k-2T3QDNogxdf94D/view?usp=sharing
+    - type: github
+      name: Code
+      url: https://github.com/stanford-futuredata/selection-via-proxy
+
+- formatted: |
+    C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Efficient Data Selection for Deep Learning," in *International Conference on Learning  Representations*, Apr. 2020. [Online]. Available: [https://openreview.net/forum?id=HJg2b0VYDr](https://openreview.net/forum?id=HJg2b0VYDr).
+  bibtex: |
+    @inproceedings{coleman2020selection,
+        author = {Coleman, Cody and Yeh, Christopher and Mussmann, Stephen and Mirzasoleiman, Baharan and Bailis, Peter and Liang, Percy and Leskovec, Jure and Zaharia, Matei},
+        booktitle = {{International Conference on Learning Representations}},
+        month = {4},
+        title = {{Selection via Proxy: Efficient Data Selection for Deep Learning}},
+        url = {https://openreview.net/forum?id=HJg2b0VYDr},
+        year = {2020}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/11qAbjizrAB9hGPOwwadK7TH27i7ZSmqX/view?usp=sharing
+    - type: pdf
+      name: Slides
+      url: https://drive.google.com/file/d/1PV1e45RRzG3vtaG1ZzH_xzcmPvKx4lXp/view?usp=sharing
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/1906.11829
+    - type: youtube
+      name: Presentation
+      url: https://www.youtube.com/watch?v=_7B_yr_C8fs
+    - type: url
+      name: Blog Post
+      url: https://dawn.cs.stanford.edu/2020/04/23/selection-via-proxy/
+    - type: github
+      name: Code
+      url: https://github.com/stanford-futuredata/selection-via-proxy
+
+- formatted: |
+    B. Uzkent, **C. Yeh**, and S. Ermon, "Efficient Object Detection in Large Images using Deep Reinforcement Learning," in *2020 IEEE Winter Conference on Applications of Computer Vision (WACV)*, Snowmass Village, CO, USA, Mar. 2020, pp. 1813–1822. DOI: 10.1109/WACV45572.2020.9093447. [Online]. Available: [https://ieeexplore.ieee.org/document/9093447](https://ieeexplore.ieee.org/document/9093447).
+  bibtex: |
+    @inproceedings{uzkent2020efficient,
+        address = {Snowmass Village, CO, USA},
+        author = {Uzkent, Burak and Yeh, Christopher and Ermon, Stefano},
+        booktitle = {{2020 IEEE Winter Conference on Applications of Computer Vision (WACV)}},
+        doi = {10.1109/WACV45572.2020.9093447},
+        month = {3},
+        pages = {1813-1822},
+        title = {{Efficient Object Detection in Large Images using Deep Reinforcement Learning}},
+        url = {https://ieeexplore.ieee.org/document/9093447},
+        year = {2020}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/16CfS7IpWLNT4qXezFssCNoIF7tnmd1Nv/view?usp=sharing
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1Or_nKMmpJ9EdfliBzIk7JM2Gw4gXDXPs/view?usp=sharing
+    - type: youtube
+      name: Presentation
+      url: https://www.youtube.com/watch?v=_7B_yr_C8fs
+    - type: github
+      name: Code
+      url: https://github.com/uzkent/EfficientObjectDetection
+
+####################
+# 2017
+####################
+
+- formatted: |
+    A. Perez, **C. Yeh**, G. Azzari, M. Burke, D. Lobell, and S. Ermon, "Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning," in *NIPS 2017 Workshop on Machine Learning for the Developing World*, Long Beach, CA, USA, Dec. 2017. arXiv:1711.03654. [Online]. Available: [https://arxiv.org/abs/1711.03654](https://arxiv.org/abs/1711.03654).
+  bibtex: |
+    @inproceedings{perez2017poverty,
+        address = {Long Beach, CA, USA},
+        archivePrefix = {arXiv},
+        arxivId = {1711.03654},
+        author = {Perez, Anthony and Yeh, Christopher and Azzari, George and Burke, Marshall and Lobell, David and Ermon, Stefano},
+        booktitle = {{NIPS 2017 Workshop on Machine Learning for the Developing World}},
+        day = {8},
+        eprint = {1711.03654},
+        month = {12},
+        title = {{Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning}},
+        url = {https://arxiv.org/abs/1711.03654},
+        year = {2017}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1K9F_cUfz2IX0Weux3oLbb35bNd4JCd9S/view?usp=sharing
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/1711.03654
+    # - type: pdf
+    #   name: Poster
+    #   url: TODO
+
+- formatted: |
+    A. Itai, S. Yadav, W. Zhong, L. Zhu, **C. Yeh**, E. Shayer, R. Barcelo, T. Liu, H. Stoyanov, P. Goldstein, L. Herman, and A. Terra, "A Low-Cost Digital Licensing Platform for Photographs: Documentation for a Prototype," Stanford Law School Law and Policy Lab, Stanford, CA, USA, Tech. Rep., Jun. 2017. [Online]. Available: [https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/](https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/).
+  bibtex: |
+    @techreport{itai2017copyright,
+        address = {Stanford, CA, USA},
+        author = {Itai, Amit and Yadav, Sahil and Zhong, Weili and Zhu, Li and Yeh, Christopher and Shayer, Eli and Barcelo, Rey and Liu, Thomas and Stoyanov, Hristo and Goldstein, Paul and Herman, Luciana and Terra, Antoni},
+        day = {20},
+        institution = {{Stanford Law School Law and Policy Lab}},
+        month = {6},
+        publisher = {{Stanford Law School}},
+        title = {{A Low-Cost Digital Licensing Platform for Photographs: Documentation for a Prototype}},
+        url = {https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/},
+        year = {2017}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1KdGhPyF7low92ZskgqA9eEeTqQ-eHGqJ/view?usp=sharing
+    - type: url
+      name: Stanford Law School
+      url: https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/
+
+####################
+# 2016
+####################
+
+- formatted: |
+     M. Stevens and **C. Yeh**, "Reinforcement Learning for Traffic Optimization," Stanford University, Tech. Rep., Jun. 2016. [Online]. Available: [http://cs229.stanford.edu/proj2016spr/report/047.pdf](http://cs229.stanford.edu/proj2016spr/report/047.pdf).
+  bibtex: |
+    @techreport{stevens2016traffic,
+        author = {Stevens, Matt and Yeh, Christopher},
+        institution = {{Stanford University}},
+        month = {6},
+        title = {{Reinforcement Learning for Traffic Optimization}},
+        url = {http://cs229.stanford.edu/proj2016spr/report/047.pdf},
+        year = {2016}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1rTH9DcqxgGFHljMRVskms7uT-mJvBYFR/view?usp=sharing
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1fY30NlivGZJqGB4lQ_7JG428RthFDu_r/view?usp=sharing
