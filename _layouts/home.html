@@ -30,6 +30,19 @@ layout: default
   {{ content }}
 </div>
 
+<div class="row border-bottom">
+<h2>Featured Posts</h2>
+<ul class="post-list">
+{%- assign counter = 0 -%}
+{%- for post in site.posts -%}
+  {%- if post.pin -%}
+    {% include post_list_item.html %}
+  {%- endif -%}
+{%- endfor -%}
+</ul>
+</div>
+
+<div class="row border-bottom">
 <h2>Latest Posts</h2>
 <ul class="post-list">
 {%- assign counter = 0 -%}
@@ -39,4 +52,5 @@ layout: default
   {%- if counter >= page.num_posts -%}{%- break -%}{%- endif -%}
 {%- endfor -%}
 </ul>
+</div>
 </div>

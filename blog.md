@@ -1,6 +1,8 @@
 ---
 title: Blog
 layout: post
+use_code: true
+use_math: true
 permalink: /blog/
 ---
 
