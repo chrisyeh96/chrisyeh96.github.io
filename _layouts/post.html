@@ -36,8 +36,8 @@ toc_nav_id: toc-nav
     {{ page.excerpt | markdownify }}
   {%- endif -%}
 
-  <div class="row">
   {%- if page.use_toc -%}
+  <div class="row">
     <main class="col-xl-9" id="main">
       <nav class="navbar-light d-inline">
         <button class="navbar-toggler d-none bg-white" type="button" id="show-sidebar" onclick="toggleNav()">
@@ -58,10 +58,8 @@ toc_nav_id: toc-nav
       </nav>
       {% include toc.html html=content class="nav" anchor_class="nav-link" %}
     </nav>
-  {%- else -%}
-    <main class="col-12">
-    {{ content }}
-    </main>
-  {%- endif -%}
   </div>
+  {%- else -%}
+    {{ content }}
+  {%- endif -%}
 </div>

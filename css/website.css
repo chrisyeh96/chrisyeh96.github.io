@@ -79,7 +79,6 @@ header {
 .intro {
   font-size: 1.2rem;
   margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 /*******************
@@ -87,6 +86,7 @@ header {
  ******************/
 .post-list {
   list-style: none;
+  padding-left: 0;
 }
 
 .post-list li {
@@ -126,7 +126,7 @@ header {
 
 .content-row .image-wrapper {
   color: grey;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-style: italic;
   text-align: center;
 }
