@@ -3,21 +3,18 @@ title: An Overview of k-way Spectral Clustering
 layout: post
 use_math: true
 use_toc: true
-last_updated: 2021-03-06
+last_updated: 2021-03-31
 tags: [ML]
 excerpt: Given an undirected graph $$G = (V, E)$$, a common task is to identify clusters among the nodes. It is a well-known fact that the sign of entries in the second eigenvector of the normalized Graph Laplacian matrix provides a convenient way to partition the graph into two clusters; this "spectral clustering" method has strong theoretical foundations. In this post, I highlight several theoretical works that generalize the technique for $$k$$-way clustering.
 ---
 
 $$
 \newcommand{\N}{\mathbb{N}}  % natural numbers
-\newcommand{\R}{\mathbb{R}}  % real numbers
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}  % absolute value
-\newcommand{\inner}[2]{\left\langle#1,\ #2\right\rangle}  % inner product
 \newcommand{\norm}[1]{\left\|#1\right\|}  % norm
 \newcommand{\one}{\mathbf{1}}  % ones vector
-\newcommand{\zero}{\mathbf{0}}  % ones vector
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\zero}{\mathbf{0}}  % zeros vector
+\DeclareMathOperator*{\argmin}{arg\,min}  % argmin
 \DeclareMathOperator{\diag}{diag}  % diagonal
 $$
 
@@ -155,9 +152,9 @@ $$
 
 ## k-Way Clustering
 
-The 2-way partitioning algorithms provide a simple recursive technique to perform *k*-way partitioning. First, partition the graph into two clusters, then recursively run the 2-way partitioning algorithm separately on the subgraph for each cluster. However, this technique ignores the higher-order spectral information.
+The 2-way partitioning algorithms provide a simple recursive technique to perform $$k$$-way partitioning. First, partition the graph into two clusters, then recursively run the 2-way partitioning algorithm separately on the subgraph for each cluster. However, this technique ignores the higher-order spectral information.
 
-Instead, several algorithms have been proposed to explicitly use the higher-order spectral information for finding $$k$$-partitions that minimize generalized notions of normalized cut or graph expansion.
+Instead, several algorithms have been proposed to explicitly use the higher-order spectral information for finding a $$k$$-partition that minimizes a generalized notion of normalized cut or graph expansion.
 
 Given a $$k$$-partition $$\{S_i\}_{i=1}^k$$, define the $$k$$-way normalized cut criterion as
 
@@ -169,13 +166,15 @@ In [[1]](#references), Shi and Malik propose the following greedy heuristic algo
 
 1. Calculate the $$n$$ eigenvectors $$y^{(1)}, \dotsc, y^{(n)}$$ of the generalized eigenvector problem $$Ly = \lambda D y$$. Note that these eigenvectors correspond to the same eigenvalues $$\lambda_1, \dotsc, \lambda_n$$ of the normalized Laplacian matrix.
 2. For each node $$i$$, define its feature representation $$f(i) = [y^{(1)}_i, \dotsc, y^{(n)}_i]$$.
-3. Use a standard clustering algorithm such as $$k$$-means on the node feature representations to group the nodes into $$k' \geq k$$ clusters.
+3. Use a standard clustering algorithm such as k-means on the node feature representations to group the nodes into $$k' \geq k$$ clusters.
 4. Iteratively merge clusters until there are only $$k$$ clusters left, where each iteration merges the two clusters that greedily minimize the $$N_{cut,k}$$ criterion.
 
 In [[3]](#references), Ng et al. (2002) propose a similar algorithm. Instead of the unnormalized Laplacian, they use the normalized Laplacian $$\bar{L}$$:
 
-1. For each node $$i$$, define its feature representation $$f(i) = [v^{(1)}_i, \dotsc, v^{(k)}_i]$$ using the $$k$$ smallest eigenvectors.
-2. Use a standard clustering algorithm such as $$k$$-means on the node feature representations to group the nodes into $$k$$ clusters.
+1. For each node $$i$$, define its feature representation $$f(i) = [v^{(1)}_i, \dotsc, v^{(k)}_i]$$ using the $$k$$ smallest eigenvectors, then scale each node's feature representation to have unit length.
+2. Use a standard clustering algorithm such as k-means on the node feature representations to group the nodes into $$k$$ clusters.
+
+(As of version 0.24.1, the Python [scikit-learn spectral clustering algorithm](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.spectral_clustering.html) implements the Ng et al. (2002) algorithm, except it does not scale the node feature representations to have unit length. I wrote a GitHub [issue](https://github.com/scikit-learn/scikit-learn/issues/19797) inquiring about this lack of scaling.)
 
 Importantly, Ng et al. state a theorem (albeit without an accompanying proof) that under certain assumptions on the structure of the graph, the feature representations of the nodes can be roughly clustered around $$k$$ orthogonal vectors on the $$k$$-dimensional unit sphere.
 
@@ -216,25 +215,25 @@ The analysis of the proof leads to a randomized algorithm for finding a $$k$$-pa
 
     has the least expansion. Among the sets $$\hat{S}_1, \dotsc, \hat{S}_{k'}$$, choose the $$k$$ with smallest expansion.
 
-Notably, this algorithm is somewhat similar what Shi and Malik described, using entries from the generalized eigenvectors of the Laplacian matrix as initial feature representations, then clustering and merging the nodes based on these feature representations. While Lee et al. relied on random projections (step 3) and random partitioning (step 4) to derive their result, they posed the open question of whether a $$k$$-means algorithm would work as well.
+Notably, this algorithm is somewhat similar what Shi and Malik described, using entries from the generalized eigenvectors of the Laplacian matrix as initial feature representations, then clustering and merging the nodes based on these feature representations. While Lee et al. relied on random projections (step 3) and random partitioning (step 4) to derive their result, they posed the open question of whether a k-means algorithm would work as well.
 
 Follow-up work in 2015 by Peng et al. [[5]](#references) essentially answered this question affirmatively in the case where node feature representations use the $$k$$ smallest eigenvectors of the normalized Laplacian:
 
 $$
-    f(i) \propto [v^{(1)}_i, \dotsc, v^{(k)}_i].
+    f(i) = \frac{1}{\sqrt{d_i}} [v^{(1)}_i, \dotsc, v^{(k)}_i].
 $$
 
-This is nearly identical to the Ng et al. algorithm, except here only the $$k$$ smallest eigenvectors are used, instead of all $$n$$ eigenvectors. Using the generalized Cheeger inequality, Peng et al. proved (Theorem 1.2 in [[5]](#references)) that this Spectral $$k$$-Means Algorithm produces a $$k$$-partition $$\{S_i\}_{i=1}^k$$ which satisfies
+This is nearly identical to the Ng et al. algorithm, except with different normalization. Ng et al. normalizes each feature vector to unit length; here, each feature representation is normalized by $$1/\sqrt{d_i}$$ (where $$d_i$$ is the degree of node $$i$$). Using the generalized Cheeger inequality, Peng et al. proved (Theorem 1.2 in [[5]](#references)) that this Spectral k-Means Algorithm produces a $$k$$-partition $$\{S_i\}_{i=1}^k$$ which satisfies
 
 $$
     \phi(S_i) = O(\phi(S_i^*) + \alpha k^3 \rho_G(k) / \lambda_{k+1})
 $$
 
-where $$S_i$$ is the optimal partition (for $$\rho_G(k)$$) and $$\alpha$$ is the approximation ratio of the $$k$$-means algorithm.
+where $$S_i^*$$ is the optimal partition (for $$\rho_G(k)$$) and $$\alpha$$ is the approximation ratio of the k-means algorithm.
 
 ## Summary
 
-While $$k$$-way spectral clustering has seen widespread empirical success, the theoretical results by Lee et al. [[4]](#references) and Peng et al. [[5]](#references) explain why these methods work so well. 
+While $$k$$-way spectral clustering has seen widespread empirical success, the theoretical results by Lee et al. [[4]](#references) and Peng et al. [[5]](#references) explain why these methods work so well.
 
 
 ## References
@@ -249,12 +248,12 @@ While $$k$$-way spectral clustering has seen widespread empirical success, the t
 
 [3] Ng, Andrew Y., Michael I. Jordan, and Yair Weiss. "On Spectral Clustering: Analysis and an algorithm." *Advances in Neural Information Processing Systems* 2 (2002): 849-856. [(link)](https://dl.acm.org/doi/10.5555/2980539.2980649)
 
-* Describes the original spectral $$k$$-means clustering algorithm
+* Describes the original spectral k-means clustering algorithm
 
 [4] Lee, James R., Shayan Oveis Gharan, and Luca Trevisan. "Multiway Spectral Partitioning and Higher-Order Cheeger Inequalities." *Journal of the ACM (JACM)* 61, no. 6 (2014): 1-30. [(link)](https://dl.acm.org/doi/abs/10.1145/2665063)
 
 * Proves the generalized Cheeger inequality for higher-order eigenvalues
 
-[5] Peng, Richard, He Sun, and Luca Zanetti. "Partitioning well-clustered graphs: Spectral clustering works!." In *Conference on Learning Theory*, pp. 1423-1455. PMLR, 2015. [(link)](http://proceedings.mlr.press/v40/Peng15.html)
+[5] Peng, Richard, He Sun, and Luca Zanetti. "Partitioning well-clustered graphs: Spectral clustering works!" In *Conference on Learning Theory*, pp. 1423-1455. PMLR, 2015. [(link)](http://proceedings.mlr.press/v40/Peng15.html)
 
-* Applies the generalized Cheeger inequality to the spectral $$k$$-means clustering algorithm problem
+* Applies the generalized Cheeger inequality to the spectral k-means clustering algorithm problem
