@@ -42,6 +42,8 @@ sudo apt upgrade build-essential  # compilation tools
 Options
 - `--baseurl /~chrisyeh`: add this if hosting this site at some non-root domain (e.g., `*.com/~chrisyeh`)
 - `--drafts`: to show drafts among the latest posts
+- `--force_polling`: use this when running Jekyll on WSL to enable auto-regeneration.
+
 
 # Page Frontmatter Options
 
