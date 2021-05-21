@@ -112,6 +112,12 @@ header {
   margin: 1rem 0;
 }
 
+/* Content inside .callout is responsible for having bottom margin or padding */
+.callout {
+  border-left: 0.25rem solid #5bc0de;
+  padding-left: 0.75rem;
+}
+
 /*******************
  * PROJECTS and ABOUT
  ******************/
@@ -161,8 +167,7 @@ h1.section-title {
 
 pre, code { /* all code */
   color: #567482;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 0.9rem;
+  font: 0.9rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
 
   /* do not break words */
   overflow-wrap: normal;
@@ -194,10 +199,9 @@ pre code { /* code blocks only */
 }
 
 blockquote {
-  padding: 0 1rem;
-  margin-left: 0;
+  border-left: 0.25rem solid #dce6f0;
   color: #819198;
-  border-left: 0.3rem solid #dce6f0;
+  padding-left: 0.75rem;
 }
 blockquote > :first-child {
   margin-top: 0;
@@ -206,18 +210,16 @@ blockquote > :last-child {
   margin-bottom: 0;
 }
 
+/* Content inside <details> is responsible for having bottom margin or padding */
 details {
-  border: 1px solid #aaa;
-  border-radius: 4px;
+  background-color: #e8e9ea;
+  border-bottom: 1px solid #e8e9ea;
   margin-bottom: 1rem;
-  background-color: lightgray;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.75rem 0;
 }
 summary {
   font-style: italic;
-}
-details[open] > summary {
-  padding-bottom: .5em;
+  padding-bottom: 0.25rem;
 }
 
 table {

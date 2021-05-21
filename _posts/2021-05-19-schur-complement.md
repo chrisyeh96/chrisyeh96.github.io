@@ -3,7 +3,7 @@ title: Schur Complements and the Matrix Inversion Lemma
 layout: post
 use_math: true
 use_toc: true
-last_updated: 2021-05-19
+last_updated: 2021-05-21
 tags: [math]
 excerpt: I prove key properties of Schur Complements and use them to derive the matrix inversion lemma.
 ---
@@ -105,8 +105,7 @@ $$
         \begin{bmatrix} I_n & \zero \\ D^{-1} C & I_m \end{bmatrix}.
 $$
 
-*Proof*: Both of the equalities can be seen by directly multiplying the matrix factors.
-
+Both of the equalities can be seen by directly multiplying the matrix factors.
 
 **Lemma (Determinant of Block Matrix)**: If $$A$$ is invertible, then $$\det(M) = \det(A) \det(M/A)$$. Similarly, if $$D$$ is invertible, then $$\det(M) = \det(D) \det(M/D)$$.
 
@@ -120,7 +119,6 @@ The proof is a direct application of three properties of determinants to the fac
 The left and right matrices in each factorization of $$M$$ are triangular with 1s on the diagonal, so their determinants are 1. The middle matrix in each factorization of $$M$$ is block-diagonal.
 
 </details>
-
 
 **Theorem (Invertibility of Schur complement)**: If $$A$$ is invertible, then
 
@@ -244,21 +242,41 @@ Since this equation holds for arbitrary $$a,b$$, the underbraced matrix must be 
 
 The matrix inversion lemma is a corollary of the previous theorem.
 
-**Matrix Inversion Lemma**: If $$A$$ and $$D$$ are invertible, and any of ($$M$$, $$M/A$$, or $$M/D$$) are invertible, then all of the following statements hold:
-* all of $$M$$, $$M/A$$, and $$M/D$$ are invertible;
-* $$(M/A)^{-1} = D^{-1} + D^{-1} C (M/D)^{-1} B D^{-1}$$;
-* $$(M/D)^{-1} = A^{-1} + A^{-1} B (M/A)^{-1} C A^{-1}$$.
+<section class="callout" markdown="block">
 
-<details markdown="block"><summary>Proof</summary>
+**Matrix Inversion Lemma**: If $$A$$ and $$D$$ are invertible, and any of ($$M$$, $$M/A$$, or $$M/D$$) are invertible, then all of $$M$$, $$M/A$$, and $$M/D$$ are invertible. Furthermore,
 
-The 1st statement is a clear consequence of the previous theorem.
+$$
+    \begin{aligned}
+    M^{-1}
+    &= \begin{bmatrix}
+        A^{-1} + A^{-1} B (M/A)^{-1} C A^{-1}  &  -A^{-1} B (M/A)^{-1} \\
+        -(M/A)^{-1} C A^{-1}                   &  (M/A)^{-1}
+       \end{bmatrix}
+    \\
+    &= \begin{bmatrix}
+        (M/D)^{-1}            &  -(M/D)^{-1} B D^{-1} \\
+        -D^{-1} C (M/D)^{-1}  &  D^{-1} + D^{-1} C (M/D)^{-1} B D^{-1}
+       \end{bmatrix}.
+    \end{aligned}
+$$
 
-To see the 2nd and 3rd statements, note that the previous theorem provides two different expressions for the inverse of $$M$$. Since a matrix inverse is unique, equating the two expressions yields the desired result. In fact, since the previous theorem provides 2 valid ways to write out each block of $$M^{-1}$$, this provides $$2^4 = 16$$ valid expressions for $$M^{-1}$$.
+Since a matrix inverse is unique, equating the two expressions for $$M^{-1}$$ yields the identities
 
-</details>
+$$
+    \begin{aligned}
+    (M/A)^{-1} &= D^{-1} + D^{-1} C (M/D)^{-1} B D^{-1} \\
+    (M/D)^{-1} &= A^{-1} + A^{-1} B (M/A)^{-1} C A^{-1}.
+    \end{aligned}
+$$
 
-Note that the 2nd and 3rd statements in the matrix inversion lemma do not actually require constructing the full block matrix $$M$$. Thus, the lemma is often stated without explicitly constructing $$M$$, and instead directly considers arbitrary matrices $$A \in \C^{n \times n}$$, $$B \in \C^{n \times m}$$, $$C \in \C^{m \times n}$$, and $$D \in \C^{m \times m}$$.
+</section>
 
+In fact, since there are 2 valid ways to write out each block of $$M^{-1}$$, this provides $$2^4 = 16$$ valid expressions for $$M^{-1}$$.
+
+Note that the identities in the matrix inversion lemma do not actually require constructing the full block matrix $$M$$. Thus, the lemma is often stated without explicitly constructing $$M$$, and instead directly considers arbitrary matrices $$A \in \C^{n \times n}$$, $$B \in \C^{n \times m}$$, $$C \in \C^{m \times n}$$, and $$D \in \C^{m \times m}$$.
+
+<section class="callout" markdown="block">
 **Matrix Inversion Lemma (alternate form)**: For any invertible matrices $$A$$ and $$D$$ and any matrices $$B$$ and $$C$$, if either $$(D - C A^{-1} B)$$ or $$(A - B D^{-1} C)$$ is invertible, then both are invertible and are related by the identities
 
 $$
@@ -268,7 +286,11 @@ $$
     \end{aligned}
 $$
 
+</section>
+
 If we substitute $$\bar{C} = -C$$ and $$\bar{D} = D^{-1}$$ into the matrix inversion lemma, then we arrive at the Woodbury matrix identity.
+
+<section class="callout" markdown="block">
 
 **Woodbury matrix identity**: For any invertible matrices $$A$$ and $$\bar{D}$$ and any matrices $$B$$ and $$\bar{C}$$, if either $$(A + B \bar{D} \bar{C})$$ or $$(\bar{D}^{-1} + \bar{C} A^{-1} B)$$ is invertible, then both are invertible and are related by
 
@@ -276,7 +298,11 @@ $$
     (A + B \bar{D} \bar{C})^{-1} = A^{-1} - A^{-1} B (\bar{D}^{-1} + \bar{C} A^{-1} B)^{-1} \bar{C} A^{-1}.
 $$
 
+</section>
+
 Some texts such as Boyd's *Convex Optimization* book (Appendix C.4.3) substitute $$D = -I_m$$ (which is invertible) into the matrix inversion lemma.
+
+<section class="callout" markdown="block">
 
 **Woodbury matrix identity (simpler form)**: For any invertible matrix $$A$$, if either $$(I + C A^{-1} B)$$ or $$(A + BC)^{-1}$$ is invertible, then both are invertible and are related by
 
@@ -284,9 +310,13 @@ $$
     (A + BC)^{-1} = A^{-1} - A^{-1} B (I + C A^{-1} B)^{-1} C A^{-1}.
 $$
 
-Finally, the special case of the matrix inversion lemma where $$A \in \R^{n \times n}$$, $$B = u \in \R^n$$, $$C = v^T \in \R^{1 \times n}$$, and $$D = D^{-1} = -1$$ is known as the Sherman-Morrison formula:
+</section>
 
-**Sherman-Morrison formula**: For any invertible matrix $$A \in \R^{n \times n}$$ and vectors $$u, v \in \R^n$$, then
+Finally, the special case of the matrix inversion lemma where $$A \in \R^{n \times n}$$, $$B = u \in \R^n$$, $$C = v^T \in \R^{1 \times n}$$, and $$D = D^{-1} = -1$$ is known as the Sherman-Morrison formula.
+
+<section class="callout" markdown="block">
+
+**Sherman-Morrison formula**: For any invertible matrix $$A \in \R^{n \times n}$$ and vectors $$u, v \in \R^n$$,
 
 $$ (A + uv^T) \text{ is invertible} \ \iff \ 1 + v^T A^{-1} u \neq 0 $$
 
@@ -295,6 +325,8 @@ and if either holds, then
 $$
     (A + uv^T)^{-1} = A^{-1} - \frac{A^{-1} u v^T A^{-1}}{1 + v^T A^{-1} u}.
 $$
+
+</section>
 
 **Discussion**
 
@@ -355,7 +387,6 @@ Likewise, consider $$u = \zero$$. Then $$f(u=\zero, v) = v^T D v > 0$$ for all $
 The proof for the semidefinite case is nearly identical, where $$>$$ is replaced with $$\geq$$.
 
 </details>
-
 
 **Theorem (Conditions for Positive Definiteness):** The following three conditions are equivalent:
 1. $$M \succ 0$$,
