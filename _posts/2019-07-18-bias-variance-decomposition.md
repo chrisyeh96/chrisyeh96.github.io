@@ -3,9 +3,10 @@ title: Bias-Variance Decomposition of Mean Squared Error
 layout: post
 use_math: true
 use_toc: true
-last_updated: 2020-05-04
+last_updated: 2021-05-21
 excerpt: I derive the bias-variance decomposition of mean squared error for both estimators and predictors, and I show how they are related for linear models.
 tags: [ML]
+pin: true
 ---
 
 $$
@@ -36,7 +37,7 @@ This post discusses the bias-variance decomposition for MSE in both of these con
 
 **Theorem 1**: For any random vector $$X \in \R^p$$ and any constant vector $$c \in \R^p$$,
 
-$$ \E[\|X-c\|_2^2] = \tr\var[X] + \|\E[X]-c\|_2^2. $$
+$$ \E[\|X-c\|_2^2] = \tr\Cov[X] + \|\E[X]-c\|_2^2. $$
 
 <details markdown="block"><summary>Proof</summary>
 
@@ -44,10 +45,10 @@ All of the expectations and the variance are taken with respect to $$P(X)$$. Let
 
 $$
 \begin{aligned}
-\tr \var(X) + \|\mu-c\|_2^2
-&= \sum_{i=1}^N \var(X_i) + \|\mu-c\|_2^2 \\
-&= \sum_{i=1}^N \E\left[ (X_i - \mu_i)^2 \right] + \|\mu-c\|_2^2 \\
-&= \E\left[\sum_{i=1}^N (X_i - \mu_i)^2 \right] + \|\mu-c\|_2^2 \\
+\tr \Cov(X) + \|\mu-c\|_2^2
+&= \sum_{i=1}^p \var(X_i) + \|\mu-c\|_2^2 \\
+&= \sum_{i=1}^p \E\left[ (X_i - \mu_i)^2 \right] + \|\mu-c\|_2^2 \\
+&= \E\left[\sum_{i=1}^p (X_i - \mu_i)^2 \right] + \|\mu-c\|_2^2 \\
 &= \E[(X-\mu)^T (X-\mu)] + (\mu-c)^T (\mu-c) \\
 &= \E[X^T X] \underbrace{- 2 \E[X]^T \mu + \mu^T \mu + \mu^T \mu}_{=0} - 2 \mu^T c + c^T c \\
 &= \E[X^T X - 2 X^T c + c^T c] \\
@@ -66,7 +67,7 @@ $$ \E[(X-c)^2] = \var[X] + (\E[X]-c)^2. $$
 
 # Bias and Variance of an Estimator
 
-Consider a probability distribution $$P_T(X)$$ parameterized by $$T$$, and let $$D = \{ x^{(i)} \}_{i=1}^N$$ be a sample of data drawn i.i.d. from $$P_T(X)$$. Let $$\Th = \Th(D)$$ be an **estimator** of $$T$$ that has variability due to the randomness of the data from which it is computed.
+Consider a probability distribution $$P_T(X)$$ parameterized by $$T$$, and let $$D = \{ x^{(i)} \}_{i=1}^N$$ be a set of samples drawn i.i.d. from $$P_T(X)$$. Let $$\Th = \Th(D)$$ be an **estimator** of $$T$$ that has variability due to the randomness of the data from which it is computed.
 
 For example, $$T$$ could be the mean of $$P_T(X)$$. The sample mean $$\Th = \frac{1}{N} \sum_{i=1}^N x^{(i)}$$ is an estimator of $$T$$.
 
@@ -78,15 +79,16 @@ $$
 \begin{aligned}
 MSE(\Th)
 &= \E_T\left[ \|\Th(D) - T\|_2^2 \right] \\
-&= \| \E_T[\Th] - T \|_2^2 + \tr\var_T[\Th] \\
-&= \|\Bias[\Th]\|_2^2 + \tr\var[\Th]
+&= \| \E_T[\Th] - T \|_2^2 + \tr\Cov_T[\Th] \\
+&= \|\Bias[\Th]\|_2^2 + \tr\Cov[\Th]
 \end{aligned}
 $$
 
 Terminology for an estimator $$\Th$$:
-- The **standard error** of $$\Th$$ is $$SE(\Th) = \sqrt{\var[\Th]}$$.
+- The **standard error** of a scalar estimator $$\Th$$ is $$SE(\Th) = \sqrt{\var[\Th]}$$.
+    - If $$\Th$$ is a vector, then the standard error of its $$i$$-th entry is $$SE(\Th_i) = \sqrt{\var[\Th_i]}$$.
 - $$\Th$$ is **unbiased** if $$\Bias[\Th] = 0$$.
-- $$\Th$$ is **efficient** if $$\var[\Th]$$ equals the Cramer-Rao lower bound $$I(T)^{-1} / N$$ where $$I(T)$$ is the Fisher Information matrix of $$T$$.
+- $$\Th$$ is **efficient** if $$\Cov[\Th]$$ equals the Cramer-Rao lower bound $$I(T)^{-1} / N$$ where $$I(T)$$ is the Fisher Information matrix of $$T$$.
     - $$\Th$$ is **_asymptotically_ efficient** if it achieves this bound asymptotically as the number of samples $$N \to \infty$$.
 - $$\Th$$ is **consistent** if $$\Th \to T$$ in probability as $$N \to \infty$$.
 
@@ -284,7 +286,7 @@ We also show that the variance of the ridge regression estimator is strictly les
   <tr>
     <td>Variance</td>
     <td markdown="span">$$\sigma^2 (\bfX^T \bfX)^{-1}$$</td>
-    <td markdown="span">$$\var_\bfX[\wh_{\bfX, f}] + \sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right]$$</td>
+    <td markdown="span">$$\Cov_\bfX[\wh_{\bfX, f}] + \sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right]$$</td>
     <td markdown="span">$$\sigma^2 (\bfX^T \bfX)^{-1}$$</td>
     <td markdown="span">$$\sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right]$$</td>
   </tr>
@@ -299,9 +301,9 @@ We also show that the variance of the ridge regression estimator is strictly les
   <tr>
     <td>Variance</td>
     <td markdown="span">$$\sigma^2 \bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T$$</td>
-    <td markdown="span">$$\var_\bfX[ \wh_{\bfX, f, \alpha} ] + \sigma^2 \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T]$$</td>
+    <td markdown="span">$$\Cov_\bfX[ \wh_{\bfX, f, \alpha} ] + \sigma^2 \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T]$$</td>
     <td markdown="span">$$\sigma^2 \bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T$$</td>
-    <td markdown="span">$$\var_\bfX[ \wh_{\bfX, f, \alpha} ] + \sigma^2 \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T]$$</td>
+    <td markdown="span">$$\Cov_\bfX[ \wh_{\bfX, f, \alpha} ] + \sigma^2 \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T]$$</td>
   </tr>
 </table>
 
@@ -323,10 +325,10 @@ $$
 &= \E_x[x x^T]^{-1} \E_x[x f(x)]
  = w_\star
 \\
-\var[\wh \mid \bfX]
-&= \var_{\bfy | \bfX} [ \wh ] \\
-&= \var_{\bfy | \bfX} \left[ (\bfX^T \bfX)^{-1} \bfX^T \bfy \right] \\
-&= \bfZ \var_{\bfy | \bfX}[\bfy] \bfZ^T \\
+\Cov[\wh \mid \bfX]
+&= \Cov_{\bfy | \bfX} [ \wh ] \\
+&= \Cov_{\bfy | \bfX} \left[ (\bfX^T \bfX)^{-1} \bfX^T \bfy \right] \\
+&= \bfZ \Cov_{\bfy | \bfX}[\bfy] \bfZ^T \\
 &= \bfZ (\sigma^2 I_n) \bfZ^T \\
 &= \sigma^2 \bfZ \bfZ^T \\
 &= \sigma^2 (\bfX^T \bfX)^{-1}
@@ -368,15 +370,15 @@ The derivation for the variance of $$\wh$$ relies heavily on the linearity of ex
 
 $$
 \begin{aligned}
-\var[\wh]
-&= \var_D[ \wh ] \\
-&= \var_{\bfX, \epsilon} [ (\bfX^T \bfX)^{-1} \bfX^T (f(\bfX) + \epsilon) ] \\
-&= \var_{\bfX, \epsilon} [ \wh_{\bfX, f} + \bfZ_\bfX \epsilon ] \\
+\Cov[\wh]
+&= \Cov_D[ \wh ] \\
+&= \Cov_{\bfX, \epsilon} [ (\bfX^T \bfX)^{-1} \bfX^T (f(\bfX) + \epsilon) ] \\
+&= \Cov_{\bfX, \epsilon} [ \wh_{\bfX, f} + \bfZ_\bfX \epsilon ] \\
 &= \E_{\bfX, \epsilon} [ (\wh_{\bfX, f} + \bfZ_\bfX \epsilon) (\wh_{\bfX, f} + \bfZ_\bfX \epsilon)^T ] - \E_{\bfX, \epsilon}[ \wh_{\bfX, f} + \bfZ_\bfX \epsilon ] \E_{\bfX, \epsilon}[ \wh_{\bfX, f} + \bfZ_\bfX \epsilon ]^T \\
 &= \E_{\bfX, \epsilon} \left[ \wh_{\bfX, f} \wh_{\bfX, f}^T + \wh_{\bfX, f} (\bfZ_\bfX \epsilon)^T + \bfZ_\bfX \epsilon \wh_{\bfX, f}^T + \bfZ_\bfX \epsilon (\bfZ_\bfX \epsilon)^T \right] - \E_\bfX[\wh_{\bfX, f}] \E_\bfX[\wh_{\bfX, f}]^T \\
 &= \E_\bfX[ \wh_{\bfX, f} \wh_{\bfX, f}^T ] + 0 + 0 + \E_{\bfX, \epsilon}[\bfZ_\bfX \epsilon \epsilon^T \bfZ_\bfX^T] - \E_\bfX[\wh_{\bfX, f}] \E_\bfX[\wh_{\bfX, f}]^T \\
-&= \var_\bfX[\wh_{\bfX, f}] + \E_\bfX\left[\bfZ_\bfX \underbrace{\E_\epsilon[\epsilon \epsilon^T]}_{=\sigma^2 I_N} \bfZ_\bfX^T\right] \\
-&= \var_\bfX[\wh_{\bfX, f}] + \sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right]
+&= \Cov_\bfX[\wh_{\bfX, f}] + \E_\bfX\left[\bfZ_\bfX \underbrace{\E_\epsilon[\epsilon \epsilon^T]}_{=\sigma^2 I_N} \bfZ_\bfX^T\right] \\
+&= \Cov_\bfX[\wh_{\bfX, f}] + \sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right]
 \end{aligned}
 $$
 
@@ -408,14 +410,14 @@ However, when the training inputs $$\bfX$$ are sampled randomly, the variance do
 
 $$
 \begin{aligned}
-\var_\bfX[\wh_{\bfX, f}]
-&= \var_\bfX[(\bfX^T \bfX)^{-1} \bfX^T f(\bfX)] \\
-&= \var_\bfX[(\bfX^T \bfX)^{-1} \bfX^T (\bfX w)] \\
-&= \var_\bfX[w] = 0
+\Cov_\bfX[\wh_{\bfX, f}]
+&= \Cov_\bfX[(\bfX^T \bfX)^{-1} \bfX^T f(\bfX)] \\
+&= \Cov_\bfX[(\bfX^T \bfX)^{-1} \bfX^T (\bfX w)] \\
+&= \Cov_\bfX[w] = 0
 \end{aligned}
 $$
 
-so $$\var[\wh] = \sigma^2 \E_\bfX\left[ (\bfX^T \bfX)^{-1} \right]$$.
+so $$\Cov[\wh] = \sigma^2 \E_\bfX\left[ (\bfX^T \bfX)^{-1} \right]$$.
 
 </details>
 
@@ -448,9 +450,9 @@ $$
 \Bias[\whR \mid \bfX]
 &= \E_{\bfy \mid \bfX}[\whR] - w_\star
  = \bfZ_{\bfX, \alpha} \bfX w_\star - w_\star \\
-\var_{\bfy|\bfX}[\whR \mid \bfX]
-&= \var_{\bfy|\bfX}\left[ \bfZ_{\bfX, \alpha} \bfX \wh \right] \\
-&= \bfZ_{\bfX, \alpha} \bfX \var_{\bfy|\bfX}\left[ \wh \right] \bfX^T \bfZ_{\bfX, \alpha}^T \\
+\Cov_{\bfy|\bfX}[\whR \mid \bfX]
+&= \Cov_{\bfy|\bfX}\left[ \bfZ_{\bfX, \alpha} \bfX \wh \right] \\
+&= \bfZ_{\bfX, \alpha} \bfX \Cov_{\bfy|\bfX}\left[ \wh \right] \bfX^T \bfZ_{\bfX, \alpha}^T \\
 &= \sigma^2 \bfZ_{\bfX, \alpha} \bfX (\bfX^T \bfX)^{-1} \bfX^T \bfZ_{\bfX, \alpha}^T \\
 &= \sigma^2 \bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T
 \end{aligned}
@@ -474,10 +476,10 @@ $$
  = \E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star \\
 \Bias[\whR]
 &= \E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star - w_\star \\
-\var[\whR]
-&= \var_{\bfX, \epsilon}\left[ \wh_{\bfX, f, \alpha} + \bfZ_{\bfX, \alpha} \epsilon \right] \\
+\Cov[\whR]
+&= \Cov_{\bfX, \epsilon}\left[ \wh_{\bfX, f, \alpha} + \bfZ_{\bfX, \alpha} \epsilon \right] \\
 &= \E_\bfX[ \wh_{\bfX, f, \alpha} \wh_{\bfX, f, \alpha}^T ] + \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \epsilon \epsilon^T \bfZ_{\bfX, \alpha}^T] - \E_\bfX[\wh_{\bfX, f, \alpha}] \E_\bfX[\wh_{\bfX, f, \alpha}]^T \\
-&= \var_\bfX[ \wh_{\bfX, f, \alpha} ] + \sigma^2 \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T].
+&= \Cov_\bfX[ \wh_{\bfX, f, \alpha} ] + \sigma^2 \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T].
 \end{aligned}
 $$
 
@@ -489,19 +491,19 @@ If $$f$$ is truly linear, then $$\Bias[\whR] = \E_\bfX\left[ \wh_{\bfX, f, \alph
 
 For any $$\alpha > 0$$ and assuming the training inputs $$\bfX$$ are fixed and full-rank, the ridge regression estimator has lower variance than the standard linear regression estimator without regularization. This result holds regardless of whether $$f$$ is linear or not.
 
-Because the estimators $$\wh$$ and $$\whR$$ are vectors, their variances are really covariance matrices. Thus, when we compare their variances, we actually compare their definiteness. One way to see this is that the MSE formula only depends on the trace of the covariance matrix. For any two vectors $$a$$ and $$b$$,
+Because the estimators $$\wh$$ and $$\whR$$ are vectors, their variances are really covariance matrices. Thus, when we compare their variances, we actually compare the definiteness of their covariance matrices. One way to see this is that the MSE formula only depends on the trace of the covariance matrix. For any two vectors $$a$$ and $$b$$,
 
 $$
-\var[a] - \var[b] \succ 0
-\quad\implies\quad \tr(\var[a] - \var[b]) > 0
-\quad\iff\quad \tr(\var[a]) > \tr(\var[b]).
+\Cov[a] - \Cov[b] \succ 0
+\quad\implies\quad \tr(\Cov[a] - \Cov[b]) > 0
+\quad\iff\quad \tr(\Cov[a]) > \tr(\Cov[b]).
 $$
 
-The first implication relies on the fact that if a matrix is positive definite, its trace is positive. Thus, showing that $$\var[\wh \mid \bfX] \succ \var[\whR \mid \bfX]$$ establishes that the $$\wh$$ has a larger variance term in its MSE decomposition.
+The first implication relies on the fact that if a matrix is positive definite, its trace is positive. Thus, showing that $$\Cov[\wh \mid \bfX] \succ \Cov[\whR \mid \bfX]$$ establishes that the $$\wh$$ has a larger variance term in its MSE decomposition.
 
 For linear models, comparing the definiteness of the covariance matrices is also directly related to the variance of the predicted outputs. This makes more sense when we discuss the variance of the ridge regression *predictor* later in this post.
 
-**Theorem**: If we take the training inputs $$\bfX \in \R^{n \times d}$$ with $$n \geq d$$ to be fixed and full-rank while the training labels $$\bfy \in \R^N$$ have variance $$\sigma^2$$, then the variance of any ridge regression estimator with $$\alpha > 0$$ has lower variance than the standard linear regression estimator without regularization. In other words, $$\forall \alpha > 0.\, \var[\whR \mid \bfX] \prec \var[\wh \mid \bfX]$$.
+**Theorem**: If we take the training inputs $$\bfX \in \R^{n \times d}$$ with $$n \geq d$$ to be fixed and full-rank while the training labels $$\bfy \in \R^N$$ have variance $$\sigma^2$$, then the variance of any ridge regression estimator with $$\alpha > 0$$ has lower variance than the standard linear regression estimator without regularization. In other words, $$\forall \alpha > 0.\, \Cov[\whR \mid \bfX] \prec \Cov[\wh \mid \bfX]$$.
 
 <details markdown="block"><summary>Proof</summary>
 
@@ -509,19 +511,19 @@ Let $$S = \bfX^T \bfX$$ and $$W = (\bfX^T \bfX + \alpha I)^{-1}$$. Both $$S$$ an
 
 $$
 \begin{aligned}
-\var[\whR \mid \bfX]
+\Cov[\whR \mid \bfX]
 &= \sigma^2 \bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T
  = \sigma^2 W \bfX^T \bfX^T W
  = \sigma^2 WSW \\
-\var[\wh \mid \bfX]
+\Cov[\wh \mid \bfX]
 &= \sigma^2 (\bfX^T \bfX)^{-1}
  = \sigma^2 S^{-1} \\
-\var[\wh \mid \bfX] - \var[\whR \mid \bfX]
+\Cov[\wh \mid \bfX] - \Cov[\whR \mid \bfX]
 &= \sigma^2 (S^{-1} - WSW)
 \end{aligned}
 $$
 
-We will show that $$S^{-1} - WSW \succ 0$$ (positive definite), which implies that $$\var[\whR \mid \bfX] \prec \var[\wh \mid \bfX]$$.
+We will show that $$S^{-1} - WSW \succ 0$$ (positive definite), which implies that $$\Cov[\whR \mid \bfX] \prec \Cov[\wh \mid \bfX]$$.
 
 We first show
 
@@ -647,7 +649,7 @@ $$
 \var[\fh(x)]
 &= \var_D[ \fh_D(x) ] \\
 &= \var_D[ x^T \wh_D ] \\
-&= x^T \var_D[ \wh_D ]\ x
+&= x^T \Cov_D[ \wh_D ]\ x
 \end{aligned}
 $$
 
@@ -681,7 +683,7 @@ As before, we separately consider the cases where the true $$f$$ is an arbitrary
   <tr>
     <td>Variance</td>
     <td markdown="span">$$\sigma^2 \|\bfh_\bfX(x)\|_2^2$$</td>
-    <td markdown="span">$$x^T \var_\bfX[\wh_{\bfX, f}] x + \sigma^2 \E_\bfX\left[ \|\bfh_\bfX(x)\|_2^2 \right]$$</td>
+    <td markdown="span">$$x^T \Cov_\bfX[\wh_{\bfX, f}] x + \sigma^2 \E_\bfX\left[ \|\bfh_\bfX(x)\|_2^2 \right]$$</td>
     <td markdown="span">$$\sigma^2 \|\bfh_\bfX(x)\|_2^2$$</td>
     <td markdown="span">$$\sigma^2 \E_\bfX\left[ \|\bfh_\bfX(x)\|_2^2 \right]$$</td>
   </tr>
@@ -696,9 +698,9 @@ As before, we separately consider the cases where the true $$f$$ is an arbitrary
   <tr>
     <td>Variance</td>
     <td markdown="span">$$\sigma^2 \|\bfh_{\bfX, \alpha}(x)\|_2^2$$</td>
-    <td markdown="span">$$x^T \var_\bfX[\wh_{\bfX, \alpha, f}] x + \sigma^2 \E_\bfX\left[ \|\bfh_{\bfX, \alpha}(x)\|_2^2 \right]$$</td>
+    <td markdown="span">$$x^T \Cov_\bfX[\wh_{\bfX, \alpha, f}] x + \sigma^2 \E_\bfX\left[ \|\bfh_{\bfX, \alpha}(x)\|_2^2 \right]$$</td>
     <td markdown="span">$$\sigma^2 \|\bfh_{\bfX, \alpha}(x)\|_2^2$$</td>
-    <td markdown="span">$$x^T \var_\bfX[\wh_{\bfX, \alpha, f}] x + \sigma^2 \E_\bfX\left[ \|\bfh_{\bfX, \alpha}(x)\|_2^2 \right]$$</td>
+    <td markdown="span">$$x^T \Cov_\bfX[\wh_{\bfX, \alpha, f}] x + \sigma^2 \E_\bfX\left[ \|\bfh_{\bfX, \alpha}(x)\|_2^2 \right]$$</td>
   </tr>
 </table>
 
@@ -791,7 +793,7 @@ $$
 &= f(x) - x^T \wh_{\bfX, f}
 \\
 \var[\fh(x) \mid \bfX]
-&= x^T \var[\wh \mid \bfX] x \\
+&= x^T \Cov[\wh \mid \bfX] x \\
 &= \sigma^2 x^T (\bfX^T \bfX)^{-1} x \\
 &= \sigma^2 \bfh_\bfX(x)^T \bfh_\bfX(x) \\
 &= \sigma^2 \| \bfh_\bfX(x) \|_2^2
@@ -824,10 +826,10 @@ $$
 \\
 \var[\fh(x)]
 &= \var_D [ \fh_D(x) ]
- = x^T \var_D[\wh_D] x \\
-&= x^T \left( \var_\bfX[\wh_\bfX] + \sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right] \right) x \\
-&= x^T \var_\bfX[\wh_\bfX] x + \sigma^2 \E_\bfX[x^T \bfZ_\bfX \bfZ_\bfX^T x] \\
-&= x^T \var_\bfX[\wh_\bfX] x + \sigma^2 \E_\bfX\left[ \|\bfh_\bfX(x)\|_2^2 \right]
+ = x^T \Cov_D[\wh_D] x \\
+&= x^T \left( \Cov_\bfX[\wh_\bfX] + \sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right] \right) x \\
+&= x^T \Cov_\bfX[\wh_\bfX] x + \sigma^2 \E_\bfX[x^T \bfZ_\bfX \bfZ_\bfX^T x] \\
+&= x^T \Cov_\bfX[\wh_\bfX] x + \sigma^2 \E_\bfX\left[ \|\bfh_\bfX(x)\|_2^2 \right]
 \end{aligned}
 $$
 
@@ -859,7 +861,7 @@ $$
 
 For the variance of the model, if the training inputs $$\bfX$$ are fixed, the variance of a linear regression model for arbitrary $$f$$ is $$\sigma^2 \|\bfh_\bfX(x)\|_2^2$$ which does not depend on $$f$$. Thus, it is the same regardless of whether $$f$$ is actually linear or not.
 
-However, when the training inputs are sampled randomly, the variance does depend on $$f$$. When deriving the variance of the linear regression estimator for linear $$f$$, we saw that $$\var_\bfX[\wh_\bfX] = 0$$. Therefore, the variance of the model with randomly sampled inputs is
+However, when the training inputs are sampled randomly, the variance does depend on $$f$$. When deriving the variance of the linear regression estimator for linear $$f$$, we saw that $$\Cov_\bfX[\wh_\bfX] = 0$$. Therefore, the variance of the model with randomly sampled inputs is
 
 $$
 \var[\fh(x)]
@@ -897,16 +899,16 @@ The bias and variance expressions for ridge regression come as a straightforward
 $$
 \begin{aligned}
 \Bias[\fh(x)] &= \Bias[\wh]^T x \\
-\var[\fh(x)] &= x^T \var_D[ \wh_D ]\ x
+\var[\fh(x)] &= x^T \Cov_D[ \wh_D ]\ x
 \end{aligned}
 $$
 
-These equations also make it clear why we compare the definiteness of the covariance matrices between different estimators. Since we know that $$\var[\whR] \prec \var[\wh]$$, then by definition
+These equations also make it clear why we compare the definiteness of the covariance matrices between different estimators. Since we know that $$\Cov[\whR] \prec \Cov[\wh]$$, then by definition
 
 $$
 \begin{aligned}
-& \forall x.\ x^T \left( \var[\wh] - \var[\whR] \right) x > 0 \\
-&\iff \forall x.\ x^T \var[\wh] x - x^T \var[\whR] x > 0 \\
+& \forall x.\ x^T \left( \Cov[\wh] - \Cov[\whR] \right) x > 0 \\
+&\iff \forall x.\ x^T \Cov[\wh] x - x^T \Cov[\whR] x > 0 \\
 &\iff \forall x.\ \var[\fh(x)] > \var[\fhR(x)].
 \end{aligned}
 $$
