@@ -10,6 +10,7 @@ excerpt: I prove key properties of Schur Complements and use them to derive the 
 
 $$
 \newcommand{\C}{\mathbb{C}}  % complex numbers
+\newcommand{\F}{\mathbb{F}}  % field
 \newcommand{\Sym}{\mathbb{S}}  % symmetric matrices
 \newcommand{\norm}[1]{\|#1\|}  % norm
 \newcommand{\spanset}[1]{\spans\left\{#1\right\}}  % span
@@ -24,7 +25,11 @@ $$
 
 ## Preliminaries
 
-The post assumes standard linear algebra knowledge at the level presented in S. Axler's *Linear Algebra Done Right, 3e* (LADR). All results in this post apply to both real and complex-valued matrices, unless otherwise specified. $$I_n$$ denotes the $$n \times n$$ identity matrix, and $$\Sym^n$$ denotes the vector space of symmetric $$n \times n$$ real matrices.
+The post assumes standard linear algebra knowledge at the level presented in S. Axler's *Linear Algebra Done Right, 3e* (LADR). All results in this post apply to both real and complex-valued matrices, unless otherwise specified.
+* $$\F$$ stands for either $$\R$$ or $$\C$$.
+* $$I_n$$ denotes the $$n \times n$$ identity matrix.
+* $$\Sym^n$$ denotes the vector space of symmetric $$n \times n$$ real matrices.
+* $$\zero$$ denotes an all-zero vector or matrix, whereas 0 denotes scalar zero.
 
 
 ## Summary
@@ -59,17 +64,17 @@ These two results combine to give the matrix inversion lemma, which states that 
 * $$(M/A)^{-1} = D^{-1} + D^{-1} C (M/D)^{-1} B D^{-1}$$;
 * $$(M/D)^{-1} = A^{-1} + A^{-1} B (M/A)^{-1} C A^{-1}$$.
 
-Finally, the positive (semi-)definiteness of $$M$$ is related to the positive (semi-)definiteness of its Schur complements by the following properties:
+Finally, the positive (semi-)definiteness of $$M \in \Sym^n$$ is related to the positive (semi-)definiteness of its Schur complements by the following properties:
 
 1. $$ M \succ 0 \ \iff \ A, (M/A) \succ 0 \ \iff \ D, (M/D) \succ 0 $$.
 2. If $$A \succ 0$$, then $$ M \succeq 0 \ \iff \ (M/A) \succeq 0 $$.
 3. If $$D \succ 0$$, then $$ M \succeq 0 \ \iff \ (M/D) \succeq 0 $$.
 
-If we consider generalized Schur complements (replacing $$A^{-1}$$ and $$D^{-1}$$ with their Moore-Penrose pseudoinverses), then the following conditions are equivalent:
+If we consider generalized Schur complements (replacing $$A^{-1}$$ and $$D^{-1}$$ with their Moore-Penrose pseudoinverses), then the following conditions are equivalent for $$M \in \Sym^n$$:
 
 1. $$M \succeq 0$$.
-2. $$A \succeq 0$$, $$(I - A A^\dagger) B = 0$$, $$D - B^\top A^\dagger B \succeq 0$$.
-3. $$D \succeq 0$$, $$(I - D D^\dagger) B^\top = 0$$, $$A - B D^\dagger B^\top \succeq 0$$.
+2. $$A \succeq 0$$, $$(I - A A^\dagger) B = \zero$$, $$D - B^\top A^\dagger B \succeq 0$$.
+3. $$D \succeq 0$$, $$(I - D D^\dagger) B^\top = \zero$$, $$A - B D^\dagger B^\top \succeq 0$$.
 
 
 ## Schur Complements
@@ -80,7 +85,7 @@ Consider a square matrix $$M$$ of size $$(n+m) \times (n+m)$$, partitioned as
 
 $$ M = \begin{bmatrix} A & B \\ C & D \end{bmatrix} $$
 
-where $$A \in \C^{n \times n}$$, $$B \in \C^{n \times m}$$, $$C \in \C^{m \times n}$$, and $$D \in \C^{m \times m}$$.
+where $$A \in \F^{n \times n}$$, $$B \in \F^{n \times m}$$, $$C \in \F^{m \times n}$$, and $$D \in \F^{m \times m}$$.
 
 If $$A$$ is invertible, the **Schur complement of the block $$A$$ of the matrix $$M$$** is defined as the $$m \times m$$ matrix
 
@@ -118,7 +123,7 @@ Both of the equalities can be seen by directly multiplying the matrix factors.
 <details markdown="block"><summary>Proof</summary>
 
 The proof is a direct application of three properties of determinants to the factorization of $$M$$ given in the previous lemma.
-* The determinant of the product of two matrices is the product of their determinants: $$\det(AB) = \det(A) \det(B)$$. (Theorem 10.40 in LADR)
+* The determinant of the product of two matrices is the product of their determinants: $$\det(AB) = \det(A) \det(B)$$. (LADR 10.40)
 * The determinant of a triangular matrix is the product of the diagonal entries. ([StackExchange](https://math.stackexchange.com/a/2013136))
 * The determinant of a block-diagonal matrix is the product of the determinants of the individual blocks. ([StackExchange](https://math.stackexchange.com/a/1219331))
 
@@ -154,7 +159,7 @@ $$
 
 <details markdown="block"><summary>Proof</summary>
 
-A matrix is invertible if and only if its determinant is nonzero (Theorems 10.24 and 10.42 in LADR). Combining this fact with the previous lemma yields the desired result.
+A matrix is invertible if and only if its determinant is nonzero (LADR 10.24 and 10.42). Combining this fact with the previous lemma yields the desired result.
 
 Furthermore, the proof of the previous lemma shows that if $$A$$ and $$M/A$$ are invertible, then all 3 matrices in the factorization of $$M$$ have nonzero determinant and are therefore invertible. This naturally leads to a derivation of the inverse of $$M$$:
 
@@ -245,7 +250,7 @@ Since this equation holds for arbitrary $$a,b$$, the underbraced matrix must be 
 </details>
 
 
-## Matrix Inversion Lemma
+### Matrix Inversion Lemma
 
 The matrix inversion lemma is a corollary of the previous theorem.
 
@@ -281,7 +286,7 @@ $$
 
 In fact, since there are 2 valid ways to write out each block of $$M^{-1}$$, this provides $$2^4 = 16$$ valid expressions for $$M^{-1}$$.
 
-Note that the identities in the matrix inversion lemma do not actually require constructing the full block matrix $$M$$. Thus, the lemma is often stated without explicitly constructing $$M$$, and instead directly considers arbitrary matrices $$A \in \C^{n \times n}$$, $$B \in \C^{n \times m}$$, $$C \in \C^{m \times n}$$, and $$D \in \C^{m \times m}$$.
+Note that the identities in the matrix inversion lemma do not actually require constructing the full block matrix $$M$$. Thus, the lemma is often stated without explicitly constructing $$M$$, and instead directly considers arbitrary matrices $$A \in \F^{n \times n}$$, $$B \in \F^{n \times m}$$, $$C \in \F^{m \times n}$$, and $$D \in \F^{m \times m}$$.
 
 <section class="callout" markdown="block">
 **Matrix Inversion Lemma (alternate form)**: For any invertible matrices $$A$$ and $$D$$ and any matrices $$B$$ and $$C$$, if either $$(D - C A^{-1} B)$$ or $$(A - B D^{-1} C)$$ is invertible, then both are invertible and are related by the identities
@@ -312,11 +317,11 @@ Some texts such as Boyd's *Convex Optimization* book (Appendix C.4.3) substitute
 
 <section class="callout" markdown="block">
 
-**Woodbury matrix identity (simpler form)**: For any invertible matrix $$A$$, if either $$(I A^{-1} B)$$ or $$(A + BC)^{-1}$$ is invertible, then both are invertible and are related by
+**Woodbury matrix identity (simpler form)**: For any invertible matrix $$A$$, if either $$(I + A^{-1} B)$$ or $$(A + BC)^{-1}$$ is invertible, then both are invertible and are related by
 
 $$
     (A + BC)^{-1}
-    = A^{-1} - A^{-1} B (I A^{-1} B)^{-1} C A^{-1}.
+    = A^{-1} - A^{-1} B (I + A^{-1} B)^{-1} C A^{-1}.
 $$
 
 </section>
@@ -354,7 +359,7 @@ $$
 where neither $$A$$ nor $$D$$ are invertible (and therefore $$M/A$$ and $$M/D$$ are undefined). In other words, the matrix inversion lemma may be useful in many settings, but it does not apply to all invertible matrices.
 
 
-## Schur Complements for Symmetric Matrices
+### Characterizing Symmetric Positive Definite Matrices
 
 This section considers the special case where $$M$$ is real and symmetric (i.e., $$C = B^\top$$):
 
@@ -396,7 +401,7 @@ Note that this implies
 
 $$
 \begin{aligned}
-    \nabla_x f(x,y) &= 2Ax + 2By      &  \nabla^2_x f(x,y) &= 2A \\
+    \nabla_x f(x,y) &= 2Ax + 2By         &  \nabla^2_x f(x,y) &= 2A \\
     \nabla_y f(x,y) &= 2Dy + 2 B^\top x  &  \nabla^2_y f(x,y) &= 2D
 \end{aligned}
 $$
@@ -450,15 +455,15 @@ Using the other factorization of $$M$$ (when $$D \succ 0$$) proves both (3) and 
 
 *Note*: This proof assumes knowledge about convex functions. See, e.g., *Convex Optimization* by Boyd ([References](#references)).
 
-First, suppose $$A \succ 0$$. Since $$\nabla_x^2 f(x,y) = 2A \succ 0$$, $$f$$ is convex in $$x$$. For fixed $$y$$, $$f$$ is minimized by the value $$x^*$$ such that
+First, suppose $$A \succ 0$$. Since $$\nabla_x^2 f(x,y) = 2A \succ 0$$, $$f$$ is convex in $$x$$. For fixed $$y$$, $$f$$ is minimized by the value $$x_*$$ such that
 
-$$ \nabla_x f(x^*, y) = 2Ax^* + 2By = 0 $$
+$$ \nabla_x f(x_*, y) = 2Ax_* + 2By = \zero $$
 
-so $$x^* = -A^{-1} By$$. Plugging this value into $$f$$ gives
+so $$x_* = -A^{-1} By$$. Plugging this value into $$f$$ gives
 
 $$
 \begin{aligned}
-    f(x^*, y)
+    f(x_*, y)
     &= (A^{-1} By)^\top By - 2 (A^{-1} By)^\top By + y^\top D y \\
     &= y^\top (D - B^\top A^{-1} B) y \\
     &= y^\top (M/A) y.
@@ -470,19 +475,19 @@ Thus, if $$A \succ 0$$, then
 $$
 \begin{aligned}
     M \succ 0
-    &\iff \forall x,y: f(x,y) \geq f(x^*,y) > 0 \\
+    &\iff \forall x,y: f(x,y) \geq f(x_*,y) > 0 \\
     &\iff (M/A) \succ 0.
 \end{aligned}
 $$
 
 Since $$M \succ 0 \implies A \succ 0$$ (by the previous lemma), this proves the first part of (1). Replacing $$(\succ, >)$$ with $$(\succeq, \geq)$$ in the statement above gives (2).
 
-The proof for (3) and the second part of (1) is similar. Suppose $$D \succ 0$$. Then for fixed $$x$$, $$f$$ is minimized by $$y^* = -D^{-1} B^\top x$$. Plugging this into $$f$$ gives $$ f(x,y^*) = x^\top (M/D) x$$. Then
+The proof for (3) and the second part of (1) is similar. Suppose $$D \succ 0$$. Then for fixed $$x$$, $$f$$ is minimized by $$y_* = -D^{-1} B^\top x$$. Plugging this into $$f$$ gives $$ f(x,y_*) = x^\top (M/D) x$$. Then
 
 $$
 \begin{aligned}
     M \succ 0
-    &\iff \forall x,y: f(x,y) \geq f(x,y^*) > 0 \\
+    &\iff \forall x,y: f(x,y) \geq f(x,y_*) > 0 \\
     &\iff (M/D) \succ 0.
 \end{aligned}
 $$
@@ -496,33 +501,35 @@ Since $$M \succ 0 \implies D \succ 0$$ (by the previous lemma), this proves the 
 
 This section explores generalized Schur complements when $$A$$ and $$D$$ are not invertible. To do so, we rely on their pseudoinverses, which we define in terms of their singular value decomposition (SVD).
 
-Every matrix $$P \in \R^{n \times m}$$ with $$\rank P = r$$ has a **compact SVD** $$P = U \Sigma V^\top$$ where
+### SVD and Pseudoinverses
 
-* $$U \in \R^{n \times r}$$ and $$V \in \R^{m \times r}$$ have orthonormal columns;
-* $$\Sigma = \diag(\sigma_1, \dotsc, \sigma_r)$$ is a positive definite diagonal matrix with $$\sigma_1 \geq \dotsb \geq \sigma_r > 0$$.
+Every matrix $$P \in \F^{n \times m}$$ with $$\rank P = r$$ has a **compact SVD** $$P = U \Sigma V^*$$ where
+
+* $$U \in \F^{n \times r}$$ and $$V \in \F^{m \times r}$$ have orthonormal columns;
+* $$\Sigma = \diag(\sigma_1, \dotsc, \sigma_r) \in \Sym^r$$ is a positive definite diagonal matrix with $$\sigma_1 \geq \dotsb \geq \sigma_r > 0$$.
 
 This compact SVD can be extended to a **full SVD**
 
 $$
 \begin{alignat*}{4}
-    P &= \bar{U} \bar{\Sigma} \bar{V}^\top \\
+    P &= \bar{U} \bar{\Sigma} \bar{V}^* \\
     \bar{U} &= \begin{bmatrix} U & u_{r+1}, \dotsc, u_n \end{bmatrix}
-        &&\in \R^{n \times n} \\
+        &&\in \F^{n \times n} \\
     \bar{\Sigma} &= \begin{bmatrix} \Sigma & \zero \\ \zero & \zero_{(n-r) \times (m-r)} \end{bmatrix}
         &&\in \R^{n \times m} \\
     \bar{V} &= \begin{bmatrix} V & v_{r+1}, \dotsc, v_m \end{bmatrix}
-        &&\in \R^{m \times m}
+        &&\in \F^{m \times m}
 \end{alignat*}
 $$
 
-where $$\bar{U}$$, $$\bar{V}$$ are orthogonal matrices.
+where $$\bar{U}$$, $$\bar{V}$$ are unitary matrices.
 
 The **Moore-Penrose pseudoinverse** ([Wikipedia](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse)) of $$P$$ is defined as
 
 $$
     P^\dagger
-    = V \Sigma^{-1} U^\top
-    \in \R^{m \times n}.
+    = V \Sigma^{-1} U^*
+    \in \F^{m \times n}.
 $$
 
 Using the compact SVD of $$\bar{\Sigma}$$, we can derive its pseudoinverse
@@ -547,9 +554,9 @@ Thus, the pseudoinverse of $$P$$ can also be expressed in terms of its full SVD:
 $$
 \begin{aligned}
     P^\dagger
-    &= \bar{V} \bar{\Sigma}^\dagger \bar{U}^\top \\
-    &= \begin{bmatrix} V \Sigma^{-1} & \zero_{m \times (n-r)} \end{bmatrix} \bar{U}^\top \\
-    &= V \Sigma^{-1} U^\top.
+    &= \bar{V} \bar{\Sigma}^\dagger \bar{U}^* \\
+    &= \begin{bmatrix} V \Sigma^{-1} & \zero_{m \times (n-r)} \end{bmatrix} \bar{U}^* \\
+    &= V \Sigma^{-1} U^*.
 \end{aligned}
 $$
 
@@ -558,27 +565,27 @@ The pseudoinverse satisfies
 $$
 \begin{aligned}
     P P^\dagger P
-    &= (U \Sigma V^\top) (V \Sigma^{-1} U^\top) (U \Sigma V^\top) \\
-    &= U \Sigma I_r \Sigma^{-1} I_r \Sigma V^\top \\
-    &= U \Sigma V^\top = P
+    &= (U \Sigma V^*) (V \Sigma^{-1} U^*) (U \Sigma V^*) \\
+    &= U \Sigma I_r \Sigma^{-1} I_r \Sigma V^* \\
+    &= U \Sigma V^* = P
     \\
     P^\dagger P P^\dagger
-    &= (V \Sigma^{-1} U^\top) (U \Sigma V^\top) (V \Sigma^{-1} U^\top) \\
-    &= V \Sigma^{-1} I_r \Sigma I_r \Sigma^{-1} U^\top \\
-    &= V \Sigma^{-1} U^\top = P^\dagger.
+    &= (V \Sigma^{-1} U^*) (U \Sigma V^*) (V \Sigma^{-1} U^*) \\
+    &= V \Sigma^{-1} I_r \Sigma I_r \Sigma^{-1} U^* \\
+    &= V \Sigma^{-1} U^* = P^\dagger.
 \end{aligned}
 $$
 
-Furthermore, if $$P$$ is symmetric, then $$P^\dagger$$ is also symmetric:
+Furthermore, if $$P$$ is Hermitian, then $$P^\dagger$$ is also Hermitian:
 
 $$
 \begin{aligned}
-    P^\top &= (U \Sigma V^\top)^\top = V \Sigma U^\top \\
-    P^\dagger &= (P^\top)^\dagger = U \Sigma^{-1} V^\top = (V \Sigma^{-1} U^\top)^\top = (P^\dagger)^\top
+    P^* &= (U \Sigma V^*)^* = V \Sigma U^* \\
+    P^\dagger &= (P^*)^\dagger = U \Sigma^{-1} V^* = (V \Sigma^{-1} U^*)^* = (P^\dagger)^*
 \end{aligned}
 $$
 
-**Lemma (Range of $$P$$ and $$P P^\dagger$$)**: For any $$P \in \R^{n \times m}$$ and $$y \in \R^n$$,
+**Lemma (Range of $$P$$ and $$P P^\dagger$$)**: For any $$P \in \F^{n \times m}$$ and $$y \in \F^n$$,
 
 $$ y \in \range P \iff P P^\dagger y = y. $$
 
@@ -586,7 +593,7 @@ It is sometimes convenient to write this as $$(I - P P^\dagger) y = \zero$$. A c
 
 <details markdown="block"><summary>Proof</summary>
 
-First, suppose $$y \in \range P$$, so there exists $$x \in \R^m$$ such that $$Px = y$$. Then
+First, suppose $$y \in \range P$$, so there exists $$x \in \F^m$$ such that $$Px = y$$. Then
 
 $$ P P^\dagger y = P P^\dagger P x = P x = y. $$
 
@@ -604,6 +611,9 @@ so $$\range P \subseteq \range P P^\dagger$$.
 
 </details>
 
+
+### Definition and Factorization
+
 Now, we can formally define the **generalized Schur complement of the block $$A$$ of the matrix $$M$$** as the $$m \times m$$ matrix
 
 $$ M/A = D - C A^\dagger B. $$
@@ -612,41 +622,46 @@ The **generalized Schur complement of the block $$D$$ of the matrix $$M$$** is d
 
 $$ M/D = A - B D^\dagger C. $$
 
-**Lemma (Factorization using Generalized Schur complements)**: If $$(I - A A^\dagger) B = 0$$ and $$(I - A A^\dagger) C^\top = 0$$, then
+**Lemma (Factorization using Generalized Schur complements)**: If $$(I - A A^\dagger) B = \zero$$ and $$(I - A^* A^\dagger) C^* = \zero$$, then
 
 $$
-    M = \begin{bmatrix} I & 0 \\ C A^\dagger & I \end{bmatrix}
-        \begin{bmatrix} A & 0 \\ 0 & M/A \end{bmatrix}
-        \begin{bmatrix} I & A^\dagger B \\ 0 & I \end{bmatrix}.
+    M = \begin{bmatrix} I & \zero \\ C A^\dagger & I \end{bmatrix}
+        \begin{bmatrix} A & \zero \\ \zero & M/A \end{bmatrix}
+        \begin{bmatrix} I & A^\dagger B \\ \zero & I \end{bmatrix}.
 $$
 
-If $$(I - D D^\dagger) B^\top = 0$$ and $$(I - D D^\dagger) C = 0$$, then
+If $$(I - D^* D^\dagger) B^* = \zero$$ and $$(I - D D^\dagger) C = \zero$$, then
 
 $$
-    M = \begin{bmatrix} I & B D^\dagger \\ 0 & I \end{bmatrix}
-        \begin{bmatrix} M/D & 0 \\ 0 & D \end{bmatrix}
-        \begin{bmatrix} I & 0 \\ D^\dagger C & I \end{bmatrix}.
+    M = \begin{bmatrix} I & B D^\dagger \\ \zero & I \end{bmatrix}
+        \begin{bmatrix} M/D & \zero \\ \zero & D \end{bmatrix}
+        \begin{bmatrix} I & \zero \\ D^\dagger C & I \end{bmatrix}.
 $$
 
-These identities can be checked by straightforward matrix multiplication, using the properties of the pseudoinverse, and observing that for any $$P \in \R^{n \times n}$$ and $$N \in \R^{n \times m}$$,
+These identities can be checked by straightforward matrix multiplication, using the properties of the pseudoinverse, and observing that for any $$P \in \F^{n \times n}$$ and $$N \in \F^{n \times m}$$,
 
 $$
-    (I - P P^\dagger) N = 0
+    (I - P P^\dagger) N = \zero
     \ \iff \ N = P P^\dagger N
-    \ \iff \ N^\top = N^\top P^\dagger P.
+    \ \iff \ N^* = N^* P^\dagger P^*.
 $$
 
-**Lemma (Minimization of a Convex Quadratic Function):** For all $$P \in \Sym^n$$, the function
+
+### Characterizing Symmetric Positive Semidefinite Matrices
+
+This section again considers the special case where $$M$$ is real and symmetric (i.e., $$C = B^\top$$).
+
+**Lemma (Minimization of a Convex Quadratic Function):** For all $$P \in \Sym^n$$, the function $$f: \R^n \to \R$$
 
 $$ f(x) =  x^\top P x + 2 x^\top b$$
 
 has a minimum value if and only if $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$ (or equivalently, $$b \in \range P$$), in which case the minimum value is
 
-$$ p^* = - b^\top P^\dagger b. $$
+$$ p_* = -b^\top P^\dagger b. $$
 
-Furthermore, if $$r = \rank P$$ and $$P = Q D Q^\top$$ is an eigendecomposition (equivalently, a full SVD) of $$P$$, then the optimal value is achieved by all $$x^* \in \R^n$$ of the following form for all $$z \in \R^{n-r}$$:
+Furthermore, if $$r = \rank P$$ and $$P = Q D Q^\top$$ is an eigendecomposition (equivalently, a full SVD) of $$P$$, then the optimal value is achieved by all $$x_* \in \R^n$$ of the following form for all $$z \in \R^{n-r}$$:
 
-$$ x^* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}. $$
+$$ x_* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}. $$
 
 <details markdown="block"><summary>Proof</summary>
 
@@ -669,7 +684,7 @@ $$
 \end{aligned}
 $$
 
-First, we show that if $$f$$ has a minimum value, then both $$P \succeq 0$$ and $$(I - P P^\dagger) b = 0$$. By contrapositive, suppose that $$(I - P P^\dagger) b \neq 0$$ and that $$P \not\succeq 0$$, so $$P$$ has a negative eigenvalue $$\lambda < 0$$. Let $$v \neq 0$$ be a corresponding eigenvector, so $$Pv = \lambda v$$. For any $$a \in \R$$, if we let $$x = av - P^\dagger b$$, then
+First, we show that if $$f$$ has a minimum value, then both $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. By contrapositive, suppose that $$(I - P P^\dagger) b \neq \zero$$ and that $$P \not\succeq 0$$, so $$P$$ has a negative eigenvalue $$\lambda < 0$$. Let $$v \neq \zero$$ be a corresponding eigenvector, so $$Pv = \lambda v$$. For any $$a \in \R$$, if we let $$x = av - P^\dagger b$$, then
 
 $$
 \begin{aligned}
@@ -680,11 +695,11 @@ $$
 \end{aligned}
 $$
 
-Since $$\lambda < 0$$ and $$\norm{v}_2 > 0$$, this is a parabola in $$a$$ with a negative leading coefficient. As $$a$$ can be made arbitrarily large, $$f$$ is evidently unbounded below. Therefore, at least one of $$P \succeq 0$$ or $$(I - P P^\dagger) b = 0$$ must be true.
+Since $$\lambda < 0$$ and $$\norm{v}_2 > 0$$, this is a parabola in $$a$$ with a negative leading coefficient. As $$a$$ can be made arbitrarily large, $$f$$ is evidently unbounded below. Therefore, at least one of $$P \succeq 0$$ or $$(I - P P^\dagger) b = \zero$$ must be true.
 
-Now, suppose $$(I - P P^\dagger) b = 0$$, but $$P$$ has a negative eigenvalue. Then, the expression above remains a concave parabola in $$a$$, so $$f$$ is still unbounded below. Therefore, if $$f$$ has a minimum value and $$(I - P P^\dagger) b = 0$$, then $$P$$ must only have nonnegative eigenvalues, i.e., $$P \succeq 0$$.
+Now, suppose $$(I - P P^\dagger) b = \zero$$, but $$P$$ has a negative eigenvalue. Then, the expression above remains a concave parabola in $$a$$, so $$f$$ is still unbounded below. Therefore, if $$f$$ has a minimum value and $$(I - P P^\dagger) b = \zero$$, then $$P$$ must only have nonnegative eigenvalues, i.e., $$P \succeq 0$$.
 
-Instead, suppose that $$P \succeq 0$$, but $$(I - P P^\dagger) b \neq 0$$, so $$b \neq 0$$. Let $$r = \rank P < n$$. (If $$\rank P = n$$, then $$P$$ would be invertible and $$I - P P^\dagger = 0$$ which contradicts the assumption.) By the Real Spectral Theorem (LADR 7.29), there exists an orthonormal basis $$v_1, \dotsc, v_n$$ consisting of eigenvectors of $$P$$. Let $$v_1, \dotsc, v_r$$ correspond to positive eigenvalues, and let $$v_{r+1}, \dotsc, v_n$$ correspond to the 0 eigenvalue. Note that
+Instead, suppose that $$P \succeq 0$$, but $$(I - P P^\dagger) b \neq \zero$$, so $$b \neq \zero$$. Let $$r = \rank P < n$$. (If $$\rank P = n$$, then $$P$$ would be invertible and $$I - P P^\dagger = \zero$$ which contradicts the assumption.) By the Real Spectral Theorem (LADR 7.29), there exists an orthonormal basis $$v_1, \dotsc, v_n$$ consisting of eigenvectors of $$P$$. Let $$v_1, \dotsc, v_r$$ correspond to positive eigenvalues, and let $$v_{r+1}, \dotsc, v_n$$ correspond to the 0 eigenvalue. Note that
 
 $$
 \begin{aligned}
@@ -706,57 +721,57 @@ $$
 
 In particular, choosing $$x = ab - P^\dagger b$$ yields $$f(x) = 2a \norm{b}_2^2 - b^\top P^\dagger b$$ which is unbounded below as $$a \to -\infty$$.
 
-> Note: Using results from convexity can dramatically simplify the proof that if $$P \succeq 0$$, then $$f$$ has a minimum if and only if $$(I - P P^\dagger) b = 0$$. If $$P \succeq 0$$, then $$f$$ is a convex function. The first order optimality condition states that $$f$$ attains a minimum at $$x^*$$ if and only if
+> Note: Using results from convexity can dramatically simplify the proof that if $$P \succeq 0$$, then $$f$$ has a minimum if and only if $$(I - P P^\dagger) b = \zero$$. If $$P \succeq 0$$, then $$f$$ is a convex function. The first order optimality condition states that $$f$$ attains a minimum at $$x_*$$ if and only if
 >
-> $$ \nabla_x f(x^*) = 2 P x^* + 2b = 0.$$
+> $$ \nabla_x f(x_*) = 2 P x_* + 2b = \zero.$$
 >
-> However, if $$(I - P P^\dagger) b \neq 0$$, then by the previous lemma, $$b \not\in \range P$$, and it would be impossible for the equality above to hold.
+> However, if $$(I - P P^\dagger) b \neq \zero$$, then by the previous lemma, $$b \not\in \range P$$, and it would be impossible for the equality above to hold.
 
 We have thus shown
 
 $$
 \begin{aligned}
     &f \text{ has a minimum value} \\
-    &\implies P \succeq 0 \text{ or } (I - P P^\dagger) b = 0 \\
-    &\implies P \succeq 0 \text{ and } (I - P P^\dagger) b = 0.
+    &\implies P \succeq 0 \text{ or } (I - P P^\dagger) b = \zero \\
+    &\implies P \succeq 0 \text{ and } (I - P P^\dagger) b = \zero.
 \end{aligned}
 $$
 
-The converse is simpler. If both $$P \succeq 0$$ and $$(I - P P^\dagger) b = 0$$, then
+The converse is simpler. If both $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$, then
 
 $$ f(x) = (x + P^\dagger b)^\top P (x + P^\dagger b) - b^\top P^\dagger b. $$
 
-Since $$(x + P^\dagger b)^\top P (x + P^\dagger b) \geq 0$$ for all $$x$$, it is minimized with value 0 when $$P (x + P^\dagger b) = 0$$. In other words, $$f$$ is minimized with value $$p^* = -b^\top P^\dagger b$$.
+Since $$(x + P^\dagger b)^\top P (x + P^\dagger b) \geq 0$$ for all $$x$$, it is minimized with value 0 when $$P (x + P^\dagger b) = \zero$$. In other words, $$f$$ is minimized with value $$p_* = -b^\top P^\dagger b$$.
 
-We have shown that $$f$$ has a minimum value if and only if $$P \succeq 0$$ and $$(I - P P^\dagger) b = 0$$. Furthermore, the minimum is achieved by any $$x^*$$ such that $$x^* + P^\dagger b \in \null P$$. For all $$x^*$$ of the form $$x^* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}$$,
+We have shown that $$f$$ has a minimum value if and only if $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. Furthermore, the minimum is achieved by any $$x_*$$ such that $$x_* + P^\dagger b \in \null P$$. For all $$x_*$$ of the form $$x_* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}$$,
  we have
 
 $$
 \begin{aligned}
-    P (x^* + P^\dagger b)
+    P (x_* + P^\dagger b)
     &= P Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}
     = Q D Q^\top Q \begin{bmatrix} \zero_r \\ z \end{bmatrix} \\
     &= Q D \begin{bmatrix} \zero_r \\ z \end{bmatrix}
-    = 0
+    = \zero
 \end{aligned}
 $$
 
-since $$Q^\top Q = I$$ and $$D = \diag(\sigma_1, \dotsc, \sigma_r, 0_{r+1}, \dots, 0_n)$$. Therefore, $$x^* + P^\dagger b \in \null P$$, so $$f$$ is minimized by all $$x^*$$ of the form above.
+since $$Q^\top Q = I$$ and $$D = \diag(\sigma_1, \dotsc, \sigma_r, 0_{r+1}, \dots, 0_n)$$. Therefore, $$x_* + P^\dagger b \in \null P$$, so $$f$$ is minimized by all $$x_*$$ of the form above.
 
 *Source*: This lemma is stated as Proposition 15.2 in Gallier's *Geometric Methods and Applications* and as Proposition 4.2 in Gallier's "The Schur Complement" ([References](#references)), but the proof is different. I find my proof more intuitive and direct than Gallier's. I avoid having to first prove the following corollary, and I also avoid the clunky notation of block matrices and vectors.
 
 </details>
 
 
-**Corollary (Minimization of a Strictly Convex Quadratic Function):** If $$P$$ is an invertible symmetric matrix, then
+**Corollary (Minimization of a Strictly Convex Quadratic Function):** If $$P \in \Sym^n$$ is invertible, then
 
 $$ f(x) =  x^\top P x + 2 x^\top b$$
 
-has a minimum value if and only if $$P \succ 0$$, in which case the minimum value is uniquely attained by $$x^* = -P^{-1} b$$ with $$f(x^*) = -b^\top P^{-1} b$$.
+has a minimum value if and only if $$P \succ 0$$, in which case the minimum value is uniquely attained by $$x_* = -P^{-1} b$$ with $$f(x_*) = -b^\top P^{-1} b$$.
 
 <details markdown="block"><summary>Proof</summary>
 
-Because $$P$$ is now invertible, $$P^{-1} = P^\dagger$$. Making this substitution in the previous lemma yields the corollary. Now $$\rank P = n$$, so $$x^* = -P^{-1} b + Q \zero_n = -P^{-1} b$$ is unique. Furthermore, ($$P$$ is invertible and $$P \succeq 0$$) $$\iff P \succ 0$$.
+Because $$P$$ is now invertible, $$P^{-1} = P^\dagger$$. Making this substitution in the previous lemma yields the corollary. Now $$\rank P = n$$, so $$x_* = -P^{-1} b + Q \zero_n = -P^{-1} b$$ is unique. Furthermore, ($$P$$ is invertible and $$P \succeq 0$$) $$\iff P \succ 0$$.
 
 Below, we give a complete proof separate from the previous lemma. Note that
 
@@ -782,7 +797,7 @@ $$
 
 Since $$\lambda < 0$$ and $$\alpha$$ can be made arbitrarily large, evidently $$f$$ is unbounded below. Therefore, if $$f$$ has a minimum, then $$P$$ must only have nonnegative eigenvalues. Furthermore, since $$P$$ is invertible, it has no zero eigenvalues. Thus, $$P \succ 0$$.
 
-Now, suppose $$P \succ 0$$. Then $$(x + P^{-1} b)^\top P (x + P^{-1} b) \geq 0$$ for all $$x$$, and it is minimized with value 0 when $$x + P^{-1} b = 0$$. In other words, $$f(x)$$ is minimized by $$x^* = -P^{-1} b$$, with value $$f(x^*) = -b^\top P^{-1} b$$.
+Now, suppose $$P \succ 0$$. Then $$(x + P^{-1} b)^\top P (x + P^{-1} b) \geq 0$$ for all $$x$$, and it is minimized with value 0 when $$x + P^{-1} b = \zero$$. In other words, $$f(x)$$ is minimized by $$x_* = -P^{-1} b$$, with value $$f(x_*) = -b^\top P^{-1} b$$.
 
 *Source*: This lemma is stated as Proposition 15.1 in Gallier's *Geometric Methods and Applications* and as Proposition 4.1 in Gallier's "The Schur Complement" ([References](#references)). The direct proof (not as a corollary) is largely borrowed from Gallier.
 
@@ -809,35 +824,35 @@ $$
 
 By definition, $$M \succeq 0$$ if and only if $$f(x,y) \geq 0$$ for all $$(x,y) \in \R^n \times \R^m$$. Thus, we seek to characterize when $$f(x,y)$$ is bounded below.
 
-Holding $$y$$ constant, the previous lemma implies that $$f(x,y)$$ has a minimum if and only if $$A \succeq 0$$ and $$(I - A A^\dagger) By = 0$$, with minimum value
+Holding $$y$$ constant, the previous lemma implies that $$f(x,y)$$ has a minimum if and only if $$A \succeq 0$$ and $$(I - A A^\dagger) By = \zero$$, with minimum value
 
 $$
-    f(x^*,y)
+    f(x_*,y)
     = -y^\top B A^\dagger B y + y^\top D y
     = y^\top (D - B^\top A^\dagger B) y.
 $$
 
-Since $$f$$ must be bounded below for all $$y$$, we must have $$(I - A A^\dagger) B = 0$$. Again applying the previous lemma, $$f(x^*,y)$$ has a minimum over $$y$$ if and only if $$D - B^\top A^\dagger B \succeq 0$$, so $$f(x^*,y) \geq 0$$ for all $$y$$. Therefore, $$f(x,y)$$ has a minimum over all $$x,y$$ if and only if
+Since $$f$$ must be bounded below for all $$y$$, we must have $$(I - A A^\dagger) B = \zero$$. Again applying the previous lemma, $$f(x_*,y)$$ has a minimum over $$y$$ if and only if $$D - B^\top A^\dagger B \succeq 0$$, so $$f(x_*,y) \geq 0$$ for all $$y$$. Therefore, $$f(x,y)$$ has a minimum over all $$x,y$$ if and only if
 
 $$
     A \succeq 0, \
-    (I - A A^\dagger) B = 0, \text{ and }
+    (I - A A^\dagger) B = \zero, \text{ and }
     D - B^\top A^\dagger B \succeq 0,
 $$
 
-with minimum value $$f(x^*, y^*) = 0$$. Similarly, if we instead hold $$x$$ constant, then $$f(x,y)$$ has a minimum if and only if $$D \succeq 0$$ and $$(I - D D^\dagger) B^\top x = 0$$, with minimum value
+with minimum value $$f(x_*, y_*) = 0$$. Similarly, if we instead hold $$x$$ constant, then $$f(x,y)$$ has a minimum if and only if $$D \succeq 0$$ and $$(I - D D^\dagger) B^\top x = \zero$$, with minimum value
 
 $$
-    f(x,y^*)
+    f(x,y_*)
     = -x^\top B D^\dagger B^\top x + x^\top A x
     = x^\top (A - B D^\dagger B^\top) x.
 $$
 
-Since $$f$$ must be bounded below for all $$x$$, we must have $$(I - D D^\dagger) B^\top = 0$$. Furthermore, $$f(x,y^*)$$ has a minimum over $$x$$ if and only if $$A - B D^\dagger B^\top \succeq 0$$. Therefore, $$f(x,y)$$ has a minimum over all $$x,y$$ if and only if
+Since $$f$$ must be bounded below for all $$x$$, we must have $$(I - D D^\dagger) B^\top = \zero$$. Furthermore, $$f(x,y_*)$$ has a minimum over $$x$$ if and only if $$A - B D^\dagger B^\top \succeq 0$$. Therefore, $$f(x,y)$$ has a minimum over all $$x,y$$ if and only if
 
 $$
     D \succeq 0, \
-    (I - D D^\dagger) B^\top = 0, \text{ and }
+    (I - D D^\dagger) B^\top = \zero, \text{ and }
     A - B D^\dagger B^\top \succeq 0.
 $$
 
@@ -850,12 +865,12 @@ If $$M \succeq 0$$, then it has the following factorizations:
 $$
 \begin{aligned}
     M
-    &= \begin{bmatrix} I & B D^\dagger \\ 0 & I \end{bmatrix}
-       \begin{bmatrix} A - B D^\dagger B^\top & 0 \\ 0 & D \end{bmatrix}
-       \begin{bmatrix} I & 0 \\ D^\dagger B^\top & I \end{bmatrix} \\
-    &= \begin{bmatrix} I & 0 \\ B^\top A^\dagger & I \end{bmatrix}
-       \begin{bmatrix} A & 0 \\ 0 & D - B^\top A^\dagger B \end{bmatrix}
-       \begin{bmatrix} I & A^\dagger B \\ 0 & I \end{bmatrix}.
+    &= \begin{bmatrix} I & \zero \\ B^\top A^\dagger & I \end{bmatrix}
+       \begin{bmatrix} A & \zero \\ \zero & D - B^\top A^\dagger B \end{bmatrix}
+       \begin{bmatrix} I & A^\dagger B \\ \zero & I \end{bmatrix} \\
+    &= \begin{bmatrix} I & B D^\dagger \\ \zero & I \end{bmatrix}
+       \begin{bmatrix} A - B D^\dagger B^\top & \zero \\ \zero & D \end{bmatrix}
+       \begin{bmatrix} I & \zero \\ D^\dagger B^\top & I \end{bmatrix}.
 \end{aligned}
 $$
 
