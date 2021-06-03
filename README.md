@@ -4,7 +4,7 @@ I find it easiest to use the conda package manager to install the `github-pages`
 
 **1. Directly use conda install the compiled `github-pages` gem.**
 
-Assuming conda is installed, use the following commands to install Jekyll and the `github-pages` gem:
+Assuming conda is installed, use the following commands to install/update Jekyll and the `github-pages` gem:
 
 ```bash
 conda env update -f env.yml --prune
@@ -15,17 +15,20 @@ Note that conda-forge may not have the most up-to-date version of the `github-pa
 
 **2. Use conda to install ruby, then use ruby to install the `github-pages` gem.**
 
-To install the latest version of the `github-pages` gem, run the following commands:
+To install/update to the latest version of the `github-pages` gem, run the following commands:
 
 ```bash
 conda env update -f env_ruby.yml --prune
 conda activate ruby
 
-# don't install documentation
+# Install/update to the latest version of github-pages gem
+# (but don't install unnecessary documentation).
+# Then cleanup old versions of installed gems.
 gem install github-pages --no-document
+gem cleanup
 ```
 
-If the commands above cause an error, try the following commands and then try installing the `github-pages` gem again:
+If the `gem install github-pages` command causes an error, try the following commands and then try installing the `github-pages` gem again:
 
 ```bash
 sudo apt update  # update package index
@@ -52,6 +55,7 @@ Variable            | Description
 `excerpt`           | text to show on blog list and at top of post
 `last_updated`      | date in `YYYY-MM-DD` format
 `layout`            | name of layout from `_layout/` folder
+`tags`              | list of tags, e.g., `[ML, math]`
 `title`             | title of post
 `use_code`          | boolean, set to `true` to include code-highlighting CSS
 `use_fontawesome`   | boolean, set to `true` to include FontAwesome CSS
