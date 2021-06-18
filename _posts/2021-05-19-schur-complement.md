@@ -3,7 +3,7 @@ title: Schur Complements and the Matrix Inversion Lemma
 layout: post
 use_math: true
 use_toc: true
-last_updated: 2021-06-02
+last_updated: 2021-06-18
 tags: [math]
 excerpt: I prove key properties of Schur Complements and use them to derive the matrix inversion lemma.
 ---
@@ -317,11 +317,11 @@ Some texts such as Boyd's *Convex Optimization* book (Appendix C.4.3) substitute
 
 <section class="callout" markdown="block">
 
-**Woodbury matrix identity (simpler form)**: For any invertible matrix $$A$$, if either $$(I + A^{-1} B)$$ or $$(A + BC)^{-1}$$ is invertible, then both are invertible and are related by
+**Woodbury matrix identity (simpler form)**: For any invertible matrix $$A$$, if either $$(I + C A^{-1} B)$$ or $$(A + BC)$$ is invertible, then both are invertible and are related by
 
 $$
     (A + BC)^{-1}
-    = A^{-1} - A^{-1} B (I + A^{-1} B)^{-1} C A^{-1}.
+    = A^{-1} - A^{-1} B (I + C A^{-1} B)^{-1} C A^{-1}.
 $$
 
 </section>
