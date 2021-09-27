@@ -3,8 +3,8 @@ title: Deriving Batch-Norm Backprop Equations
 layout: post
 use_math: true
 use_toc: true
-excerpt: I present a derivation of efficient backpropagation equations for batch-normalization layers.
 tags: [ML]
+excerpt: I present a derivation of efficient backpropagation equations for batch-normalization layers.
 ---
 
 ## Introduction

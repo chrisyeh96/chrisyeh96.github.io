@@ -4,9 +4,9 @@ layout: post
 use_code: true
 use_toc: true
 last_updated: 2020-09-30
-excerpt: I've almost never been able to write correct Python `import` statements on the first go. Behavior is inconsistent between Python 2.7 and Python 3.6 (the two versions that I test here), and there is no single method for guaranteeing that imports will always work. This post is my dive into how to resolve common importing problems. Unless otherwise stated, all examples here work with both Python 2.7 and 3.6.
 tags: [python]
 pin: true
+excerpt: I've almost never been able to write correct Python `import` statements on the first go. Behavior is inconsistent between Python 2.7 and Python 3.6 (the two versions that I test here), and there is no single method for guaranteeing that imports will always work. This post is my dive into how to resolve common importing problems. Unless otherwise stated, all examples here work with both Python 2.7 and 3.6.
 ---
 
 ## Summary / Key Points

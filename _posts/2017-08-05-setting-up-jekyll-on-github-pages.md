@@ -2,8 +2,8 @@
 title: How I Setup Jekyll on GitHub Pages
 layout: post
 use_toc: true
-excerpt: Here is a brief summary of how I set up this blog / website using Jekyll on GitHub Pages.
 tags: [web dev]
+excerpt: Here is a brief summary of how I set up this blog / website using Jekyll on GitHub Pages.
 ---
 
 ## How GitHub Pages Works

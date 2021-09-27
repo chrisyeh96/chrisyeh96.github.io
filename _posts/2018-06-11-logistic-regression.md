@@ -3,8 +3,8 @@ title: Binary vs. Multi-Class Logistic Regression
 layout: post
 use_math: true
 use_toc: true
-excerpt: I've been taught binary logistic regression using the sigmoid function, and multi-class logistic regression using a softmax. However, I have never quite understood how the two are related. In this post, I show exactly how multi-class logistic regression generalizes the binary case.
 tags: [ML]
+excerpt: I've been taught binary logistic regression using the sigmoid function, and multi-class logistic regression using a softmax. However, I have never quite understood how the two are related. In this post, I show exactly how multi-class logistic regression generalizes the binary case.
 ---
 
 ## Background
