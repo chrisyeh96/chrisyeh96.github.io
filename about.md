@@ -8,7 +8,9 @@ layout: post
     <img src="{{ site.baseurl }}/images/bio.jpg">
 </div>
 <div class="col-12 col-sm-8">
-    <p>I am a PhD student at Caltech. I graduated from Stanford University with BS and MS degrees in Computer Science, concentrating in artificial intelligence and machine learning. I worked with <a href="http://cs.stanford.edu/~ermon/">Professor Stefano Ermon</a> to research how satellite imagery can be used to predict economic and environmental conditions in regions of the world where such data is sparse. In my free time, I am always looking for opportunities to use my computer science skills for social good, through organizations such as <a href="https://codethechange.stanford.edu/">Code the Change</a>.</p>
+    <p>I am a PhD student at Caltech in the Computing and Mathematical Sciences (CMS) department, advised by <a href="http://www.yisongyue.com/">Yisong Yue</a> and <a href="https://adamwierman.com/">Adam Wierman</a>. Currently, my research interests are in machine learning, specifically representation learning and its applications for science and sustainabilty.</p>
+
+    <p>I graduated from Stanford University with BS and MS degrees in Computer Science, concentrating in artificial intelligence and machine learning. I worked with <a href="http://cs.stanford.edu/~ermon/">Professor Stefano Ermon</a> to research how satellite imagery can be used to predict economic and environmental conditions in regions of the world where such data is sparse. In my free time, I am always looking for opportunities to use my computer science skills for social good, through organizations such as <a href="https://codethechange.stanford.edu/">Code the Change</a>.</p>
 
     <p>Outside of academia, I enjoy playing piano and cello. Originally from Southern California, I also love the outdoors, from camping in the Sierra Nevadas to playing sand volleyball at the beach.</p>
 

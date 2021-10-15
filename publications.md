@@ -10,6 +10,8 @@ use_fontawesome: true
 <!-- embed Altmetric badge -->
 <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 
+_* denotes equal contribution_
+
 <ol reversed>
 {%- assign counter = 0 -%}
 {%- for pub in site.data.publications -%}
