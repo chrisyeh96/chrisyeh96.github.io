@@ -15,9 +15,15 @@
         url = {https://openreview.net/forum?id=5HR3vCylqD}
     }
   media:
-    # - type: pdf
-    #   name: PDF
-    #   url:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1R78RVU-RlPSr-qNhxTf374ylw3NbWEsi/view?usp=sharing
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1aKhg4ruyeAsppGWwZMKn8D58JJp07M0L/view?usp=sharing
+    - type: video
+      name: Presentation
+      url: https://slideslive.com/38969499
     - type: url
       name: Project Page
       url: https://sustainlab-group.github.io/sustainbench/
@@ -30,7 +36,7 @@
 # 2020
 ####################
 - formatted: |
-    **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Deep learning for understanding economic well-being in Africa from publicly available satellite imagery," in *Workshop on Machine Learning for Economic Policy at NeurIPS 2020*, Dec. 2020. [Online]. Available: [http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf](http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf).
+    **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Deep learning for understanding economic well-being in Africa from publicly available satellite imagery," in _Workshop on Machine Learning for Economic Policy at NeurIPS 2020_, Dec. 2020. [Online]. Available: [http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf](http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf).
   bibtex: |
     @inproceedings{yeh2020deep,
         author = {Yeh, Christopher and Perez, Anthony and Driscoll, Anne and Azzari, George and Tang, Zhongyi and Lobell, David and Ermon, Stefano and Burke, Marshall},
@@ -52,7 +58,7 @@
       url: https://github.com/sustainlab-group/africa_poverty
 
 - formatted: |
-    S. Zhao, **C. Yeh**, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in *The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)*, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [http://proceedings.mlr.press/v10 8/zhao20e.html](http://proceedings.mlr.press/v108/zhao20e.html).
+    S. Zhao, **C. Yeh**, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in _The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)_, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [http://proceedings.mlr.press/v10 8/zhao20e.html](http://proceedings.mlr.press/v108/zhao20e.html).
   bibtex: |
     @inproceedings{zhao2020interval,
         author = {Zhao, Shengjia and Yeh, Christopher, and Ermon, Stefano},
@@ -80,7 +86,7 @@
       url: https://arxiv.org/abs/2006.10287
     - type: video
       name: Presentation
-      url: https://slideslive.com/embed/presentation/38930370
+      url: https://slideslive.com/38930370
     # - type: pdf
     #   name: Poster
     #   url: TODO
@@ -101,7 +107,7 @@
     }
 
 - formatted: |
-    **C. Yeh\***, A. Perez*, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Using publicly available satellite imagery and deep learning to understand economic well-being in Africa," *Nature Communications*, vol. 11, no. 1, May 2020, ISSN: 2041-1723. DOI: 10.1038/s41467-020-16185-w. [Online]. Available: [https://www.nature.com/articles/s41467-020-16185-w](https://www.nature.com/articles/s41467-020-16185-w).
+    **C. Yeh\***, A. Perez*, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Using publicly available satellite imagery and deep learning to understand economic well-being in Africa," _Nature Communications_, vol. 11, no. 1, May 2020, ISSN: 2041-1723. DOI: 10.1038/s41467-020-16185-w. [Online]. Available: [https://www.nature.com/articles/s41467-020-16185-w](https://www.nature.com/articles/s41467-020-16185-w).
   altmetric_id: 82554710
   bibtex: |
     @article{yeh2020using,
@@ -135,7 +141,7 @@
       url: https://github.com/sustainlab-group/africa_poverty
 
 - formatted: |
-    C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning," in *Practical Machine Learning for Developing Countries Workshop at ICLR 2020*, Apr. 2020. [Online]. Available: [https://pml4dc.github.io/iclr2020/program/pml4dc_25.html](https://pml4dc.github.io/iclr2020/program/pml4dc_25.html).
+    C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning," in _Practical Machine Learning for Developing Countries Workshop at ICLR 2020_, Apr. 2020. [Online]. Available: [https://pml4dc.github.io/iclr2020/program/pml4dc_25.html](https://pml4dc.github.io/iclr2020/program/pml4dc_25.html).
   bibtex: |
     @inproceedings{coleman2020active,
         author = {Coleman, Cody and Yeh, Christopher and Mussmann, Stephen and Mirzasoleiman, Baharan and Bailis, Peter and Liang, Percy and Leskovec, Jure and Zaharia, Matei},
@@ -157,7 +163,7 @@
       url: https://github.com/stanford-futuredata/selection-via-proxy
 
 - formatted: |
-    C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Efficient Data Selection for Deep Learning," in *International Conference on Learning  Representations*, Apr. 2020. [Online]. Available: [https://openreview.net/forum?id=HJg2b0VYDr](https://openreview.net/forum?id=HJg2b0VYDr).
+    C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Efficient Data Selection for Deep Learning," in _International Conference on Learning  Representations_, Apr. 2020. [Online]. Available: [https://openreview.net/forum?id=HJg2b0VYDr](https://openreview.net/forum?id=HJg2b0VYDr).
   bibtex: |
     @inproceedings{coleman2020selection,
         author = {Coleman, Cody and Yeh, Christopher and Mussmann, Stephen and Mirzasoleiman, Baharan and Bailis, Peter and Liang, Percy and Leskovec, Jure and Zaharia, Matei},
@@ -188,7 +194,7 @@
       url: https://github.com/stanford-futuredata/selection-via-proxy
 
 - formatted: |
-    B. Uzkent, **C. Yeh**, and S. Ermon, "Efficient Object Detection in Large Images using Deep Reinforcement Learning," in *2020 IEEE Winter Conference on Applications of Computer Vision (WACV)*, Snowmass Village, CO, USA, Mar. 2020, pp. 1813–1822. DOI: 10.1109/WACV45572.2020.9093447. [Online]. Available: [https://ieeexplore.ieee.org/document/9093447](https://ieeexplore.ieee.org/document/9093447).
+    B. Uzkent, **C. Yeh**, and S. Ermon, "Efficient Object Detection in Large Images using Deep Reinforcement Learning," in _2020 IEEE Winter Conference on Applications of Computer Vision (WACV)_, Snowmass Village, CO, USA, Mar. 2020, pp. 1813–1822. DOI: 10.1109/WACV45572.2020.9093447. [Online]. Available: [https://ieeexplore.ieee.org/document/9093447](https://ieeexplore.ieee.org/document/9093447).
   bibtex: |
     @inproceedings{uzkent2020efficient,
         address = {Snowmass Village, CO, USA},
@@ -220,7 +226,7 @@
 ####################
 
 - formatted: |
-    A. Perez, **C. Yeh**, G. Azzari, M. Burke, D. Lobell, and S. Ermon, "Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning," in *NIPS 2017 Workshop on Machine Learning for the Developing World*, Long Beach, CA, USA, Dec. 2017. arXiv:1711.03654. [Online]. Available: [https://arxiv.org/abs/1711.03654](https://arxiv.org/abs/1711.03654).
+    A. Perez, **C. Yeh**, G. Azzari, M. Burke, D. Lobell, and S. Ermon, "Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning," in _NIPS 2017 Workshop on Machine Learning for the Developing World_, Long Beach, CA, USA, Dec. 2017. arXiv:1711.03654. [Online]. Available: [https://arxiv.org/abs/1711.03654](https://arxiv.org/abs/1711.03654).
   bibtex: |
     @inproceedings{perez2017poverty,
         address = {Long Beach, CA, USA},
