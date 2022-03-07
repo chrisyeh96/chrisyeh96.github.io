@@ -7,12 +7,13 @@
   bibtex: |
     @inproceedings{
         yeh2021sustainbench,
-        title = {{SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning}},
         author = {Christopher Yeh and Chenlin Meng and Sherrie Wang and Anne Driscoll and Erik Rozi and Patrick Liu and Jihyeon Lee and Marshall Burke and David B. Lobell and Stefano Ermon},
         booktitle = {Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)},
-        year = {2021},
+        doi = {10.48550/arXiv.2111.04724},
         month = {12},
-        url = {https://openreview.net/forum?id=5HR3vCylqD}
+        title = {{SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning}},
+        url = {https://openreview.net/forum?id=5HR3vCylqD},
+        year = {2021}
     }
   media:
     - type: pdf
@@ -230,12 +231,10 @@
   bibtex: |
     @inproceedings{perez2017poverty,
         address = {Long Beach, CA, USA},
-        archivePrefix = {arXiv},
-        arxivId = {1711.03654},
         author = {Perez, Anthony and Yeh, Christopher and Azzari, George and Burke, Marshall and Lobell, David and Ermon, Stefano},
         booktitle = {{NIPS 2017 Workshop on Machine Learning for the Developing World}},
         day = {8},
-        eprint = {1711.03654},
+        doi = {10.48550/arXiv.1711.03654},
         month = {12},
         title = {{Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning}},
         url = {https://arxiv.org/abs/1711.03654},
