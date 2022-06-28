@@ -68,6 +68,7 @@
 ####################
 # 2020
 ####################
+
 - formatted: |
     **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Deep learning for understanding economic well-being in Africa from publicly available satellite imagery," in _Workshop on Machine Learning for Economic Policy at NeurIPS 2020_, Dec. 2020. [Online]. Available: [http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf](http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf).
   bibtex: |
@@ -91,7 +92,7 @@
       url: https://github.com/sustainlab-group/africa_poverty
 
 - formatted: |
-    S. Zhao, **C. Yeh**, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in _The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)_, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [http://proceedings.mlr.press/v10 8/zhao20e.html](http://proceedings.mlr.press/v108/zhao20e.html).
+    S. Zhao, **C. Yeh**, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in _The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)_, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [https://proceedings.mlr.press/v10 8/zhao20e.html](https://proceedings.mlr.press/v108/zhao20e.html).
   bibtex: |
     @inproceedings{zhao2020interval,
         author = {Zhao, Shengjia and Yeh, Christopher, and Ermon, Stefano},
@@ -99,11 +100,11 @@
         editor = {Silvia Chiappa and Roberto Calandra},
         month = {8},
         pages = {4583--4592},
-        pdf = {http://proceedings.mlr.press/v108/zhao20e/zhao20e.pdf},
+        pdf = {https://proceedings.mlr.press/v108/zhao20e/zhao20e.pdf},
         publisher = {PMLR},
         series = {Proceedings of Machine Learning Research},
         title = {{A Framework for Sample Efficient Interval Estimation with Control Variates}},
-        url = {http://proceedings.mlr.press/v108/zhao20e.html},
+        url = {https://proceedings.mlr.press/v108/zhao20e.html},
         volume = {108},
         year = {2020}
     }
