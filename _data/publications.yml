@@ -1,4 +1,36 @@
 ####################
+# 2022
+####################
+
+- formatted: |
+    **C. Yeh**, J. Yu, Y. Shi, and A. Wierman, "Robust online voltage control with an unknown grid topology," in _e-Energy '22: Proceedings of the Thirteenth ACM International Conference on Future Energy Systems_, Association for Computing Machinery, Jun. 2022, pp. 240–250, ISBN: 9781450393973. DOI: 10.1145/3538637.3538853. [Online]. Available: [https://dl.acm.org/doi/10.1145/3538637.3538853](https://dl.acm.org/doi/10.1145/3538637.3538853).
+  bibtex: |
+    @inproceedings{
+        yeh2022robust,
+        author = {Christopher Yeh and Jing Yu and Yuanyuan Shi and Adam Wierman},
+        booktitle = {{e-Energy 22': Proceedings of the Thirteenth ACM International Conference on Future Energy Systems}},
+        doi = {10.1145/3538637.3538853},
+        isbn = {9781450393973},
+        month = {6},
+        pages = {240-250},
+        publisher = {Association for Computing Machinery},
+        title = {Robust online voltage control with an unknown grid topology},
+        url = {https://dl.acm.org/doi/10.1145/3538637.3538853},
+        year = {2022}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1k1dpEC_uAwL4mS-njD1hrERgy-ZT7L5b/view?usp=sharing
+    - type: youtube
+      name: Presentation
+      url: https://youtu.be/iDhDfDrXqoA
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/voltctrl
+
+
+####################
 # 2021
 ####################
 
