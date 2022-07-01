@@ -25,6 +25,9 @@
     - type: youtube
       name: Presentation
       url: https://youtu.be/iDhDfDrXqoA
+    - type: pdf
+      name: Slides
+      url: https://drive.google.com/file/d/1_GQMJL0t6N0gDekvASnNCAyXzd81krHM/view?usp=sharing
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/voltctrl
