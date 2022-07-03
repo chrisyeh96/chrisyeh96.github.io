@@ -36,12 +36,16 @@ _* denotes equal contribution_
       </i> {{ media.name }}
     </a>
   {%- endfor -%}
+  <a href="#citation{{ counter }}" class="post-meta post-tag" data-bs-toggle="collapse">Citation</a>
   <a href="#bibtex{{ counter }}" class="post-meta post-tag" data-bs-toggle="collapse">BibTeX</a>
+  </p>
+  <div id="citation{{ counter }}" class="collapse">
+    {{ pub.citation | prepend: "> " | markdownify }}
+  </div>
   <div id="bibtex{{ counter }}" class="collapse">
     {%- assign bibtex_code = pub.bibtex | append: "```" | prepend: newLine | prepend: "```bibtex" -%}
     {{ bibtex_code | markdownify }}
   </div>
-  </p>
   </li>
   {%- assign counter = counter | plus: 1 -%}
 {%- endfor -%}
