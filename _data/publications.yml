@@ -8,6 +8,7 @@
     ACM e-Energy 2022, <span style="color: #ff6c0c; font-weight: bold;">Best paper award finalist</span>
   citation: |
     **C. Yeh**, J. Yu, Y. Shi, and A. Wierman, "Robust online voltage control with an unknown grid topology," in _Proceedings of the Thirteenth ACM International Conference on Future Energy Systems (e-Energy '22)_, Association for Computing Machinery, Jun. 2022, pp. 240–250, ISBN: 9781450393973. DOI: 10.1145/3538637.3538853. [Online]. Available: [https://dl.acm.org/doi/10.1145/3538637.3538853](https://dl.acm.org/doi/10.1145/3538637.3538853).
+  altmetric_id: 130387097
   bibtex: |
     @inproceedings{
         yeh2022robust,
@@ -26,12 +27,15 @@
     - type: pdf
       name: PDF
       url: https://drive.google.com/file/d/1k1dpEC_uAwL4mS-njD1hrERgy-ZT7L5b/view?usp=sharing
-    - type: youtube
-      name: Presentation
-      url: https://youtu.be/iDhDfDrXqoA
     - type: pdf
       name: Slides
       url: https://drive.google.com/file/d/1_GQMJL0t6N0gDekvASnNCAyXzd81krHM/view?usp=sharing
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2206.14369
+    - type: youtube
+      name: Presentation
+      url: https://youtu.be/iDhDfDrXqoA
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/voltctrl
@@ -43,10 +47,11 @@
 
 - formatted: |
     **SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning**\
-    **C. Yeh\***, C. Meng*, S. Wang*, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon\
+    **C. Yeh\***, C. Meng\*, S. Wang\*, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon\
     NeurIPS 2021, Datasets and Benchmarks Track (Round 2)
   citation: |
     **C. Yeh\***, C. Meng*, S. Wang*, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon, "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning," in _Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)_, Dec. 2021. [Online]. Available: [https://openreview.net/forum?id=5HR3vCylqD](https://openreview.net/forum?id=5HR3vCylqD).
+  altmetric_id: 116481830
   bibtex: |
     @inproceedings{
         yeh2021sustainbench,
@@ -65,6 +70,9 @@
     - type: pdf
       name: Poster
       url: https://drive.google.com/file/d/1aKhg4ruyeAsppGWwZMKn8D58JJp07M0L/view?usp=sharing
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2111.04724
     - type: video
       name: Presentation
       url: https://slideslive.com/38969499
@@ -112,6 +120,7 @@
     AISTATS 2020
   citation: |
     S. Zhao, **C. Yeh**, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in _The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)_, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [https://proceedings.mlr.press/v10 8/zhao20e.html](https://proceedings.mlr.press/v108/zhao20e.html).
+  altmetric_id: 84290817
   bibtex: |
     @inproceedings{zhao2020interval,
         author = {Zhao, Shengjia and Yeh, Christopher, and Ermon, Stefano},
@@ -233,6 +242,7 @@
     ICLR 2020
   citation: |
     C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Efficient Data Selection for Deep Learning," in _International Conference on Learning  Representations_, Apr. 2020. [Online]. Available: [https://openreview.net/forum?id=HJg2b0VYDr](https://openreview.net/forum?id=HJg2b0VYDr).
+  altmetric_id: 62918102
   bibtex: |
     @inproceedings{coleman2020selection,
         author = {Coleman, Cody and Yeh, Christopher and Mussmann, Stephen and Mirzasoleiman, Baharan and Bailis, Peter and Liang, Percy and Leskovec, Jure and Zaharia, Matei},
@@ -268,6 +278,7 @@
     IEEE WACV 2020
   citation: |
     B. Uzkent, **C. Yeh**, and S. Ermon, "Efficient Object Detection in Large Images using Deep Reinforcement Learning," in _2020 IEEE Winter Conference on Applications of Computer Vision (WACV)_, Snowmass Village, CO, USA, Mar. 2020, pp. 1813–1822. DOI: 10.1109/WACV45572.2020.9093447. [Online]. Available: [https://ieeexplore.ieee.org/document/9093447](https://ieeexplore.ieee.org/document/9093447).
+  altmetric_id: 72468930
   bibtex: |
     @inproceedings{uzkent2020efficient,
         address = {Snowmass Village, CO, USA},
@@ -304,6 +315,7 @@
     NIPS 2017, Workshop on Machine Learning for the Developing World
   citation: |
     A. Perez, **C. Yeh**, G. Azzari, M. Burke, D. Lobell, and S. Ermon, "Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning," in _NIPS 2017 Workshop on Machine Learning for the Developing World_, Long Beach, CA, USA, Dec. 2017. arXiv:1711.03654. [Online]. Available: [https://arxiv.org/abs/1711.03654](https://arxiv.org/abs/1711.03654).
+  altmetric_id: 28826862
   bibtex: |
     @inproceedings{perez2017poverty,
         address = {Long Beach, CA, USA},
