@@ -7,7 +7,7 @@
     **C. Yeh**, J. Yu, Y. Shi, and A. Wierman\
     ACM e-Energy 2022, <span style="color: #ff6c0c; font-weight: bold;">Best paper award finalist</span>
   citation: |
-    **C. Yeh**, J. Yu, Y. Shi, and A. Wierman, "Robust online voltage control with an unknown grid topology," in _Proceedings of the Thirteenth ACM International Conference on Future Energy Systems (e-Energy '22)_, Association for Computing Machinery, Jun. 2022, pp. 240–250, ISBN: 9781450393973. DOI: 10.1145/3538637.3538853. [Online]. Available: [https://dl.acm.org/doi/10.1145/3538637.3538853](https://dl.acm.org/doi/10.1145/3538637.3538853).
+    C. Yeh, J. Yu, Y. Shi, and A. Wierman, "Robust online voltage control with an unknown grid topology," in _Proceedings of the Thirteenth ACM International Conference on Future Energy Systems (e-Energy '22)_, Association for Computing Machinery, Jun. 2022, pp. 240–250, ISBN: 9781450393973. DOI: 10.1145/3538637.3538853. [Online]. Available: [https://dl.acm.org/doi/10.1145/3538637.3538853](https://dl.acm.org/doi/10.1145/3538637.3538853).
   altmetric_id: 130387097
   bibtex: |
     @inproceedings{
@@ -50,7 +50,7 @@
     **C. Yeh\***, C. Meng\*, S. Wang\*, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon\
     NeurIPS 2021, Datasets and Benchmarks Track (Round 2)
   citation: |
-    **C. Yeh\***, C. Meng*, S. Wang*, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon, "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning," in _Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)_, Dec. 2021. [Online]. Available: [https://openreview.net/forum?id=5HR3vCylqD](https://openreview.net/forum?id=5HR3vCylqD).
+    C. Yeh, C. Meng, S. Wang, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon, "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning," in _Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)_, Dec. 2021. [Online]. Available: [https://openreview.net/forum?id=5HR3vCylqD](https://openreview.net/forum?id=5HR3vCylqD).
   altmetric_id: 116481830
   bibtex: |
     @inproceedings{
@@ -93,7 +93,7 @@
     **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke\
     NeurIPS 2021, Workshop on Machine Learning for Economic Policy
   citation: |
-    **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Deep learning for understanding economic well-being in Africa from publicly available satellite imagery," in _Workshop on Machine Learning for Economic Policy at NeurIPS 2020_, Dec. 2020. [Online]. Available: [http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf](http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf).
+    C. Yeh, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Deep learning for understanding economic well-being in Africa from publicly available satellite imagery," in _Workshop on Machine Learning for Economic Policy at NeurIPS 2020_, Dec. 2020. [Online]. Available: [http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf](http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf).
   bibtex: |
     @inproceedings{yeh2020deep,
         author = {Yeh, Christopher and Perez, Anthony and Driscoll, Anne and Azzari, George and Tang, Zhongyi and Lobell, David and Ermon, Stefano and Burke, Marshall},
@@ -119,7 +119,7 @@
     S. Zhao, **C. Yeh**, and S. Ermon\
     AISTATS 2020
   citation: |
-    S. Zhao, **C. Yeh**, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in _The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)_, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [https://proceedings.mlr.press/v10 8/zhao20e.html](https://proceedings.mlr.press/v108/zhao20e.html).
+    S. Zhao, C. Yeh, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in _The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)_, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [https://proceedings.mlr.press/v10 8/zhao20e.html](https://proceedings.mlr.press/v108/zhao20e.html).
   altmetric_id: 84290817
   bibtex: |
     @inproceedings{zhao2020interval,
@@ -161,7 +161,7 @@
     **C. Yeh**\
     Master’s thesis, Schwarzman College, Tsinghua University, 2020
   citation: |
-    **C. Yeh**, "Quantifying the value of using machine learning to improve solar irradiance forecasting," Master’s thesis, Schwarzman College, Tsinghua University, Beijing, China, Jun. 2020.
+    C. Yeh, "Quantifying the value of using machine learning to improve solar irradiance forecasting," Master’s thesis, Schwarzman College, Tsinghua University, Beijing, China, Jun. 2020.
   bibtex: |
     @mastersthesis{yeh2020quantifying,
         address = {Beijing, China},
@@ -177,7 +177,7 @@
     **C. Yeh\***, A. Perez*, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke\
     _Nature Communications_, May 2020
   citation: |
-    **C. Yeh\***, A. Perez*, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Using publicly available satellite imagery and deep learning to understand economic well-being in Africa," _Nature Communications_, vol. 11, no. 1, May 2020, ISSN: 2041-1723. DOI: 10.1038/s41467-020-16185-w. [Online]. Available: [https://www.nature.com/articles/s41467-020-16185-w](https://www.nature.com/articles/s41467-020-16185-w).
+    C. Yeh, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Using publicly available satellite imagery and deep learning to understand economic well-being in Africa," _Nature Communications_, vol. 11, no. 1, May 2020, ISSN: 2041-1723. DOI: 10.1038/s41467-020-16185-w. [Online]. Available: [https://www.nature.com/articles/s41467-020-16185-w](https://www.nature.com/articles/s41467-020-16185-w).
   altmetric_id: 82554710
   bibtex: |
     @article{yeh2020using,
@@ -215,7 +215,7 @@
     C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia\
     ICLR 2020, Practical Machine Learning for Developing Countries Workshop
   citation: |
-    C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning," in _Practical Machine Learning for Developing Countries Workshop at ICLR 2020_, Apr. 2020. [Online]. Available: [https://pml4dc.github.io/iclr2020/program/pml4dc_25.html](https://pml4dc.github.io/iclr2020/program/pml4dc_25.html).
+    C. Coleman, C. Yeh, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning," in _Practical Machine Learning for Developing Countries Workshop at ICLR 2020_, Apr. 2020. [Online]. Available: [https://pml4dc.github.io/iclr2020/program/pml4dc_25.html](https://pml4dc.github.io/iclr2020/program/pml4dc_25.html).
   bibtex: |
     @inproceedings{coleman2020active,
         author = {Coleman, Cody and Yeh, Christopher and Mussmann, Stephen and Mirzasoleiman, Baharan and Bailis, Peter and Liang, Percy and Leskovec, Jure and Zaharia, Matei},
@@ -241,7 +241,7 @@
     C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia\
     ICLR 2020
   citation: |
-    C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Efficient Data Selection for Deep Learning," in _International Conference on Learning  Representations_, Apr. 2020. [Online]. Available: [https://openreview.net/forum?id=HJg2b0VYDr](https://openreview.net/forum?id=HJg2b0VYDr).
+    C. Coleman, C. Yeh, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Efficient Data Selection for Deep Learning," in _International Conference on Learning  Representations_, Apr. 2020. [Online]. Available: [https://openreview.net/forum?id=HJg2b0VYDr](https://openreview.net/forum?id=HJg2b0VYDr).
   altmetric_id: 62918102
   bibtex: |
     @inproceedings{coleman2020selection,
@@ -277,7 +277,7 @@
     B. Uzkent, **C. Yeh**, and S. Ermon\
     IEEE WACV 2020
   citation: |
-    B. Uzkent, **C. Yeh**, and S. Ermon, "Efficient Object Detection in Large Images using Deep Reinforcement Learning," in _2020 IEEE Winter Conference on Applications of Computer Vision (WACV)_, Snowmass Village, CO, USA, Mar. 2020, pp. 1813–1822. DOI: 10.1109/WACV45572.2020.9093447. [Online]. Available: [https://ieeexplore.ieee.org/document/9093447](https://ieeexplore.ieee.org/document/9093447).
+    B. Uzkent, C. Yeh, and S. Ermon, "Efficient Object Detection in Large Images using Deep Reinforcement Learning," in _2020 IEEE Winter Conference on Applications of Computer Vision (WACV)_, Snowmass Village, CO, USA, Mar. 2020, pp. 1813–1822. DOI: 10.1109/WACV45572.2020.9093447. [Online]. Available: [https://ieeexplore.ieee.org/document/9093447](https://ieeexplore.ieee.org/document/9093447).
   altmetric_id: 72468930
   bibtex: |
     @inproceedings{uzkent2020efficient,
@@ -314,7 +314,7 @@
     A. Perez, **C. Yeh**, G. Azzari, M. Burke, D. Lobell, and S. Ermon\
     NIPS 2017, Workshop on Machine Learning for the Developing World
   citation: |
-    A. Perez, **C. Yeh**, G. Azzari, M. Burke, D. Lobell, and S. Ermon, "Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning," in _NIPS 2017 Workshop on Machine Learning for the Developing World_, Long Beach, CA, USA, Dec. 2017. arXiv:1711.03654. [Online]. Available: [https://arxiv.org/abs/1711.03654](https://arxiv.org/abs/1711.03654).
+    A. Perez, C. Yeh, G. Azzari, M. Burke, D. Lobell, and S. Ermon, "Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning," in _NIPS 2017 Workshop on Machine Learning for the Developing World_, Long Beach, CA, USA, Dec. 2017. arXiv:1711.03654. [Online]. Available: [https://arxiv.org/abs/1711.03654](https://arxiv.org/abs/1711.03654).
   altmetric_id: 28826862
   bibtex: |
     @inproceedings{perez2017poverty,
@@ -344,7 +344,7 @@
     A. Itai, S. Yadav, W. Zhong, L. Zhu, **C. Yeh**, E. Shayer, R. Barcelo, T. Liu, H. Stoyanov, P. Goldstein, L. Herman, and A. Terra\
     Stanford Law School Law and Policy Lab, 2017
   citation: |
-    A. Itai, S. Yadav, W. Zhong, L. Zhu, **C. Yeh**, E. Shayer, R. Barcelo, T. Liu, H. Stoyanov, P. Goldstein, L. Herman, and A. Terra, "A Low-Cost Digital Licensing Platform for Photographs: Documentation for a Prototype," Stanford Law School Law and Policy Lab, Stanford, CA, USA, Tech. Rep., Jun. 2017. [Online]. Available: [https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/](https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/).
+    A. Itai, S. Yadav, W. Zhong, L. Zhu, C. Yeh, E. Shayer, R. Barcelo, T. Liu, H. Stoyanov, P. Goldstein, L. Herman, and A. Terra, "A Low-Cost Digital Licensing Platform for Photographs: Documentation for a Prototype," Stanford Law School Law and Policy Lab, Stanford, CA, USA, Tech. Rep., Jun. 2017. [Online]. Available: [https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/](https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/).
   bibtex: |
     @techreport{itai2017copyright,
         address = {Stanford, CA, USA},
@@ -374,7 +374,7 @@
     M. Stevens* and **C. Yeh\***\
     Stanford CS 229 Final Report, 2016
   citation: |
-     M. Stevens* and **C. Yeh\***, "Reinforcement Learning for Traffic Optimization," Stanford University, Tech. Rep., Jun. 2016. [Online]. Available: [http://cs229.stanford.edu/proj2016spr/report/047.pdf](http://cs229.stanford.edu/proj2016spr/report/047.pdf).
+     M. Stevens and C. Yeh, "Reinforcement Learning for Traffic Optimization," Stanford University, Tech. Rep., Jun. 2016. [Online]. Available: [http://cs229.stanford.edu/proj2016spr/report/047.pdf](http://cs229.stanford.edu/proj2016spr/report/047.pdf).
   bibtex: |
     @techreport{stevens2016traffic,
         author = {Stevens, Matt and Yeh, Christopher},
