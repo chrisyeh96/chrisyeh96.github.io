@@ -1,19 +1,8 @@
 # Install Jekyll
 
-I find it easiest to use the conda package manager to install the `github-pages` ruby gem, which contains the set of gems (including Jekyll) used by GitHub Pages itself to compile each site. There are two options:
+I find it best to use the conda package manager to install ruby, then use ruby to install the `github-pages` gem, which contains the set of gems (including Jekyll) used by GitHub Pages itself to compile each site. If conda is not already installed, [install conda first](https://docs.conda.io/en/latest/miniconda.html). Then, pick one of two options:
 
-**1. Directly use conda install the compiled `github-pages` gem.**
-
-Assuming conda is installed, use the following commands to install/update Jekyll and the `github-pages` gem:
-
-```bash
-conda env update -f env.yml --prune
-conda activate gh-pages
-```
-
-Note that conda-forge may not have the most up-to-date version of the `github-pages` gem ([link](https://anaconda.org/conda-forge/rb-github-pages)), but it should work fine.
-
-**2. Use conda to install ruby, then use ruby to install the `github-pages` gem.**
+**1. Use conda to install ruby, then use ruby to install the `github-pages` gem.**
 
 To install/update to the latest version of the `github-pages` gem, run the following commands:
 
@@ -34,6 +23,17 @@ If the `gem install github-pages` command causes an error, try the following com
 sudo apt update  # update package index
 sudo apt upgrade build-essential  # compilation tools
 ```
+
+**2. Directly use conda install the compiled `github-pages` gem.**
+
+Use the following commands to install/update Jekyll and the `github-pages` gem:
+
+```bash
+conda env update -f env.yml --prune
+conda activate gh-pages
+```
+
+Note that conda-forge may not have the most up-to-date version of the `github-pages` gem ([link](https://anaconda.org/conda-forge/rb-github-pages)), but it should work fine.
 
 
 # Build
