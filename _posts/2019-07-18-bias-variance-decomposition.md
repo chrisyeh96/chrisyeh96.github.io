@@ -3,7 +3,7 @@ title: Bias-Variance Decomposition of Mean Squared Error
 layout: post
 use_math: true
 use_toc: true
-last_updated: 2021-05-21
+last_updated: 2022-12-05
 tags: [ML]
 pin: true
 excerpt: I derive the bias-variance decomposition of mean squared error for both estimators and predictors, and I show how they are related for linear models.
@@ -102,7 +102,7 @@ Terminology for an estimator $$\Th$$:
 It can be shown that given data $$D$$ sampled i.i.d. from $$P_T(X)$$, the maximum likelihood estimator
 
 $$
-\Th_{MLE} = \argmax_\Th P_\Th(\bfX) = \argmax_\Th \prod_{i=1}^N P_\Th(x^{(i)})
+\Th_{MLE} = \argmax_\Th P_\Th(D) = \argmax_\Th \prod_{i=1}^N P_\Th(x^{(i)})
 $$
 
 is consistent and asymptotically efficient. See *Rice* 8.5.2 and 8.7.
@@ -199,7 +199,7 @@ $$
 \end{aligned}
 $$
 
-Note that if $$\sigma^2 = 0$$, then $$Y$$ is deterministically related to $$X$$, i.e. $$Y = f(X)$$.
+Note that if $$\sigma^2 = 0$$, then $$Y$$ is deterministically related to $$X$$, *i.e.* $$Y = f(X)$$.
 
 We aim to estimate a linear regression function $$\fh$$ that approximates the true $$f$$ over some given training set of $$N$$ labeled examples $$D = \left\{ \left(x^{(i)}, y^{(i)} \right) \right\}_{i=1}^N$$ sampled from an underlying joint distribution $$P(X,Y)$$. In matrix notation, we can write $$D = (\bfX, \bfy)$$ where $$\bfX \in \R^{N \times p}$$ and $$\bfy \in \R^N$$ have the training examples arranged in rows.
 
@@ -271,9 +271,9 @@ We also show that the variance of the ridge regression estimator is strictly les
   <tr>
     <th colspan="2"></th>
     <th markdown="span">fixed $$\bfX$$</th>
-    <th markdown="span">$$E_D$$</th>
+    <th markdown="span">$$\E_D$$</th>
     <th markdown="span">fixed $$\bfX$$</th>
-    <th markdown="span">$$E_D$$</th>
+    <th markdown="span">$$\E_D$$</th>
   </tr>
   <tr>
     <td rowspan="2">OLS</td>
@@ -555,7 +555,7 @@ which is positive definite. This is because $$ z^T W (2I + \alpha S^{-1}) W z > 
 
 Having shown that the ridge regression estimator is biased but has lower variance than the unbiased least-squares estimator, the obvious next question is whether the decrease in variance is greater than the bias. Indeed, the following theorem shows that the ridge regression estimator is always able to achieve lower mean squared error.
 
-**Theorem**: Assume that the training inputs $$\bfX$$ as fixed and that $$f(x) = w^T x$$ is truly linear. Then $$MSE[\whR] < MSE[\wh]$$ if and only if $$ 0 < \alpha < 2 \frac{\sigma^2}{\|w\|_2^2}$$.
+**Theorem**: Assume that the training inputs $$\bfX$$ are fixed and that $$f(x) = w^T x$$ is truly linear. Then $$MSE[\whR] < MSE[\wh]$$ if and only if $$ 0 < \alpha < 2 \frac{\sigma^2}{\|w\|_2^2}$$.
 
 As the proof for this is quite involved, we refer readers to Theorem 1.2 of *Wieringen, 2015* or Theorem 4.3 of *Hoerl and Kennard, 1970* for different proofs of this theorem.
 
@@ -624,15 +624,15 @@ The 2nd equality comes from applying *Corollary 1* where $$y$$ is constant w.r.t
 
 </details>
 
-Thus we have decomposed the mean squared error into 3 terms: **bias**, **variance**, and **noise**. Notice that if there is no noise ($$\sigma^2 = 0$$), then the mean squared error decomposes strictly into bias and variance. The mean squared error at $$x$$ is also known as **expected prediction error** at $$x$$, commonly denoted by $$EPE(x)$$.
+Thus we have decomposed the mean squared error into 3 terms: **bias**, **variance**, and **noise**. Notice that if there is no noise ($$\sigma^2 = 0$$), then the mean squared error decomposes strictly into bias and variance. The mean squared error at $$x$$ is also known as **expected prediction error** at $$x$$, commonly written as $$EPE(x)$$.
 
 ## Discussion
 
-The noise term $$\sigma^2$$, also known as *irreducible error*, is the variance of the target $$Y$$ around its true mean $$f(x)$$. It is inherent in the problem and it does not depend on the model or training data. If the data generation process is known, then we may know $$\sigma^2$$. Otherwise, we may estimate $$\sigma^2$$ with the sample variance of $$y$$ at duplicated (or nearby) inputs $$x$$.
+The noise term $$\sigma^2$$, also known as *irreducible error* or *aleatoric uncertainty*, is the variance of the target $$Y$$ around its true mean $$f(x)$$. It is inherent in the problem and it does not depend on the model or training data. If the data generation process is known, then we may know $$\sigma^2$$. Otherwise, we may estimate $$\sigma^2$$ with the sample variance of $$y$$ at duplicated (or nearby) inputs $$x$$.
 
-However, the bias and variance components do depend on the model. A misspecified model, *i.e.* a model that does not match the true distribution of the data, will generally have bias. On the other hand, more complex models have lower bias but higher variance. In many circumstances it is possible to achieve large reductions in the variance term $$\var_D [ \fh_D(x) ]$$ with only a small increase in bias. We show this explicitly in the setting of linear models by comparing linear regression with ridge regression.
+However, the bias and variance components do depend on the model. A misspecified model, *i.e.* a model that does not match the true distribution of the data, will generally have bias. Thus, a model with high bias may *underfit* the data. On the other hand, more complex models have lower bias but higher variance. Such models have a tendency to *overfit* the data. In many circumstances it is possible to achieve large reductions in the variance term $$\var_D [ \fh_D(x) ]$$ with only a small increase in bias, thus reducing overfitting. We show this explicitly in the setting of linear models by comparing linear regression with ridge regression.
 
-In general, we are unable to calculate the bias and variance of a learned model without knowing the true $$f$$. However, we can estimate the bias and MSE at a test point $$x$$ by taking bootstrap samples of dataset to approximate drawing different datasets $$D$$.
+In general, we are unable to exactly calculate the bias and variance of a learned model without knowing the true $$f$$. However, we can estimate the bias, variance, and MSE at a test point $$x$$ by taking bootstrap samples of the dataset to approximate drawing different datasets $$D$$.
 
 ## Example: Linear Regression and Ridge Regression
 
@@ -668,9 +668,9 @@ As before, we separately consider the cases where the true $$f$$ is an arbitrary
   <tr>
     <th colspan="2"></th>
     <th markdown="span">fixed $$\bfX$$</th>
-    <th markdown="span">$$E_D$$</th>
+    <th markdown="span">$$\E_D$$</th>
     <th markdown="span">fixed $$\bfX$$</th>
-    <th markdown="span">$$E_D$$</th>
+    <th markdown="span">$$\E_D$$</th>
   </tr>
   <tr>
     <td rowspan="2">OLS</td>
