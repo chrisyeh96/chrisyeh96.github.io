@@ -3,6 +3,64 @@
 ####################
 
 - formatted: |
+    **SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications**\
+    **C. Yeh**, V. Li, R. Datta, Y. Yue, and A. Wierman\
+    NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning
+  citation: |
+    C. Yeh, V. Li, R. Datta, Y. Yue, and A. Wierman, "SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications," in _NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning_, Dec. 2022. [Online]. Available: [https://www.climatechange.ai/papers/neurips2022/38](https://www.climatechange.ai/papers/neurips2022/38).
+  bibtex: |
+    @inproceedings{yeh2022sustaingym,
+        title={{SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications}},
+        author={Yeh, Christopher and Li, Victor and Datta, Rajeev and Yue, Yisong and Wierman, Adam},
+        booktitle={NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning},
+        url={https://www.climatechange.ai/papers/neurips2022/38},
+        year={2022},
+        month={12}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1m8LhGfIXqzPrINd7rIop6foNhWO2vuiq/view?usp=share_link
+    - type: pdf
+      name: Slides
+      url: https://drive.google.com/file/d/152GEISYW0G0KTRc-qbr_0pn6N0x5_zzE/view?usp=share_link
+    - type: youtube
+      name: Presentation
+      url: https://youtu.be/2q_zWtU3Oiw
+    - type: url
+      name: Project Page
+      url: https://chrisyeh96.github.io/sustaingym/
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/sustaingym
+
+- formatted: |
+    **Robustifying machine-learned algorithms for efficient grid operation**\
+    N. Christianson, **C. Yeh**, T. Li, M. Torabi Rad, A. Golmohammadi, and A. Wierman\
+    NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning
+  citation: |
+    N. Christianson, C. Yeh, T. Li, M. Torabi Rad, A. Golmohammadi, and A. Wierman, "Robustifying machine-learned algorithms for efficient grid operation," in _NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning_, Dec. 2022. [Online]. Available: [https://www.climatechange.ai/papers/neurips2022/19](https://www.climatechange.ai/papers/neurips2022/19).
+  bibtex: |
+    @inproceedings{christianson2022robustifying,
+        title={Robustifying machine-learned algorithms for efficient grid operation},
+        author={Christianson, Nicolas and Yeh, Christopher and Li, Tongxin and Torabi Rad, Mahdi and Golmohammadi, Azarang and Wierman, Adam},
+        booktitle={NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning},
+        url={https://www.climatechange.ai/papers/neurips2022/19},
+        year={2022},
+        month={12}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/138mTr-46fst6M2hfcwT_ftOQoyhPezLa/view?usp=share_link
+    - type: pdf
+      name: Slides
+      url: https://drive.google.com/file/d/1R8jzBUgDB5vUv-xjoCuMHTPoNctAykDk/view?usp=share_link
+    - type: video
+      name: Presentation
+      url: https://slideslive.com/embed/presentation/38994005?embed_parent_url=https%3A%2F%2Fneurips.cc%2Fvirtual%2F2022%2Fposter%2F59268&embed_container_origin=https%3A%2F%2Fneurips.cc
+
+- formatted: |
     **Robust online voltage control with an unknown grid topology**\
     **C. Yeh**, J. Yu, Y. Shi, and A. Wierman\
     ACM e-Energy 2022, <span style="color: #ff6c0c; font-weight: bold;">Best paper award finalist</span>
