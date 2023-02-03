@@ -3,7 +3,7 @@ title: The Definitive Guide to Python import Statements
 layout: post
 use_code: true
 use_toc: true
-last_updated: 2020-09-30
+last_updated: 2023-02-02
 tags: [python]
 pin: true
 excerpt: I've almost never been able to write correct Python `import` statements on the first go. Behavior is inconsistent between Python 2.7 and Python 3.6 (the two versions that I test here), and there is no single method for guaranteeing that imports will always work. This post is my dive into how to resolve common importing problems. Unless otherwise stated, all examples here work with both Python 2.7 and 3.6.
@@ -105,7 +105,7 @@ Python's documentation for `sys.path` describes it as...
 
 The documentation for Python's command line interface adds the following about running scripts from the command line. Specifically, when running `python <script>.py`, then...
 
-> If the script name refers directly to a Python file, the directory containing that file is added to the start of sys.path, and the file is executed as the __main__ module.
+> If the script name refers directly to a Python file, the directory containing that file is added to the start of `sys.path`, and the file is executed as the `__main__` module.
 >
 > *Source: Python [2](https://docs.python.org/2/using/cmdline.html) and [3](https://docs.python.org/3/using/cmdline.html)*
 
