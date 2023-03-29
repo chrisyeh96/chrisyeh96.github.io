@@ -269,7 +269,7 @@ The radial DistFlow equations are *nonlinear* in the variables listed above:
 
 It is reasonable to assume that the line losses $$z_{jk} l_{jk}$$ are small compared with the line power flows $$S_{jk}$$. Therefore, we can approximate $$z_{jk} l_{jk} \approx 0$$ which yields the **simplified DistFlow model**, also called the **linearized DistFlow model**. This model was first introduced in
 
-> M. E. Baran and F. F. Wu, "Network reconfiguration in distribution systems for loss reduction and load balancing," in _IEEE Transactions on Power Delivery_, vol. 4, no. 2, pp. 1401-1407, April 1989, doi: 10.1109/61.25627. [https://ieeexplore.ieee.org/document/25627](https://ieeexplore.ieee.org/document/25627).
+> M. Baran and F. F. Wu, "Optimal sizing of capacitors placed on a radial distribution system," in _IEEE Transactions on Power Delivery_, vol. 4, no. 1, pp. 735-743, Jan. 1989, doi: 10.1109/61.19266. [https://ieeexplore.ieee.org/document/19266](https://ieeexplore.ieee.org/document/19266).
 
 In complex form:
 
