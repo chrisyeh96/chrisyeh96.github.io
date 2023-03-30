@@ -2,7 +2,7 @@
 title: Simplified DistFlow Equations
 layout: post
 use_math: true
-last_updated: 2023-03-28
+last_updated: 2023-03-29
 tags: [control]
 excerpt: Recently, I worked on the voltage control problem for radial distribution grids (see [here](https://dl.acm.org/doi/10.1145/3538637.3538853)). More simply, the problem is to keep voltages in an electric grid within a fixed range at all locations in the grid, under the assumption that the grid is radial, meaning tree-structured. Like most other voltage control algorithms, I used the linear "Simplified DistFlow" model. It took me a while to understand the math behind this model, and I hope this post demystifies some of that complexity.
 ---
@@ -420,3 +420,13 @@ $$
 $$
 
 and likewise, $$X_{jm} = \sum_{l \in \Pcal_j \cap \Pcal_m} x_l$$.
+
+Note that it is equivalent to move the factor of 2 into the definition of the $$R$$ and $$X$$ matrices so that
+
+$$
+\begin{aligned}
+    v_{1:n} &= v_0 \one + R p_{1:n} + X q_{1:n} \\
+    R_{jm} &:= 2 \sum_{l \in \Pcal_j \cap \Pcal_m} r_l \\
+    X_{jm} &:= 2 \sum_{l \in \Pcal_j \cap \Pcal_m} x_l.
+\end{aligned}
+$$
