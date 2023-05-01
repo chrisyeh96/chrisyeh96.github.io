@@ -1,4 +1,32 @@
 ####################
+# 2023
+####################
+
+- formatted: |
+    **Decision-aware uncertainty-calibrated deep learning for robust energy system operation**\
+    **C. Yeh**, N. Christianson, S. Low, A. Wierman, Y. Yue\
+    ICLR 2023 Workshop on Tackling Climate Change with Machine Learning
+  citation: |
+    C. Yeh, N. Christianson, S. Low, A. Wierman, and Y. Yue, "Decision-aware uncertainty-calibrated deep learning for robust energy system operation," in _ICLR 2023 Workshop on Tackling Climate Change with Machine Learning_, May 2023. [Online]. Available: [https://www.climatechange.ai/papers/iclr2023/61](https://www.climatechange.ai/papers/iclr2023/61).
+  bibtex: |
+    @inproceedings{yeh2023decisionaware,
+        title={{Decision-aware uncertainty-calibrated deep learning for robust energy system operation}},
+        author={Yeh, Christopher and Christianson, Nicolas and Low, Steven and Wierman, Adam and Yue, Yisong},
+        booktitle={ICLR 2023 Workshop on Tackling Climate Change with Machine Learning},
+        url={https://www.climatechange.ai/papers/iclr2023/61},
+        year={2023},
+        month={5}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1lNJ3NBiwC50xCRX3_CAo0rJbv-lkOZON/view
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1UUT78q-P16hJiaBydhCTkqfwwut_wmyV/view
+
+
+####################
 # 2022
 ####################
 
