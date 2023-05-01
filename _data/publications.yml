@@ -20,10 +20,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1m8LhGfIXqzPrINd7rIop6foNhWO2vuiq/view?usp=share_link
+      url: https://drive.google.com/file/d/1m8LhGfIXqzPrINd7rIop6foNhWO2vuiq/view
     - type: pdf
       name: Slides
-      url: https://drive.google.com/file/d/152GEISYW0G0KTRc-qbr_0pn6N0x5_zzE/view?usp=share_link
+      url: https://drive.google.com/file/d/152GEISYW0G0KTRc-qbr_0pn6N0x5_zzE/view
     - type: youtube
       name: Presentation
       url: https://youtu.be/2q_zWtU3Oiw
@@ -52,10 +52,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/138mTr-46fst6M2hfcwT_ftOQoyhPezLa/view?usp=share_link
+      url: https://drive.google.com/file/d/138mTr-46fst6M2hfcwT_ftOQoyhPezLa/view
     - type: pdf
       name: Slides
-      url: https://drive.google.com/file/d/1R8jzBUgDB5vUv-xjoCuMHTPoNctAykDk/view?usp=share_link
+      url: https://drive.google.com/file/d/1R8jzBUgDB5vUv-xjoCuMHTPoNctAykDk/view
     - type: video
       name: Presentation
       url: https://slideslive.com/embed/presentation/38994005?embed_parent_url=https%3A%2F%2Fneurips.cc%2Fvirtual%2F2022%2Fposter%2F59268&embed_container_origin=https%3A%2F%2Fneurips.cc
@@ -84,10 +84,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1k1dpEC_uAwL4mS-njD1hrERgy-ZT7L5b/view?usp=sharing
+      url: https://drive.google.com/file/d/1k1dpEC_uAwL4mS-njD1hrERgy-ZT7L5b/view
     - type: pdf
       name: Slides
-      url: https://drive.google.com/file/d/1_GQMJL0t6N0gDekvASnNCAyXzd81krHM/view?usp=sharing
+      url: https://drive.google.com/file/d/1_GQMJL0t6N0gDekvASnNCAyXzd81krHM/view
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2206.14369
@@ -124,10 +124,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1R78RVU-RlPSr-qNhxTf374ylw3NbWEsi/view?usp=sharing
+      url: https://drive.google.com/file/d/1R78RVU-RlPSr-qNhxTf374ylw3NbWEsi/view
     - type: pdf
       name: Poster
-      url: https://drive.google.com/file/d/1aKhg4ruyeAsppGWwZMKn8D58JJp07M0L/view?usp=sharing
+      url: https://drive.google.com/file/d/1aKhg4ruyeAsppGWwZMKn8D58JJp07M0L/view
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2111.04724
@@ -164,10 +164,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1-31AanhAmQYu59qd2_xWc9J567uJSJ_m/view?usp=sharing
+      url: https://drive.google.com/file/d/1-31AanhAmQYu59qd2_xWc9J567uJSJ_m/view
     - type: pdf
       name: Poster
-      url: https://drive.google.com/file/d/1S-lBZhyEh6fYP1B2Cj2erbGoQA47zuzG/view?usp=sharing
+      url: https://drive.google.com/file/d/1S-lBZhyEh6fYP1B2Cj2erbGoQA47zuzG/view
     - type: github
       name: Code
       url: https://github.com/sustainlab-group/africa_poverty
@@ -197,10 +197,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1tWRELSeydjDL5cmr76h2bx60i050bYRM/view?usp=sharing
+      url: https://drive.google.com/file/d/1tWRELSeydjDL5cmr76h2bx60i050bYRM/view
     - type: pdf
       name: Appendix PDF
-      url: https://drive.google.com/file/d/1VgpDBXDBAxa8m77Pc6xqyswzlW9VGrIy/view?usp=sharing
+      url: https://drive.google.com/file/d/1VgpDBXDBAxa8m77Pc6xqyswzlW9VGrIy/view
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2006.10287
@@ -254,10 +254,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1SPkuGXeTNiQZxkxb4tBjRMI26RgtWghr/view?usp=sharing
+      url: https://drive.google.com/file/d/1SPkuGXeTNiQZxkxb4tBjRMI26RgtWghr/view
     - type: pdf
       name: Supplementary PDF
-      url: https://drive.google.com/file/d/1w33lzrrQU8fqHA77Hw4UtT1hSDbG6YQl/view?usp=sharing
+      url: https://drive.google.com/file/d/1w33lzrrQU8fqHA77Hw4UtT1hSDbG6YQl/view
     - type: url
       name: Nature Communications
       url: https://www.nature.com/articles/s41467-020-16185-w
@@ -286,10 +286,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1HfNbn9xDire8f8vssvE3AWU1a9TsuhZI/view?usp=sharing
+      url: https://drive.google.com/file/d/1HfNbn9xDire8f8vssvE3AWU1a9TsuhZI/view
     - type: pdf
       name: Slides
-      url: https://drive.google.com/file/d/1h-qU7XZlUWoTjXP-k-2T3QDNogxdf94D/view?usp=sharing
+      url: https://drive.google.com/file/d/1h-qU7XZlUWoTjXP-k-2T3QDNogxdf94D/view
     - type: github
       name: Code
       url: https://github.com/stanford-futuredata/selection-via-proxy
@@ -313,10 +313,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/11qAbjizrAB9hGPOwwadK7TH27i7ZSmqX/view?usp=sharing
+      url: https://drive.google.com/file/d/11qAbjizrAB9hGPOwwadK7TH27i7ZSmqX/view
     - type: pdf
       name: Slides
-      url: https://drive.google.com/file/d/1PV1e45RRzG3vtaG1ZzH_xzcmPvKx4lXp/view?usp=sharing
+      url: https://drive.google.com/file/d/1PV1e45RRzG3vtaG1ZzH_xzcmPvKx4lXp/view
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/1906.11829
@@ -352,10 +352,10 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/16CfS7IpWLNT4qXezFssCNoIF7tnmd1Nv/view?usp=sharing
+      url: https://drive.google.com/file/d/16CfS7IpWLNT4qXezFssCNoIF7tnmd1Nv/view
     - type: pdf
       name: Poster
-      url: https://drive.google.com/file/d/1Or_nKMmpJ9EdfliBzIk7JM2Gw4gXDXPs/view?usp=sharing
+      url: https://drive.google.com/file/d/1Or_nKMmpJ9EdfliBzIk7JM2Gw4gXDXPs/view
     - type: youtube
       name: Presentation
       url: https://www.youtube.com/watch?v=_7B_yr_C8fs
@@ -389,7 +389,7 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1K9F_cUfz2IX0Weux3oLbb35bNd4JCd9S/view?usp=sharing
+      url: https://drive.google.com/file/d/1K9F_cUfz2IX0Weux3oLbb35bNd4JCd9S/view
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/1711.03654
@@ -418,7 +418,7 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1KdGhPyF7low92ZskgqA9eEeTqQ-eHGqJ/view?usp=sharing
+      url: https://drive.google.com/file/d/1KdGhPyF7low92ZskgqA9eEeTqQ-eHGqJ/view
     - type: url
       name: Stanford Law School
       url: https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/
@@ -445,7 +445,7 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1rTH9DcqxgGFHljMRVskms7uT-mJvBYFR/view?usp=sharing
+      url: https://drive.google.com/file/d/1rTH9DcqxgGFHljMRVskms7uT-mJvBYFR/view
     - type: pdf
       name: Poster
-      url: https://drive.google.com/file/d/1fY30NlivGZJqGB4lQ_7JG428RthFDu_r/view?usp=sharing
+      url: https://drive.google.com/file/d/1fY30NlivGZJqGB4lQ_7JG428RthFDu_r/view
