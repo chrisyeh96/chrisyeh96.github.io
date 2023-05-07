@@ -205,13 +205,13 @@
     S. Zhao, **C. Yeh**, and S. Ermon\
     AISTATS 2020
   citation: |
-    S. Zhao, C. Yeh, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in _The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)_, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [https://proceedings.mlr.press/v10 8/zhao20e.html](https://proceedings.mlr.press/v108/zhao20e.html).
+    S. Zhao, C. Yeh, and S. Ermon, "A Framework for Sample Efficient Interval Estimation with Control Variates," in _The 23rd International Conference on Artificial Intelligence and Statistics (AISTATS 2020)_, S. Chiappa and R. Calandra, Eds., ser. Proceedings of Machine Learning Research, vol. 108, PMLR, Aug. 2020, pp. 4583-4592. [Online]. Available: [https://proceedings.mlr.press/v108/zhao20e.html](https://proceedings.mlr.press/v108/zhao20e.html).
   altmetric_id: 84290817
   bibtex: |
     @inproceedings{zhao2020interval,
         author = {Zhao, Shengjia and Yeh, Christopher, and Ermon, Stefano},
         booktitle = {{The 23rd International Conference on Artificial Intelligence and Statistics}},
-        editor = {Silvia Chiappa and Roberto Calandra},
+        editor = {Chiappa, Silvia and Calandra, Roberto},
         month = {8},
         pages = {4583--4592},
         pdf = {https://proceedings.mlr.press/v108/zhao20e/zhao20e.pdf},
