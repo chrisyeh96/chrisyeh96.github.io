@@ -10,12 +10,13 @@
     C. Yeh, N. Christianson, S. Low, A. Wierman, and Y. Yue, "Decision-aware uncertainty-calibrated deep learning for robust energy system operation," in _ICLR 2023 Workshop on Tackling Climate Change with Machine Learning_, May 2023. [Online]. Available: [https://www.climatechange.ai/papers/iclr2023/61](https://www.climatechange.ai/papers/iclr2023/61).
   bibtex: |
     @inproceedings{yeh2023decisionaware,
-        title={{Decision-aware uncertainty-calibrated deep learning for robust energy system operation}},
+        address={New Orleans, LA, USA},
         author={Yeh, Christopher and Christianson, Nicolas and Low, Steven and Wierman, Adam and Yue, Yisong},
         booktitle={ICLR 2023 Workshop on Tackling Climate Change with Machine Learning},
+        month={5},
+        title={{Decision-aware uncertainty-calibrated deep learning for robust energy system operation}},
         url={https://www.climatechange.ai/papers/iclr2023/61},
-        year={2023},
-        month={5}
+        year={2023}
     }
   media:
     - type: pdf
@@ -38,12 +39,13 @@
     C. Yeh, V. Li, R. Datta, Y. Yue, and A. Wierman, "SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications," in _NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning_, Dec. 2022. [Online]. Available: [https://www.climatechange.ai/papers/neurips2022/38](https://www.climatechange.ai/papers/neurips2022/38).
   bibtex: |
     @inproceedings{yeh2022sustaingym,
-        title={{SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications}},
+        address={New Orleans, LA, USA},
         author={Yeh, Christopher and Li, Victor and Datta, Rajeev and Yue, Yisong and Wierman, Adam},
         booktitle={NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning},
+        month={12},
+        title={{SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications}},
         url={https://www.climatechange.ai/papers/neurips2022/38},
-        year={2022},
-        month={12}
+        year={2022}
     }
   media:
     - type: pdf
@@ -70,12 +72,13 @@
     N. Christianson, C. Yeh, T. Li, M. Torabi Rad, A. Golmohammadi, and A. Wierman, "Robustifying machine-learned algorithms for efficient grid operation," in _NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning_, Dec. 2022. [Online]. Available: [https://www.climatechange.ai/papers/neurips2022/19](https://www.climatechange.ai/papers/neurips2022/19).
   bibtex: |
     @inproceedings{christianson2022robustifying,
-        title={Robustifying machine-learned algorithms for efficient grid operation},
+        address={New Orleans, LA, USA},
         author={Christianson, Nicolas and Yeh, Christopher and Li, Tongxin and Torabi Rad, Mahdi and Golmohammadi, Azarang and Wierman, Adam},
         booktitle={NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning},
+        month={12},
+        title={Robustifying machine-learned algorithms for efficient grid operation},
         url={https://www.climatechange.ai/papers/neurips2022/19},
-        year={2022},
-        month={12}
+        year={2022}
     }
   media:
     - type: pdf
@@ -96,8 +99,7 @@
     C. Yeh, J. Yu, Y. Shi, and A. Wierman, "Robust online voltage control with an unknown grid topology," in _Proceedings of the Thirteenth ACM International Conference on Future Energy Systems (e-Energy '22)_, Association for Computing Machinery, Jun. 2022, pp. 240–250, ISBN: 9781450393973. DOI: 10.1145/3538637.3538853. [Online]. Available: [https://dl.acm.org/doi/10.1145/3538637.3538853](https://dl.acm.org/doi/10.1145/3538637.3538853).
   altmetric_id: 130387097
   bibtex: |
-    @inproceedings{
-        yeh2022robust,
+    @inproceedings{yeh2022robust,
         author = {Christopher Yeh and Jing Yu and Yuanyuan Shi and Adam Wierman},
         booktitle = {{Proceedings of the Thirteenth ACM International Conference on Future Energy Systems (e-Energy '22)}},
         doi = {10.1145/3538637.3538853},
@@ -139,8 +141,7 @@
     C. Yeh, C. Meng, S. Wang, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon, "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning," in _Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)_, Dec. 2021. [Online]. Available: [https://openreview.net/forum?id=5HR3vCylqD](https://openreview.net/forum?id=5HR3vCylqD).
   altmetric_id: 116481830
   bibtex: |
-    @inproceedings{
-        yeh2021sustainbench,
+    @inproceedings{yeh2021sustainbench,
         author = {Christopher Yeh and Chenlin Meng and Sherrie Wang and Anne Driscoll and Erik Rozi and Patrick Liu and Jihyeon Lee and Marshall Burke and David B. Lobell and Stefano Ermon},
         booktitle = {Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)},
         doi = {10.48550/arXiv.2111.04724},
