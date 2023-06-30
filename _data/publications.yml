@@ -1,6 +1,32 @@
-####################
+# ==================
 # 2023
-####################
+# ==================
+
+- formatted: |
+    **Online learning for robust voltage control under uncertain grid topology**\
+    **C. Yeh**, J. Yu, Y. Shi, A. Wierman\
+    Preprint (in submission)
+  citation: |
+    C. Yeh, J. Yu, Y. Shi, A. Wierman, "Online learning for robust voltage control under uncertain grid topology," Jun. 2023. DOI: 10.48550/arXiv.2306.16674. [Online]. Available: [https://arxiv.org/abs/2306.16674](https://arxiv.org/abs/2306.16674).
+  bibtex: |
+    @article{yeh2023online,
+        author={Yeh, Christopher and Christianson, Nicolas and Low, Steven and Wierman, Adam and Yue, Yisong},
+        month={6},
+        title={{Online learning for robust voltage control under uncertain grid topology}},
+        url={https://arxiv.org/abs/2306.16674},
+        doi={10.48550/arXiv.2306.16674},
+        year={2023}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1c8q7UXJTsocOQyvC51LJURAlggj5AhyM/view?usp=sharing
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2306.16674
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1t1VsLw-Qqkqr0WO8IFt1k8nj-J_D4OlW/view?usp=sharing
 
 - formatted: |
     **Decision-aware uncertainty-calibrated deep learning for robust energy system operation**\
@@ -27,9 +53,9 @@
       url: https://drive.google.com/file/d/1UUT78q-P16hJiaBydhCTkqfwwut_wmyV/view
 
 
-####################
+# ==================
 # 2022
-####################
+# ==================
 
 - formatted: |
     **SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications**\
@@ -129,9 +155,9 @@
       url: https://github.com/chrisyeh96/voltctrl
 
 
-####################
+# ==================
 # 2021
-####################
+# ==================
 
 - formatted: |
     **SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning**\
@@ -171,9 +197,9 @@
       url: https://github.com/sustainlab-group/sustainbench
 
 
-####################
+# ==================
 # 2020
-####################
+# ==================
 
 - formatted: |
     **Deep learning for understanding economic well-being in Africa from publicly available satellite imagery**\
@@ -392,9 +418,9 @@
       name: Code
       url: https://github.com/uzkent/EfficientObjectDetection
 
-####################
+# ==================
 # 2017
-####################
+# ==================
 
 - formatted: |
     **Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning**\
@@ -452,9 +478,9 @@
       name: Stanford Law School
       url: https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/
 
-####################
+# ==================
 # 2016
-####################
+# ==================
 
 - formatted: |
     **Reinforcement Learning for Traffic Optimization**\
