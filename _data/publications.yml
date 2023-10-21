@@ -36,8 +36,8 @@
     C. Yeh, V. Li, R. Datta, J. Arroyo, N. Christianson, C. Zhang, Y. Chen, M. Hosseini, A. Golmohammadi, Y. Shi, Y. Yue, and A. Wierman, "SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications," in _Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track_, New Orleans, LA, USA, Dec. 2023. [Online]. Available: [https://openreview.net/forum?id=vZ9tA3o3hr](https://openreview.net/forum?id=vZ9tA3o3hr).
   bibtex: |
     @inproceedings{yeh2023sustaingym,
-        title = {{SustainGym}: Reinforcement Learning Environments for Sustainable Energy Systems},
-        author = {Yeh, Christopher and Li, Victor and Datta, Rajeev and Arroyo, Julio and Zhang, Chi and Chen, Yize and Hosseini, Mehdi and Golmohammadi, Azarang and Shi, Yuanyuan and Yue, Yisong and Wierman, Adam},
+        title = {{SustainGym}: {Reinforcement} Learning Environments for Sustainable Energy Systems},
+        author = {Yeh, Christopher and Li, Victor and Datta, Rajeev and Arroyo, Julio and Christianson, Nicolas and Zhang, Chi and Chen, Yize and Hosseini, Mehdi and Golmohammadi, Azarang and Shi, Yuanyuan and Yue, Yisong and Wierman, Adam},
         year = 2023,
         month = 12,
         booktitle = {Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
