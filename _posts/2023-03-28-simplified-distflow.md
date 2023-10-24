@@ -2,7 +2,7 @@
 title: Simplified DistFlow Equations
 layout: post
 use_math: true
-last_updated: 2023-03-29
+last_updated: 2023-10-24
 tags: [control]
 excerpt: Recently, I worked on the voltage control problem for radial distribution grids (see [here](https://dl.acm.org/doi/10.1145/3538637.3538853)). More simply, the problem is to keep voltages in an electric grid within a fixed range at all locations in the grid, under the assumption that the grid is radial, meaning tree-structured. Like most other voltage control algorithms, I used the linear "Simplified DistFlow" model. It took me a while to understand the math behind this model, and I hope this post demystifies some of that complexity.
 ---
@@ -96,12 +96,12 @@ The classical dynamics equations for resistors, inductors, and capacitors can be
 |           | time domain ($$\R$$)                | phasor domain ($$\C$$)       | complex impedance $$Z$$ ($$\C$$)
 |-----------|-------------------------------------|------------------------------|---------------------------------
 | resistor  | $$v(t) = R \cdot i(t)$$             | $$V = R \cdot I$$            | $$Z_R = R$$
-| inductor  | $$v(t) = L \cdot \deriv{}{t} i(t)$$ | $$V = (\i \omega L) I$$      | $$Z_L = i \omega L$$
-| capacitor | $$i(t) = C \cdot \deriv{}{t} v(t)$$ | $$V = (\i \omega C)^{-1} I$$ | $$Z_C = (i \omega C)^{-1}$$
+| inductor  | $$v(t) = L \cdot \deriv{}{t} i(t)$$ | $$V = (\i \omega L) I$$      | $$Z_L = \i \omega L$$
+| capacitor | $$i(t) = C \cdot \deriv{}{t} v(t)$$ | $$V = (\i \omega C)^{-1} I$$ | $$Z_C = (\i \omega C)^{-1}$$
 
 The phasor descriptions of resistors, inductors, and capacitors obey **Ohm's law** in phasor form, $$V = Z \cdot I$$, where $$Z \in \C$$ is called the **impedance** (in Ohms $$\Omega$$) of the circuit element. (See proofs below.)
 
-Re-arranging Ohm's law yields $$Z = \frac{V}{I} = \frac{\abs{V}}{\abs{I}} e^{i (\theta_v - \theta_i)}$$, with $$\abs{Z} = \frac{\abs{V}}{\abs{I}}$$ and $$\angle Z = \theta_v - \theta_i$$.
+Re-arranging Ohm's law yields $$Z = \frac{V}{I} = \frac{\abs{V}}{\abs{I}} e^{\i (\theta_v - \theta_i)}$$, with $$\abs{Z} = \frac{\abs{V}}{\abs{I}}$$ and $$\angle Z = \theta_v - \theta_i$$.
 
 From complex impedance $$Z$$, we can define 3 quantities:
 - **resistance** (in $$\Omega$$), the real component, $$r := \Re(Z)$$
@@ -135,12 +135,12 @@ $$
 \begin{aligned}
 \Re(\sqrt{2} V e^{\i \omega t})
 &= \Re(L \omega \cdot \sqrt{2} I e^{\i \omega (t + \frac{\pi/2}{\omega})}) \\
-&= \Re(\sqrt{2} \omega L I e^{\i \omega t} \underbrace{e^{i \pi/2)}}_{\cos\frac{\pi}{2} + \i \sin\frac{\pi}{2} - \i}) \\
-&= \Re(\sqrt{2} i \omega L I e^{\i \omega t})
+&= \Re(\sqrt{2} \omega L I e^{\i \omega t} \underbrace{e^{\i \pi/2}}_{\cos\frac{\pi}{2} + \i \sin\frac{\pi}{2} = \i}) \\
+&= \Re(\sqrt{2} \i \omega L I e^{\i \omega t})
 \end{aligned}
 $$
 
-This implies $$V = (i \omega L) I$$. $$\blacksquare$$
+This implies $$V = (\i \omega L) I$$. $$\blacksquare$$
 
 *Proof for capacitor.* Similar to proof for inductor. $$\blacksquare$$
 
@@ -164,7 +164,7 @@ $$
 S &:= V I^*
 = \frac{\Vmax}{\sqrt 2} e^{\i \theta_v} \cdot \frac{\Imax}{\sqrt 2} e^{-\i \theta_i} \\
 &= \frac{\Vmax \Imax}{2} e^{\i (\theta_v - \theta_i)}
-= \abs{V} \abs{I} e^{i \phi}.
+= \abs{V} \abs{I} e^{\i \phi}.
 \end{aligned}
 $$
 
