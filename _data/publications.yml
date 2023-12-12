@@ -51,6 +51,12 @@
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/sustaingym
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1wrLGu2FCVOT_BvtDoudsz05zFG89r7dI/view
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1isBLRUulYN_FS2mivbFjt6lHBCMd_YRH/view
 
 - formatted: |
     **Decision-aware uncertainty-calibrated deep learning for robust energy system operation**\
