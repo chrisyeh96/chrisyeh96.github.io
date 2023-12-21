@@ -13,18 +13,13 @@ $$
 \newcommand{\Noise}{\mathcal{E}}
 \newcommand{\fh}{\hat{f}}
 \newcommand{\fhR}{\hat{f}^\text{Ridge}}
-\newcommand{\bff}{\mathbf{f}}
-\newcommand{\bfh}{\mathbf{h}}
-\newcommand{\bfX}{\mathbf{X}}
-\newcommand{\bfy}{\mathbf{y}}
-\newcommand{\bfZ}{\mathbf{Z}}
 \newcommand{\wh}{\hat{w}}
 \newcommand{\whR}{\hat{w}^\text{Ridge}}
 \newcommand{\Th}{\hat{T}}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\Bias}{Bias}
-\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\tr}{tr}
 $$
@@ -46,7 +41,7 @@ All of the expectations and the variance are taken with respect to $$P(X)$$. Let
 $$
 \begin{aligned}
 \tr \Cov(X) + \|\mu-c\|_2^2
-&= \sum_{i=1}^p \var(X_i) + \|\mu-c\|_2^2 \\
+&= \sum_{i=1}^p \Var(X_i) + \|\mu-c\|_2^2 \\
 &= \sum_{i=1}^p \E\left[ (X_i - \mu_i)^2 \right] + \|\mu-c\|_2^2 \\
 &= \E\left[\sum_{i=1}^p (X_i - \mu_i)^2 \right] + \|\mu-c\|_2^2 \\
 &= \E[(X-\mu)^T (X-\mu)] + (\mu-c)^T (\mu-c) \\
@@ -62,7 +57,7 @@ We write the special case where $$X$$ and $$c$$ are scalars instead of vectors a
 
 **Corollary 1**: For any random variable $$X \in \R$$ and any constant $$c \in \R$$,
 
-$$ \E[(X-c)^2] = \var[X] + (\E[X]-c)^2. $$
+$$ \E[(X-c)^2] = \Var[X] + (\E[X]-c)^2. $$
 
 
 # Bias and Variance of an Estimator
@@ -85,8 +80,8 @@ MSE(\Th)
 $$
 
 Terminology for an estimator $$\Th$$:
-- The **standard error** of a scalar estimator $$\Th$$ is $$SE(\Th) = \sqrt{\var[\Th]}$$.
-    - If $$\Th$$ is a vector, then the standard error of its $$i$$-th entry is $$SE(\Th_i) = \sqrt{\var[\Th_i]}$$.
+- The **standard error** of a scalar estimator $$\Th$$ is $$SE(\Th) = \sqrt{\Var[\Th]}$$.
+    - If $$\Th$$ is a vector, then the standard error of its $$i$$-th entry is $$SE(\Th_i) = \sqrt{\Var[\Th_i]}$$.
 - $$\Th$$ is **unbiased** if $$\Bias[\Th] = 0$$.
 - $$\Th$$ is **efficient** if $$\Cov[\Th]$$ equals the Cramer-Rao lower bound $$I(T)^{-1} / N$$ where $$I(T)$$ is the Fisher Information matrix of $$T$$.
     - $$\Th$$ is **_asymptotically_ efficient** if it achieves this bound asymptotically as the number of samples $$N \to \infty$$.
@@ -140,9 +135,9 @@ $$
 The variances of the two estimators $$S_N^2$$ and $$S_{N-1}^2$$ are also different. The distribution of $$\frac{N-1}{\sigma^2} S_{N-1}^2$$ is $$\chi_{N-1}^2$$ (chi-square) with $$N-1$$ degrees of freedom (*Rice 6.3*), so
 
 $$
-\var[S_{N-1}^2]
-= \var\left[ \frac{\sigma^2}{N-1} \chi_{N-1}^2 \right]
-= \frac{\sigma^4}{(N-1)^2} \var[ \chi_{N-1}^2 ]
+\Var[S_{N-1}^2]
+= \Var\left[ \frac{\sigma^2}{N-1} \chi_{N-1}^2 \right]
+= \frac{\sigma^4}{(N-1)^2} \Var[ \chi_{N-1}^2 ]
 = \frac{2 \sigma^4}{N-1}.
 $$
 
@@ -159,11 +154,11 @@ S_k^2
 \Bias[S_k^2]
 &= \E[S_k^2] - \sigma^2
  = \frac{N-1-k}{k} \sigma^2 \\
-\var[S_k^2]
-&= \left(\frac{N-1}{k}\right)^2 \var[S_{N-1}^2]
+\Var[S_k^2]
+&= \left(\frac{N-1}{k}\right)^2 \Var[S_{N-1}^2]
  = \frac{2 \sigma^4 (N-1)}{k^2} \\
 MSE[S_k^2]
-&= \Bias[S_k^2]^2 + \var[S_k^2]
+&= \Bias[S_k^2]^2 + \Var[S_k^2]
  = \frac{(N-1-k)^2 + 2(N-1)}{k^2} \sigma^4
 \end{aligned}
 $$
@@ -195,13 +190,13 @@ Thus, for a given $$x$$,
 $$
 \begin{aligned}
 \E_{y \sim P(Y|X=x)}[y] &= f(x) \\
-\var_{y \sim P(Y|X=x)}[y] &= \var_{\epsilon \sim \Noise}[\epsilon] = \sigma^2
+\Var_{y \sim P(Y|X=x)}[y] &= \Var_{\epsilon \sim \Noise}[\epsilon] = \sigma^2
 \end{aligned}
 $$
 
 Note that if $$\sigma^2 = 0$$, then $$Y$$ is deterministically related to $$X$$, *i.e.* $$Y = f(X)$$.
 
-We aim to estimate a linear regression function $$\fh$$ that approximates the true $$f$$ over some given training set of $$N$$ labeled examples $$D = \left\{ \left(x^{(i)}, y^{(i)} \right) \right\}_{i=1}^N$$ sampled from an underlying joint distribution $$P(X,Y)$$. In matrix notation, we can write $$D = (\bfX, \bfy)$$ where $$\bfX \in \R^{N \times p}$$ and $$\bfy \in \R^N$$ have the training examples arranged in rows.
+We aim to estimate a linear regression function $$\fh$$ that approximates the true $$f$$ over some given training set of $$N$$ labeled examples $$D = \left\{ \left(x^{(i)}, y^{(i)} \right) \right\}_{i=1}^N$$ sampled from an underlying joint distribution $$P(X,Y)$$. In matrix notation, we can write $$D = (\Xbf, \ybf)$$ where $$\Xbf \in \R^{N \times p}$$ and $$\ybf \in \R^N$$ have the training examples arranged in rows.
 
 We can factor $$P(X,Y) = P(Y \mid X) P(X)$$. We have assumed that $$P(Y \mid X)$$ has mean $$f(X)$$ and variance $$\sigma^2$$. However, we do not assume anything about the marginal distribution $$P(X)$$ of the inputs, which is arbitrary depending on the dataset.
 
@@ -211,7 +206,7 @@ $$
 \begin{aligned}
 \epsilon &\equiv \epsilon \sim \Noise \\
 y \mid x &\equiv y \sim p(Y \mid X=x) \\
-\bfy \mid \bfX &\equiv \bfy \sim p(Y \mid X=\bfX) \\
+\ybf \mid \Xbf &\equiv \ybf \sim p(Y \mid X=\Xbf) \\
 x &\equiv x \sim P(X) \\
 D &\equiv D \sim P(X, Y)
 \end{aligned}
@@ -221,12 +216,12 @@ and the following shorthand notations:
 
 $$
 \begin{aligned}
-\bfZ_\bfX &= (\bfX^T \bfX)^{-1} \bfX^T \in \R^{p \times N} \\
-\bfZ_{\bfX, \alpha} &= (\bfX^T \bfX + \alpha I_d)^{-1} \bfX^T \in \R^{p \times N} \\
-\wh_{\bfX, f} &= \bfZ_\bfX f(\bfX) = (\bfX^T \bfX)^{-1} \bfX^T f(\bfX) \in \R^p \\
-\wh_{\bfX, f, \alpha} &= \bfZ_{\bfX, \alpha} f(\bfX) = (\bfX^T \bfX + \alpha I_d)^{-1} \bfX^T f(\bfX) \in \R^p \\
-\bfh_\bfX(x) &= \bfZ_\bfX^T x = \bfX (\bfX^T \bfX)^{-1} x \in \R^N \\
-\bfh_{\bfX, \alpha}(x) &= \bfZ_{\bfX, \alpha}^T x = \bfX (\bfX^T \bfX + \alpha I_d)^{-1} x \in \R^N.
+\Zbf_\Xbf &= (\Xbf^T \Xbf)^{-1} \Xbf^T \in \R^{p \times N} \\
+\Zbf_{\Xbf, \alpha} &= (\Xbf^T \Xbf + \alpha I_d)^{-1} \Xbf^T \in \R^{p \times N} \\
+\wh_{\Xbf, f} &= \Zbf_\Xbf f(\Xbf) = (\Xbf^T \Xbf)^{-1} \Xbf^T f(\Xbf) \in \R^p \\
+\wh_{\Xbf, f, \alpha} &= \Zbf_{\Xbf, \alpha} f(\Xbf) = (\Xbf^T \Xbf + \alpha I_d)^{-1} \Xbf^T f(\Xbf) \in \R^p \\
+\hbf_\Xbf(x) &= \Zbf_\Xbf^T x = \Xbf (\Xbf^T \Xbf)^{-1} x \in \R^N \\
+\hbf_{\Xbf, \alpha}(x) &= \Zbf_{\Xbf, \alpha}^T x = \Xbf (\Xbf^T \Xbf + \alpha I_d)^{-1} x \in \R^N.
 \end{aligned}
 $$
 
@@ -237,11 +232,11 @@ The ordinary least-squares (OLS) and ridge regression estimators for $$w$$ are
 $$
 \begin{aligned}
 \wh
-&= \argmin_w \| f(\bfX) - \bfX w \|^2
- = (\bfX^T \bfX)^{-1} \bfX^T \bfy \\
+&= \argmin_w \| f(\Xbf) - \Xbf w \|^2
+ = (\Xbf^T \Xbf)^{-1} \Xbf^T \ybf \\
 \whR
-&= \argmin_w \| f(\bfX) - \bfX w \|^2 + \alpha \|w\|_2^2
- = (\bfX^T \bfX + \alpha I_d)^{-1} \bfX^T \bfy.
+&= \argmin_w \| f(\Xbf) - \Xbf w \|^2 + \alpha \|w\|_2^2
+ = (\Xbf^T \Xbf + \alpha I_d)^{-1} \Xbf^T \ybf.
 \end{aligned}
 $$
 
@@ -257,10 +252,10 @@ $$
 
 We separately consider 2 cases:
 
-- The training inputs $$\bfX$$ are fixed, and the training targets are sampled from the conditional distribution $$\bfy \sim P(Y \mid X=\bfX)$$.
-- Both the training inputs and targets are sampled jointly $$(\bfX, \bfy) \sim P(X, Y)$$.
+- The training inputs $$\Xbf$$ are fixed, and the training targets are sampled from the conditional distribution $$\ybf \sim P(Y \mid X=\Xbf)$$.
+- Both the training inputs and targets are sampled jointly $$(\Xbf, \ybf) \sim P(X, Y)$$.
 
-We also show that the variance of the ridge regression estimator is strictly less than the variance of the linear regression estimator when $$\bfX$$ are considered fixed. Furthermore, there always exists some choice of $$\alpha$$ such that the mean squared error of $$\whR$$ is less than the mean squared error of $$\wh$$.
+We also show that the variance of the ridge regression estimator is strictly less than the variance of the linear regression estimator when $$\Xbf$$ are considered fixed. Furthermore, there always exists some choice of $$\alpha$$ such that the mean squared error of $$\whR$$ is less than the mean squared error of $$\wh$$.
 
 <table class="text-center">
   <tr>
@@ -270,40 +265,40 @@ We also show that the variance of the ridge regression estimator is strictly les
   </tr>
   <tr>
     <th colspan="2"></th>
-    <th markdown="span">fixed $$\bfX$$</th>
+    <th markdown="span">fixed $$\Xbf$$</th>
     <th markdown="span">$$\E_D$$</th>
-    <th markdown="span">fixed $$\bfX$$</th>
+    <th markdown="span">fixed $$\Xbf$$</th>
     <th markdown="span">$$\E_D$$</th>
   </tr>
   <tr>
     <td rowspan="2">OLS</td>
     <td>Bias</td>
     <td markdown="span" style="background-color: beige;">0</td>
-    <td markdown="span" style="background-color: beige;">$$\E_\bfX[ \wh_{\bfX, f} ] - w_\star$$</td>
+    <td markdown="span" style="background-color: beige;">$$\E_\Xbf[ \wh_{\Xbf, f} ] - w_\star$$</td>
     <td>0</td>
     <td>0</td>
   </tr>
   <tr>
     <td>Variance</td>
-    <td markdown="span">$$\sigma^2 (\bfX^T \bfX)^{-1}$$</td>
-    <td markdown="span">$$\Cov_\bfX[\wh_{\bfX, f}] + \sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right]$$</td>
-    <td markdown="span">$$\sigma^2 (\bfX^T \bfX)^{-1}$$</td>
-    <td markdown="span">$$\sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right]$$</td>
+    <td markdown="span">$$\sigma^2 (\Xbf^T \Xbf)^{-1}$$</td>
+    <td markdown="span">$$\Cov_\Xbf[\wh_{\Xbf, f}] + \sigma^2 \E_\Xbf\left[(\Xbf^T \Xbf)^{-1}\right]$$</td>
+    <td markdown="span">$$\sigma^2 (\Xbf^T \Xbf)^{-1}$$</td>
+    <td markdown="span">$$\sigma^2 \E_\Xbf\left[(\Xbf^T \Xbf)^{-1}\right]$$</td>
   </tr>
   <tr>
     <td rowspan="2">Ridge Regression</td>
     <td>Bias</td>
-    <td markdown="span" style="background-color: beige;">$$\bfZ_{\bfX, \alpha} \bfX w_\star - w_\star$$</td>
-    <td markdown="span" style="background-color: beige;">$$\E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star - w_\star$$</td>
-    <td markdown="span">$$\wh_{\bfX, f, \alpha} - w$$</td>
-    <td markdown="span">$$\E_\bfX\left[ \wh_{\bfX, f, \alpha} \right] - w$$</td>
+    <td markdown="span" style="background-color: beige;">$$\Zbf_{\Xbf, \alpha} \Xbf w_\star - w_\star$$</td>
+    <td markdown="span" style="background-color: beige;">$$\E_\Xbf\left[ \Zbf_{\Xbf, \alpha} \Xbf \right] w_\star - w_\star$$</td>
+    <td markdown="span">$$\wh_{\Xbf, f, \alpha} - w$$</td>
+    <td markdown="span">$$\E_\Xbf\left[ \wh_{\Xbf, f, \alpha} \right] - w$$</td>
   </tr>
   <tr>
     <td>Variance</td>
-    <td markdown="span">$$\sigma^2 \bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T$$</td>
-    <td markdown="span">$$\Cov_\bfX[ \wh_{\bfX, f, \alpha} ] + \sigma^2 \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T]$$</td>
-    <td markdown="span">$$\sigma^2 \bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T$$</td>
-    <td markdown="span">$$\Cov_\bfX[ \wh_{\bfX, f, \alpha} ] + \sigma^2 \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T]$$</td>
+    <td markdown="span">$$\sigma^2 \Zbf_{\Xbf, \alpha} \Zbf_{\Xbf, \alpha}^T$$</td>
+    <td markdown="span">$$\Cov_\Xbf[ \wh_{\Xbf, f, \alpha} ] + \sigma^2 \E_{\Xbf, \epsilon}[\Zbf_{\Xbf, \alpha} \Zbf_{\Xbf, \alpha}^T]$$</td>
+    <td markdown="span">$$\sigma^2 \Zbf_{\Xbf, \alpha} \Zbf_{\Xbf, \alpha}^T$$</td>
+    <td markdown="span">$$\Cov_\Xbf[ \wh_{\Xbf, f, \alpha} ] + \sigma^2 \E_{\Xbf, \epsilon}[\Zbf_{\Xbf, \alpha} \Zbf_{\Xbf, \alpha}^T]$$</td>
   </tr>
 </table>
 
@@ -311,44 +306,44 @@ We also show that the variance of the ridge regression estimator is strictly les
 
 <details markdown="block"><summary>Details</summary>
 
-First, we consider the case where the training inputs $$\bfX$$ are fixed. In this case, the estimator $$\wh$$ is unbiased relative to $$w_\star$$.
+First, we consider the case where the training inputs $$\Xbf$$ are fixed. In this case, the estimator $$\wh$$ is unbiased relative to $$w_\star$$.
 
 $$
 \begin{aligned}
-\E_{\bfy|\bfX}[\wh]
-&= \E_{\bfy|\bfX}\left[ (\bfX^T \bfX)^{-1} \bfX^T \bfy \right] \\
-&= (\bfX^T \bfX)^{-1} \bfX^T \E_{\bfy|\bfX}[\bfy] \\
-&= (\bfX^T \bfX)^{-1} \bfX^T f(\bfX)
- = \wh_{\bfX, f} \\
-&= n (\bfX^T \bfX)^{-1} \cdot \frac{1}{n} \bfX^T f(\bfX) \\
+\E_{\ybf|\Xbf}[\wh]
+&= \E_{\ybf|\Xbf}\left[ (\Xbf^T \Xbf)^{-1} \Xbf^T \ybf \right] \\
+&= (\Xbf^T \Xbf)^{-1} \Xbf^T \E_{\ybf|\Xbf}[\ybf] \\
+&= (\Xbf^T \Xbf)^{-1} \Xbf^T f(\Xbf)
+ = \wh_{\Xbf, f} \\
+&= n (\Xbf^T \Xbf)^{-1} \cdot \frac{1}{n} \Xbf^T f(\Xbf) \\
 &= \left( \frac{1}{n} \sum_{i=1}^N x^{(i)} x^{(i)T} \right)^{-1} \frac{1}{n} \sum_{i=1}^N x^{(i)} f(x^{(i)}) \\
 &= \E_x[x x^T]^{-1} \E_x[x f(x)]
  = w_\star
 \\
-\Cov[\wh \mid \bfX]
-&= \Cov_{\bfy | \bfX} [ \wh ] \\
-&= \Cov_{\bfy | \bfX} \left[ (\bfX^T \bfX)^{-1} \bfX^T \bfy \right] \\
-&= \bfZ \Cov_{\bfy | \bfX}[\bfy] \bfZ^T \\
-&= \bfZ (\sigma^2 I_n) \bfZ^T \\
-&= \sigma^2 \bfZ \bfZ^T \\
-&= \sigma^2 (\bfX^T \bfX)^{-1}
+\Cov[\wh \mid \Xbf]
+&= \Cov_{\ybf | \Xbf} [ \wh ] \\
+&= \Cov_{\ybf | \Xbf} \left[ (\Xbf^T \Xbf)^{-1} \Xbf^T \ybf \right] \\
+&= \Zbf \Cov_{\ybf | \Xbf}[\ybf] \Zbf^T \\
+&= \Zbf (\sigma^2 I_n) \Zbf^T \\
+&= \sigma^2 \Zbf \Zbf^T \\
+&= \sigma^2 (\Xbf^T \Xbf)^{-1}
 \end{aligned}
 $$
 
-However, if the training inputs $$\bfX$$ are sampled randomly, then the estimator is no longer unbiased, and the variance term also becomes dependent on $$f$$.
+However, if the training inputs $$\Xbf$$ are sampled randomly, then the estimator is no longer unbiased, and the variance term also becomes dependent on $$f$$.
 
 $$
 \begin{aligned}
 \E_D[\wh]
-&= \E_\bfX \left[ \E_{\bfy|\bfX}[ \wh ] \right]
- = \E_\bfX[ \wh_{\bfX, f} ]
+&= \E_\Xbf \left[ \E_{\ybf|\Xbf}[ \wh ] \right]
+ = \E_\Xbf[ \wh_{\Xbf, f} ]
 \\
 \Bias[\wh]
-&= \E_\bfX[ \wh_{\bfX, f} ] - w_\star
+&= \E_\Xbf[ \wh_{\Xbf, f} ] - w_\star
 \end{aligned}
 $$
 
-We prove by counterexample that $$\E_\bfX[ \wh_{\bfX, f} ] \neq w_\star$$. Suppose $$X \sim \mathsf{Uniform}[0, 1]$$ is a scalar random variable, let $$f(x) = x^2$$, and consider a training set of size 2: $$D = \{a, b\} \sim P(X)$$. We evaluate the integral by [WolframAlpha](https://www.wolframalpha.com/input/?i=integrate+(a%5E3+%2B+b%5E3)%2F(a%5E2+%2B+b%5E2)+from+b%3D0+to+1+and+a%3D0+to+1). Otherwise, we can also compute the integral manually by splitting the fraction and doing a $$u$$-substitution with $$u = a^2$$.
+We prove by counterexample that $$\E_\Xbf[ \wh_{\Xbf, f} ] \neq w_\star$$. Suppose $$X \sim \mathsf{Uniform}[0, 1]$$ is a scalar random variable, let $$f(x) = x^2$$, and consider a training set of size 2: $$D = \{a, b\} \sim P(X)$$. We evaluate the integral by [WolframAlpha](https://www.wolframalpha.com/input/?i=integrate+(a%5E3+%2B+b%5E3)%2F(a%5E2+%2B+b%5E2)+from+b%3D0+to+1+and+a%3D0+to+1). Otherwise, we can also compute the integral manually by splitting the fraction and doing a $$u$$-substitution with $$u = a^2$$.
 
 $$
 \begin{aligned}
@@ -358,7 +353,7 @@ w_\star
 &= (1/3)^{-1} (1/4) = 3/4
 \\
 \E_D[\wh]
-&= \E_\bfX\left[ (\bfX^T \bfX)^{-1} \bfX^T f(\bfX) \right] \\
+&= \E_\Xbf\left[ (\Xbf^T \Xbf)^{-1} \Xbf^T f(\Xbf) \right] \\
 &= \E_{a, b \sim P(X)} \left[ (a^2 + b^2)^{-1} (a^3 + b^3) \right] \\
 &= \int_0^1 \int_0^1 \frac{a^3 + b^3}{a^2 + b^2} \ da \ db \\
 &= \frac{1}{6} \left( 2 + \pi - \ln 4 \right)
@@ -372,13 +367,13 @@ $$
 \begin{aligned}
 \Cov[\wh]
 &= \Cov_D[ \wh ] \\
-&= \Cov_{\bfX, \epsilon} [ (\bfX^T \bfX)^{-1} \bfX^T (f(\bfX) + \epsilon) ] \\
-&= \Cov_{\bfX, \epsilon} [ \wh_{\bfX, f} + \bfZ_\bfX \epsilon ] \\
-&= \E_{\bfX, \epsilon} [ (\wh_{\bfX, f} + \bfZ_\bfX \epsilon) (\wh_{\bfX, f} + \bfZ_\bfX \epsilon)^T ] - \E_{\bfX, \epsilon}[ \wh_{\bfX, f} + \bfZ_\bfX \epsilon ] \E_{\bfX, \epsilon}[ \wh_{\bfX, f} + \bfZ_\bfX \epsilon ]^T \\
-&= \E_{\bfX, \epsilon} \left[ \wh_{\bfX, f} \wh_{\bfX, f}^T + \wh_{\bfX, f} (\bfZ_\bfX \epsilon)^T + \bfZ_\bfX \epsilon \wh_{\bfX, f}^T + \bfZ_\bfX \epsilon (\bfZ_\bfX \epsilon)^T \right] - \E_\bfX[\wh_{\bfX, f}] \E_\bfX[\wh_{\bfX, f}]^T \\
-&= \E_\bfX[ \wh_{\bfX, f} \wh_{\bfX, f}^T ] + 0 + 0 + \E_{\bfX, \epsilon}[\bfZ_\bfX \epsilon \epsilon^T \bfZ_\bfX^T] - \E_\bfX[\wh_{\bfX, f}] \E_\bfX[\wh_{\bfX, f}]^T \\
-&= \Cov_\bfX[\wh_{\bfX, f}] + \E_\bfX\left[\bfZ_\bfX \underbrace{\E_\epsilon[\epsilon \epsilon^T]}_{=\sigma^2 I_N} \bfZ_\bfX^T\right] \\
-&= \Cov_\bfX[\wh_{\bfX, f}] + \sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right]
+&= \Cov_{\Xbf, \epsilon} [ (\Xbf^T \Xbf)^{-1} \Xbf^T (f(\Xbf) + \epsilon) ] \\
+&= \Cov_{\Xbf, \epsilon} [ \wh_{\Xbf, f} + \Zbf_\Xbf \epsilon ] \\
+&= \E_{\Xbf, \epsilon} [ (\wh_{\Xbf, f} + \Zbf_\Xbf \epsilon) (\wh_{\Xbf, f} + \Zbf_\Xbf \epsilon)^T ] - \E_{\Xbf, \epsilon}[ \wh_{\Xbf, f} + \Zbf_\Xbf \epsilon ] \E_{\Xbf, \epsilon}[ \wh_{\Xbf, f} + \Zbf_\Xbf \epsilon ]^T \\
+&= \E_{\Xbf, \epsilon} \left[ \wh_{\Xbf, f} \wh_{\Xbf, f}^T + \wh_{\Xbf, f} (\Zbf_\Xbf \epsilon)^T + \Zbf_\Xbf \epsilon \wh_{\Xbf, f}^T + \Zbf_\Xbf \epsilon (\Zbf_\Xbf \epsilon)^T \right] - \E_\Xbf[\wh_{\Xbf, f}] \E_\Xbf[\wh_{\Xbf, f}]^T \\
+&= \E_\Xbf[ \wh_{\Xbf, f} \wh_{\Xbf, f}^T ] + 0 + 0 + \E_{\Xbf, \epsilon}[\Zbf_\Xbf \epsilon \epsilon^T \Zbf_\Xbf^T] - \E_\Xbf[\wh_{\Xbf, f}] \E_\Xbf[\wh_{\Xbf, f}]^T \\
+&= \Cov_\Xbf[\wh_{\Xbf, f}] + \E_\Xbf\left[\Zbf_\Xbf \underbrace{\E_\epsilon[\epsilon \epsilon^T]}_{=\sigma^2 I_N} \Zbf_\Xbf^T\right] \\
+&= \Cov_\Xbf[\wh_{\Xbf, f}] + \sigma^2 \E_\Xbf\left[(\Xbf^T \Xbf)^{-1}\right]
 \end{aligned}
 $$
 
@@ -390,34 +385,34 @@ In this setting, we assume that $$f(x) = w^T x$$ for some true $$w$$. As a speci
 
 <details markdown="block"><summary>Details</summary>
 
-If $$\bfX$$ is fixed, then the least-squares estimate is unbiased.
+If $$\Xbf$$ is fixed, then the least-squares estimate is unbiased.
 
 $$
 \begin{aligned}
-\Bias[\wh \mid \bfX]
-&= \E_{\bfy \mid \bfX}[\wh] - w \\
-&= \wh_{\bfX, f} - w \\
-&= (\bfX^T \bfX)^{-1} \bfX^T \bfX w - w \\
+\Bias[\wh \mid \Xbf]
+&= \E_{\ybf \mid \Xbf}[\wh] - w \\
+&= \wh_{\Xbf, f} - w \\
+&= (\Xbf^T \Xbf)^{-1} \Xbf^T \Xbf w - w \\
 &= 0.
 \end{aligned}
 $$
 
-Therefore, the expectation of the bias over the distribution of $$\bfX$$ is also 0.
+Therefore, the expectation of the bias over the distribution of $$\Xbf$$ is also 0.
 
-If $$\bfX$$ is fixed, then variance of the least-squares estimate is the same for linear or nonlinear $$f$$, since it does not depend on $$f$$.
+If $$\Xbf$$ is fixed, then variance of the least-squares estimate is the same for linear or nonlinear $$f$$, since it does not depend on $$f$$.
 
-However, when the training inputs $$\bfX$$ are sampled randomly, the variance does depend on $$f$$. Subsitituting $$f(\bfX) = \bfX w$$ into the variance expression derived for arbitrary $$f$$ yields
+However, when the training inputs $$\Xbf$$ are sampled randomly, the variance does depend on $$f$$. Subsitituting $$f(\Xbf) = \Xbf w$$ into the variance expression derived for arbitrary $$f$$ yields
 
 $$
 \begin{aligned}
-\Cov_\bfX[\wh_{\bfX, f}]
-&= \Cov_\bfX[(\bfX^T \bfX)^{-1} \bfX^T f(\bfX)] \\
-&= \Cov_\bfX[(\bfX^T \bfX)^{-1} \bfX^T (\bfX w)] \\
-&= \Cov_\bfX[w] = 0
+\Cov_\Xbf[\wh_{\Xbf, f}]
+&= \Cov_\Xbf[(\Xbf^T \Xbf)^{-1} \Xbf^T f(\Xbf)] \\
+&= \Cov_\Xbf[(\Xbf^T \Xbf)^{-1} \Xbf^T (\Xbf w)] \\
+&= \Cov_\Xbf[w] = 0
 \end{aligned}
 $$
 
-so $$\Cov[\wh] = \sigma^2 \E_\bfX\left[ (\bfX^T \bfX)^{-1} \right]$$.
+so $$\Cov[\wh] = \sigma^2 \E_\Xbf\left[ (\Xbf^T \Xbf)^{-1} \right]$$.
 
 </details>
 
@@ -429,67 +424,67 @@ The ridge regression estimator $$\whR$$ is a linear function of the least-square
 $$
 \begin{aligned}
 \whR
-&= (\bfX^T \bfX + \alpha I_d)^{-1} \bfX^T \bfy \\
-&= (\bfX^T \bfX + \alpha I_d)^{-1} \underbrace{(\bfX^T \bfX) (\bfX^T \bfX)^{-1}}_{=I_d} \bfX^T \bfy \\
-&= (\bfX^T \bfX + \alpha I_d)^{-1} (\bfX^T \bfX) \wh \\
-&= \bfZ_{\bfX, \alpha} \bfX \wh
+&= (\Xbf^T \Xbf + \alpha I_d)^{-1} \Xbf^T \ybf \\
+&= (\Xbf^T \Xbf + \alpha I_d)^{-1} \underbrace{(\Xbf^T \Xbf) (\Xbf^T \Xbf)^{-1}}_{=I_d} \Xbf^T \ybf \\
+&= (\Xbf^T \Xbf + \alpha I_d)^{-1} (\Xbf^T \Xbf) \wh \\
+&= \Zbf_{\Xbf, \alpha} \Xbf \wh
 \end{aligned}
 $$
 
 <details markdown="block"><summary>Details</summary>
 
-If $$f$$ is arbitrary and $$\bfX$$ is fixed, then the expectation of the ridge regression estimator is not equal to $$w_\star$$, so it is biased. The inequality on the first line comes from the fact that $$\bfZ_{\bfX, \alpha} \bfX = (\bfX^T \bfX + \alpha I_d)^{-1} (\bfX^T \bfX) \neq I_d$$.
+If $$f$$ is arbitrary and $$\Xbf$$ is fixed, then the expectation of the ridge regression estimator is not equal to $$w_\star$$, so it is biased. The inequality on the first line comes from the fact that $$\Zbf_{\Xbf, \alpha} \Xbf = (\Xbf^T \Xbf + \alpha I_d)^{-1} (\Xbf^T \Xbf) \neq I_d$$.
 
 $$
 \begin{aligned}
-\E_{\bfy|\bfX}[\whR]
-&= \E_{\bfy|\bfX}[\bfZ_{\bfX, \alpha} \bfX \wh]
- = \bfZ_{\bfX, \alpha} \bfX \E_{\bfy|\bfX}[\wh]
- = \bfZ_{\bfX, \alpha} \bfX w_\star
+\E_{\ybf|\Xbf}[\whR]
+&= \E_{\ybf|\Xbf}[\Zbf_{\Xbf, \alpha} \Xbf \wh]
+ = \Zbf_{\Xbf, \alpha} \Xbf \E_{\ybf|\Xbf}[\wh]
+ = \Zbf_{\Xbf, \alpha} \Xbf w_\star
  \neq w_\star \\
-\Bias[\whR \mid \bfX]
-&= \E_{\bfy \mid \bfX}[\whR] - w_\star
- = \bfZ_{\bfX, \alpha} \bfX w_\star - w_\star \\
-\Cov_{\bfy|\bfX}[\whR \mid \bfX]
-&= \Cov_{\bfy|\bfX}\left[ \bfZ_{\bfX, \alpha} \bfX \wh \right] \\
-&= \bfZ_{\bfX, \alpha} \bfX \Cov_{\bfy|\bfX}\left[ \wh \right] \bfX^T \bfZ_{\bfX, \alpha}^T \\
-&= \sigma^2 \bfZ_{\bfX, \alpha} \bfX (\bfX^T \bfX)^{-1} \bfX^T \bfZ_{\bfX, \alpha}^T \\
-&= \sigma^2 \bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T
+\Bias[\whR \mid \Xbf]
+&= \E_{\ybf \mid \Xbf}[\whR] - w_\star
+ = \Zbf_{\Xbf, \alpha} \Xbf w_\star - w_\star \\
+\Cov_{\ybf|\Xbf}[\whR \mid \Xbf]
+&= \Cov_{\ybf|\Xbf}\left[ \Zbf_{\Xbf, \alpha} \Xbf \wh \right] \\
+&= \Zbf_{\Xbf, \alpha} \Xbf \Cov_{\ybf|\Xbf}\left[ \wh \right] \Xbf^T \Zbf_{\Xbf, \alpha}^T \\
+&= \sigma^2 \Zbf_{\Xbf, \alpha} \Xbf (\Xbf^T \Xbf)^{-1} \Xbf^T \Zbf_{\Xbf, \alpha}^T \\
+&= \sigma^2 \Zbf_{\Xbf, \alpha} \Zbf_{\Xbf, \alpha}^T
 \end{aligned}
 $$
 
-If $$f$$ was truly linear so $$w_\star = w$$ and $$f(\bfX) = \bfX w$$, then we can simplify the bias. However, the variance expression does not depend on $$f$$, so it is the same regardless of whether $$f$$ is linear or not.
+If $$f$$ was truly linear so $$w_\star = w$$ and $$f(\Xbf) = \Xbf w$$, then we can simplify the bias. However, the variance expression does not depend on $$f$$, so it is the same regardless of whether $$f$$ is linear or not.
 
 $$
-    \Bias[\whR \mid \bfX]
-    = \bfZ_{\bfX, \alpha} \bfX w - w
-    = \bfZ_{\bfX, \alpha} f(\bfX) - w
-    = \wh_{\bfX, f, \alpha} - w.
+    \Bias[\whR \mid \Xbf]
+    = \Zbf_{\Xbf, \alpha} \Xbf w - w
+    = \Zbf_{\Xbf, \alpha} f(\Xbf) - w
+    = \wh_{\Xbf, f, \alpha} - w.
 $$
 
-If the training inputs $$\bfX$$ are sampled randomly with arbitrary $$f$$, then the bias and variance are as follows. The variance derivation follows a similar proof to the ordinary linear regression.
+If the training inputs $$\Xbf$$ are sampled randomly with arbitrary $$f$$, then the bias and variance are as follows. The variance derivation follows a similar proof to the ordinary linear regression.
 
 $$
 \begin{aligned}
 \E_D[\whR]
-&= \E_\bfX\left[ \E_{\bfy \mid \bfX}[\whR] \right]
- = \E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star \\
+&= \E_\Xbf\left[ \E_{\ybf \mid \Xbf}[\whR] \right]
+ = \E_\Xbf\left[ \Zbf_{\Xbf, \alpha} \Xbf \right] w_\star \\
 \Bias[\whR]
-&= \E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star - w_\star \\
+&= \E_\Xbf\left[ \Zbf_{\Xbf, \alpha} \Xbf \right] w_\star - w_\star \\
 \Cov[\whR]
-&= \Cov_{\bfX, \epsilon}\left[ \wh_{\bfX, f, \alpha} + \bfZ_{\bfX, \alpha} \epsilon \right] \\
-&= \E_\bfX[ \wh_{\bfX, f, \alpha} \wh_{\bfX, f, \alpha}^T ] + \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \epsilon \epsilon^T \bfZ_{\bfX, \alpha}^T] - \E_\bfX[\wh_{\bfX, f, \alpha}] \E_\bfX[\wh_{\bfX, f, \alpha}]^T \\
-&= \Cov_\bfX[ \wh_{\bfX, f, \alpha} ] + \sigma^2 \E_{\bfX, \epsilon}[\bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T].
+&= \Cov_{\Xbf, \epsilon}\left[ \wh_{\Xbf, f, \alpha} + \Zbf_{\Xbf, \alpha} \epsilon \right] \\
+&= \E_\Xbf[ \wh_{\Xbf, f, \alpha} \wh_{\Xbf, f, \alpha}^T ] + \E_{\Xbf, \epsilon}[\Zbf_{\Xbf, \alpha} \epsilon \epsilon^T \Zbf_{\Xbf, \alpha}^T] - \E_\Xbf[\wh_{\Xbf, f, \alpha}] \E_\Xbf[\wh_{\Xbf, f, \alpha}]^T \\
+&= \Cov_\Xbf[ \wh_{\Xbf, f, \alpha} ] + \sigma^2 \E_{\Xbf, \epsilon}[\Zbf_{\Xbf, \alpha} \Zbf_{\Xbf, \alpha}^T].
 \end{aligned}
 $$
 
-If $$f$$ is truly linear, then $$\Bias[\whR] = \E_\bfX\left[ \wh_{\bfX, f, \alpha} \right] - w$$.
+If $$f$$ is truly linear, then $$\Bias[\whR] = \E_\Xbf\left[ \wh_{\Xbf, f, \alpha} \right] - w$$.
 
 </details>
 
 ### Comparing linear regression and ridge regression estimators
 
-For any $$\alpha > 0$$ and assuming the training inputs $$\bfX$$ are fixed and full-rank, the ridge regression estimator has lower variance than the standard linear regression estimator without regularization. This result holds regardless of whether $$f$$ is linear or not.
+For any $$\alpha > 0$$ and assuming the training inputs $$\Xbf$$ are fixed and full-rank, the ridge regression estimator has lower variance than the standard linear regression estimator without regularization. This result holds regardless of whether $$f$$ is linear or not.
 
 Because the estimators $$\wh$$ and $$\whR$$ are vectors, their variances are really covariance matrices. Thus, when we compare their variances, we actually compare the definiteness of their covariance matrices. One way to see this is that the MSE formula only depends on the trace of the covariance matrix. For any two vectors $$a$$ and $$b$$,
 
@@ -499,31 +494,31 @@ $$
 \quad\iff\quad \tr(\Cov[a]) > \tr(\Cov[b]).
 $$
 
-The first implication relies on the fact that if a matrix is positive definite, its trace is positive. Thus, showing that $$\Cov[\wh \mid \bfX] \succ \Cov[\whR \mid \bfX]$$ establishes that the $$\wh$$ has a larger variance term in its MSE decomposition.
+The first implication relies on the fact that if a matrix is positive definite, its trace is positive. Thus, showing that $$\Cov[\wh \mid \Xbf] \succ \Cov[\whR \mid \Xbf]$$ establishes that the $$\wh$$ has a larger variance term in its MSE decomposition.
 
 For linear models, comparing the definiteness of the covariance matrices is also directly related to the variance of the predicted outputs. This makes more sense when we discuss the variance of the ridge regression *predictor* later in this post.
 
-**Theorem**: If we take the training inputs $$\bfX \in \R^{n \times d}$$ with $$n \geq d$$ to be fixed and full-rank while the training labels $$\bfy \in \R^N$$ have variance $$\sigma^2$$, then the variance of any ridge regression estimator with $$\alpha > 0$$ has lower variance than the standard linear regression estimator without regularization. In other words, $$\forall \alpha > 0.\, \Cov[\whR \mid \bfX] \prec \Cov[\wh \mid \bfX]$$.
+**Theorem**: If we take the training inputs $$\Xbf \in \R^{n \times d}$$ with $$n \geq d$$ to be fixed and full-rank while the training labels $$\ybf \in \R^N$$ have variance $$\sigma^2$$, then the variance of any ridge regression estimator with $$\alpha > 0$$ has lower variance than the standard linear regression estimator without regularization. In other words, $$\forall \alpha > 0.\, \Cov[\whR \mid \Xbf] \prec \Cov[\wh \mid \Xbf]$$.
 
 <details markdown="block"><summary>Proof</summary>
 
-Let $$S = \bfX^T \bfX$$ and $$W = (\bfX^T \bfX + \alpha I)^{-1}$$. Both $$S$$ and $$W$$ are symmetric and invertible matrices. Note that $$S \succ 0$$ because $$z^T S z = \| \bfX z \|_2^2 > 0$$ for all non-zero $$z$$ (since $$\bfX$$ has linearly independent columns). Then, $$W^{-1} = (S + \alpha I) \succ 0$$ because $$I \succ 0$$ and $$\alpha > 0$$. Since the inverse of any positive definite matrix is also positive definite, $$S^{-1} \succ 0$$ and $$W \succ 0$$ as well.
+Let $$S = \Xbf^T \Xbf$$ and $$W = (\Xbf^T \Xbf + \alpha I)^{-1}$$. Both $$S$$ and $$W$$ are symmetric and invertible matrices. Note that $$S \succ 0$$ because $$z^T S z = \| \Xbf z \|_2^2 > 0$$ for all non-zero $$z$$ (since $$\Xbf$$ has linearly independent columns). Then, $$W^{-1} = (S + \alpha I) \succ 0$$ because $$I \succ 0$$ and $$\alpha > 0$$. Since the inverse of any positive definite matrix is also positive definite, $$S^{-1} \succ 0$$ and $$W \succ 0$$ as well.
 
 $$
 \begin{aligned}
-\Cov[\whR \mid \bfX]
-&= \sigma^2 \bfZ_{\bfX, \alpha} \bfZ_{\bfX, \alpha}^T
- = \sigma^2 W \bfX^T \bfX^T W
+\Cov[\whR \mid \Xbf]
+&= \sigma^2 \Zbf_{\Xbf, \alpha} \Zbf_{\Xbf, \alpha}^T
+ = \sigma^2 W \Xbf^T \Xbf^T W
  = \sigma^2 WSW \\
-\Cov[\wh \mid \bfX]
-&= \sigma^2 (\bfX^T \bfX)^{-1}
+\Cov[\wh \mid \Xbf]
+&= \sigma^2 (\Xbf^T \Xbf)^{-1}
  = \sigma^2 S^{-1} \\
-\Cov[\wh \mid \bfX] - \Cov[\whR \mid \bfX]
+\Cov[\wh \mid \Xbf] - \Cov[\whR \mid \Xbf]
 &= \sigma^2 (S^{-1} - WSW)
 \end{aligned}
 $$
 
-We will show that $$S^{-1} - WSW \succ 0$$ (positive definite), which implies that $$\Cov[\whR \mid \bfX] \prec \Cov[\wh \mid \bfX]$$.
+We will show that $$S^{-1} - WSW \succ 0$$ (positive definite), which implies that $$\Cov[\whR \mid \Xbf] \prec \Cov[\wh \mid \Xbf]$$.
 
 We first show
 
@@ -555,7 +550,7 @@ which is positive definite. This is because $$ z^T W (2I + \alpha S^{-1}) W z > 
 
 Having shown that the ridge regression estimator is biased but has lower variance than the unbiased least-squares estimator, the obvious next question is whether the decrease in variance is greater than the bias. Indeed, the following theorem shows that the ridge regression estimator is always able to achieve lower mean squared error.
 
-**Theorem**: Assume that the training inputs $$\bfX$$ are fixed and that $$f(x) = w^T x$$ is truly linear. Then $$MSE[\whR] < MSE[\wh]$$ if and only if $$ 0 < \alpha < 2 \frac{\sigma^2}{\|w\|_2^2}$$.
+**Theorem**: Assume that the training inputs $$\Xbf$$ are fixed and that $$f(x) = w^T x$$ is truly linear. Then $$MSE[\whR] < MSE[\wh]$$ if and only if $$ 0 < \alpha < 2 \frac{\sigma^2}{\|w\|_2^2}$$.
 
 As the proof for this is quite involved, we refer readers to Theorem 1.2 of *Wieringen, 2015* or Theorem 4.3 of *Hoerl and Kennard, 1970* for different proofs of this theorem.
 
@@ -592,7 +587,7 @@ $$
 \begin{aligned}
 MSE(x)
 &= \E_{y|x} \left[ \E_D \left[ (y - \fh_D(x))^2 \right] \right] \\
-&= (\Bias[\fh(x)])^2 + \var[\fh(x)] + \text{Noise}
+&= (\Bias[\fh(x)])^2 + \Var[\fh(x)] + \text{Noise}
 \end{aligned}
 $$
 
@@ -601,7 +596,7 @@ where
 $$
 \begin{aligned}
 \Bias[\fh(x)] &= \E_D[\fh_D(x)] - f(x) \\
-\var[\fh(x)] &= \var_D[\fh_D(x)] \\
+\Var[\fh(x)] &= \Var_D[\fh_D(x)] \\
 \text{Noise} &= \sigma^2.
 \end{aligned}
 $$
@@ -612,11 +607,11 @@ $$
 \begin{aligned}
 MSE(x)
 &= \E_{y|x} \left[ \E_D [ (y - \fh_D(x))^2 ] \right] \\
-&= \E_{y|x} \left[ \var_D[\fh_D(x)] + \left(\E_D[\fh_D(x)] - y\right)^2 \right] \\
-&= \var_D[\fh_D(x)] + \E_{y|x} \left[ \left(\E_D[\fh_D(x)] - y\right)^2 \right] \\
-&= \var_D[\fh_D(x)] + \var_{p(y|x)}[y] + \left( \E_D[\fh_D(x)] - \E_{y|x}[y] \right)^2 \\
-&= \var_D[\fh_D(x)] + \sigma^2 + \left( \E_D[\fh_D(x)] - f(x) \right)^2 \\
-&= \var[\fh(x)] + \text{Noise} + (\Bias[\fh(x)])^2
+&= \E_{y|x} \left[ \Var_D[\fh_D(x)] + \left(\E_D[\fh_D(x)] - y\right)^2 \right] \\
+&= \Var_D[\fh_D(x)] + \E_{y|x} \left[ \left(\E_D[\fh_D(x)] - y\right)^2 \right] \\
+&= \Var_D[\fh_D(x)] + \Var_{p(y|x)}[y] + \left( \E_D[\fh_D(x)] - \E_{y|x}[y] \right)^2 \\
+&= \Var_D[\fh_D(x)] + \sigma^2 + \left( \E_D[\fh_D(x)] - f(x) \right)^2 \\
+&= \Var[\fh(x)] + \text{Noise} + (\Bias[\fh(x)])^2
 \end{aligned}
 $$
 
@@ -630,7 +625,7 @@ Thus we have decomposed the mean squared error into 3 terms: **bias**, **varianc
 
 The noise term $$\sigma^2$$, also known as *irreducible error* or *aleatoric uncertainty*, is the variance of the target $$Y$$ around its true mean $$f(x)$$. It is inherent in the problem and it does not depend on the model or training data. If the data generation process is known, then we may know $$\sigma^2$$. Otherwise, we may estimate $$\sigma^2$$ with the sample variance of $$y$$ at duplicated (or nearby) inputs $$x$$.
 
-However, the bias and variance components do depend on the model. A misspecified model, *i.e.* a model that does not match the true distribution of the data, will generally have bias. Thus, a model with high bias may *underfit* the data. On the other hand, more complex models have lower bias but higher variance. Such models have a tendency to *overfit* the data. In many circumstances it is possible to achieve large reductions in the variance term $$\var_D [ \fh_D(x) ]$$ with only a small increase in bias, thus reducing overfitting. We show this explicitly in the setting of linear models by comparing linear regression with ridge regression.
+However, the bias and variance components do depend on the model. A misspecified model, *i.e.* a model that does not match the true distribution of the data, will generally have bias. Thus, a model with high bias may *underfit* the data. On the other hand, more complex models have lower bias but higher variance. Such models have a tendency to *overfit* the data. In many circumstances it is possible to achieve large reductions in the variance term $$\Var_D [ \fh_D(x) ]$$ with only a small increase in bias, thus reducing overfitting. We show this explicitly in the setting of linear models by comparing linear regression with ridge regression.
 
 In general, we are unable to exactly calculate the bias and variance of a learned model without knowing the true $$f$$. However, we can estimate the bias, variance, and MSE at a test point $$x$$ by taking bootstrap samples of the dataset to approximate drawing different datasets $$D$$.
 
@@ -646,16 +641,16 @@ $$
 &= \left(\E_D[\wh_D] - w \right)^T x \\
 &= \Bias[\wh]^T x
 \\
-\var[\fh(x)]
-&= \var_D[ \fh_D(x) ] \\
-&= \var_D[ x^T \wh_D ] \\
+\Var[\fh(x)]
+&= \Var_D[ \fh_D(x) ] \\
+&= \Var_D[ x^T \wh_D ] \\
 &= x^T \Cov_D[ \wh_D ]\ x
 \end{aligned}
 $$
 
 However, when $$f$$ is arbitrary, we cannot use the estimator bias results directly because they were derived relative to $$w_\star$$. Here, we are interested in the bias of $$\wh^T x$$ vs. $$f(x)$$, as opposed to $$w_\star^T x$$.
 
-As before, we separately consider the cases where the true $$f$$ is an arbitrary function and when $$f$$ is perfectly linear in $$x$$. We also consider whether or not the training inputs $$\bfX$$ are fixed. The training targets $$\bfy$$ are always sampled from $$P(Y \mid X)$$.
+As before, we separately consider the cases where the true $$f$$ is an arbitrary function and when $$f$$ is perfectly linear in $$x$$. We also consider whether or not the training inputs $$\Xbf$$ are fixed. The training targets $$\ybf$$ are always sampled from $$P(Y \mid X)$$.
 
 ### Main Results
 
@@ -667,40 +662,40 @@ As before, we separately consider the cases where the true $$f$$ is an arbitrary
   </tr>
   <tr>
     <th colspan="2"></th>
-    <th markdown="span">fixed $$\bfX$$</th>
+    <th markdown="span">fixed $$\Xbf$$</th>
     <th markdown="span">$$\E_D$$</th>
-    <th markdown="span">fixed $$\bfX$$</th>
+    <th markdown="span">fixed $$\Xbf$$</th>
     <th markdown="span">$$\E_D$$</th>
   </tr>
   <tr>
     <td rowspan="2">OLS</td>
     <td>Bias</td>
-    <td markdown="span">$$x^T \wh_{\bfX, f} - f(x)$$</td>
-    <td markdown="span">$$x^T \E_\bfX[\wh_{\bfX, f}] - f(x)$$</td>
+    <td markdown="span">$$x^T \wh_{\Xbf, f} - f(x)$$</td>
+    <td markdown="span">$$x^T \E_\Xbf[\wh_{\Xbf, f}] - f(x)$$</td>
     <td>0</td>
     <td>0</td>
   </tr>
   <tr>
     <td>Variance</td>
-    <td markdown="span">$$\sigma^2 \|\bfh_\bfX(x)\|_2^2$$</td>
-    <td markdown="span">$$x^T \Cov_\bfX[\wh_{\bfX, f}] x + \sigma^2 \E_\bfX\left[ \|\bfh_\bfX(x)\|_2^2 \right]$$</td>
-    <td markdown="span">$$\sigma^2 \|\bfh_\bfX(x)\|_2^2$$</td>
-    <td markdown="span">$$\sigma^2 \E_\bfX\left[ \|\bfh_\bfX(x)\|_2^2 \right]$$</td>
+    <td markdown="span">$$\sigma^2 \|\hbf_\Xbf(x)\|_2^2$$</td>
+    <td markdown="span">$$x^T \Cov_\Xbf[\wh_{\Xbf, f}] x + \sigma^2 \E_\Xbf\left[ \|\hbf_\Xbf(x)\|_2^2 \right]$$</td>
+    <td markdown="span">$$\sigma^2 \|\hbf_\Xbf(x)\|_2^2$$</td>
+    <td markdown="span">$$\sigma^2 \E_\Xbf\left[ \|\hbf_\Xbf(x)\|_2^2 \right]$$</td>
   </tr>
   <tr>
     <td rowspan="2">Ridge Regression</td>
     <td>Bias</td>
-    <td markdown="span">$$\bfZ_{\bfX, \alpha} \bfX w_\star^T x - w_\star^T x$$</td>
-    <td markdown="span">$$\E_\bfX\left[ \bfZ_{\bfX, \alpha} \bfX \right] w_\star^T x - w_\star^T x$$</td>
-    <td markdown="span">$$\wh_{\bfX, f, \alpha}^T x - w^T x$$</td>
-    <td markdown="span">$$\E_\bfX\left[ \wh_{\bfX, f, \alpha} \right]^T x - w^T x$$</td>
+    <td markdown="span">$$\Zbf_{\Xbf, \alpha} \Xbf w_\star^T x - w_\star^T x$$</td>
+    <td markdown="span">$$\E_\Xbf\left[ \Zbf_{\Xbf, \alpha} \Xbf \right] w_\star^T x - w_\star^T x$$</td>
+    <td markdown="span">$$\wh_{\Xbf, f, \alpha}^T x - w^T x$$</td>
+    <td markdown="span">$$\E_\Xbf\left[ \wh_{\Xbf, f, \alpha} \right]^T x - w^T x$$</td>
   </tr>
   <tr>
     <td>Variance</td>
-    <td markdown="span">$$\sigma^2 \|\bfh_{\bfX, \alpha}(x)\|_2^2$$</td>
-    <td markdown="span">$$x^T \Cov_\bfX[\wh_{\bfX, \alpha, f}] x + \sigma^2 \E_\bfX\left[ \|\bfh_{\bfX, \alpha}(x)\|_2^2 \right]$$</td>
-    <td markdown="span">$$\sigma^2 \|\bfh_{\bfX, \alpha}(x)\|_2^2$$</td>
-    <td markdown="span">$$x^T \Cov_\bfX[\wh_{\bfX, \alpha, f}] x + \sigma^2 \E_\bfX\left[ \|\bfh_{\bfX, \alpha}(x)\|_2^2 \right]$$</td>
+    <td markdown="span">$$\sigma^2 \|\hbf_{\Xbf, \alpha}(x)\|_2^2$$</td>
+    <td markdown="span">$$x^T \Cov_\Xbf[\wh_{\Xbf, \alpha, f}] x + \sigma^2 \E_\Xbf\left[ \|\hbf_{\Xbf, \alpha}(x)\|_2^2 \right]$$</td>
+    <td markdown="span">$$\sigma^2 \|\hbf_{\Xbf, \alpha}(x)\|_2^2$$</td>
+    <td markdown="span">$$x^T \Cov_\Xbf[\wh_{\Xbf, \alpha, f}] x + \sigma^2 \E_\Xbf\left[ \|\hbf_{\Xbf, \alpha}(x)\|_2^2 \right]$$</td>
   </tr>
 </table>
 
@@ -768,35 +763,35 @@ $$
 
 **Linear Regression for Arbitrary $$f$$**
 
-Beyond deriving the values in the chart, we also prove that if the training data $$\bfX$$ are fixed, then the average in-sample variance is $$\frac{1}{N}\sum_{i=1}^N \var[\fh(x^{(i)})] = \frac{p}{N} \sigma^2$$.
+Beyond deriving the values in the chart, we also prove that if the training data $$\Xbf$$ are fixed, then the average in-sample variance is $$\frac{1}{N}\sum_{i=1}^N \Var[\fh(x^{(i)})] = \frac{p}{N} \sigma^2$$.
 
 <details markdown="block"><summary>Details</summary>
 
-The model prediction at a test point $$x$$ can be expressed as a linear combination of the input targets $$\bfy$$.
+The model prediction at a test point $$x$$ can be expressed as a linear combination of the input targets $$\ybf$$.
 
 $$
 \begin{aligned}
 \fh(x)
 &= \wh^T x \\
-&= \bfy^T \bfX (\bfX^T \bfX)^{-1} x \\
-&= \bfy^T \bfh_\bfX(x)
+&= \ybf^T \Xbf (\Xbf^T \Xbf)^{-1} x \\
+&= \ybf^T \hbf_\Xbf(x)
 \end{aligned}
 $$
 
-First, we consider the case where the training inputs $$\bfX$$ to be fixed while the training labels $$y$$ have variance $$\sigma^2$$. In other words, we treat $$\bfX$$ as the marginal distribution $$P(X)$$. In this setting, although there is model bias if $$f$$ is not linear, the average estimation bias is 0 because $$w_\star = \wh_{\bfX, f}$$, as shown previously.
+First, we consider the case where the training inputs $$\Xbf$$ to be fixed while the training labels $$y$$ have variance $$\sigma^2$$. In other words, we treat $$\Xbf$$ as the marginal distribution $$P(X)$$. In this setting, although there is model bias if $$f$$ is not linear, the average estimation bias is 0 because $$w_\star = \wh_{\Xbf, f}$$, as shown previously.
 
 $$
 \begin{aligned}
-\Bias[\fh(x) \mid \bfX]
-&= f(x) - \E_{\bfy | \bfX}[ \fh(x) ] \\
-&= f(x) - x^T \E_{\bfy | \bfX}[ \wh ] \\
-&= f(x) - x^T \wh_{\bfX, f}
+\Bias[\fh(x) \mid \Xbf]
+&= f(x) - \E_{\ybf | \Xbf}[ \fh(x) ] \\
+&= f(x) - x^T \E_{\ybf | \Xbf}[ \wh ] \\
+&= f(x) - x^T \wh_{\Xbf, f}
 \\
-\var[\fh(x) \mid \bfX]
-&= x^T \Cov[\wh \mid \bfX] x \\
-&= \sigma^2 x^T (\bfX^T \bfX)^{-1} x \\
-&= \sigma^2 \bfh_\bfX(x)^T \bfh_\bfX(x) \\
-&= \sigma^2 \| \bfh_\bfX(x) \|_2^2
+\Var[\fh(x) \mid \Xbf]
+&= x^T \Cov[\wh \mid \Xbf] x \\
+&= \sigma^2 x^T (\Xbf^T \Xbf)^{-1} x \\
+&= \sigma^2 \hbf_\Xbf(x)^T \hbf_\Xbf(x) \\
+&= \sigma^2 \| \hbf_\Xbf(x) \|_2^2
 \end{aligned}
 $$
 
@@ -804,10 +799,10 @@ Taking the training data $$X$$ as an approximation of the true distribution $$P(
 
 $$
 \begin{aligned}
-\frac{1}{N} \sum_{i=1}^N \var[\fh(x^{(i)}) \mid \bfX]
-&= \frac{1}{N} \sum_{i=1}^N \sigma^2 x^{(i)T} (\bfX^T \bfX)^{-1} x^{(i)} \\
-&= \frac{1}{N} \sigma^2 \tr(\bfX (\bfX^T \bfX)^{-1} \bfX^T) \\
-&= \frac{1}{N} \sigma^2 \tr(\bfX^T \bfX (\bfX^T \bfX)^{-1}) \\
+\frac{1}{N} \sum_{i=1}^N \Var[\fh(x^{(i)}) \mid \Xbf]
+&= \frac{1}{N} \sum_{i=1}^N \sigma^2 x^{(i)T} (\Xbf^T \Xbf)^{-1} x^{(i)} \\
+&= \frac{1}{N} \sigma^2 \tr(\Xbf (\Xbf^T \Xbf)^{-1} \Xbf^T) \\
+&= \frac{1}{N} \sigma^2 \tr(\Xbf^T \Xbf (\Xbf^T \Xbf)^{-1}) \\
 &= \frac{1}{N} \sigma^2 \tr(I_p) \\
 &= \frac{p}{N} \sigma^2
 \end{aligned}
@@ -815,21 +810,21 @@ $$
 
 Thus, variance of a linear regression model increases linearly with the input dimension $$p$$ and decreases as $$1/N$$ in the training set size.
 
-However, if the training inputs $$\bfX$$ are not fixed but also sampled randomly, then the bias and variance are as follows. Notably, the estimation bias is not necessarily 0, because $$\E_\bfX[ \wh_{\bfX, f} ] \neq w_\star$$, as shown previously. In other words, linear regression has estimation bias under model misspecification.
+However, if the training inputs $$\Xbf$$ are not fixed but also sampled randomly, then the bias and variance are as follows. Notably, the estimation bias is not necessarily 0, because $$\E_\Xbf[ \wh_{\Xbf, f} ] \neq w_\star$$, as shown previously. In other words, linear regression has estimation bias under model misspecification.
 
 $$
 \begin{aligned}
 \Bias[\fh(x)]
 &= f(x) - \E_D[ \fh_D(x) ] \\
 &= f(x) - x^T \E_D[ \wh_D ] \\
-&= f(x) - x^T \E_\bfX[ \wh_{\bfX, f} ]
+&= f(x) - x^T \E_\Xbf[ \wh_{\Xbf, f} ]
 \\
-\var[\fh(x)]
-&= \var_D [ \fh_D(x) ]
+\Var[\fh(x)]
+&= \Var_D [ \fh_D(x) ]
  = x^T \Cov_D[\wh_D] x \\
-&= x^T \left( \Cov_\bfX[\wh_\bfX] + \sigma^2 \E_\bfX\left[(\bfX^T \bfX)^{-1}\right] \right) x \\
-&= x^T \Cov_\bfX[\wh_\bfX] x + \sigma^2 \E_\bfX[x^T \bfZ_\bfX \bfZ_\bfX^T x] \\
-&= x^T \Cov_\bfX[\wh_\bfX] x + \sigma^2 \E_\bfX\left[ \|\bfh_\bfX(x)\|_2^2 \right]
+&= x^T \left( \Cov_\Xbf[\wh_\Xbf] + \sigma^2 \E_\Xbf\left[(\Xbf^T \Xbf)^{-1}\right] \right) x \\
+&= x^T \Cov_\Xbf[\wh_\Xbf] x + \sigma^2 \E_\Xbf[x^T \Zbf_\Xbf \Zbf_\Xbf^T x] \\
+&= x^T \Cov_\Xbf[\wh_\Xbf] x + \sigma^2 \E_\Xbf\left[ \|\hbf_\Xbf(x)\|_2^2 \right]
 \end{aligned}
 $$
 
@@ -837,12 +832,12 @@ $$
 
 **Linear Regression for Linear $$f$$**
 
-For linear $$f$$, in addition to proving the bias and variance results in the table above, we show that for large $$N$$ and assuming $$\E[X] = 0$$, the expected variance is $$\E_x[\var[\fh(x)]] = \frac{p}{N} \sigma^2$$. Then, the expected MSE is
+For linear $$f$$, in addition to proving the bias and variance results in the table above, we show that for large $$N$$ and assuming $$\E[X] = 0$$, the expected variance is $$\E_x[\Var[\fh(x)]] = \frac{p}{N} \sigma^2$$. Then, the expected MSE is
 
 $$
 \begin{aligned}
 \E_x[MSE(x)]
-&= \sigma^2 + \E_x \left[ \Bias_D[\fh_D(x)]^2 \right] + \E_x \left[ \var_D [ \fh_D(x) ] \right] \\
+&= \sigma^2 + \E_x \left[ \Bias_D[\fh_D(x)]^2 \right] + \E_x \left[ \Var_D [ \fh_D(x) ] \right] \\
 &= \sigma^2 + 0 + \frac{p}{N} \sigma^2
 = \sigma^2 \left(1 + \frac{p}{N}\right).
 \end{aligned}
@@ -854,27 +849,27 @@ Since the linear regression estimators are unbiased when $$f$$ is linear, the mo
 
 $$
 \begin{aligned}
-\Bias[\fh(x) \mid \bfX] &= \Bias[\wh \mid \bfX]^T x = 0 \\
+\Bias[\fh(x) \mid \Xbf] &= \Bias[\wh \mid \Xbf]^T x = 0 \\
 \Bias[\fh(x)] &= \Bias[\wh]^T x = 0
 \end{aligned}
 $$
 
-For the variance of the model, if the training inputs $$\bfX$$ are fixed, the variance of a linear regression model for arbitrary $$f$$ is $$\sigma^2 \|\bfh_\bfX(x)\|_2^2$$ which does not depend on $$f$$. Thus, it is the same regardless of whether $$f$$ is actually linear or not.
+For the variance of the model, if the training inputs $$\Xbf$$ are fixed, the variance of a linear regression model for arbitrary $$f$$ is $$\sigma^2 \|\hbf_\Xbf(x)\|_2^2$$ which does not depend on $$f$$. Thus, it is the same regardless of whether $$f$$ is actually linear or not.
 
-However, when the training inputs are sampled randomly, the variance does depend on $$f$$. When deriving the variance of the linear regression estimator for linear $$f$$, we saw that $$\Cov_\bfX[\wh_\bfX] = 0$$. Therefore, the variance of the model with randomly sampled inputs is
+However, when the training inputs are sampled randomly, the variance does depend on $$f$$. When deriving the variance of the linear regression estimator for linear $$f$$, we saw that $$\Cov_\Xbf[\wh_\Xbf] = 0$$. Therefore, the variance of the model with randomly sampled inputs is
 
 $$
-\var[\fh(x)]
-= \sigma^2 \E_\bfX\left[ \|\bfh_\bfX(x)\|_2^2 \right]
-= \sigma^2 x^T \E_\bfX \left[ (\bfX^T \bfX)^{-1} \right] x.
+\Var[\fh(x)]
+= \sigma^2 \E_\Xbf\left[ \|\hbf_\Xbf(x)\|_2^2 \right]
+= \sigma^2 x^T \E_\Xbf \left[ (\Xbf^T \Xbf)^{-1} \right] x.
 $$
 
-If $$N$$ is large and assuming $$\E[X] = 0$$, then $$\frac{1}{N} \bfX^T \bfX \to \Cov(X)$$ (see [Appendix](#appendix)), so $$\E_\bfX \left[ (\bfX^T \bfX)^{-1} \right] \approx \frac{1}{N} \Cov(X)^{-1}$$.
+If $$N$$ is large and assuming $$\E[X] = 0$$, then $$\frac{1}{N} \Xbf^T \Xbf \to \Cov(X)$$ (see [Appendix](#appendix)), so $$\E_\Xbf \left[ (\Xbf^T \Xbf)^{-1} \right] \approx \frac{1}{N} \Cov(X)^{-1}$$.
 
 $$
 \begin{aligned}
-\E_x[\var[\fh(x)]]
-&= \E_x \left[ \sigma^2 x^T \E_\bfX \left[ (\bfX^T \bfX)^{-1} \right] x \right] \\
+\E_x[\Var[\fh(x)]]
+&= \E_x \left[ \sigma^2 x^T \E_\Xbf \left[ (\Xbf^T \Xbf)^{-1} \right] x \right] \\
 &\approx \frac{1}{N} \sigma^2 \E_x \left[ x^T \Cov(X)^{-1} x \right] \\
 &= \frac{1}{N} \sigma^2 \E_x \left[ \tr( x^T \Cov(X)^{-1} x ) \right] \\
 &= \frac{1}{N} \sigma^2 \E_x \left[ \tr( x x^T \Cov(X)^{-1} ) \right] \\
@@ -899,7 +894,7 @@ The bias and variance expressions for ridge regression come as a straightforward
 $$
 \begin{aligned}
 \Bias[\fh(x)] &= \Bias[\wh]^T x \\
-\var[\fh(x)] &= x^T \Cov_D[ \wh_D ]\ x
+\Var[\fh(x)] &= x^T \Cov_D[ \wh_D ]\ x
 \end{aligned}
 $$
 
@@ -909,14 +904,14 @@ $$
 \begin{aligned}
 & \forall x.\ x^T \left( \Cov[\wh] - \Cov[\whR] \right) x > 0 \\
 &\iff \forall x.\ x^T \Cov[\wh] x - x^T \Cov[\whR] x > 0 \\
-&\iff \forall x.\ \var[\fh(x)] > \var[\fhR(x)].
+&\iff \forall x.\ \Var[\fh(x)] > \Var[\fhR(x)].
 \end{aligned}
 $$
 
 
 # Further areas of investigation
 
-When writing this post, I was unable to determine whether the variance of $$\whR$$ is lower than the variance of $$\wh$$ when the training inputs $$\bfX$$ are sampled randomly. I was only able to find a proof assuming $$\bfX$$ are fixed. If you happen to have any ideas, please let me know through a GitHub issue!
+When writing this post, I was unable to determine whether the variance of $$\whR$$ is lower than the variance of $$\wh$$ when the training inputs $$\Xbf$$ are sampled randomly. I was only able to find a proof assuming $$\Xbf$$ are fixed. If you happen to have any ideas, please let me know through a GitHub issue!
 
 # Appendix
 
@@ -937,10 +932,10 @@ $$
 
 **Covariance**
 
-Let $$X$$ be a random vector, and let $$\bfX$$ be a matrix containing $$N$$ i.i.d. samples of $$X$$:
+Let $$X$$ be a random vector, and let $$\Xbf$$ be a matrix containing $$N$$ i.i.d. samples of $$X$$:
 
 $$
-\bfX = \begin{bmatrix}
+\Xbf = \begin{bmatrix}
 - & x^{(1)} & - \\
   & \vdots  &   \\
 - & x^{(N)} & - \\
@@ -953,6 +948,6 @@ $$ \Cov(X) = \E[X X^T] - \E[X] \E[X]^T. $$
 
 If $$\E[X] = 0$$, then the covariance can be approximated by
 
-$$ \Cov(X) \approx \frac{1}{N} \sum_{i=1}^N x^{(i)} x^{(i)T} = \frac{1}{N} \bfX^T \bfX $$
+$$ \Cov(X) \approx \frac{1}{N} \sum_{i=1}^N x^{(i)} x^{(i)T} = \frac{1}{N} \Xbf^T \Xbf $$
 
 for large $$N$$.

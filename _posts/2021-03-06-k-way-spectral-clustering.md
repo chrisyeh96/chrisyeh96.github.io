@@ -9,11 +9,6 @@ excerpt: Given an undirected graph $$G = (V, E)$$, a common task is to identify 
 ---
 
 $$
-\newcommand{\N}{\mathbb{N}}  % natural numbers
-\newcommand{\abs}[1]{\left\lvert#1\right\rvert}  % absolute value
-\newcommand{\norm}[1]{\left\|#1\right\|}  % norm
-\newcommand{\one}{\mathbf{1}}  % ones vector
-\newcommand{\zero}{\mathbf{0}}  % zeros vector
 \DeclareMathOperator*{\argmin}{arg\,min}  % argmin
 \DeclareMathOperator{\diag}{diag}  % diagonal
 $$

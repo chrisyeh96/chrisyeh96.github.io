@@ -9,15 +9,7 @@ excerpt: Recently, I worked on the voltage control problem for radial distributi
 ---
 
 $$
-\newcommand{\C}{\mathbb{C}}  % complex numbers
-\newcommand{\Ecal}{\mathcal{E}}  % edges
-\newcommand{\Ncal}{\mathcal{N}}  % nodes
-\newcommand{\Pcal}{\mathcal{P}}  % paths
-\newcommand{\abs}[1]{\left\lvert#1\right\rvert}  % absolute value
-\newcommand{\deriv}[3][]{\frac{\mathrm{d}^{#1}#2}{\mathrm{d} #3^{#1}}}  % derivative
 \newcommand{\i}{\mathbf{i}}  % complex number i
-\newcommand{\one}{\mathbf{1}}  % ones vector
-\newcommand{\zero}{\mathbf{0}}  % zeros vector
 \renewcommand{\Re}{\mathsf{Re}}  % real component
 \renewcommand{\Im}{\mathsf{Im}}  % imaginary component
 \DeclareMathOperator{\diag}{diag}  % diagonal

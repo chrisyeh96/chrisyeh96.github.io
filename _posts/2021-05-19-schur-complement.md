@@ -9,12 +9,8 @@ excerpt: I prove key properties of Schur Complements and use them to derive the 
 ---
 
 $$
-\newcommand{\C}{\mathbb{C}}  % complex numbers
 \newcommand{\F}{\mathbb{F}}  % field
-\newcommand{\Sym}{\mathbb{S}}  % symmetric matrices
-\newcommand{\norm}[1]{\|#1\|}  % norm
 \newcommand{\spanset}[1]{\spans\left\{#1\right\}}  % span
-\newcommand{\zero}{\mathbf{0}}  % zeros vector
 \DeclareMathOperator{\det}{det}  % determinant
 \DeclareMathOperator{\diag}{diag}  % diagonal
 \DeclareMathOperator{\null}{null}  % null
