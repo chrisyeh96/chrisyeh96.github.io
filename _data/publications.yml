@@ -194,17 +194,20 @@
     **C. Yeh\***, C. Meng\*, S. Wang\*, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon\
     NeurIPS 2021, Datasets and Benchmarks Track (Round 2)
   citation: |
-    C. Yeh, C. Meng, S. Wang, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon, "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning," in _Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)_, Dec. 2021. [Online]. Available: [https://openreview.net/forum?id=5HR3vCylqD](https://openreview.net/forum?id=5HR3vCylqD).
+    C. Yeh, C. Meng, S. Wang, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon, "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning," in _Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks_, Dec. 2021. [Online]. Available: [https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/950a4152c2b4aa3ad78bdd6b366cc179-Abstract-round2.html](https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/950a4152c2b4aa3ad78bdd6b366cc179-Abstract-round2.html).
   altmetric_id: 116481830
   bibtex: |
     @inproceedings{yeh2021sustainbench,
-        title = {{SustainBench}: Benchmarks for Monitoring the {Sustainable Development Goals} with Machine Learning},
-        author = {Christopher Yeh and Chenlin Meng and Sherrie Wang and Anne Driscoll and Erik Rozi and Patrick Liu and Jihyeon Lee and Marshall Burke and David B. Lobell and Stefano Ermon},
+        title = {SustainBench: Benchmarks for Monitoring the {Sustainable Development Goals} with Machine Learning},
+        author = {Yeh, Christopher and Meng, Chenlin and Wang, Sherrie and Driscoll, Anne and Rozi, Erik and Liu, Patrick and Lee, Jihyeon and Burke, Marshall and Lobell, David and Ermon, Stefano},
         year = 2021,
         month = 12,
-        booktitle = {Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)},
+        booktitle = {Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks},
+        publisher = {Curran},
+        volume = 1,
         doi = {10.48550/arXiv.2111.04724},
-        url = {https://openreview.net/forum?id=5HR3vCylqD}
+        url = {https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/950a4152c2b4aa3ad78bdd6b366cc179-Abstract-round2.html},
+        editor = {J. Vanschoren and S. Yeung}
     }
   media:
     - type: pdf
