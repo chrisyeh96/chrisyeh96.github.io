@@ -1,21 +1,48 @@
 # ==================
-# 2023
+# 2024
 # ==================
+
+- formatted: |
+    **End-to-End Conformal Calibration for Optimization Under Uncertainty**\
+    **C. Yeh\***, N. Christianson\*, A. Wu, A. Wierman, Y. Yue\
+    Preprint
+  citation: |
+    C. Yeh, N. Christianson, A. Wu, A. Wierman, and Y. Yue, End-to-end conformal calibration for optimization under uncertainty, 2024. DOI: 10.48550/arXiv.2409.20534. [Online]. Available: [https://arxiv.org/abs/2409.20534](https://arxiv.org/abs/2409.20534).
+  bibtex: |
+    @misc{yeh2024endtoend,
+        title = {End-to-End Conformal Calibration for Optimization Under Uncertainty},
+        author = {Yeh, Christopher and Christianson, Nicolas and Wu, Alan and Wierman, Adam and Yue, Yisong},
+        year = 2024,
+        doi = {10.48550/arXiv.2409.20534},
+        url = {https://arxiv.org/abs/2409.20534}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1jyJ3RkBez_kEROdj2hnrjmO3cysJbecm/view
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2409.20534
 
 - formatted: |
     **Online learning for robust voltage control under uncertain grid topology**\
     **C. Yeh**, J. Yu, Y. Shi, A. Wierman\
-    Preprint (in submission)
+    _IEEE Transactions on Smart Grid_, September 2024
   citation: |
-    C. Yeh, J. Yu, Y. Shi, A. Wierman, "Online learning for robust voltage control under uncertain grid topology," Jun. 2023. DOI: 10.48550/arXiv.2306.16674. [Online]. Available: [https://arxiv.org/abs/2306.16674](https://arxiv.org/abs/2306.16674).
+    C. Yeh, J. Yu, Y. Shi, and A. Wierman, "Online learning for robust voltage control under uncertain grid topology," _IEEE Transactions on Smart Grid_, vol. 15, no. 5, pp. 4754-4764, Sep. 2024, ISSN: 1949-3061. DOI: 10.1109/TSG.2024.3383804. [Online]. Available: [https://ieeexplore.ieee.org/document/10486962](https://ieeexplore.ieee.org/document/10486962).
   bibtex: |
-    @article{yeh2023online,
-        title = {Online learning for robust voltage control under uncertain grid topology},
+    @article{yeh2024online,
+        title = {Online Learning for Robust Voltage Control Under Uncertain Grid Topology},
         author = {Yeh, Christopher and Yu, Jing and Shi, Yuanyuan and Wierman, Adam},
-        year = 2023,
-        month = 6,
-        doi = {10.48550/arXiv.2306.16674},
-        url = {https://arxiv.org/abs/2306.16674}
+        year = 2024,
+        month = {Sep.},
+        journal = {IEEE Transactions on Smart Grid},
+        volume = 15,
+        number = 5,
+        pages = {4754--4764},
+        doi = {10.1109/TSG.2024.3383804},
+        issn = {1949-3061},
+        url = {https://ieeexplore.ieee.org/document/10486962}
     }
   media:
     - type: pdf
@@ -27,6 +54,11 @@
     - type: pdf
       name: Poster
       url: https://drive.google.com/file/d/1t1VsLw-Qqkqr0WO8IFt1k8nj-J_D4OlW/view?usp=sharing
+
+
+# ==================
+# 2023
+# ==================
 
 - formatted: |
     **SustainGym: Reinforcement Learning Environments for Sustainable Energy Systems**\
