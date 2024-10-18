@@ -3,7 +3,7 @@ title: Simplified DistFlow Equations
 layout: post
 use_math: true
 use_toc: true
-last_updated: 2023-10-24
+last_updated: 2024-10-18
 tags: [control]
 excerpt: Recently, I worked on the voltage control problem for radial distribution grids (see [here](https://dl.acm.org/doi/10.1145/3538637.3538853)). More simply, the problem is to keep voltages in an electric grid within a fixed range at all locations in the grid, under the assumption that the grid is radial, meaning tree-structured. Like most other voltage control algorithms, I used the linear "Simplified DistFlow" model. It took me a while to understand the math behind this model, and I hope this post demystifies some of that complexity.
 ---
@@ -40,6 +40,24 @@ Here is a quick refresher on complex numbers. Let $$\i = \sqrt{-1}$$, and let $$
 - Useful identities:
   - binomial expansion: $$\abs{x+y}^2 = \abs{x}^2 + 2 \Re(xy^*) + \abs{y}^2$$
   - complex conjugate is distributive: $$(xy)^* = x^* y^*$$
+
+**Lemma (equivalent complex numbers):** Let $$c_1 = a_1 + \i b_1$$ and $$c_2 = a_2 + \i b_2$$ be two complex numbers, and let $$\omega \in \R \setminus \{0\}$$ be any nonzero scalar. $$c_1 = c_2$$ if and only if $$\forall t \in \R:\ \Re(c_1 e^{\i \omega t}) = \Re(c_2 e^{\i \omega t})$$.
+
+<details markdown="block"><summary>Proof</summary>
+
+Clearly, if $$c_1 = c_2$$, then $$\forall t \in \R:\ \Re(c_1 e^{\i \omega t}) = \Re(c_2 e^{\i \omega t})$$.
+
+For the reverse direction, suppose that $$\forall t \in \R:\ \Re(c_1 e^{\i \omega t}) = \Re(c_2 e^{\i \omega t})$$. Since this holds for all $$t$$, we can pick $$t = 0$$. Then, we see $$a_1 = \Re(c_1) = \Re(c_2) = a_2$$. Likewise, we can pick $$t = \pi / (2 \omega)$$, so $$e^{\i \omega t} = e^{\i \pi / 2} = \cos(\pi/2) + \i \sin(\pi/2) = \i$$. Then
+
+$$
+    \Re(c_1 e^{\i \omega t})
+    = \Re((a_1 + \i b_1) \i)
+    = -b_1
+$$
+
+and similarly $$\Re(c_2 e^{\i \omega t}) = -b_2$$. These two expressions are equal, meaning $$b_1 = b_2$$. We have shown $$a_1 = a_2$$ and $$b_1 = b_2$$, so $$c_1 = c_2$$. $$\blacksquare$$
+
+</details>
 
 
 ## Phasors
@@ -84,7 +102,7 @@ Likewise, we can define a phasor representation for electrical current (in units
 
 ## Impedance
 
-The classical dynamics equations for resistors, inductors, and capacitors can be written using  phasor domain representations.
+The classical dynamics equations for resistors, inductors, and capacitors can be written using phasor domain representations.
 
 |           | time domain ($$\R$$)                | phasor domain ($$\C$$)       | complex impedance $$Z$$ ($$\C$$)
 |-----------|-------------------------------------|------------------------------|---------------------------------
@@ -96,10 +114,13 @@ The phasor descriptions of resistors, inductors, and capacitors obey **Ohm's law
 
 Re-arranging Ohm's law yields $$Z = \frac{V}{I} = \frac{\abs{V}}{\abs{I}} e^{\i (\theta_v - \theta_i)}$$, with $$\abs{Z} = \frac{\abs{V}}{\abs{I}}$$ and $$\angle Z = \theta_v - \theta_i$$.
 
-From complex impedance $$Z$$, we can define 3 quantities:
+Because impedance $$Z$$ is complex, it can be written as $$Z = r + \i x$$. The real and imaginary components are given names:
 - **resistance** (in $$\Omega$$), the real component, $$r := \Re(Z)$$
-- **reactance** (in $$\Omega$$), the complex component, $$x := \Im(Z)$$
-- **admittance** (in siemens S, or equivalently $$\Omega^{-1}$$), its inverse, $$Y = Z^{-1} \in \C$$.
+- **reactance** (in $$\Omega$$), the imaginary component, $$x := \Im(Z)$$
+
+The inverse of impedance is **admittance** (in siemens S, or equivalently $$\Omega^{-1}$$): $$Y = Z^{-1} \in \C$$. Likewise, the real and imaginary components of admittance $$Y = g + \i b$$ are given names:
+- **conductance** (in siemens): $$g := \Re(Y)$$
+- **susceptance** (in siemens): $$b := \Im(Y)$$
 
 *Proof for resistor.* From classic Ohm's law, we have $$v(t) = R \cdot i(t)$$. Now, substitute in the phasor representations:
 
@@ -108,32 +129,29 @@ $$
 = R \cdot \Re(\sqrt{2} I e^{\i \omega t}).
 $$
 
-This implies $$V = R \cdot I$$. $$\blacksquare$$
+The "equivalent complex numbers" lemma then implies $$V = R \cdot I$$. $$\blacksquare$$
 
-*Proof for inductor.* Using $$-\sin x = \cos(x + \pi/2)$$, we have
+*Proof for inductor.* Writing $$v(t)$$ in terms of its phasor representation $$V$$ gives
+
+$$
+    v(t) = \Re(\sqrt{2} V e^{\i \omega t}).
+$$
+
+Writing $$L \cdot \deriv{}{t} i(t)$$ in terms of the current phasor $$I$$, and using $$-\sin x = \cos(x + \pi/2)$$, we have
 
 $$
 \begin{aligned}
-\deriv{}{t} i(t)
-&= \deriv{}{t} \Imax \cos(\omega t + \theta_i)
-= -\omega \Imax \sin(\omega t + \theta_i) \\
-&= \omega \Imax \cos\left(\omega t + \theta_i + \frac{\pi}{2}\right) \\
-&= \omega i\left(t + \frac{\pi/2}{\omega}\right)
+L \cdot \deriv{}{t} i(t)
+&= L \cdot \deriv{}{t} \Imax \cos(\omega t + \theta_i) \\
+&= -L \omega \Imax \sin(\omega t + \theta_i) \\
+&= \omega L \Imax \cos\left(\omega t + \theta_i + \frac{\pi}{2}\right) \\
+&= \Re\left(\omega L \Imax e^{\i \left(\omega t + \theta_i + \frac{\pi}{2}\right)}\right) \\
+&= \Re(\sqrt{2} \omega L I e^{\i \omega t} e^{\i \pi / 2}) \\
+&= \Re(\sqrt{2} (\i \omega L) I e^{\i \omega t}).
 \end{aligned}
 $$
 
-Substituting this into the inductor dynamics $$v(t) = L \cdot \deriv{}{t} i(t)$$ and using the phasor representations yields
-
-$$
-\begin{aligned}
-\Re(\sqrt{2} V e^{\i \omega t})
-&= \Re(L \omega \cdot \sqrt{2} I e^{\i \omega (t + \frac{\pi/2}{\omega})}) \\
-&= \Re(\sqrt{2} \omega L I e^{\i \omega t} \underbrace{e^{\i \pi/2}}_{\cos\frac{\pi}{2} + \i \sin\frac{\pi}{2} = \i}) \\
-&= \Re(\sqrt{2} \i \omega L I e^{\i \omega t})
-\end{aligned}
-$$
-
-This implies $$V = (\i \omega L) I$$. $$\blacksquare$$
+Since $$v(t) = L \cdot \deriv{}{t} i(t)$$, we can apply the "equivalent complex numbers" lemma which implies $$V = (\i \omega L) I$$. $$\blacksquare$$
 
 *Proof for capacitor.* Similar to proof for inductor. $$\blacksquare$$
 
@@ -163,10 +181,12 @@ $$
 
 Complex power has units volt-ampere (V·A), which is dimensionally equivalent to watt (W) but emphasizes that the quantity is complex power instead of instantaneous power. From complex power, we can define 3 quantities:
 - **active power** (in W), the real component, $$P := \Re(S) = \abs{V} \abs{I} \cos\phi$$
-- **reactive power** (in V·A), the complex component, $$Q := \Im(S) = \abs{V} \abs{I} \sin\phi$$
+- **reactive power** (in var), the complex component, $$Q := \Im(S) = \abs{V} \abs{I} \sin\phi$$
 - **apparent power** (in V·A), the magnitude, $$\abs{S} = \abs{V} \abs{I}$$
 
 Thus, we have $$S = P + \i Q$$. Note that $$S$$ is not a phasor, since $$\sqrt{2} \abs{S} \cos(\omega t + \phi) \neq p(t)$$.
+
+The unit "var" is an abbreviation of volt-ampere reactive, which is also dimensionally equivalent to watt (W) but emphasizes that the quantity is reactive power.
 
 
 ## DistFlow Equations
@@ -180,7 +200,7 @@ For every bus $$j \in \Ncal$$ and line $$j \to k \in \Ecal$$, we write:
 - complex power flow $$S_{jk} = P_{jk} + \i Q_{jk}$$ (units V·A)
 - complex power injection $$s_j = p_j + \i q_j$$ (units V·A)
 
-The **DistFlow model** comprises of 3 equations, where bus $$i$$ is the parent of bus $$j$$:
+The **DistFlow model** comprises 3 equations, where bus $$i$$ is the parent of bus $$j$$:
 
 $$
 \begin{aligned}
@@ -339,7 +359,7 @@ $$
 \end{cases}
 $$
 
-*Proof*:
+<details markdown="block"><summary>Proof</summary>
 
 $$
 [\hat{C} \hat{C}^{-1}]_{jk}
@@ -356,6 +376,8 @@ Now, consider 3 cases.
 3. Suppose $$j \neq k$$, and $$j$$ is on the path to $$k$$. Then $$j$$ is part of 2 lines in $$\Pcal_k$$, once as the starting bus and once as the end bus. Thus, $$[\hat{C} \hat{C}^{-1}]_{jk} = -\hat{C}_{j,(\cdot \to j)} - \hat{C}_{j,(j \to \cdot)} = -(-1) - 1 = 0$$.
 
 We have shown that $$[\hat{C} \hat{C}^{-1}]_{jk} = \one[j=k]$$ as desired. $$\blacksquare$$
+
+</details>
 
 Since $$\hat{C}$$ is invertible, we can directly solve for $$(v_{1:n}, S)$$ as
 
