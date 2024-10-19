@@ -9,7 +9,7 @@
   citation: |
     C. Yeh, N. Christianson, A. Wu, A. Wierman, and Y. Yue, End-to-end conformal calibration for optimization under uncertainty, 2024. DOI: 10.48550/arXiv.2409.20534. [Online]. Available: [https://arxiv.org/abs/2409.20534](https://arxiv.org/abs/2409.20534).
   bibtex: |
-    @misc{yeh2024endtoend,
+    @misc{yeh2024endtoendarxiv,
         title = {End-to-End Conformal Calibration for Optimization Under Uncertainty},
         author = {Yeh, Christopher and Christianson, Nicolas and Wu, Alan and Wierman, Adam and Yue, Yisong},
         year = 2024,
@@ -23,6 +23,26 @@
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2409.20534
+
+- formatted: |
+    **End-to-End Conformal Calibration for Robust Grid-Scale Battery Storage Optimization**\
+    **C. Yeh\***, N. Christianson\*, A. Wierman, Y. Yue\
+    NeurIPS 2024 Workshop on Tackling Climate Change with Machine Learning
+  citation: |
+    C. Yeh, N. Christianson, A. Wierman, and Y. Yue, "End-to-end conformal calibration for robust grid-scale battery storage optimization," in _NeurIPS 2024 Workshop on Tackling Climate Change with Machine Learning_, Vancouver, Canada, Dec. 2024.
+  bibtex: |
+    @inproceedings{yeh2024endtoend,
+      title = {End-to-End Conformal Calibration for Robust Grid-Scale Battery Storage Optimization},
+      author = {Christopher Yeh and Nicolas Christianson and Adam Wierman and Yisong Yue},
+      year = 2024,
+      month = 12,
+      booktitle = {NeurIPS 2024 Workshop on Tackling Climate Change with Machine Learning},
+      address = {Vancouver, Canada}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1CcBk5X3C3tXYAVDGrH3Eb2lznK1R6ha8/view
 
 - formatted: |
     **Online learning for robust voltage control under uncertain grid topology**\
