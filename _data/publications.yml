@@ -23,6 +23,9 @@
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2409.20534
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/e2e-conformal
 
 - formatted: |
     **End-to-End Conformal Calibration for Robust Grid-Scale Battery Storage Optimization**\
@@ -43,6 +46,9 @@
     - type: pdf
       name: PDF
       url: https://drive.google.com/file/d/1CcBk5X3C3tXYAVDGrH3Eb2lznK1R6ha8/view
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/e2e-conformal
 
 - formatted: |
     **Online learning for robust voltage control under uncertain grid topology**\
@@ -74,6 +80,9 @@
     - type: pdf
       name: Poster
       url: https://drive.google.com/file/d/1t1VsLw-Qqkqr0WO8IFt1k8nj-J_D4OlW/view?usp=sharing
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/voltctrl
 
 
 # ==================
