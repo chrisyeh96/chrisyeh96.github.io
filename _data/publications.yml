@@ -32,20 +32,24 @@
     **C. Yeh\***, N. Christianson\*, A. Wierman, Y. Yue\
     NeurIPS 2024 Workshop on Tackling Climate Change with Machine Learning
   citation: |
-    C. Yeh, N. Christianson, A. Wierman, and Y. Yue, "End-to-end conformal calibration for robust grid-scale battery storage optimization," in _NeurIPS 2024 Workshop on Tackling Climate Change with Machine Learning_, Vancouver, Canada, Dec. 2024.
+    C. Yeh, N. Christianson, A. Wierman, and Y. Yue, "End-to-end conformal calibration for robust grid-scale battery storage optimization," in _NeurIPS 2024 Workshop on Tackling Climate Change with Machine Learning_, Vancouver, Canada, Dec. 2024. [Online]. Available: [https://www.climatechange.ai/papers/neurips2024/18](https://www.climatechange.ai/papers/neurips2024/18).
   bibtex: |
     @inproceedings{yeh2024endtoend,
-      title = {End-to-End Conformal Calibration for Robust Grid-Scale Battery Storage Optimization},
-      author = {Christopher Yeh and Nicolas Christianson and Adam Wierman and Yisong Yue},
-      year = 2024,
-      month = 12,
-      booktitle = {NeurIPS 2024 Workshop on Tackling Climate Change with Machine Learning},
-      address = {Vancouver, Canada}
+        title = {End-to-End Conformal Calibration for Robust Grid-Scale Battery Storage Optimization},
+        author = {Christopher Yeh and Nicolas Christianson and Adam Wierman and Yisong Yue},
+        year = 2024,
+        month = 12,
+        booktitle = {NeurIPS 2024 Workshop on Tackling Climate Change with Machine Learning},
+        address = {Vancouver, Canada},
+        url = {https://www.climatechange.ai/papers/neurips2024/18}
     }
   media:
     - type: pdf
       name: PDF
       url: https://drive.google.com/file/d/1CcBk5X3C3tXYAVDGrH3Eb2lznK1R6ha8/view
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1aZTiQVkHsGzB-xzbBBKfPi5K4YpE79Q_/view
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/e2e-conformal
@@ -61,7 +65,7 @@
         title = {Online Learning for Robust Voltage Control Under Uncertain Grid Topology},
         author = {Yeh, Christopher and Yu, Jing and Shi, Yuanyuan and Wierman, Adam},
         year = 2024,
-        month = {Sep.},
+        month = 9,
         journal = {IEEE Transactions on Smart Grid},
         volume = 15,
         number = 5,
@@ -73,13 +77,13 @@
   media:
     - type: pdf
       name: PDF
-      url: https://drive.google.com/file/d/1c8q7UXJTsocOQyvC51LJURAlggj5AhyM/view?usp=sharing
+      url: https://drive.google.com/file/d/1c8q7UXJTsocOQyvC51LJURAlggj5AhyM/view
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2306.16674
     - type: pdf
       name: Poster
-      url: https://drive.google.com/file/d/1t1VsLw-Qqkqr0WO8IFt1k8nj-J_D4OlW/view?usp=sharing
+      url: https://drive.google.com/file/d/1t1VsLw-Qqkqr0WO8IFt1k8nj-J_D4OlW/view
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/voltctrl
