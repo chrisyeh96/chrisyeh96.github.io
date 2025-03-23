@@ -1,5 +1,29 @@
 - category: research
   title: |
+    SustainGym: Reinforcement Learning Environments for Sustainable Energy Systems
+  setting: Caltech, 2022 - 2023
+  thumbnail: project_2022_research_sustaingym.png
+  description: |
+    The lack of standardized benchmarks for reinforcement learning (RL) in sustainability applications has made it difficult to both track progress on specific domains and identify bottlenecks for researchers to focus their efforts. In this paper, we present SustainGym, a suite of five environments designed to test the performance of RL algorithms on realistic sustainable energy system tasks, ranging from electric vehicle charging to carbon-aware data center job scheduling. The environments test RL algorithms under realistic distribution shifts as well as in multi-agent settings. We show that standard off-the-shelf RL algorithms leave significant room for improving performance and highlight the challenges ahead for introducing RL to real-world sustainability tasks.
+  info: |
+    **Collaborators:** Victor Li, Rajeev Datta, Julio Arroyo Ibarra, Nicolas Christianson, Chi Zhang, Yize Chen, Mohammad Mehdi Hosseini, Azarang Golmohammadi, Yuanyuan Shi, Yisong Yue, Adam Wierman
+
+    **Publications:**
+    1. **C. Yeh**, V. Li, R. Datta, J. Arroyo, N. Christianson, C. Zhang, Y. Chen, M. Hosseini, A. Golmohammadi, Y. Shi, Y. Yue, and A. Wierman, "SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications," in _Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track_, New Orleans, LA, USA, Dec. 2023. [Online]. Available: [https://openreview.net/forum?id=vZ9tA3o3hr](https://openreview.net/forum?id=vZ9tA3o3hr).
+    2. **C. Yeh**, V. Li, R. Datta, Y. Yue, and A. Wierman, "SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications," in _NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning_, Dec. 2022. [Online]. Available: [https://www.climatechange.ai/papers/neurips2022/38](https://www.climatechange.ai/papers/neurips2022/38).
+  media:
+    - type: pdf
+      name: Paper (NeurIPS 2023)
+      url: https://drive.google.com/file/d/1wrLGu2FCVOT_BvtDoudsz05zFG89r7dI/view
+    - type: url
+      name: Project Page
+      url: https://chrisyeh96.github.io/sustaingym/
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/sustaingym
+
+- category: research
+  title: |
     Online learning for robust voltage control under uncertain grid topology
   setting: Caltech, 2022 - 2024
   thumbnail: project_2022_research_voltctrl.png
@@ -9,7 +33,7 @@
   info: |
     **Collaborators:** Jing Yu, Yuanyuan Shi, Adam Wierman
 
-    **Publication:**
+    **Publications:**
     1. **C. Yeh**, J. Yu, Y. Shi, and A. Wierman, "Online learning for robust voltage control under uncertain grid topology," _IEEE Transactions on Smart Grid_, vol. 15, no. 5, pp. 4754-4764, Sep. 2024, ISSN: 1949-3061. DOI: 10.1109/TSG.2024.3383804. [Online]. Available: [https://ieeexplore.ieee.org/document/10486962](https://ieeexplore.ieee.org/document/10486962).
     2. **C. Yeh**, J. Yu, Y. Shi, and A. Wierman, "Robust online voltage control with an unknown grid topology," in _Proceedings of the Thirteenth ACM International Conference on Future Energy Systems (e-Energy '22)_, Association for Computing Machinery, Jun. 2022, pp. 240–250, ISBN: 9781450393973. DOI: 10.1145/3538637.3538853. [Online]. Available: [https://dl.acm.org/doi/10.1145/3538637.3538853](https://dl.acm.org/doi/10.1145/3538637.3538853).
   media:
