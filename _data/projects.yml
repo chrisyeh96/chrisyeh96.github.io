@@ -1,5 +1,33 @@
 - category: research
   title: |
+    Online learning for robust voltage control under uncertain grid topology
+  setting: Caltech, 2022 - 2024
+  thumbnail: project_2022_research_voltctrl.png
+  thumbnail_caption: Our voltage control method combines a consistent model chasing algorithm with a robust control oracle to achieve a finite-mistake guarantee even when the distribution grid topology is unknown.
+  description: |
+    Voltage control generally requires accurate information about the grid’s topology in order to guarantee network stability. However, accurate topology identification is challenging for existing methods, especially as the grid is subject to increasingly frequent reconfiguration due to the adoption of renewable energy. In this work, we combine a nested convex body chasing algorithm with a robust predictive controller to achieve provably finite-time convergence to safe voltage limits in the online setting where there is uncertainty in both the network topology as well as load and generation variations. In an online fashion, our algorithm narrows down the set of possible grid models that are consistent with observations and adjusts reactive power generation accordingly to keep voltages within desired safety limits. Our approach can also incorporate existing partial knowledge of the network to improve voltage control performance. We demonstrate the effectiveness of our approach in a case study on a Southern California Edison 56-bus distribution system. Our experiments show that in practical settings, the controller is indeed able to narrow the set of consistent topologies quickly enough to make control decisions that ensure stability in both linearized and realistic non-linear models of the distribution grid.
+  info: |
+    **Collaborators:** Jing Yu, Yuanyuan Shi, Adam Wierman
+
+    **Publication:**
+    1. **C. Yeh**, J. Yu, Y. Shi, and A. Wierman, "Online learning for robust voltage control under uncertain grid topology," _IEEE Transactions on Smart Grid_, vol. 15, no. 5, pp. 4754-4764, Sep. 2024, ISSN: 1949-3061. DOI: 10.1109/TSG.2024.3383804. [Online]. Available: [https://ieeexplore.ieee.org/document/10486962](https://ieeexplore.ieee.org/document/10486962).
+    2. **C. Yeh**, J. Yu, Y. Shi, and A. Wierman, "Robust online voltage control with an unknown grid topology," in _Proceedings of the Thirteenth ACM International Conference on Future Energy Systems (e-Energy '22)_, Association for Computing Machinery, Jun. 2022, pp. 240–250, ISBN: 9781450393973. DOI: 10.1145/3538637.3538853. [Online]. Available: [https://dl.acm.org/doi/10.1145/3538637.3538853](https://dl.acm.org/doi/10.1145/3538637.3538853).
+  media:
+    - type: pdf
+      name: Paper (IEEE Transactions on Smart Grid)
+      url: https://drive.google.com/file/d/1c8q7UXJTsocOQyvC51LJURAlggj5AhyM/view
+    - type: youtube
+      name: Presentation
+      url: https://youtu.be/iDhDfDrXqoA
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2306.16674
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/voltctrl
+
+- category: research
+  title: |
     SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning
   setting: Caltech, 2020 - 2021
   thumbnail: project_2021_research_sustainbench.png
