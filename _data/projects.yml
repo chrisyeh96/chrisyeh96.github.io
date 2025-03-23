@@ -1,5 +1,32 @@
 - category: research
   title: |
+    SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning
+  setting: Caltech, 2020 - 2021
+  thumbnail: project_2021_research_sustainbench.png
+  description: |
+    Progress toward the United Nations Sustainable Development Goals (SDGs) has been hindered by a lack of data on key environmental and socioeconomic indicators, which historically have come from ground surveys with sparse temporal and spatial coverage. Recent advances in machine learning have made it possible to utilize abundant, frequently-updated, and globally available data, such as from satellites or social media, to provide insights into progress toward SDGs. Despite promising early results, approaches to using such data for SDG measurement thus far have largely evaluated on different datasets or used inconsistent evaluation metrics, making it hard to understand whether performance is improving and where additional research would be most fruitful. Furthermore, processing satellite and ground survey data requires domain knowledge that many in the machine learning community lack. In this paper, we introduce SustainBench, a collection of 15 benchmark tasks across 7 SDGs, including tasks related to economic development, agriculture, health, education, water and sanitation, climate action, and life on land. Datasets for 11 of the 15 tasks are released publicly for the first time. Our goals for SustainBench are to (1) lower the barriers to entry for the machine learning community to contribute to measuring and achieving the SDGs; (2) provide standard benchmarks for evaluating machine learning models on tasks across a variety of SDGs; and (3) encourage the development of novel machine learning methods where improved model performance facilitates progress towards the SDGs.
+  info: |
+    **Mentors:** Prof. Stefano Ermon, Prof. Marshall Burke, Prof. David Lobell
+
+    **Collaborators:** Chenlin Meng, Sherrie Wang, Anne Driscoll, Erik Rozi, Patrick Liu, Jihyeon Lee
+
+    **Publication:** **C. Yeh**, C. Meng, S. Wang, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon, "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning," in _Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks_, Dec. 2021. [Online]. Available: [https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/950a4152c2b4aa3ad78bdd6b366cc179-Abstract-round2.html](https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/950a4152c2b4aa3ad78bdd6b366cc179-Abstract-round2.html).
+  media:
+    - type: pdf
+      name: Paper (NeurIPS 2021)
+      url: https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/950a4152c2b4aa3ad78bdd6b366cc179-Abstract-round2.html
+    - type: video
+      name: Presentation
+      url: https://slideslive.com/38969499
+    - type: url
+      name: Project Page
+      url: https://sustainlab-group.github.io/sustainbench/
+    - type: github
+      name: Code
+      url: https://github.com/sustainlab-group/sustainbench
+
+- category: research
+  title: |
     Selection via Proxy: Efficient Data Selection for Deep Learning
   setting: Stanford University, Summer 2018 - 2019
   thumbnail: project_2018_research_svp.png
