@@ -1,4 +1,34 @@
 # ==================
+# 2025
+# ==================
+
+- formatted: |
+    **Robust machine-learned algorithms for efficient grid operation**\
+    N. Christianson, **C. Yeh**, T. Li, M. Hosseini, M. Torabi Rad, A. Golmohammadi, A. Wierman\
+    _Environmental Data Science_, April 2025
+  citation: |
+    N. Christianson, C. Yeh, T. Li, M. Hosseini, M. Torabi Rad, A. Golmohammadi, and A. Wierman, "Robust machine-learned algorithms for efficient grid operation," _Environmental Data Science_, vol. 4, p. e24, 2025. DOI: 10.1017/eds.2024.28. [Online]. Available: [https://www.cambridge.org/core/journals/environmental-data-science/article/robust-machinelearned-algorithms-for-efficient-grid-operation/0E29B936A8FEE565B169F70372B7F9DE](https://www.cambridge.org/core/journals/environmental-data-science/article/robust-machinelearned-algorithms-for-efficient-grid-operation/0E29B936A8FEE565B169F70372B7F9DE).
+  bibtex: |
+    @article{christianson2025robust,
+        title = {Robust machine-learned algorithms for efficient grid operation},
+        author = {Christianson, Nicolas and Yeh, Christopher and Li, Tongxin and Hosseini, Mehdi and Torabi Rad, Mahdi and Golmohammadi, Azarang and Wierman, Adam},
+        year = 2025,
+        journal = {Environmental Data Science},
+        volume = 4,
+        pages = {e24},
+        doi = {10.1017/eds.2024.28},
+        url = {https://www.cambridge.org/core/journals/environmental-data-science/article/robust-machinelearned-algorithms-for-efficient-grid-operation/0E29B936A8FEE565B169F70372B7F9DE}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1Pu2yOWRqxp0o-GXDfFaGhwlfinv6B3p4/view
+    - type: code
+      name: Code
+      url: https://doi.org/10.5281/zenodo.13623809
+
+
+# ==================
 # 2024
 # ==================
 
