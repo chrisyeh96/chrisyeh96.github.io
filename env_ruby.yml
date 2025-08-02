@@ -6,11 +6,11 @@
 #
 # Notes
 # - see https://pages.github.com/versions/ for supported version of ruby
-# - last updated: Nov. 10, 2022
+# - last updated: 2025-08-02
 name: ruby
 channels:
   - conda-forge
   - nodefaults
 dependencies:
-  - ruby=2.7
-  - gxx_linux-64  # for compiling "native" gem extensions
+  - ruby=3.3    # github-pages uses ruby 3.3.4, see https://pages.github.com/versions/
+  - compilers
