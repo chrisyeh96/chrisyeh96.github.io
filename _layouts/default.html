@@ -28,6 +28,69 @@ layout: compress
   {% include mathjax.html %}
   {%- endif -%}
 
+  <script>
+/*!
+ * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+ * Copyright 2011-2025 The Bootstrap Authors
+ * Licensed under the Creative Commons Attribution 3.0 Unported License.
+ */
+(() => {
+  'use strict'
+
+  const getStoredTheme = () => localStorage.getItem('theme')
+  const setStoredTheme = theme => localStorage.setItem('theme', theme)
+
+  const getPreferredTheme = () => {
+    const storedTheme = getStoredTheme()
+    if (storedTheme) {
+      return storedTheme
+    }
+
+    const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    console.log('Preferred theme:', preferredTheme);
+    return preferredTheme
+  }
+
+  const setTheme = theme => {
+    // set `data-bs-theme` attribute on <html> element
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  }
+
+  setTheme(getPreferredTheme())
+
+  const updateIcon = () => {
+    const toggle = document.querySelector('#dark-mode-toggle use');
+    if (toggle) {
+      const theme = getPreferredTheme();
+      const href = theme === 'dark' ? '#moon-stars-fill' : '#sun-fill';
+      toggle.setAttribute('href', href);
+    }
+  }
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    const storedTheme = getStoredTheme()
+    if (storedTheme !== 'light' && storedTheme !== 'dark') {
+      setTheme(getPreferredTheme())
+    }
+  })
+
+  window.addEventListener('DOMContentLoaded', () => {
+    updateIcon();
+
+    const toggle = document.querySelector('#dark-mode-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setStoredTheme(newTheme);
+        setTheme(newTheme);
+        updateIcon();
+      });
+    }
+  })
+})()
+  </script>
+
   {%- if page.use_toc -%}
   <script>
     function toggleNav() {

@@ -317,3 +317,12 @@ hr {
   margin-top: 0.5rem;  /* match `top: 0.5rem` when the button isn't "stuck" yet */
   float: right;
 }
+
+/*****
+Dark mode
+****/
+.theme-icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
