@@ -201,7 +201,7 @@ h1.section-title {
  */
 
 pre, code { /* all code */
-  font: 85% Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: 85% Consolas, "SF Mono", "Liberation Mono", Menlo, "Roboto Mono", monospace;
 
   /* do not break words */
   overflow-wrap: normal;
