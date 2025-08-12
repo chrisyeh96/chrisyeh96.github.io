@@ -95,11 +95,11 @@ header {
 
 .post-meta {
   font-size: 0.8rem;
-  color: grey;
+  color: var(--bs-secondary-color);
 }
 
 .post-tag {
-  background: #f8f9fa;
+  background: var(--bs-secondary-bg);
   border-radius: 0.3rem;
   padding: 0 0.3rem;
   margin: 0 0.3rem;
@@ -115,7 +115,7 @@ header {
 
 /* Content inside .callout is responsible for having bottom margin or padding */
 .callout {
-  border-left: 0.25rem solid #5bc0de;
+  border-left: 0.25rem solid var(--bs-cyan);
   padding-left: 0.75rem;
 }
 
@@ -237,7 +237,7 @@ table th {
 table th,
 table td {
   padding: 0.5rem 1rem;
-  border: 1px solid #e9ebec;
+  border: 1px solid var(--bs-border-color);
 }
 
 dl {
@@ -258,8 +258,9 @@ hr {
   height: 2px;
   padding: 0;
   margin: 1rem 0;
-  background-color: #eff0f1;
+  background-color: var(--bs-border-color);
   border: 0;
+  opacity: 1;
 }
 
 /*******************
@@ -272,7 +273,7 @@ hr {
   height: min-content;
   max-height: 100vh;
   overflow-y: auto;
-  border-left: 1px solid #eee;
+  border-left: 1px solid var(--bs-border-color);
   padding-bottom: 0.5rem;
 
   /* Hide scrollbar */
@@ -295,13 +296,13 @@ hr {
 .toc-nav li a {
   display: block;
   margin-top: 0.3rem;
-  color: #77757a;
+  color: var(--bs-secondary-color);
   padding: 0;
 }
 
 .toc-nav li a:hover,
 .toc-nav li a.active {
-  color: #007bff;
+  color: var(--bs-link-color);
   text-decoration: none;
 }
 
@@ -316,6 +317,8 @@ hr {
   top: 0.5rem;
   margin-top: 0.5rem;  /* match `top: 0.5rem` when the button isn't "stuck" yet */
   float: right;
+  background-color: var(--bs-body-bg);
+  z-index: 10;  /* float above text */
 }
 
 /*****

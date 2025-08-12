@@ -22,7 +22,7 @@
     {{ project.info | markdownify }}
   {%- endif -%}
   {%- for media in project.media -%}
-    <a href="{{ media.url }}" class="btn btn-light me-3">
+    <a href="{{ media.url }}" class="btn bg-body-secondary me-3">
       {%- if media.type == "pdf" -%}<i class="fas fa-file">
       {%- elsif media.type == "github" -%}<i class="fab fa-github">
       {%- elsif media.type == "code" -%}<i class="fas fa-code">
