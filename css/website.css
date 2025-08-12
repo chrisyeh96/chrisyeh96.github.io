@@ -1,12 +1,46 @@
 /*******************
- * BASICS
+ * COLORS
  ******************/
 :root {
+  /* Bootstrap overrides */
+  --bs-code-color: unset;
+
+  /* custom colors */
+  --blockquote-border-color: #dce6f0;
+  --blockquote-color: #819198;
+  --code-bg: #818b981f;  /* inline code */
+
+  /* named colors */
   --cardinal-red: #8C1515;
   --caltech-orange: #FF6C0C;
   --schwarzman-purple: #80298F;
 }
 
+[data-bs-theme="dark"] {
+  /* color inversions: https://jordan.yoonbuck.com/post/contrast-preserving-inversion/
+   * by default, I use contrast-preserving inversion, unless otherwise specified
+   * - L = lightness inversion
+   * - C = contrast-preserving inversion
+   */
+
+  /* Bootstrap overrides */
+  --bs-body-bg: #0d1117;  /* match GitHub dark mode */
+  --bs-code-color: unset;
+
+  /* custom colors */
+  --blockquote-border-color: #3d444d;  /* match GitHub dark mode */
+  --blockquote-color: #9198a1;  /* match GitHub dark mode */
+  --code-bg: #656c7633;  /* inline code */
+
+  /* named colors */
+  --cardinal-red: #ea7373;  /* L */
+  --caltech-orange: #f36000;  /* L */
+  --schwarzman-purple: #cf84dc;  /* C */
+}
+
+/*******************
+ * BASICS
+ ******************/
 a, a:link, a:visited, a:hover, a:active {
   text-decoration: none !important;
 }
@@ -132,7 +166,7 @@ header {
 }
 
 .content-row .image-wrapper {
-  color: grey;
+  color: var(--bs-gray);
   font-size: 0.9rem;
   font-style: italic;
   text-align: center;
@@ -167,8 +201,7 @@ h1.section-title {
  */
 
 pre, code { /* all code */
-  color: #567482;
-  font: 0.9rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: 85% Consolas, "Liberation Mono", Menlo, Courier, monospace;
 
   /* do not break words */
   overflow-wrap: normal;
@@ -178,15 +211,14 @@ pre, code { /* all code */
 /* Properties for inline code only. They are overwritten by the `pre code`
  * selector below for code blocks. */
 code {
-  background-color: #f3f6fa;
+  background-color: var(--code-bg);
   border-radius: 0.3rem;
   padding: 2px 4px;
 }
 
 pre { /* generic <pre> */
-  padding: 0.8rem;
+  padding: 1rem;
   margin-bottom: 1rem;
-  border: solid 1px #dce6f0;
   border-radius: 0.3rem;
   line-height: 1.45;
   -webkit-overflow-scrolling: touch;
@@ -200,8 +232,8 @@ pre code { /* code blocks only */
 }
 
 blockquote {
-  border-left: 0.25rem solid #dce6f0;
-  color: #819198;
+  border-left: 0.25rem solid var(--blockquote-border-color);
+  color: var(--blockquote-color);
   padding-left: 0.75rem;
 }
 blockquote > :first-child {
@@ -213,8 +245,8 @@ blockquote > :last-child {
 
 /* Content inside <details> is responsible for having bottom margin or padding */
 details {
-  background-color: #e8e9ea;
-  border-bottom: 1px solid #e8e9ea;
+  background-color: var(--code-bg);
+  border-bottom: 1px solid var(--code-bg);
   margin-bottom: 1rem;
   padding: 0.2rem 0.75rem 0;
 }
