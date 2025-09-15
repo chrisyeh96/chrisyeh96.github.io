@@ -33,7 +33,7 @@ layout: default
     <div>{{ pub.formatted | markdownify }}</div>
     <p>
     {%- for media in pub.media -%}
-      <a href="{{ media.url }}" class="post-meta post-tag me-2">
+      <a href="{{ media.url }}" class="post-meta pub-link">
         {%- if media.type == "pdf" -%}<i class="fas fa-file">
         {%- elsif media.type == "github" -%}<i class="fab fa-github">
         {%- elsif media.type == "code" -%}<i class="fas fa-code">

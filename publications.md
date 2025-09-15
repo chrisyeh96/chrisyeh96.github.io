@@ -27,7 +27,7 @@ _* denotes equal contribution_
   </div>
   <p>
   {%- for media in pub.media -%}
-    <a href="{{ media.url }}" class="post-meta post-tag me-2">
+    <a href="{{ media.url }}" class="post-meta pub-link">
       {%- if media.type == "pdf" -%}<i class="fas fa-file">
       {%- elsif media.type == "github" -%}<i class="fab fa-github">
       {%- elsif media.type == "code" -%}<i class="fas fa-code">
@@ -38,7 +38,7 @@ _* denotes equal contribution_
       </i> {{ media.name }}
     </a>
   {%- endfor -%}
-  <a href="#citation{{ counter }}" class="post-meta post-tag" data-bs-toggle="collapse">Cite</a>
+  <a href="#citation{{ counter }}" class="post-meta pub-link" data-bs-toggle="collapse">Cite</a>
   </p>
   <div id="citation{{ counter }}" class="collapse">
     {{ pub.citation | prepend: "> " | markdownify }}

@@ -14,15 +14,15 @@ use_math: true
 
 <p>
 {%- for tag in sorted_tags -%}
-  <a href="#{{ tag[0] }}" class="post-tag"><i class="fas fa-tag"></i> {{ tag[0] }}</a>
+  <a href="#{{ tag[0] }}" class="badge text-bg-secondary ms-2">{{ tag[0] }}</a>
 {%- endfor -%}
 </p>
 
 <hr>
 
 {%- for tag in sorted_tags -%}
-  <a name="{{ tag[0] }}" class="post-tag"><i class="fas fa-tag"></i> {{ tag[0] }}</a>
-  <ul class="post-list">
+  <a name="{{ tag[0] }}" class="badge text-bg-secondary ms-2">{{ tag[0] }}</a>
+  <ul class="post-list border-bottom">
     {%- for post in tag[1] -%}
     {% include post_list_item.html %}
     {%- endfor -%}
