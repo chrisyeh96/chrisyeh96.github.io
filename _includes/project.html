@@ -1,5 +1,5 @@
 <div class="row content-row">
-<div class="col-sm-4 col-lg-3 image-wrapper">
+<div class="col-sm-5 col-lg-4 image-wrapper">
   {%- if project.thumbnail -%}
     {%- assign thumbnail_start = project.thumbnail | slice: 0 3 -%}
     {%- if thumbnail_start == "http" -%}
@@ -12,12 +12,12 @@
     {{ project.thumbnail_caption | markdownify }}
   {%- endif -%}
 </div>
-<div class="col-sm-8 col-lg-9">
+<div class="col-sm-7 col-lg-8">
   <h3>{{ project.title }}</h3>
   {%- if project.setting -%}
   <em>{{ project.setting | markdownify }}</em>
   {%- endif -%}
-  {{ project.description | markdownify}}
+  {{ project.description | markdownify }}
   {%- if project.info -%}
     {{ project.info | markdownify }}
   {%- endif -%}

@@ -18,9 +18,11 @@ _* denotes equal contribution_
   {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
   <li>
   <div>
+    {%- comment -%}
     {%- if pub.altmetric_id -%}
       <div class="altmetric-embed float-end" data-badge-type="donut" data-altmetric-id="{{ pub.altmetric_id }}"></div>
     {%- endif -%}
+    {%- endcomment -%}
     {{ pub.formatted | markdownify }}
   </div>
   <p>
