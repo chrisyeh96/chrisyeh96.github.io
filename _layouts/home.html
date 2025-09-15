@@ -22,10 +22,12 @@ layout: default
 </div>
 
 {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+
 <div class="border-bottom mb-3">
   <h2>Upcoming events</h2>
   <ul class="post-list">
-    {%- for news_item in site.data.news -%}
+    {%- assign news_reverse = site.data.news | reverse -%}
+    {%- for news_item in news_reverse -%}
     {% capture news_date %}{{ news_item.date | date: '%s' }}{% endcapture %}
     {%- if news_date >= nowunix -%}
     {% include news_item.html %}
