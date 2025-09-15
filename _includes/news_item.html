@@ -1,0 +1,7 @@
+<li>
+  <span class="post-meta">{{ news_item.date | date: site.date_format }}</span>
+  <div>
+      {%- if news_item.title -%}<span class="fw-bold">{{ news_item.title }}</span>{%- endif -%}
+      {{ news_item.description | markdownify }}
+    </div>
+</li>

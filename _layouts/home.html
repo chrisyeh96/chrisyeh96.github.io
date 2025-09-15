@@ -21,7 +21,32 @@ layout: default
 </div>
 </div>
 
+{% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
 <div class="border-bottom mb-3">
+  <h2>Upcoming events</h2>
+  <ul class="post-list">
+    {%- for news_item in site.data.news -%}
+    {% capture news_date %}{{ news_item.date | date: '%s' }}{% endcapture %}
+    {%- if news_date >= nowunix -%}
+    {% include news_item.html %}
+    {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+<div class="border-bottom mb-3">
+  <h2>Recent news</h2>
+  <ul class="post-list">
+    {%- for news_item in site.data.news -%}
+    {% capture news_date %}{{ news_item.date | date: '%s' }}{% endcapture %}
+    {%- if news_date < nowunix -%}
+    {% include news_item.html %}
+    {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+<div class="mb-3">
 <h2>Featured Posts</h2>
 <ul class="post-list">
 {%- for post in site.posts -%}
