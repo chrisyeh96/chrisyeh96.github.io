@@ -5,6 +5,7 @@ use_math: true
 use_toc: true
 last_updated: 2024-10-18
 tags: [control]
+pin: true
 excerpt: Recently, I worked on the voltage control problem for radial distribution grids (see [here](https://dl.acm.org/doi/10.1145/3538637.3538853)). More simply, the problem is to keep voltages in an electric grid within a fixed range at all locations in the grid, under the assumption that the grid is radial, meaning tree-structured. Like most other voltage control algorithms, I used the linear "Simplified DistFlow" model. It took me a while to understand the math behind this model, and I hope this post demystifies some of that complexity.
 ---
 

@@ -5,6 +5,7 @@ use_math: true
 use_toc: true
 last_updated: 2021-06-18
 tags: [math]
+pin: true
 excerpt: I prove key properties of Schur Complements and use them to derive the matrix inversion lemma.
 ---
 
