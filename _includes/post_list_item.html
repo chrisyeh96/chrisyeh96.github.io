@@ -3,9 +3,9 @@
   {%- for tag in post.tags -%}
     <a href="/tags/#{{ tag }}" class="badge text-bg-secondary ms-2">{{ tag }}</a>
   {%- endfor -%}
-  <h2>
+  <h3>
     <a href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title | escape }}</a>
-  </h2>
+  </h3>
   {%- if post.excerpt -%}
   {{ post.excerpt | markdownify }}
   {%- endif -%}

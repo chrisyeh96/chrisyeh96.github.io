@@ -2,38 +2,28 @@
 layout: default
 ---
 
-<header class="header-home">
-  <div class="container">
-    <div class="row">
-      <div id="profile-pic" class="col-md-4 col-lg-3 mb-3 mb-md-0">
-        <img src="{{ site.baseurl }}/images/chrisyeh_700px_square.jpg">
-      </div>
-      <div class="col-md-8 col-lg-9">
-        <h1>{{site.title}}</h1>
-        <h2>{{site.description}}</h2>
-
-        <!-- Contact -->
-        <h3 class="social">
-          <a href="https://orcid.org/{{ site.orcid_id }}" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
-          <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-          <a href="https://github.com/{{ site.github_username }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-        </h3>
-      </div>
-    </div>
-  </div>
-</header>
-
 <div class="container">
-<div class="intro border-bottom mb-3">
+<div class="row border-bottom py-3 mb-3">
+<div id="profile-pic" class="order-sm-1 col-sm-4 col-lg-3 px-5 px-sm-0 text-center">
+  <img class="rounded mb-3" src="{{ site.baseurl }}/images/chrisyeh_700px_square.jpg">
+  <h3 class="social">
+    <a href="https://orcid.org/{{ site.orcid_id }}" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+    <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+    <a href="https://github.com/{{ site.github_username }}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+  </h3>
+</div>
+<div class="intro col-sm-8 col-lg-9">
+  <h1 class="page-title d-none d-md-block">{{ site.title }}</h1>
+  <h5 class="page-description text-body-secondary mb-4">{{ page.description | default: site.description }}</h5>
   {{ content }}
+</div>
 </div>
 
 <div class="border-bottom mb-3">
 <h2>Featured Posts</h2>
 <ul class="post-list">
-{%- assign counter = 0 -%}
 {%- for post in site.posts -%}
   {%- if post.pin -%}
     {% include post_list_item.html %}
@@ -42,6 +32,7 @@ layout: default
 </ul>
 </div>
 
+{% comment %}
 <div>
 <h2>Latest Posts</h2>
 <ul class="post-list">
@@ -54,3 +45,4 @@ layout: default
 </ul>
 </div>
 </div>
+{% endcomment %}

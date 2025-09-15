@@ -93,26 +93,26 @@ header {
 }
 
 #profile-pic {
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #profile-pic img {
-  width: 90%;
-  max-width: 8rem;
-  border-radius: 50%;
-  border: 5px solid white;
-  box-shadow: 0 0 1.5em black;
+  box-shadow: 0 0 0.25em gray;
+}
+
+@media (max-width: 575.98px) {
+  #profile-pic img {
+    max-width: 300px;
+  }
 }
 
 .social a {
-  color: white;
+  color: var(--bs-body-color);
 }
 
 .intro {
   font-size: 1.2rem;
-  margin-top: 1rem;
 }
 
 /*******************

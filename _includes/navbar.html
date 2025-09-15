@@ -24,7 +24,11 @@
 
 <nav class="navbar navbar-expand-md">
   <div class="container">
+    {%- if page.path == 'index.md' -%}
+    <h1 class="page-title d-md-none my-1">{{ site.title }}</h1>
+    {%- else -%}
     <a class="navbar-brand" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+    {%- endif -%}
 
     {%- if page_paths.size > 0 -%}
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

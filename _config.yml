@@ -1,5 +1,5 @@
 title: Chris Yeh
-description: ML for Sustainability | PhD Student @ Caltech
+description: AI for Sustainability | PhD Candidate @ Caltech
 
 highlighter: rouge
 date_format: "%b %-d, %Y"
@@ -22,7 +22,6 @@ orcid_id: 0000-0002-7624-6168
 # incremental: true
 
 exclude:
-  - env.yml
   - env_ruby.yml
   - LICENSE
   - README.md
