@@ -9,8 +9,12 @@
     **Collaborators:** Victor Li, Rajeev Datta, Julio Arroyo Ibarra, Nicolas Christianson, Chi Zhang, Yize Chen, Mohammad Mehdi Hosseini, Azarang Golmohammadi, Yuanyuan Shi, Yisong Yue, Adam Wierman
 
     **Publications:**
-    1. **C. Yeh**, V. Li, R. Datta, J. Arroyo, N. Christianson, C. Zhang, Y. Chen, M. Hosseini, A. Golmohammadi, Y. Shi, Y. Yue, and A. Wierman, "SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications," in _Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track_, New Orleans, LA, USA, Dec. 2023. [Online]. Available: [https://openreview.net/forum?id=vZ9tA3o3hr](https://openreview.net/forum?id=vZ9tA3o3hr).
-    2. **C. Yeh**, V. Li, R. Datta, Y. Yue, and A. Wierman, "SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications," in _NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning_, Dec. 2022. [Online]. Available: [https://www.climatechange.ai/papers/neurips2022/38](https://www.climatechange.ai/papers/neurips2022/38).
+    1. **SustainGym: Reinforcement Learning Environments for Sustainable Energy Systems**\
+       **C. Yeh**, V. Li, R. Datta, J. Arroyo, N. Christianson, C. Zhang, Y. Chen, M. Hosseini, A. Golmohammadi, Y. Shi, Y. Yue, and A. Wierman\
+       NeurIPS 2023 Datasets and Benchmarks Track
+    2. **SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications**\
+       **C. Yeh**, V. Li, R. Datta, Y. Yue, and A. Wierman\
+       NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning
   media:
     - type: pdf
       name: Paper (NeurIPS 2023)
@@ -34,8 +38,12 @@
     **Collaborators:** Jing Yu, Yuanyuan Shi, Adam Wierman
 
     **Publications:**
-    1. **C. Yeh**, J. Yu, Y. Shi, and A. Wierman, "Online learning for robust voltage control under uncertain grid topology," _IEEE Transactions on Smart Grid_, vol. 15, no. 5, pp. 4754-4764, Sep. 2024, ISSN: 1949-3061. DOI: 10.1109/TSG.2024.3383804. [Online]. Available: [https://ieeexplore.ieee.org/document/10486962](https://ieeexplore.ieee.org/document/10486962).
-    2. **C. Yeh**, J. Yu, Y. Shi, and A. Wierman, "Robust online voltage control with an unknown grid topology," in _Proceedings of the Thirteenth ACM International Conference on Future Energy Systems (e-Energy '22)_, Association for Computing Machinery, Jun. 2022, pp. 240–250, ISBN: 9781450393973. DOI: 10.1145/3538637.3538853. [Online]. Available: [https://dl.acm.org/doi/10.1145/3538637.3538853](https://dl.acm.org/doi/10.1145/3538637.3538853).
+    1. **Online learning for robust voltage control under uncertain grid topology**\
+       **C. Yeh**, J. Yu, Y. Shi, A. Wierman\
+       _IEEE Transactions on Smart Grid_, September 2024
+    2. **Robust online voltage control with an unknown grid topology**\
+       **C. Yeh**, J. Yu, Y. Shi, and A. Wierman\
+       ACM e-Energy 2022, <span style="color: #ff6c0c; font-weight: bold;">Best paper award finalist</span>
   media:
     - type: pdf
       name: Paper (IEEE Transactions on Smart Grid)
@@ -62,7 +70,9 @@
 
     **Collaborators:** Chenlin Meng, Sherrie Wang, Anne Driscoll, Erik Rozi, Patrick Liu, Jihyeon Lee
 
-    **Publication:** **C. Yeh**, C. Meng, S. Wang, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon, "SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning," in _Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks_, Dec. 2021. [Online]. Available: [https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/950a4152c2b4aa3ad78bdd6b366cc179-Abstract-round2.html](https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/950a4152c2b4aa3ad78bdd6b366cc179-Abstract-round2.html).
+    **Publication:** **SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning**\
+    **C. Yeh\***, C. Meng\*, S. Wang\*, A. Driscoll, E. Rozi, P. Liu, J. Lee, M. Burke, D. B. Lobell, and S. Ermon\
+    NeurIPS 2021, Datasets and Benchmarks Track (Round 2)
   media:
     - type: pdf
       name: Paper (NeurIPS 2021)
@@ -91,8 +101,12 @@
     **Collaborators:** Cody Coleman, Stephen Mussmann, Baharan Mirzasoleiman
 
     **Publications:**
-    1. C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Efficient Data Selection for Deep Learning," in *International Conference on Learning  Representations*, Apr. 2020. [Online]. Available: [https://openreview.net/forum?id=HJg2b0VYDr](https://openreview.net/forum?id=HJg2b0VYDr).
-    2. C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia, "Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning," in *Practical Machine Learning for Developing Countries Workshop at ICLR 2020*, Apr. 2020. [Online]. Available: [https://pml4dc.github.io/iclr2020/program/pml4dc_25.html](https://pml4dc.github.io/iclr2020/program/pml4dc_25.html).
+    1. **Selection via Proxy: Efficient Data Selection for Deep Learning**\
+       C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia\
+       ICLR 2020
+    2. **Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning**\
+       C. Coleman, **C. Yeh**, S. Mussmann, B. Mirzasoleiman, P. Bailis, P. Liang, J. Leskovec, and M. Zaharia\
+       ICLR 2020, Practical Machine Learning for Developing Countries Workshop
   media:
     - type: pdf
       name: Paper (ICLR 2020)
@@ -119,10 +133,16 @@
 
       **Collaborators:** Anthony Perez, Anne Driscoll, George Azzari, Zhongyi Tang
 
-      **Publications**
-      1. A. Perez, **C. Yeh**, G. Azzari, M. Burke, D. Lobell, and S. Ermon, "Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning," in *NIPS 2017 Workshop on Machine Learning for the Developing World*, Long Beach, CA, USA, Dec. 2017. arXiv:1711.03654. [Online]. Available: [https://arxiv.org/abs/1711.03654](https://arxiv.org/abs/1711.03654).
-      2. **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Using publicly available satellite imagery and deep learning to understand economic well-being in Africa," *Nature Communications*, vol. 11, no. 1, May 2020, ISSN: 2041-1723. DOI: 10.1038/s41467-020-16185-w. [Online]. Available: [https://www.nature.com/articles/s41467-020-16185-w](https://www.nature.com/articles/s41467-020-16185-w).
-      3. **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke, "Deep learning for understanding economic well-being in Africa from publicly available satellite imagery," in *Workshop on Machine Learning for Economic Policy at NeurIPS 2020*, Dec. 2020. [Online]. Available: [http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf](http://www.mlforeconomicpolicy.com/papers/MLEconPolicy20_paper_30.pdf).
+      **Publications**:
+      1. **Using publicly available satellite imagery and deep learning to understand economic well-being in Africa**\
+         **C. Yeh\***, A. Perez*, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke\
+         _Nature Communications_, May 2020
+      2. **Poverty Prediction with Public Landsat 7 Satellite Imagery and Machine Learning**\
+         A. Perez, **C. Yeh**, G. Azzari, M. Burke, D. Lobell, and S. Ermon\
+         NIPS 2017, Workshop on Machine Learning for the Developing World
+      3. **Deep learning for understanding economic well-being in Africa from publicly available satellite imagery**\
+         **C. Yeh**, A. Perez, A. Driscoll, G. Azzari, Z. Tang, D. Lobell, S. Ermon, and M. Burke\
+         NeurIPS 2020, Workshop on Machine Learning for Economic Policy
   media:
     - type: pdf
       name: Paper (Nature Communications, May 2020)
