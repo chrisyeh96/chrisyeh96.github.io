@@ -1,5 +1,38 @@
 - category: research
   title: |
+    End-to-End Conformal Calibration for Optimization Under Uncertainty
+  setting: Caltech, 2023 - present
+  thumbnail: project_2023_research_e2e.png
+  thumbnail_caption: Our end-to-end conformal calibration method learns uncertainty sets for robust optimization that are informed by the downstream decision-making loss, while providing robustness and calibration guarantees from differentiable conformal prediction.
+  description: |
+    Machine learning can significantly improve performance for decision-making under uncertainty in a wide range of domains. However, ensuring robustness guarantees requires well-calibrated uncertainty estimates, which can be difficult to achieve with neural networks. Moreover, in high-dimensional settings, there may be many valid uncertainty estimates, each with their own performance profile—_i.e._, not all uncertainty is equally valuable for downstream decision-making. To address this problem, we develop an end-to-end framework to _learn_ uncertainty sets for conditional robust optimization in a way that is informed by the downstream decision-making loss, with robustness and calibration guarantees provided by conformal prediction. In addition, we propose to represent general convex uncertainty sets with partially input-convex neural networks (PICNNs), which are learned as part of our framework. Our approach consistently improves upon two-stage estimate-then-optimize baselines on concrete applications in energy storage arbitrage and portfolio optimization.
+  info: |
+    **Collaborators:** Nicolas Christianson, Alan Wu, Adam Wierman, Yisong Yue
+
+    **Publications:**
+
+    1. **End-to-End Conformal Calibration for Optimization Under Uncertainty**\
+       **C. Yeh\***, N. Christianson\*, A. Wu, A. Wierman, Y. Yue\
+       Preprint
+    2. **End-to-end conformal calibration for robust grid-scale battery storage optimization**\
+       **C. Yeh\***, N. Christianson\*, A. Wierman, and Y. Yue\
+       NeurIPS 2024 Workshop on Tackling Climate Change with Machine Learning, Dec. 2024
+    3. **Decision-aware uncertainty-calibrated deep learning for robust energy system operation**\
+       **C. Yeh**, N. Christianson, S. Low, A. Wierman, and Y. Yue\
+       ICLR 2023 Workshop on Tackling Climate Change with Machine Learning, May 2023
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1jyJ3RkBez_kEROdj2hnrjmO3cysJbecm/view
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2409.20534
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/e2e-conformal
+
+- category: research
+  title: |
     SustainGym: Reinforcement Learning Environments for Sustainable Energy Systems
   setting: Caltech, 2022 - 2023
   thumbnail: project_2022_research_sustaingym.png
