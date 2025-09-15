@@ -4,13 +4,14 @@
   setting: Caltech, 2023 - present
   thumbnail: project_2023_research_e2e.png
   thumbnail_caption: Our end-to-end conformal calibration method learns uncertainty sets for robust optimization that are informed by the downstream decision-making loss, while providing robustness and calibration guarantees from differentiable conformal prediction.
+  thumbnail_white_bg: true
+  modal: true
   description: |
     Machine learning can significantly improve performance for decision-making under uncertainty in a wide range of domains. However, ensuring robustness guarantees requires well-calibrated uncertainty estimates, which can be difficult to achieve with neural networks. Moreover, in high-dimensional settings, there may be many valid uncertainty estimates, each with their own performance profile—_i.e._, not all uncertainty is equally valuable for downstream decision-making. To address this problem, we develop an end-to-end framework to _learn_ uncertainty sets for conditional robust optimization in a way that is informed by the downstream decision-making loss, with robustness and calibration guarantees provided by conformal prediction. In addition, we propose to represent general convex uncertainty sets with partially input-convex neural networks (PICNNs), which are learned as part of our framework. Our approach consistently improves upon two-stage estimate-then-optimize baselines on concrete applications in energy storage arbitrage and portfolio optimization.
   info: |
     **Collaborators:** Nicolas Christianson, Alan Wu, Adam Wierman, Yisong Yue
 
     **Publications:**
-
     1. **End-to-End Conformal Calibration for Optimization Under Uncertainty**\
        **C. Yeh\***, N. Christianson\*, A. Wu, A. Wierman, Y. Yue\
        Preprint
@@ -36,6 +37,7 @@
     SustainGym: Reinforcement Learning Environments for Sustainable Energy Systems
   setting: Caltech, 2022 - 2023
   thumbnail: project_2022_research_sustaingym.png
+  modal: false
   description: |
     The lack of standardized benchmarks for reinforcement learning (RL) in sustainability applications has made it difficult to both track progress on specific domains and identify bottlenecks for researchers to focus their efforts. In this paper, we present SustainGym, a suite of five environments designed to test the performance of RL algorithms on realistic sustainable energy system tasks, ranging from electric vehicle charging to carbon-aware data center job scheduling. The environments test RL algorithms under realistic distribution shifts as well as in multi-agent settings. We show that standard off-the-shelf RL algorithms leave significant room for improving performance and highlight the challenges ahead for introducing RL to real-world sustainability tasks.
   info: |
@@ -65,6 +67,8 @@
   setting: Caltech, 2022 - 2024
   thumbnail: project_2022_research_voltctrl.png
   thumbnail_caption: Our voltage control method combines a consistent model chasing algorithm with a robust control oracle to achieve a finite-mistake guarantee even when the distribution grid topology is unknown.
+  thumbnail_white_bg: true
+  modal: true
   description: |
     Voltage control generally requires accurate information about the grid’s topology in order to guarantee network stability. However, accurate topology identification is challenging for existing methods, especially as the grid is subject to increasingly frequent reconfiguration due to the adoption of renewable energy. In this work, we combine a nested convex body chasing algorithm with a robust predictive controller to achieve provably finite-time convergence to safe voltage limits in the online setting where there is uncertainty in both the network topology as well as load and generation variations. In an online fashion, our algorithm narrows down the set of possible grid models that are consistent with observations and adjusts reactive power generation accordingly to keep voltages within desired safety limits. Our approach can also incorporate existing partial knowledge of the network to improve voltage control performance. We demonstrate the effectiveness of our approach in a case study on a Southern California Edison 56-bus distribution system. Our experiments show that in practical settings, the controller is indeed able to narrow the set of consistent topologies quickly enough to make control decisions that ensure stability in both linearized and realistic non-linear models of the distribution grid.
   info: |
@@ -96,6 +100,7 @@
     SustainBench: Benchmarks for Monitoring the Sustainable Development Goals with Machine Learning
   setting: Caltech, 2020 - 2021
   thumbnail: project_2021_research_sustainbench.png
+  modal: false
   description: |
     Progress toward the United Nations Sustainable Development Goals (SDGs) has been hindered by a lack of data on key environmental and socioeconomic indicators, which historically have come from ground surveys with sparse temporal and spatial coverage. Recent advances in machine learning have made it possible to utilize abundant, frequently-updated, and globally available data, such as from satellites or social media, to provide insights into progress toward SDGs. Despite promising early results, approaches to using such data for SDG measurement thus far have largely evaluated on different datasets or used inconsistent evaluation metrics, making it hard to understand whether performance is improving and where additional research would be most fruitful. Furthermore, processing satellite and ground survey data requires domain knowledge that many in the machine learning community lack. In this paper, we introduce SustainBench, a collection of 15 benchmark tasks across 7 SDGs, including tasks related to economic development, agriculture, health, education, water and sanitation, climate action, and life on land. Datasets for 11 of the 15 tasks are released publicly for the first time. Our goals for SustainBench are to (1) lower the barriers to entry for the machine learning community to contribute to measuring and achieving the SDGs; (2) provide standard benchmarks for evaluating machine learning models on tasks across a variety of SDGs; and (3) encourage the development of novel machine learning methods where improved model performance facilitates progress towards the SDGs.
   info: |
@@ -126,6 +131,8 @@
   setting: Stanford University, Summer 2018 - 2019
   thumbnail: project_2018_research_svp.png
   thumbnail_caption: In both active learning and core-set selection settings, our "selection via proxy" approach uses a smaller proxy model to select data for a larger target model.
+  thumbnail_white_bg: true
+  modal: true
   description: |
     Data selection methods, such as active learning and core-set selection, are useful tools for machine learning on large datasets. However, they can be prohibitively expensive to apply in deep learning because they depend on feature representations that need to be learned. We show that we can greatly improve the computational efficiency by using a small proxy model to perform data selection (*e.g.*, selecting data points to label for active learning). By removing hidden layers from the target model, using smaller architectures, and training for fewer epochs, we create proxies that are an order of magnitude faster to train. Although these small proxy models have higher error rates, we find that they empirically provide useful signals for data selection. We evaluate this "selection via proxy" (SVP) approach on several data selection tasks across five datasets: CIFAR10, CIFAR100, ImageNet, Amazon Review Polarity, and Amazon Review Full. For active learning, applying SVP can give an order of magnitude improvement in data selection runtime (*i.e.*, the time it takes to repeatedly train and select points) without significantly increasing the final error (often within 0.1%). For core-set selection on CIFAR10, proxies that are over 10x faster to train than their larger, more accurate targets can remove up to 50% of the data without harming the final accuracy of the target, leading to a 1.6x end-to-end training time improvement.
   info: |
@@ -159,6 +166,7 @@
   setting: Stanford University, Sustainability and AI Lab, Summer 2017 - 2020
   thumbnail: project_2017_research_poverty.jpg
   thumbnail_caption: Nighttime light satellite imagery provides valuable information about economic development.
+  modal: true
   description: |
     Accurate and comprehensive measurements of economic well-being are fundamental inputs into both research and policy, but such measures are unavailable at a local level in many parts of the world. We train deep learning models to predict survey-based estimates of asset wealth across ~20,000 African villages from publicly-available multispectral daytime and nightlight satellite imagery with broad temporal and spatial coverage. Models are able to explain 70% of the variation in ground-measured village wealth in countries where the model was not trained, outperforming previous benchmarks from high-resolution imagery. Comparison with independent wealth measurements from censuses suggests that errors in satellite estimates are comparable to errors in existing ground data. Validating estimates of temporal changes in wealth across ~1,500 villages is also hampered by noise in training data, but district-aggregated satellite-based estimates explain up to 50% of the variation in ground-estimated changes in wealth over time, with daytime imagery particularly useful in this task. We quantitatively demonstrate the utility of satellite-based estimates for research and policy, and demonstrate their scalability by creating a wealth map for Africa's most populous country.
   info: |
@@ -193,6 +201,7 @@
   thumbnail: project_2012_research_stereo.png
   thumbnail_caption: |
     Estimated stereo disparity map from our model on the "Art" dataset from the [Middlebury Stereo Vision Page](https://vision.middlebury.edu/stereo/).
+  modal: true
   info: |
     **Mentor:** Prof. Alex Ihler
 
@@ -211,6 +220,7 @@
   setting: Caltech, Summer 2011
   thumbnail: project_2011_research_foam.jpg
   thumbnail_caption: Foam fractionation of a dilute solution of bovine lactoferrin into a glass beaker.
+  modal: true
   info: |
     **Mentor:** Prof. Robert Tanner, Prof. Julia Kornfield
 
@@ -223,6 +233,7 @@
   title: Photo Licensing Platform
   thumbnail: project_2015_photo.jpg
   thumbnail_caption: A proof-of-concept web app for simplifying the process of creating and purchasing licenses for copyrighted photos and images.
+  modal: true
   setting: Stanford University, September 2015 - June 2019
   description: |
     Millions of copyrighted photographs and other visual works are uploaded to the Internet daily without permission from copyright owners. In democratizing the creation and distribution of visual works, digital technologies have also transformed the landscape that effectively defines creators' rights and consumers' ability to track ownership information. The Stanford Law School and U.S. Copyright Office sought to address the limited licensing options and high transaction costs of existing solutions which act as barriers to lawful, licensed uses of photographs or other images.
@@ -246,6 +257,7 @@
 - category: project
   title: Mood Music Firefox Add-on
   thumbnail: project_2014_moodmusic.png
+  modal: true
   setting: |
     HackUCI Hackathon, May 2014, <i class="fa fa-star"></i> Top 10 Hacks and Best Rdio Hack
   description: |

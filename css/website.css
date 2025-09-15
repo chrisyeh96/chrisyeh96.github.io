@@ -154,15 +154,10 @@ header {
 }
 
 /*******************
- * PROJECTS and ABOUT
+ * PROJECTS
  ******************/
 .content-row {
   margin-bottom: 1rem;
-}
-
-.content-row img {
-  height: auto;
-  margin-bottom: 0.5rem;
 }
 
 .content-row .image-wrapper {
@@ -170,6 +165,12 @@ header {
   font-size: 0.9rem;
   font-style: italic;
   text-align: center;
+}
+
+.project-img {
+  height: auto;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
 }
 
 .content-row a.btn {

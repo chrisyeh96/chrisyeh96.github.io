@@ -1,11 +1,26 @@
+{%- if project.thumbnail -%}
+  {%- assign thumbnail_start = project.thumbnail | slice: 0 3 -%}
+  {%- if thumbnail_start == "http" -%}
+    {%- assign img_src = project.thumbnail -%}
+  {%- else -%}
+    {%- assign img_src = site.baseurl | append: "/images/" | append: project.thumbnail -%}
+  {%- endif -%}
+
+  {%- if project.thumbnail_white_bg -%}
+    {%- assign bg_class = "bg-white" -%}
+  {%- else -%}
+    {%- assign bg_class = "" -%}
+  {%- endif -%}
+{%- endif -%}
+
 <div class="row content-row">
 <div class="col-sm-5 col-lg-4 image-wrapper">
   {%- if project.thumbnail -%}
-    {%- assign thumbnail_start = project.thumbnail | slice: 0 3 -%}
-    {%- if thumbnail_start == "http" -%}
-      <img class="thumbnail rounded" src="{{ project.thumbnail }}">
+    {%- if project.modal -%}
+      <img data-bs-toggle="modal" data-bs-target="#project-modal-{{ project_counter }}"
+        class="project-img rounded {{ bg_class }}" src="{{ img_src }}">
     {%- else -%}
-      <img class="thumbnail rounded" src="{{ site.baseurl }}/images/{{ project.thumbnail }}">
+      <img class="project-img rounded {{ bg_class }}" src="{{ img_src }}">
     {%- endif -%}
   {%- endif -%}
   {%- if project.thumbnail_caption -%}
@@ -15,7 +30,7 @@
 <div class="col-sm-7 col-lg-8">
   <h3>{{ project.title }}</h3>
   {%- if project.setting -%}
-  <em>{{ project.setting | markdownify }}</em>
+  <div class="fst-italic">{{ project.setting | markdownify }}</div>
   {%- endif -%}
   {{ project.description | markdownify }}
   {%- if project.info -%}
@@ -35,3 +50,18 @@
   {%- endfor -%}
 </div>
 </div>
+
+{%- if project.modal -%}
+<div id="project-modal-{{ project_counter }}" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img class="project-img rounded mb-3 {{ bg_class }}" src="{{ img_src }}">
+        {%- if project.thumbnail_caption -%}
+          {{ project.thumbnail_caption | markdownify }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+{%- endif -%}
