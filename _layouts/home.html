@@ -21,6 +21,35 @@ layout: default
 </div>
 </div>
 
+<div class="border-bottom mb-3">
+  <h2>Selected publications</h2>
+  <p>For a complete list of my publications, see my <a href="{{ site.baseurl }}/publications.html">publications</a> page. <em>* denotes equal contribution</em></p>
+  <ol>
+  {%- assign counter = 0 -%}
+  {%- for pub in site.data.publications -%}
+    {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
+    {%- if pub.pin -%}
+    <li>
+    <div>{{ pub.formatted | markdownify }}</div>
+    <p>
+    {%- for media in pub.media -%}
+      <a href="{{ media.url }}" class="post-meta post-tag me-2">
+        {%- if media.type == "pdf" -%}<i class="fas fa-file">
+        {%- elsif media.type == "github" -%}<i class="fab fa-github">
+        {%- elsif media.type == "code" -%}<i class="fas fa-code">
+        {%- elsif media.type == "youtube" -%}<i class="fab fa-youtube">
+        {%- elsif media.type == "video" -%}<i class="fas fa-play-circle">
+        {%- else -%}<i class="fas fa-external-link-alt">
+        {%- endif -%}
+        </i> {{ media.name }}
+      </a>
+    {%- endfor -%}
+    </li>
+    {%- endif -%}
+  {%- endfor -%}
+  </ol>
+</div>
+
 {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
 
 <div class="border-bottom mb-3">
