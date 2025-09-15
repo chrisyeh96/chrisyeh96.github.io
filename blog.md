@@ -1,9 +1,10 @@
 ---
 title: Blog
+permalink: /blog/
 layout: post
 use_code: true
+use_fontawesome: true
 use_math: true
-permalink: /blog/
 ---
 
 Posts below are sorted by date published. Alternatively, explore posts by [tags](../tags/).

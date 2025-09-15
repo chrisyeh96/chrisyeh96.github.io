@@ -1,9 +1,11 @@
 ---
 title: Blog
+permalink: /tags/
 layout: post
 nav_hidden: true
-permalink: /tags/
+use_code: true
 use_fontawesome: true
+use_math: true
 ---
 
 {%- assign sorted_tags = site.tags | sort -%}
