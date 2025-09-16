@@ -229,7 +229,7 @@
     Presented at *43rd American Chemistry Society Western Regional Meeting*, Pasadena, CA.
   description: Foam fractionation is an inexpensive and simple technique for concentrating proteins. The foamability of a protein can drastically change with the age of the protein. The foamability of solutions created from ten year old bovine lactoferrin (bLF) protein was investigated with varying concentration protein, air flow velocity, and the pH of the solution. The results suggest the foamability of the aged protein decreased to an insignificant level except at high pH with a protein concentration of 0.1 mg/mL.
 
-- category: project
+- category: archive
   title: Photo Licensing Platform
   thumbnail: project_2015_photo.jpg
   thumbnail_caption: A proof-of-concept web app for simplifying the process of creating and purchasing licenses for copyrighted photos and images.
@@ -254,14 +254,14 @@
       name: Code
       url: https://github.com/chrisyeh96/copyright-license
 
-- category: project
+- category: archive
   title: Mood Music Firefox Add-on
   thumbnail: project_2014_moodmusic.png
   modal: true
   setting: |
     HackUCI Hackathon, May 2014, <i class="fa fa-star"></i> Top 10 Hacks and Best Rdio Hack
   description: |
-    Mood Music is a Firefox add-on that provides users with content-relevant music that reflects the mood of the websites they visit. It uses a combination of text-extraction through Diffbot, natural language processing of mood, and integration with the (*now-defunct*) Rdio API to create this Firefox add-on. The inspiration behind this lies in alleviating the burden of finding good music during a user's browsing experience.
+    Mood Music was a Firefox add-on that provided users with content-relevant music that reflected the mood of the websites they visit. It used a combination of text-extraction through Diffbot, natural language processing of mood, and integration with the Rdio API to create this Firefox add-on. The inspiration behind this project was to alleviate the burden of finding good music during a user's browsing experience.
   media:
     - type: github
       name: Code

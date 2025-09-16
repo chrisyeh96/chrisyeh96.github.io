@@ -182,11 +182,6 @@ body {
   transition: all .3s ease-in-out;
 }
 
-h1.section-title {
-  color: var(--cardinal-red);
-  margin: 1em 0em 0.7em;
-}
-
 /* Code
  * - inline code is simply <code>...</code>
  * - code blocks are <div class="highlight"><pre class="highlight"><code>...</code></pre></div>
@@ -297,6 +292,15 @@ hr {
   padding: 0 0.3rem;
   margin: 0 0.8rem 0 0;
   display: inline-block;
+}
+
+/*******************
+ * AWARDS
+ ******************/
+
+details.award summary::marker,
+details.award summary :is(::-webkit-details-marker) {
+  content: "";
 }
 
 /*******************
