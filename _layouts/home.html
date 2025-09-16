@@ -77,6 +77,21 @@ layout: default
   </ul>
 </div>
 
+<div class="border-bottom pb-3 mb-3">
+  <h2>Selected Awards and Honors</h2>
+  {%- for award in site.data.awards -%}
+  <div class="row">
+    <div class="col-2 col-lg-1">{{ award.year }}</div>
+    <div class="col-10 col-lg-11">
+      <details class="award">
+      <summary class="fst-italic">{{ award.title }}</summary>
+      {{ award.description | markdownify }}
+      </details>
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+
 <div class="mb-3">
 <h2>Featured Posts</h2>
 <ul class="post-list">
