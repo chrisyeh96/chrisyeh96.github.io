@@ -44,7 +44,7 @@ Here is a quick refresher on complex numbers. Let $$\i = \sqrt{-1}$$, and let $$
 
 **Lemma (equivalent complex numbers):** Let $$c_1 = a_1 + \i b_1$$ and $$c_2 = a_2 + \i b_2$$ be two complex numbers, and let $$\omega \in \R \setminus \{0\}$$ be any nonzero scalar. $$c_1 = c_2$$ if and only if $$\forall t \in \R:\ \Re(c_1 e^{\i \omega t}) = \Re(c_2 e^{\i \omega t})$$.
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 Clearly, if $$c_1 = c_2$$, then $$\forall t \in \R:\ \Re(c_1 e^{\i \omega t}) = \Re(c_2 e^{\i \omega t})$$.
 
@@ -360,7 +360,7 @@ $$
 \end{cases}
 $$
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 $$
 [\hat{C} \hat{C}^{-1}]_{jk}

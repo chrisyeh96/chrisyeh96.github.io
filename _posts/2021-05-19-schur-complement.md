@@ -117,7 +117,7 @@ Both of the equalities can be seen by directly multiplying the matrix factors.
 
 **Lemma (Determinant of Block Matrix)**: If $$A$$ is invertible, then $$\det(M) = \det(A) \det(M/A)$$. Similarly, if $$D$$ is invertible, then $$\det(M) = \det(D) \det(M/D)$$.
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 The proof is a direct application of three properties of determinants to the factorization of $$M$$ given in the previous lemma.
 * The determinant of the product of two matrices is the product of their determinants: $$\det(AB) = \det(A) \det(B)$$. (LADR 10.40)
@@ -154,7 +154,7 @@ $$
     \end{bmatrix}.
 $$
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 A matrix is invertible if and only if its determinant is nonzero (LADR 10.24 and 10.42). Combining this fact with the previous lemma yields the desired result.
 
@@ -405,7 +405,7 @@ $$
 
 **Lemma (Positive definite diagonal blocks)**: If $$M \succ 0$$, then $$A, D \succ 0$$. If $$M \succeq 0$$, then $$A, D \succeq 0$$.
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 Suppose $$M \succ 0$$, so by definition $$\forall (x,y) \neq \zero: \ f(x,y) > 0$$.
 
@@ -422,7 +422,7 @@ The proof for the semidefinite case is nearly identical, where $$>$$ is replaced
 2. If $$A \succ 0$$, then $$ M \succeq 0 \ \iff \ (M/A) \succeq 0 $$.
 3. If $$D \succ 0$$, then $$ M \succeq 0 \ \iff \ (M/D) \succeq 0 $$.
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 We assert the following facts without proof:
 1. For any symmetric matrix $$P$$ and any invertible matrix $$N$$, $$N P N^\top$$ is symmetric. Furthermore, $$P \succ 0 \iff N P N^\top \succ 0$$. Likewise, $$P \succeq 0 \iff N P N^\top \succeq 0$$.
@@ -448,7 +448,7 @@ Using the other factorization of $$M$$ (when $$D \succ 0$$) proves both (3) and 
 
 </details>
 
-<details markdown="block"><summary>Proof (using convexity)</summary>
+<details markdown="block" class="proof"><summary>Proof (using convexity)</summary>
 
 *Note*: This proof assumes knowledge about convex functions. See, e.g., *Convex Optimization* by Boyd ([References](#references)).
 
@@ -588,7 +588,7 @@ $$ y \in \range P \iff P P^\dagger y = y. $$
 
 It is sometimes convenient to write this as $$(I - P P^\dagger) y = \zero$$. A corollary is that $$\range P = \range P P^\dagger$$.
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 First, suppose $$y \in \range P$$, so there exists $$x \in \F^m$$ such that $$Px = y$$. Then
 
@@ -660,7 +660,7 @@ Furthermore, if $$r = \rank P$$ and $$P = Q D Q^\top$$ is an eigendecomposition 
 
 $$ x_* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}. $$
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 *Note: This proof is rather lengthy. For a warm-up, consider first reading through the proof of the next lemma, which uses many of the same ideas but with less notation.*
 
@@ -766,7 +766,7 @@ $$ f(x) =  x^\top P x + 2 x^\top b$$
 
 has a minimum value if and only if $$P \succ 0$$, in which case the minimum value is uniquely attained by $$x_* = -P^{-1} b$$ with $$f(x_*) = -b^\top P^{-1} b$$.
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 Because $$P$$ is now invertible, $$P^{-1} = P^\dagger$$. Making this substitution in the previous lemma yields the corollary. Now $$\rank P = n$$, so $$x_* = -P^{-1} b + Q \zero_n = -P^{-1} b$$ is unique. Furthermore, ($$P$$ is invertible and $$P \succeq 0$$) $$\iff P \succ 0$$.
 
@@ -807,7 +807,7 @@ Now, suppose $$P \succ 0$$. Then $$(x + P^{-1} b)^\top P (x + P^{-1} b) \geq 0$$
 2. $$A \succeq 0$$, $$(I_n - A A^\dagger) B = \zero_{n \times m}$$, $$D - B^\top A^\dagger B \succeq 0$$.
 3. $$D \succeq 0$$, $$(I_m - D D^\dagger) B^\top = \zero_{m \times n}$$, $$A - B D^\dagger B^\top \succeq 0$$.
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 Recall the function $$f: \R^n \times \R^m \to \R$$ defined in the previous section as
 

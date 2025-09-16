@@ -236,13 +236,13 @@ blockquote > :last-child {
 }
 
 /* Content inside <details> is responsible for having bottom margin or padding */
-details {
+details.proof {
   background-color: var(--code-bg);
   border-bottom: 1px solid var(--code-bg);
   margin-bottom: 1rem;
   padding: 0.2rem 0.75rem 0;
 }
-summary {
+details.proof summary {
   font-style: italic;
   padding-bottom: 0.25rem;
 }

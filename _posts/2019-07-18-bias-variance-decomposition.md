@@ -33,7 +33,7 @@ This post discusses the bias-variance decomposition for MSE in both of these con
 
 $$ \E[\|X-c\|_2^2] = \tr\Cov[X] + \|\E[X]-c\|_2^2. $$
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 All of the expectations and the variance are taken with respect to $$P(X)$$. Let $$\mu := \E[X]$$.
 
@@ -303,7 +303,7 @@ We also show that the variance of the ridge regression estimator is strictly les
 
 **Linear Regression Estimator for arbitrary $$f$$**
 
-<details markdown="block"><summary>Details</summary>
+<details markdown="block" class="proof"><summary>Details</summary>
 
 First, we consider the case where the training inputs $$\Xbf$$ are fixed. In this case, the estimator $$\wh$$ is unbiased relative to $$w_\star$$.
 
@@ -382,7 +382,7 @@ $$
 
 In this setting, we assume that $$f(x) = w^T x$$ for some true $$w$$. As a special case, if the noise is Gaussian distributed $$\epsilon \sim \mathcal{N}(0, \sigma^2)$$, then $$\wh$$ is the maximum likelihood estimator (MLE) for $$w$$, so it is consistent and asymptotically efficient.
 
-<details markdown="block"><summary>Details</summary>
+<details markdown="block" class="proof"><summary>Details</summary>
 
 If $$\Xbf$$ is fixed, then the least-squares estimate is unbiased.
 
@@ -430,7 +430,7 @@ $$
 \end{aligned}
 $$
 
-<details markdown="block"><summary>Details</summary>
+<details markdown="block" class="proof"><summary>Details</summary>
 
 If $$f$$ is arbitrary and $$\Xbf$$ is fixed, then the expectation of the ridge regression estimator is not equal to $$w_\star$$, so it is biased. The inequality on the first line comes from the fact that $$\Zbf_{\Xbf, \alpha} \Xbf = (\Xbf^T \Xbf + \alpha I_d)^{-1} (\Xbf^T \Xbf) \neq I_d$$.
 
@@ -499,7 +499,7 @@ For linear models, comparing the definiteness of the covariance matrices is also
 
 **Theorem**: If we take the training inputs $$\Xbf \in \R^{n \times d}$$ with $$n \geq d$$ to be fixed and full-rank while the training labels $$\ybf \in \R^N$$ have variance $$\sigma^2$$, then the variance of any ridge regression estimator with $$\alpha > 0$$ has lower variance than the standard linear regression estimator without regularization. In other words, $$\forall \alpha > 0.\, \Cov[\whR \mid \Xbf] \prec \Cov[\wh \mid \Xbf]$$.
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 Let $$S = \Xbf^T \Xbf$$ and $$W = (\Xbf^T \Xbf + \alpha I)^{-1}$$. Both $$S$$ and $$W$$ are symmetric and invertible matrices. Note that $$S \succ 0$$ because $$z^T S z = \| \Xbf z \|_2^2 > 0$$ for all non-zero $$z$$ (since $$\Xbf$$ has linearly independent columns). Then, $$W^{-1} = (S + \alpha I) \succ 0$$ because $$I \succ 0$$ and $$\alpha > 0$$. Since the inverse of any positive definite matrix is also positive definite, $$S^{-1} \succ 0$$ and $$W \succ 0$$ as well.
 
@@ -600,7 +600,7 @@ $$
 \end{aligned}
 $$
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 $$
 \begin{aligned}
@@ -717,7 +717,7 @@ The **model bias** is the error between the best-fitting linear approximation $$
 
 For example, if the true function was quadratic, then there would be a large model bias. However, if $$f$$ is linear, then the model bias is 0; in fact, both the model bias and the estimation bias are 0 at all test points $$x$$, as shown in the next section. On the other hand, ridge regression has positive estimation bias, but reduced variance.
 
-<details markdown="block"><summary>Proof</summary>
+<details markdown="block" class="proof"><summary>Proof</summary>
 
 For any arbitrary $$\wh$$,
 
@@ -764,7 +764,7 @@ $$
 
 Beyond deriving the values in the chart, we also prove that if the training data $$\Xbf$$ are fixed, then the average in-sample variance is $$\frac{1}{N}\sum_{i=1}^N \Var[\fh(x^{(i)})] = \frac{p}{N} \sigma^2$$.
 
-<details markdown="block"><summary>Details</summary>
+<details markdown="block" class="proof"><summary>Details</summary>
 
 The model prediction at a test point $$x$$ can be expressed as a linear combination of the input targets $$\ybf$$.
 
@@ -842,7 +842,7 @@ $$
 \end{aligned}
 $$
 
-<details markdown="block"><summary>Details</summary>
+<details markdown="block" class="proof"><summary>Details</summary>
 
 Since the linear regression estimators are unbiased when $$f$$ is linear, the model also has no bias. Note that this means the model has zero model bias and zero estimation bias.
 
