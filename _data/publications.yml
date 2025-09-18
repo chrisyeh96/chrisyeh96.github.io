@@ -3,6 +3,42 @@
 # ==================
 
 - formatted: |
+    **Conformal Risk Training: End-to-end optimization of conformal risk control**\
+    **C. Yeh**, N. Christianson, A. Wierman, Y. Yue\
+    NeurIPS 2025
+  citation: |
+    C. Yeh, N. Christianson, A. Wierman, and Y. Yue, "Conformal Risk Training: End-to-end optimization of conformal risk control," in _Advances in Neural Information Processing Systems_, vol. 38, San Diego, CA, USA, Dec. 2025.
+  bibtex: |
+    @inproceedings{yeh2025conformal,
+        title = {{Conformal Risk Training: End-to-end optimization of conformal risk control}},
+        author = {Yeh, Christopher and Christianson, Nicolas and Wierman, Adam and Yue, Yisong},
+        year = 2025,
+        month = dec,
+        booktitle = {Advances in Neural Information Processing Systems},
+        address = {San Diego, CA, USA},
+        volume = 38
+    }
+  pin: true
+
+- formatted: |
+    **Maximizing the Value of Predictions in Control: Accuracy Is Not Enough**\
+    Y. Lin, Z. Chen, **C. Yeh**, A. Wierman\
+    NeurIPS 2025
+  citation: |
+    Y. Lin, Z. Chen, C. Yeh, and A. Wierman, "Maximizing the Value of Predictions in Control: Accuracy Is Not Enough," in _Advances in Neural Information Processing Systems_, vol. 38, San Diego, CA, USA, Dec. 2025.
+  bibtex: |
+    @inproceedings{lin2025maximizing,
+        title = {{Maximizing the Value of Predictions in Control: Accuracy Is Not Enough}},
+        author = {Lin, Yiheng and Chen, Zaiwei and Yeh, Christopher and Wierman, Adam},
+        year = 2025,
+        month = dec,
+        booktitle = {Advances in Neural Information Processing Systems},
+        address = {San Diego, CA, USA},
+        volume = 38
+    }
+  pin: true
+
+- formatted: |
     **Robust machine-learned algorithms for efficient grid operation**\
     N. Christianson, **C. Yeh**, T. Li, M. Hosseini, M. Torabi Rad, A. Golmohammadi, A. Wierman\
     _Environmental Data Science_, April 2025
@@ -133,13 +169,16 @@
     C. Yeh, V. Li, R. Datta, J. Arroyo, N. Christianson, C. Zhang, Y. Chen, M. Hosseini, A. Golmohammadi, Y. Shi, Y. Yue, and A. Wierman, "SustainGym: A Benchmark Suite of Reinforcement Learning for Sustainability Applications," in _Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track_, New Orleans, LA, USA, Dec. 2023. [Online]. Available: [https://openreview.net/forum?id=vZ9tA3o3hr](https://openreview.net/forum?id=vZ9tA3o3hr).
   bibtex: |
     @inproceedings{yeh2023sustaingym,
-        title = {{SustainGym}: {Reinforcement} Learning Environments for Sustainable Energy Systems},
-        author = {Yeh, Christopher and Li, Victor and Datta, Rajeev and Arroyo, Julio and Christianson, Nicolas and Zhang, Chi and Chen, Yize and Hosseini, Mehdi and Golmohammadi, Azarang and Shi, Yuanyuan and Yue, Yisong and Wierman, Adam},
+        title = {{SustainGym}: Reinforcement Learning Environments for Sustainable Energy Systems},
+        author = {Yeh, Christopher and Li, Victor and Datta, Rajeev and Arroyo, Julio and Zhang, Chi and Chen, Yize and Hosseini, Mehdi and Golmohammadi, Azarang and Shi, Yuanyuan and Yue, Yisong and Wierman, Adam},
         year = 2023,
-        month = 12,
-        booktitle = {Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+        month = dec,
+        booktitle = {Advances in Neural Information Processing Systems},
+        publisher = {Curran Associates, Inc.},
         address = {New Orleans, LA, USA},
-        url = {https://openreview.net/forum?id=vZ9tA3o3hr}
+        volume = 36,
+        pages = {59464--59476},
+        url = {https://proceedings.neurips.cc/paper_files/paper/2023/hash/ba74855789913e5ed36f87288af79e5b-Abstract-Datasets_and_Benchmarks.html}
     }
   media:
     - type: url
