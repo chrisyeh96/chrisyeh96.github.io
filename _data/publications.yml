@@ -36,6 +36,13 @@
         address = {San Diego, CA, USA},
         volume = 38
     }
+  media:
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2506.04497
+    - type: github
+      name: Code
+      url: https://github.com/yihenglin97/Prediction-Power
   pin: true
 
 - formatted: |
