@@ -1,3 +1,14 @@
+# Preferred order of links
+# - PDF
+# - appendix / supplementary PDF
+# - URL / arXiv
+# - project page
+# - blog
+# - video / presentation
+# - slides
+# - poster
+# - code
+
 # ==================
 # 2025
 # ==================
@@ -188,18 +199,18 @@
         url = {https://proceedings.neurips.cc/paper_files/paper/2023/hash/ba74855789913e5ed36f87288af79e5b-Abstract-Datasets_and_Benchmarks.html}
     }
   media:
-    - type: url
-      name: Project Page
-      url: https://chrisyeh96.github.io/sustaingym/
-    - type: github
-      name: Code
-      url: https://github.com/chrisyeh96/sustaingym
     - type: pdf
       name: PDF
       url: https://drive.google.com/file/d/1wrLGu2FCVOT_BvtDoudsz05zFG89r7dI/view
+    - type: url
+      name: Project Page
+      url: https://chrisyeh96.github.io/sustaingym/
     - type: pdf
       name: Poster
       url: https://drive.google.com/file/d/1isBLRUulYN_FS2mivbFjt6lHBCMd_YRH/view
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/sustaingym
   pin: true
 
 - formatted: |
@@ -251,15 +262,15 @@
     - type: pdf
       name: PDF
       url: https://drive.google.com/file/d/1m8LhGfIXqzPrINd7rIop6foNhWO2vuiq/view
-    - type: pdf
-      name: Slides
-      url: https://drive.google.com/file/d/152GEISYW0G0KTRc-qbr_0pn6N0x5_zzE/view
-    - type: youtube
-      name: Presentation
-      url: https://youtu.be/2q_zWtU3Oiw
     - type: url
       name: Project Page
       url: https://chrisyeh96.github.io/sustaingym/
+    - type: youtube
+      name: Presentation
+      url: https://youtu.be/2q_zWtU3Oiw
+    - type: pdf
+      name: Slides
+      url: https://drive.google.com/file/d/152GEISYW0G0KTRc-qbr_0pn6N0x5_zzE/view
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/sustaingym
@@ -284,12 +295,12 @@
     - type: pdf
       name: PDF
       url: https://drive.google.com/file/d/138mTr-46fst6M2hfcwT_ftOQoyhPezLa/view
-    - type: pdf
-      name: Slides
-      url: https://drive.google.com/file/d/1R8jzBUgDB5vUv-xjoCuMHTPoNctAykDk/view
     - type: video
       name: Presentation
       url: https://slideslive.com/embed/presentation/38994005?embed_parent_url=https%3A%2F%2Fneurips.cc%2Fvirtual%2F2022%2Fposter%2F59268&embed_container_origin=https%3A%2F%2Fneurips.cc
+    - type: pdf
+      name: Slides
+      url: https://drive.google.com/file/d/1R8jzBUgDB5vUv-xjoCuMHTPoNctAykDk/view
 
 - formatted: |
     **Robust online voltage control with an unknown grid topology**\
@@ -315,15 +326,15 @@
     - type: pdf
       name: PDF
       url: https://drive.google.com/file/d/1k1dpEC_uAwL4mS-njD1hrERgy-ZT7L5b/view
-    - type: pdf
-      name: Slides
-      url: https://drive.google.com/file/d/1_GQMJL0t6N0gDekvASnNCAyXzd81krHM/view
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2206.14369
     - type: youtube
       name: Presentation
       url: https://youtu.be/iDhDfDrXqoA
+    - type: pdf
+      name: Slides
+      url: https://drive.google.com/file/d/1_GQMJL0t6N0gDekvASnNCAyXzd81krHM/view
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/voltctrl
@@ -357,18 +368,18 @@
     - type: pdf
       name: PDF
       url: https://drive.google.com/file/d/1R78RVU-RlPSr-qNhxTf374ylw3NbWEsi/view
-    - type: pdf
-      name: Poster
-      url: https://drive.google.com/file/d/1aKhg4ruyeAsppGWwZMKn8D58JJp07M0L/view
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2111.04724
-    - type: video
-      name: Presentation
-      url: https://slideslive.com/38969499
     - type: url
       name: Project Page
       url: https://sustainlab-group.github.io/sustainbench/
+    - type: video
+      name: Presentation
+      url: https://slideslive.com/38969499
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1aKhg4ruyeAsppGWwZMKn8D58JJp07M0L/view
     - type: github
       name: Code
       url: https://github.com/sustainlab-group/sustainbench
@@ -439,12 +450,6 @@
     - type: video
       name: Presentation
       url: https://slideslive.com/38930370
-    # - type: pdf
-    #   name: Poster
-    #   url: TODO
-    # - type: github
-    #   name: Code
-    #   url: TODO
 
 - formatted: |
     **Quantifying the value of using machine learning to improve solar irradiance forecasting**\
@@ -552,12 +557,12 @@
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/1906.11829
+    - type: url
+      name: Blog Post
+      url: https://dawnd9.sites.stanford.edu/news/selection-proxy-efficient-data-selection-deep-learning
     - type: youtube
       name: Presentation
       url: https://www.youtube.com/watch?v=_7B_yr_C8fs
-    - type: url
-      name: Blog Post
-      url: https://dawn.cs.stanford.edu/2020/04/23/selection-via-proxy/
     - type: github
       name: Code
       url: https://github.com/stanford-futuredata/selection-via-proxy
@@ -585,12 +590,12 @@
     - type: pdf
       name: PDF
       url: https://drive.google.com/file/d/16CfS7IpWLNT4qXezFssCNoIF7tnmd1Nv/view
-    - type: pdf
-      name: Poster
-      url: https://drive.google.com/file/d/1Or_nKMmpJ9EdfliBzIk7JM2Gw4gXDXPs/view
     - type: youtube
       name: Presentation
       url: https://www.youtube.com/watch?v=_7B_yr_C8fs
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1Or_nKMmpJ9EdfliBzIk7JM2Gw4gXDXPs/view
     - type: github
       name: Code
       url: https://github.com/uzkent/EfficientObjectDetection
@@ -625,9 +630,6 @@
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/1711.03654
-    # - type: pdf
-    #   name: Poster
-    #   url: TODO
 
 - formatted: |
     **A Low-Cost Digital Licensing Platform for Photographs: Documentation for a Prototype**\
