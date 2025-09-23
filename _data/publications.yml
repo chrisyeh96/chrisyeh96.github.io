@@ -28,6 +28,7 @@
         booktitle = {NeurIPS 2025 Workshop on Tackling Climate Change with Machine Learning},
         address = {San Diego, CA, USA},
     }
+  venue_type: workshop
 
 - formatted: |
     **Conformal Risk Training: End-to-end optimization of conformal risk control**\
@@ -45,6 +46,7 @@
         address = {San Diego, CA, USA},
         volume = 38
     }
+  venue_type: conference
   pin: true
 
 - formatted: |
@@ -70,6 +72,7 @@
     - type: github
       name: Code
       url: https://github.com/yihenglin97/Prediction-Power
+  venue_type: conference
   pin: true
 
 - formatted: |
@@ -96,6 +99,7 @@
     - type: code
       name: Code
       url: https://doi.org/10.5281/zenodo.13623809
+  venue_type: journal
 
 
 # ==================
@@ -126,6 +130,7 @@
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/e2e-conformal
+  venue_type: preprint
   pin: true
 
 - formatted: |
@@ -154,6 +159,7 @@
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/e2e-conformal
+  venue_type: workshop
 
 - formatted: |
     **Online learning for robust voltage control under uncertain grid topology**\
@@ -188,6 +194,7 @@
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/voltctrl
+  venue_type: journal
   pin: true
 
 
@@ -227,6 +234,7 @@
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/sustaingym
+  venue_type: conference
   pin: true
 
 - formatted: |
@@ -252,6 +260,7 @@
     - type: pdf
       name: Poster
       url: https://drive.google.com/file/d/1UUT78q-P16hJiaBydhCTkqfwwut_wmyV/view
+  venue_type: workshop
 
 
 # ==================
@@ -290,6 +299,7 @@
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/sustaingym
+  venue_type: workshop
 
 - formatted: |
     **Robustifying machine-learned algorithms for efficient grid operation**\
@@ -317,6 +327,7 @@
     - type: pdf
       name: Slides
       url: https://drive.google.com/file/d/1R8jzBUgDB5vUv-xjoCuMHTPoNctAykDk/view
+  venue_type: workshop
 
 - formatted: |
     **Robust online voltage control with an unknown grid topology**\
@@ -354,6 +365,7 @@
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/voltctrl
+  venue_type: conference
 
 
 # ==================
@@ -399,6 +411,7 @@
     - type: github
       name: Code
       url: https://github.com/sustainlab-group/sustainbench
+  venue_type: conference
 
 
 # ==================
@@ -430,6 +443,7 @@
     - type: github
       name: Code
       url: https://github.com/sustainlab-group/africa_poverty
+  venue_type: workshop
 
 - formatted: |
     **A Framework for Sample Efficient Interval Estimation with Control Variates**\
@@ -466,6 +480,7 @@
     - type: video
       name: Presentation
       url: https://slideslive.com/38930370
+  venue_type: conference
 
 - formatted: |
     **Quantifying the value of using machine learning to improve solar irradiance forecasting**\
@@ -482,6 +497,7 @@
         address = {Beijing, China},
         school = {Schwarzman College, Tsinghua University}
     }
+  venue_type: other
 
 - formatted: |
     **Using publicly available satellite imagery and deep learning to understand economic well-being in Africa**\
@@ -520,6 +536,7 @@
     - type: github
       name: Code
       url: https://github.com/sustainlab-group/africa_poverty
+  venue_type: journal
 
 - formatted: |
     **Selection via Proxy: Increasing the Computational Efficiency of Deep Active Learning**\
@@ -546,6 +563,7 @@
     - type: github
       name: Code
       url: https://github.com/stanford-futuredata/selection-via-proxy
+  venue_type: workshop
 
 - formatted: |
     **Selection via Proxy: Efficient Data Selection for Deep Learning**\
@@ -582,6 +600,7 @@
     - type: github
       name: Code
       url: https://github.com/stanford-futuredata/selection-via-proxy
+  venue_type: conference
 
 - formatted: |
     **Efficient Object Detection in Large Images using Deep Reinforcement Learning**\
@@ -615,6 +634,7 @@
     - type: github
       name: Code
       url: https://github.com/uzkent/EfficientObjectDetection
+  venue_type: conference
 
 # ==================
 # 2017
@@ -646,6 +666,7 @@
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/1711.03654
+  venue_type: workshop
 
 - formatted: |
     **A Low-Cost Digital Licensing Platform for Photographs: Documentation for a Prototype**\
@@ -672,6 +693,7 @@
     - type: url
       name: Stanford Law School
       url: https://law.stanford.edu/publications/a-low-cost-digital-licensing-platform-for-photographs-documentation-for-a-prototype/
+  venue_type: other
 
 # ==================
 # 2016
@@ -699,3 +721,4 @@
     - type: pdf
       name: Poster
       url: https://drive.google.com/file/d/1fY30NlivGZJqGB4lQ_7JG428RthFDu_r/view
+  venue_type: other
