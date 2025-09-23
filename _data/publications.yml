@@ -14,6 +14,22 @@
 # ==================
 
 - formatted: |
+    **Robust Energy Storage Operation via Generative Wasserstein Distributionally Robust Optimization**\
+    H. Xu, **C. Yeh**\
+    NeurIPS 2025 Workshop on Tackling Climate Change with Machine Learning
+  citation: |
+    H. Xu and C. Yeh, "Robust Energy Storage Operation via Generative Wasserstein Distributionally Robust Optimization," in _NeurIPS 2025 Workshop on Tackling Climate Change with Machine Learning_, San Diego, CA, USA, Dec. 2025.
+  bibtex: |
+    @inproceedings{xu2025robust,
+        title = {Robust Energy Storage Operation via Generative {W}asserstein Distributionally Robust Optimization},
+        author = {Xu, Han and Yeh, Christopher},
+        year = 2025,
+        month = dec,
+        booktitle = {NeurIPS 2025 Workshop on Tackling Climate Change with Machine Learning},
+        address = {San Diego, CA, USA},
+    }
+
+- formatted: |
     **Conformal Risk Training: End-to-end optimization of conformal risk control**\
     **C. Yeh**, N. Christianson, A. Wierman, Y. Yue\
     NeurIPS 2025
