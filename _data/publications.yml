@@ -14,18 +14,65 @@
 # ==================
 
 - formatted: |
+    **Diffusion-DFL: Decision-focused Diffusion Models for Stochastic Optimization**\
+    Z. Zhao, **C. Yeh**, L. Kong, K. Wang\
+    Under submission
+  citation: |
+    Z. Zhao, C. Yeh, L. K. Kong, and K. Wang, "Diffusion-DFL: Decision-focused diffusion models for stochastic optimization," Sep. 2025.
+  bibtex: |
+    @unpublished{zhao2025diffusion,
+        title = {{Diffusion-DFL}: Decision-focused Diffusion Models for Stochastic Optimization},
+        author = {Zhao, Zihao and Yeh, Christopher and Kong, Lingkai Kong and Wang, Kai},
+        year = 2025,
+        month = sep,
+    }
+  venue_type: preprint
+
+- formatted: |
+    **Distributionally Robust Cooperative Multi-agent Reinforcement Learning with Value Factorization**\
+    C. Qu, **C. Yeh**, K. Panaganti, E. Mazumdar, A. Wierman\
+    Under submission
+  citation: |
+    C. Qu, C. Yeh, K. Panaganti, E. Mazumdar, and A. Wierman, "Distributionally robust cooperative multi-agent reinforcement learning with value factorization," Sep. 2025.
+  bibtex: |
+    @unpublished{qu2025distributionally,
+        title = {Distributionally Robust Cooperative Multi-agent Reinforcement Learning with Value Factorization},
+        author = {Qu, Chengrui and Yeh, Christopher and Panaganti, Kishan and Mazumdar, Eric and Wierman, Adam},
+        year = 2025,
+        month = sep,
+    }
+  venue_type: preprint
+
+- formatted: |
     **Robust Energy Storage Operation via Generative Wasserstein Distributionally Robust Optimization**\
     H. Xu, **C. Yeh**\
     NeurIPS 2025 Workshop on Tackling Climate Change with Machine Learning
   citation: |
     H. Xu and C. Yeh, "Robust Energy Storage Operation via Generative Wasserstein Distributionally Robust Optimization," in _NeurIPS 2025 Workshop on Tackling Climate Change with Machine Learning_, San Diego, CA, USA, Dec. 2025.
   bibtex: |
-    @inproceedings{xu2025robust,
+    @inproceedings{xu2025robustenergy,
         title = {Robust Energy Storage Operation via Generative {W}asserstein Distributionally Robust Optimization},
         author = {Xu, Han and Yeh, Christopher},
         year = 2025,
         month = dec,
         booktitle = {NeurIPS 2025 Workshop on Tackling Climate Change with Machine Learning},
+        address = {San Diego, CA, USA},
+    }
+  venue_type: workshop
+
+- formatted: |
+    **Robust Decisions via Generative Wasserstein Distributionally Robust Optimization**\
+    H. Xu, **C. Yeh**\
+    NeurIPS 2025 Workshop on Generative AI in Finance
+  citation: |
+    H. Xu and C. Yeh, "Robust Decisions via Generative Wasserstein Distributionally Robust Optimization," in _NeurIPS 2025 Workshop on Generative AI in Finance_, San Diego, CA, USA, Dec. 2025.
+  bibtex: |
+    @inproceedings{xu2025robustdecisions,
+        title = {Robust Decisions via Generative {W}asserstein Distributionally Robust Optimization},
+        author = {Xu, Han and Yeh, Christopher},
+        year = 2025,
+        month = dec,
+        booktitle = {NeurIPS 2025 Workshop on Generative AI in Finance},
         address = {San Diego, CA, USA},
     }
   venue_type: workshop
