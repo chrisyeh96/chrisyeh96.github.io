@@ -1,5 +1,6 @@
 ---
 title: Publications
+permalink: /publications_chronological/
 layout: post
 nav_hidden: true
 use_fontawesome: true
