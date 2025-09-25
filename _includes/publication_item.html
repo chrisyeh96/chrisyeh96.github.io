@@ -1,0 +1,23 @@
+<li>
+  <div>{{ pub.formatted | markdownify }}</div>
+  <p>
+  {%- for media in pub.media -%}
+    <a href="{{ media.url }}" class="post-meta pub-link">
+      {%- if media.type == "pdf" -%}<i class="fas fa-file">
+      {%- elsif media.type == "github" -%}<i class="fab fa-github">
+      {%- elsif media.type == "code" -%}<i class="fas fa-code">
+      {%- elsif media.type == "youtube" -%}<i class="fab fa-youtube">
+      {%- elsif media.type == "video" -%}<i class="fas fa-play-circle">
+      {%- else -%}<i class="fas fa-external-link-alt">
+      {%- endif -%}
+      </i> {{ media.name }}
+    </a>
+  {%- endfor -%}
+  <a href="#citation{{ counter }}" class="post-meta pub-link" data-bs-toggle="collapse">Cite</a>
+  </p>
+  <div id="citation{{ counter }}" class="collapse">
+    {{ pub.citation | prepend: "> " | markdownify }}
+    {%- assign bibtex_code = pub.bibtex | append: "```" | prepend: newLine | prepend: "```bibtex" -%}
+    {{ bibtex_code | markdownify }}
+  </div>
+</li>

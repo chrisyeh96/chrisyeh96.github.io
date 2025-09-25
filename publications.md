@@ -7,45 +7,74 @@ use_fontawesome: true
 {% capture newLine %}
 {% endcapture %}
 
+{%- comment -%}
 <!-- embed Altmetric badge -->
 <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+{%- endcomment -%}
 
-_* denotes equal contribution_
+_* denotes equal contribution_. Papers are organized by category and sorted by reverse chronological order. For a reverse chronological list of publications without categorization, [click here](./publications_chronological/).
+
+# Working manuscripts and preprints
 
 <ol reversed>
 {%- assign counter = 0 -%}
 {%- for pub in site.data.publications -%}
   {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
-  <li>
-  <div>
-    {%- comment -%}
-    {%- if pub.altmetric_id -%}
-      <div class="altmetric-embed float-end" data-badge-type="donut" data-altmetric-id="{{ pub.altmetric_id }}"></div>
-    {%- endif -%}
-    {%- endcomment -%}
-    {{ pub.formatted | markdownify }}
-  </div>
-  <p>
-  {%- for media in pub.media -%}
-    <a href="{{ media.url }}" class="post-meta pub-link">
-      {%- if media.type == "pdf" -%}<i class="fas fa-file">
-      {%- elsif media.type == "github" -%}<i class="fab fa-github">
-      {%- elsif media.type == "code" -%}<i class="fas fa-code">
-      {%- elsif media.type == "youtube" -%}<i class="fab fa-youtube">
-      {%- elsif media.type == "video" -%}<i class="fas fa-play-circle">
-      {%- else -%}<i class="fas fa-external-link-alt">
-      {%- endif -%}
-      </i> {{ media.name }}
-    </a>
-  {%- endfor -%}
-  <a href="#citation{{ counter }}" class="post-meta pub-link" data-bs-toggle="collapse">Cite</a>
-  </p>
-  <div id="citation{{ counter }}" class="collapse">
-    {{ pub.citation | prepend: "> " | markdownify }}
-    {%- assign bibtex_code = pub.bibtex | append: "```" | prepend: newLine | prepend: "```bibtex" -%}
-    {{ bibtex_code | markdownify }}
-  </div>
-  </li>
+  {%- if pub.venue_type == "preprint" -%}
+  {% include publication_item.html pub=pub counter=counter %}
   {%- assign counter = counter | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+</ol>
+
+# Journal publications
+
+<ol reversed>
+{%- assign counter = 0 -%}
+{%- for pub in site.data.publications -%}
+  {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
+  {%- if pub.venue_type == "journal" -%}
+  {% include publication_item.html pub=pub counter=counter %}
+  {%- assign counter = counter | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+</ol>
+
+# Conference publications
+
+<ol reversed>
+{%- assign counter = 0 -%}
+{%- for pub in site.data.publications -%}
+  {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
+  {%- if pub.venue_type == "conference" -%}
+  {% include publication_item.html pub=pub counter=counter %}
+  {%- assign counter = counter | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+</ol>
+
+# Workshop publications
+
+<ol reversed>
+{%- assign counter = 0 -%}
+{%- for pub in site.data.publications -%}
+  {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
+  {%- if pub.venue_type == "workshop" -%}
+  {% include publication_item.html pub=pub counter=counter %}
+  {%- assign counter = counter | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+</ol>
+
+# Other non-refereed publications
+
+<ol reversed>
+{%- assign counter = 0 -%}
+{%- for pub in site.data.publications -%}
+  {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
+  {%- if pub.venue_type == "other" -%}
+  {% include publication_item.html pub=pub counter=counter %}
+  {%- assign counter = counter | plus: 1 -%}
+  {%- endif -%}
 {%- endfor -%}
 </ol>

@@ -29,22 +29,8 @@ layout: default
   {%- for pub in site.data.publications -%}
     {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
     {%- if pub.pin -%}
-    <li>
-    <div>{{ pub.formatted | markdownify }}</div>
-    <p>
-    {%- for media in pub.media -%}
-      <a href="{{ media.url }}" class="post-meta pub-link">
-        {%- if media.type == "pdf" -%}<i class="fas fa-file">
-        {%- elsif media.type == "github" -%}<i class="fab fa-github">
-        {%- elsif media.type == "code" -%}<i class="fas fa-code">
-        {%- elsif media.type == "youtube" -%}<i class="fab fa-youtube">
-        {%- elsif media.type == "video" -%}<i class="fas fa-play-circle">
-        {%- else -%}<i class="fas fa-external-link-alt">
-        {%- endif -%}
-        </i> {{ media.name }}
-      </a>
-    {%- endfor -%}
-    </li>
+      {% include publication_item.html pub=pub counter=counter %}
+      {%- assign counter = counter | plus: 1 -%}
     {%- endif -%}
   {%- endfor -%}
   </ol>
