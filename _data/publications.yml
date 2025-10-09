@@ -85,7 +85,7 @@
     C. Yeh, N. Christianson, A. Wierman, and Y. Yue, "Conformal Risk Training: End-to-end optimization of conformal risk control," in _Advances in Neural Information Processing Systems_, vol. 38, San Diego, CA, USA, Dec. 2025.
   bibtex: |
     @inproceedings{yeh2025conformal,
-        title = {{Conformal Risk Training: End-to-end optimization of conformal risk control}},
+        title = {{Conformal Risk Training: End-to-End Optimization of Conformal Risk Control}},
         author = {Yeh, Christopher and Christianson, Nicolas and Wierman, Adam and Yue, Yisong},
         year = 2025,
         month = dec,
@@ -93,6 +93,13 @@
         address = {San Diego, CA, USA},
         volume = 38
     }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1l6G2qDqgYDoEoHgT9vY0XEFpC1kDzSkO/view
+    - type: github
+      name: Code
+      url: https://github.com/chrisyeh96/conformal-risk-training
   venue_type: conference
   pin: true
 
