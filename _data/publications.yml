@@ -16,7 +16,7 @@
 - formatted: |
     **Diffusion-DFL: Decision-focused Diffusion Models for Stochastic Optimization**\
     Z. Zhao, **C. Yeh**, L. Kong, K. Wang\
-    Under submission
+    Under review
   citation: |
     Z. Zhao, C. Yeh, L. K. Kong, and K. Wang, "Diffusion-DFL: Decision-focused diffusion models for stochastic optimization," Sep. 2025.
   bibtex: |
@@ -26,12 +26,16 @@
         year = 2025,
         month = sep,
     }
+  media:
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2510.11590
   venue_type: preprint
 
 - formatted: |
     **Distributionally Robust Cooperative Multi-agent Reinforcement Learning with Value Factorization**\
     C. Qu, **C. Yeh**, K. Panaganti, E. Mazumdar, A. Wierman\
-    Under submission
+    Under review
   citation: |
     C. Qu, C. Yeh, K. Panaganti, E. Mazumdar, and A. Wierman, "Distributionally robust cooperative multi-agent reinforcement learning with value factorization," Sep. 2025.
   bibtex: |
