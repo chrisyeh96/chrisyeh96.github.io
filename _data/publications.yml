@@ -134,6 +134,9 @@
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2510.08748
+    - type: youtube
+      name: Presentation
+      url: https://youtu.be/j4TLPGzaAS8
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/conformal-risk-training
