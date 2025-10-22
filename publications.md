@@ -30,7 +30,6 @@ _* denotes equal contribution_. Papers are organized by category and sorted by r
 # Journal publications
 
 <ol reversed>
-{%- assign counter = 0 -%}
 {%- for pub in site.data.publications -%}
   {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
   {%- if pub.venue_type == "journal" -%}
@@ -43,7 +42,6 @@ _* denotes equal contribution_. Papers are organized by category and sorted by r
 # Conference publications
 
 <ol reversed>
-{%- assign counter = 0 -%}
 {%- for pub in site.data.publications -%}
   {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
   {%- if pub.venue_type == "conference" -%}
@@ -56,7 +54,6 @@ _* denotes equal contribution_. Papers are organized by category and sorted by r
 # Workshop publications
 
 <ol reversed>
-{%- assign counter = 0 -%}
 {%- for pub in site.data.publications -%}
   {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
   {%- if pub.venue_type == "workshop" -%}
@@ -69,7 +66,6 @@ _* denotes equal contribution_. Papers are organized by category and sorted by r
 # Other non-refereed publications
 
 <ol reversed>
-{%- assign counter = 0 -%}
 {%- for pub in site.data.publications -%}
   {%- if pub.hidden -%}{%- continue -%}{%- endif -%}
   {%- if pub.venue_type == "other" -%}
