@@ -145,14 +145,14 @@
 
 - formatted: |
     **Maximizing the Value of Predictions in Control: Accuracy Is Not Enough**\
-    Y. Lin, Z. Chen, **C. Yeh**, A. Wierman\
+    Y. Lin, **C. Yeh**, Z. Chen, A. Wierman\
     NeurIPS 2025
   citation: |
-    Y. Lin, Z. Chen, C. Yeh, and A. Wierman, "Maximizing the Value of Predictions in Control: Accuracy Is Not Enough," in _Advances in Neural Information Processing Systems_, vol. 38, San Diego, CA, USA, Dec. 2025.
+    Y. Lin, C. Yeh, Z. Chen, and A. Wierman, "Maximizing the Value of Predictions in Control: Accuracy Is Not Enough," in _Advances in Neural Information Processing Systems_, vol. 38, San Diego, CA, USA, Dec. 2025.
   bibtex: |
     @inproceedings{lin2025maximizing,
         title = {{Maximizing the Value of Predictions in Control: Accuracy Is Not Enough}},
-        author = {Lin, Yiheng and Chen, Zaiwei and Yeh, Christopher and Wierman, Adam},
+        author = {Lin, Yiheng and Yeh, Christopher and Chen, Zaiwei and Wierman, Adam},
         year = 2025,
         month = dec,
         booktitle = {Advances in Neural Information Processing Systems},
