@@ -14,6 +14,21 @@
 # ==================
 
 - formatted: |
+    **Improving EV Aggregate Flexibility with End-to-End Learning**\
+    A. Thanvantri, **C. Yeh**, N. Christianson, A. Wierman\
+    Under review
+  citation: |
+    A. Thanvantri, C. Yeh, N. Christianson, and A. Wierman\, "Improving EV Aggregate Flexibility with End-to-End Learning," Nov. 2025.
+  bibtex: |
+    @unpublished{thanvantri2025improving,
+        title = {Improving EV Aggregate Flexibility with End-to-End Learning},
+        author = {Thanvantri, Apoorva and Yeh, Christopher and Christianson, Nicolas and Wierman, Adam},
+        year = 2025,
+        month = nov,
+    }
+  venue_type: preprint
+
+- formatted: |
     **Diffusion-DFL: Decision-focused Diffusion Models for Stochastic Optimization**\
     Z. Zhao, **C. Yeh**, L. Kong, K. Wang\
     Under review
