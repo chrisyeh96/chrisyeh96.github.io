@@ -65,7 +65,7 @@
 - formatted: |
     **End-to-End Conformal Calibration for Optimization Under Uncertainty**\
     **C. Yeh\***, N. Christianson\*, A. Wu, A. Wierman, Y. Yue\
-    _Transactions on Machine Learning Research_, October 2025
+    _Transactions on Machine Learning Research_, November 2025
   citation: |
     C. Yeh, N. Christianson, A. Wu, A. Wierman, and Y. Yue, End-to-end conformal calibration for optimization under uncertainty, 2024. DOI: 10.48550/arXiv.2409.20534. [Online]. Available: [https://arxiv.org/abs/2409.20534](https://arxiv.org/abs/2409.20534).
   bibtex: |
@@ -279,6 +279,31 @@
   venue_type: journal
   pin: true
 
+- formatted: |
+    **Artificial Intelligence for Climate and Development: With Recommendations for	USAID/Mexico**\
+    **C. Yeh**\
+    USAID/Mexico, PA-021-QXN, March 2024
+  citation: |
+    C. Yeh, "Artificial Intelligence for Climate and Development: With Recommendations for	USAID/Mexico," USAID, Tech. Rep. PA-021-QXN, Mar. 2024. [Online]. Available: [https://linclocal.org/wp-content/uploads/2024/04/FINAL_AI-for-Climate-Change-Report_03112024_508C.pdf](https://linclocal.org/wp-content/uploads/2024/04/FINAL_AI-for-Climate-Change-Report_03112024_508C.pdf).
+  bibtex: |
+    @techreport{yeh2024artificial,
+      title = {Artificial {Intelligence} for {Climate} and {Development}: {With} {Recommendations} for {USAID}/{Mexico}},
+      shorttitle = {Artificial {Intelligence} for {Climate} and {Development}},
+      author = {Yeh, Christopher},
+      year = 2024,
+      month = mar,
+      number = {PA-021-QXN},
+      pages = 27,
+      url = {https://linclocal.org/wp-content/uploads/2024/04/FINAL_AI-for-Climate-Change-Report_03112024_508C.pdf},
+      language = {en},
+      institution = {USAID}
+    }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1aK6c9VlfP5oreaK52jaX4V_kZAB4ywku/view
+  venue_type: other
+  pin: true
 
 # ==================
 # 2023
