@@ -15,8 +15,6 @@ $$
 \newcommand{\wh}{\hat{w}}
 \newcommand{\whR}{\hat{w}^\text{Ridge}}
 \newcommand{\Th}{\hat{T}}
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\Bias}{Bias}
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\Cov}{Cov}

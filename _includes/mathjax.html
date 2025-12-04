@@ -11,14 +11,33 @@
                 Sym: "{\\mathbb{S}}",  // symmetric, real matrices
 
                 // no arguments
+                argmax: "\\operatorname*{arg\\,max}",  // argmax
+                argmin: "\\operatorname*{arg\\,min}",  // argmin
                 Borel:"{\{\mathcal{B}}}",  // Borel sets
+                diag: "\\operatorname{diag}", // diagonal matrix
                 diff:"{\\mathop{}\\!\\mathrm{d}}",  // differential
                 E: "{\\mathbb{E}}",
+                KL: "\\operatorname{KL}",
                 iid:"{\\stackrel{\\mathrm{iid}}{\\sim}}",  // iid
                 one:"{\\mathbf{1}}",  // ones vector
                 powerset:"{\\mathscr{P}}",  // powerset
                 stodom:"{\\succeq_s}",  // stochastic domination
                 zero:"{\\mathbf{0}}",  // zeros vector
+
+                // distributions
+                Bernoulli: "\\operatorname{Bernoulli}",
+                Beta: "\\operatorname{Beta}",
+                Binomial: "\\operatorname{Binomial}",
+                Categorical: "\\operatorname{Categorical}",
+                ChiSq: "\\chi^2_{#1}",
+                Exponential: "\\operatorname{Exponential}",
+                GammaDist: "\\operatorname{Gamma}",
+                Gaussian: "\\mathcal{N}",
+                GP: "\\mathcal{GP}",
+                Lognormal: "\\operatorname{Lognormal}",
+                Multinomial: "\\operatorname{Multinomial}",
+                Poisson: "\\operatorname{Poisson}",
+                Uniform: "\\operatorname{Uniform}",
 
                 // with arguments, but no default value
                 abs: ["{\\left\\lvert#1\\right\\rvert}", 1],  // absolute value
@@ -120,4 +139,4 @@
         }
     };
 </script>
-<script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>

@@ -13,7 +13,6 @@ $$
 \newcommand{\F}{\mathbb{F}}  % field
 \newcommand{\spanset}[1]{\spans\left\{#1\right\}}  % span
 \DeclareMathOperator{\det}{det}  % determinant
-\DeclareMathOperator{\diag}{diag}  % diagonal
 \DeclareMathOperator{\null}{null}  % null
 \DeclareMathOperator{\rank}{rank}  % rank
 \DeclareMathOperator{\range}{range}  % range

@@ -13,7 +13,6 @@ $$
 \newcommand{\i}{\mathbf{i}}  % complex number i
 \renewcommand{\Re}{\mathsf{Re}}  % real component
 \renewcommand{\Im}{\mathsf{Im}}  % imaginary component
-\DeclareMathOperator{\diag}{diag}  % diagonal
 \newcommand{\Imax}{I_\max}  % current amplitude
 \newcommand{\Vmax}{V_\max}  % voltage amplitude
 $$

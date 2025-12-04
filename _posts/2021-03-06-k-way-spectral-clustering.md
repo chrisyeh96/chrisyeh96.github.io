@@ -9,11 +9,6 @@ pin: true
 excerpt: Given an undirected graph $$G = (V, E)$$, a common task is to identify clusters among the nodes. It is a well-known fact that the sign of entries in the second eigenvector of the normalized Graph Laplacian matrix provides a convenient way to partition the graph into two clusters; this "spectral clustering" method has strong theoretical foundations. In this post, I highlight several theoretical works that generalize the technique for $$k$$-way clustering.
 ---
 
-$$
-\DeclareMathOperator*{\argmin}{arg\,min}  % argmin
-\DeclareMathOperator{\diag}{diag}  % diagonal
-$$
-
 ## Preliminaries and Notation
 
 Let $$G = (V, E)$$ be an undirected graph with $$\abs{V} = n$$ nodes. Let the nodes be numbered $$V = \{1, \dotsc, n\}$$, and let $$d_i$$ denote the degree of node $$i$$ (i.e., the number of edges adjacent to node $$i$$).
