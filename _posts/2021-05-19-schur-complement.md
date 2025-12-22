@@ -12,10 +12,6 @@ excerpt: I prove key properties of Schur Complements and use them to derive the 
 $$
 \newcommand{\F}{\mathbb{F}}  % field
 \newcommand{\spanset}[1]{\spans\left\{#1\right\}}  % span
-\DeclareMathOperator{\det}{det}  % determinant
-\DeclareMathOperator{\null}{null}  % null
-\DeclareMathOperator{\rank}{rank}  % rank
-\DeclareMathOperator{\range}{range}  % range
 \DeclareMathOperator{\spans}{span}  % span
 $$
 
@@ -680,7 +676,7 @@ $$
 \end{aligned}
 $$
 
-First, we show that if $$f$$ has a minimum value, then both $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. By contrapositive, suppose that $$(I - P P^\dagger) b \neq \zero$$ and that $$P \not\succeq 0$$, so $$P$$ has a negative eigenvalue $$\lambda < 0$$. Let $$v \neq \zero$$ be a corresponding eigenvector, so $$Pv = \lambda v$$. For any $$a \in \R$$, if we let $$x = av - P^\dagger b$$, then
+First, we show that if $$f$$ has a minimum value, then both $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. We will show this via contrapositive: if either $$P \not\succeq 0$$ or $$(I - P P^\dagger) b \neq \zero$$, then $$f$$ is unbounded below. We start with the case that $$P \not\succeq 0$$, so $$P$$ has a negative eigenvalue $$\lambda < 0$$. Let $$v \neq \zero$$ be a corresponding eigenvector, so $$Pv = \lambda v$$. For any $$a \in \R$$, if we let $$x = av - P^\dagger b$$, then
 
 $$
 \begin{aligned}
@@ -700,11 +696,10 @@ Instead, suppose that $$P \succeq 0$$, but $$(I - P P^\dagger) b \neq \zero$$, s
 $$
 \begin{aligned}
     \range P &= \spanset{v_1, \dotsc, v_r} \\
-    \null P &= \spanset{v_{r+1}, \dotsc, v_n}
-\end{aligned}
-$$
+    \nullspace P &= \spanset{v_{r+1}, \dotsc, v_n}
+\end{aligned}$$
 
-and every element in $$\null P$$ is an eigenvector of $$P$$ with eigenvalue 0. Since $$b \not\in \range P$$ (by a previous lemma) and $$v_1, \dotsc, v_n$$ is a basis of $$\R^n$$, this means $$b \in \spanset{v_{r+1}, \dotsc, v_n} = \null P$$. Therefore, $$b$$ is an eigenvector of $$P$$ corresponding to eigenvalue 0. For every $$v \in \null P$$,
+and every element in $$\nullspace P$$ is an eigenvector of $$P$$ with eigenvalue 0. Since $$b \not\in \range P$$ (by a previous lemma) and $$v_1, \dotsc, v_n$$ is a basis of $$\R^n$$, this means $$b \in \spanset{v_{r+1}, \dotsc, v_n} = \nullspace P$$. Therefore, $$b$$ is an eigenvector of $$P$$ corresponding to eigenvalue 0. For every $$v \in \nullspace P$$,
 
 $$
 \begin{aligned}
@@ -739,7 +734,7 @@ $$ f(x) = (x + P^\dagger b)^\top P (x + P^\dagger b) - b^\top P^\dagger b. $$
 
 Since $$(x + P^\dagger b)^\top P (x + P^\dagger b) \geq 0$$ for all $$x$$, it is minimized with value 0 when $$P (x + P^\dagger b) = \zero$$. In other words, $$f$$ is minimized with value $$p_* = -b^\top P^\dagger b$$.
 
-We have shown that $$f$$ has a minimum value if and only if $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. Furthermore, the minimum is achieved by any $$x_*$$ such that $$x_* + P^\dagger b \in \null P$$. For all $$x_*$$ of the form $$x_* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}$$,
+We have shown that $$f$$ has a minimum value if and only if $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. Furthermore, the minimum is achieved by any $$x_*$$ such that $$x_* + P^\dagger b \in \nullspace P$$. For all $$x_*$$ of the form $$x_* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}$$,
  we have
 
 $$
@@ -752,7 +747,7 @@ $$
 \end{aligned}
 $$
 
-since $$Q^\top Q = I$$ and $$D = \diag(\sigma_1, \dotsc, \sigma_r, 0_{r+1}, \dots, 0_n)$$. Therefore, $$x_* + P^\dagger b \in \null P$$, so $$f$$ is minimized by all $$x_*$$ of the form above.
+since $$Q^\top Q = I$$ and $$D = \diag(\sigma_1, \dotsc, \sigma_r, 0_{r+1}, \dots, 0_n)$$. Therefore, $$x_* + P^\dagger b \in \nullspace P$$, so $$f$$ is minimized by all $$x_*$$ of the form above.
 
 *Source*: This lemma is stated as Proposition 15.2 in Gallier's *Geometric Methods and Applications* and as Proposition 4.2 in Gallier's "The Schur Complement" ([References](#references)), but the proof is different. I find my proof more intuitive and direct than Gallier's. I avoid having to first prove the following corollary, and I also avoid the clunky notation of block matrices and vectors.
 

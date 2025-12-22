@@ -16,9 +16,6 @@ $$
 \newcommand{\whR}{\hat{w}^\text{Ridge}}
 \newcommand{\Th}{\hat{T}}
 \DeclareMathOperator{\Bias}{Bias}
-\DeclareMathOperator{\Var}{Var}
-\DeclareMathOperator{\Cov}{Cov}
-\DeclareMathOperator{\tr}{tr}
 $$
 
 Mean squared error (MSE) is defined in two different contexts.
