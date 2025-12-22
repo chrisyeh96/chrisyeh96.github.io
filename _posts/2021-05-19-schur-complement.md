@@ -3,7 +3,7 @@ title: Schur Complements and the Matrix Inversion Lemma
 layout: post
 use_math: true
 use_toc: true
-last_updated: 2021-06-18
+last_updated: 2025-12-22
 tags: [math]
 pin: true
 excerpt: I prove key properties of Schur Complements and use them to derive the matrix inversion lemma.
@@ -17,7 +17,7 @@ $$
 
 ## Preliminaries
 
-The post assumes standard linear algebra knowledge at the level presented in S. Axler's *Linear Algebra Done Right, 3e* (LADR). All results in this post apply to both real and complex-valued matrices, unless otherwise specified.
+The post assumes standard linear algebra knowledge at the level presented in S. Axler's *Linear Algebra Done Right, 4e* (LADR). All results in this post apply to both real and complex-valued matrices, unless otherwise specified.
 * $$\F$$ stands for either $$\R$$ or $$\C$$.
 * $$I_n$$ denotes the $$n \times n$$ identity matrix.
 * $$\Sym^n$$ denotes the vector space of symmetric $$n \times n$$ real matrices.
@@ -115,7 +115,7 @@ Both of the equalities can be seen by directly multiplying the matrix factors.
 <details markdown="block" class="proof"><summary>Proof</summary>
 
 The proof is a direct application of three properties of determinants to the factorization of $$M$$ given in the previous lemma.
-* The determinant of the product of two matrices is the product of their determinants: $$\det(AB) = \det(A) \det(B)$$. (LADR 10.40)
+* The determinant of the product of two matrices is the product of their determinants: $$\det(AB) = \det(A) \det(B)$$. (LADR 9.49)
 * The determinant of a triangular matrix is the product of the diagonal entries. ([StackExchange](https://math.stackexchange.com/a/2013136))
 * The determinant of a block-diagonal matrix is the product of the determinants of the individual blocks. ([StackExchange](https://math.stackexchange.com/a/1219331))
 
@@ -151,12 +151,11 @@ $$
 
 <details markdown="block" class="proof"><summary>Proof</summary>
 
-A matrix is invertible if and only if its determinant is nonzero (LADR 10.24 and 10.42). Combining this fact with the previous lemma yields the desired result.
+A square matrix is invertible if and only if its determinant is nonzero (LADR 9.50). Combining this fact with the previous lemma yields the desired result.
 
 Furthermore, the proof of the previous lemma shows that if $$A$$ and $$M/A$$ are invertible, then all 3 matrices in the factorization of $$M$$ have nonzero determinant and are therefore invertible. This naturally leads to a derivation of the inverse of $$M$$:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     M^{-1}
     &= \begin{bmatrix} I_n & A^{-1} B \\ \zero & I_m \end{bmatrix}^{-1}
        \begin{bmatrix} A & \zero \\ \zero & M/A \end{bmatrix}^{-1}
@@ -168,13 +167,11 @@ $$
         A^{-1} + A^{-1} B (M/A)^{-1} C A^{-1}  &  -A^{-1} B (M/A)^{-1} \\
         -(M/A)^{-1} C A^{-1}                   &  (M/A)^{-1}
        \end{bmatrix}
-\end{aligned}
-$$
+\end{aligned}$$
 
 Similarly, if $$D$$ and $$M/D$$ are invertible, then the inverse of $$M$$ can be derived as
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     M^{-1}
     &= \begin{bmatrix} I_n & \zero \\ D^{-1} C & I_m \end{bmatrix}^{-1}
        \begin{bmatrix} M/D & \zero \\ \zero & D \end{bmatrix}^{-1}
@@ -198,33 +195,27 @@ $$
 
 To determine $$M^{-1}$$, we solve for the coefficients that express $$x$$ and $$y$$ in terms of $$a$$ and $$b$$. The linear equation can be split into
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     Ax + By &= a \\
     Cx + Dy &= b.
-\end{aligned}
-$$
+\end{aligned}$$
 
 Since $$A$$ is invertible, $$x = A^{-1} (a - By)$$. Plugging this into the second equation and using the assumption that $$M/A$$ is invertible yields
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     b &= C A^{-1} (a - By) + Dy \\
     &= C A^{-1} a + (D - C A^{-1} B) y \\
     &= C A^{-1} a + (M/A) y
     \\
     y &= (M/A)^{-1} b - (M/A)^{-1} C A^{-1} a.
-\end{aligned}
-$$
+\end{aligned}$$
 
 Plugging this back into the equation for $$x$$ yields
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     x &= A^{-1} a - A^{-1} B (M/A)^{-1} b + A^{-1} B (M/A)^{-1} C A^{-1} a \\
     &= (A^{-1} + A^{-1} B (M/A)^{-1} C A^{-1}) a - A^{-1} B (M/A)^{-1} b.
-\end{aligned}
-$$
+\end{aligned}$$
 
 In matrix form,
 
@@ -250,8 +241,7 @@ The matrix inversion lemma is a corollary of the previous theorem.
 
 **Matrix Inversion Lemma**: If $$A$$ and $$D$$ are invertible, and any of ($$M$$, $$M/A$$, or $$M/D$$) are invertible, then all of $$M$$, $$M/A$$, and $$M/D$$ are invertible. Furthermore,
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     M^{-1}
     &= \begin{bmatrix}
         A^{-1} + A^{-1} B (M/A)^{-1} C A^{-1}  &  -A^{-1} B (M/A)^{-1} \\
@@ -262,17 +252,14 @@ $$
         (M/D)^{-1}            &  -(M/D)^{-1} B D^{-1} \\
         -D^{-1} C (M/D)^{-1}  &  D^{-1} + D^{-1} C (M/D)^{-1} B D^{-1}
        \end{bmatrix}.
-\end{aligned}
-$$
+\end{aligned}$$
 
 Since a matrix inverse is unique, equating the two expressions for $$M^{-1}$$ yields the identities
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     (M/A)^{-1} &= D^{-1} + D^{-1} C (M/D)^{-1} B D^{-1} \\
     (M/D)^{-1} &= A^{-1} + A^{-1} B (M/A)^{-1} C A^{-1}.
-\end{aligned}
-$$
+\end{aligned}$$
 
 </section>
 
@@ -283,12 +270,10 @@ Note that the identities in the matrix inversion lemma do not actually require c
 <section class="callout" markdown="block">
 **Matrix Inversion Lemma (alternate form)**: For any invertible matrices $$A$$ and $$D$$ and any matrices $$B$$ and $$C$$, if either $$(D - C A^{-1} B)$$ or $$(A - B D^{-1} C)$$ is invertible, then both are invertible and are related by the identities
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     (D - C A^{-1} B)^{-1} &= D^{-1} + D^{-1} C (A - B D^{-1} C)^{-1} B D^{-1} \\
     (A - B D^{-1} C)^{-1} &= A^{-1} + A^{-1} B (D - C A^{-1} B)^{-1} C A^{-1}.
-\end{aligned}
-$$
+\end{aligned}$$
 
 </section>
 
@@ -375,8 +360,7 @@ $$
 
 The following function $$f: \R^n \times \R^m \to \R$$ is useful for our analysis of $$M$$:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     f(x,y)
     &= [x^\top \ y^\top]
        M
@@ -386,17 +370,14 @@ $$
     \nabla f(x,y) &= 2 M \begin{bmatrix} x \\ y \end{bmatrix}
     \\
     \nabla^2 f(x,y) &= 2M.
-\end{aligned}
-$$
+\end{aligned}$$
 
 Note that this implies
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     \nabla_x f(x,y) &= 2Ax + 2By         &  \nabla^2_x f(x,y) &= 2A \\
     \nabla_y f(x,y) &= 2Dy + 2 B^\top x  &  \nabla^2_y f(x,y) &= 2D
-\end{aligned}
-$$
+\end{aligned}$$
 
 **Lemma (Positive definite diagonal blocks)**: If $$M \succ 0$$, then $$A, D \succ 0$$. If $$M \succeq 0$$, then $$A, D \succeq 0$$.
 
@@ -425,13 +406,11 @@ We assert the following facts without proof:
 
 First, suppose $$A \succ 0$$. Then by the factorization lemma, $$M = N P N^\top$$ where
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     N      &= \begin{bmatrix} I_n & \zero \\  B^\top A^{-1} & I_m \end{bmatrix} \\
     N^{-1} &= \begin{bmatrix} I_n & \zero \\ -B^\top A^{-1} & I_m \end{bmatrix} \\
     P      &= \begin{bmatrix} A & \zero \\ \zero & M/A \end{bmatrix}.
-\end{aligned}
-$$
+\end{aligned}$$
 
 By the facts listed above, $$M = N P N^\top \succeq 0 \ \iff \ P \succeq 0 \ \iff \ A, (M/A) \succeq 0$$. This proves (2).
 
@@ -453,36 +432,30 @@ $$ \nabla_x f(x_*, y) = 2Ax_* + 2By = \zero $$
 
 so $$x_* = -A^{-1} By$$. Plugging this value into $$f$$ gives
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     f(x_*, y)
     &= (A^{-1} By)^\top By - 2 (A^{-1} By)^\top By + y^\top D y \\
     &= y^\top (D - B^\top A^{-1} B) y \\
     &= y^\top (M/A) y.
-\end{aligned}
-$$
+\end{aligned}$$
 
 Thus, if $$A \succ 0$$, then
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     M \succ 0
     &\iff \forall x,y: f(x,y) \geq f(x_*,y) > 0 \\
     &\iff (M/A) \succ 0.
-\end{aligned}
-$$
+\end{aligned}$$
 
 Since $$M \succ 0 \implies A \succ 0$$ (by the previous lemma), this proves the first part of (1). Replacing $$(\succ, >)$$ with $$(\succeq, \geq)$$ in the statement above gives (2).
 
 The proof for (3) and the second part of (1) is similar. Suppose $$D \succ 0$$. Then for fixed $$x$$, $$f$$ is minimized by $$y_* = -D^{-1} B^\top x$$. Plugging this into $$f$$ gives $$ f(x,y_*) = x^\top (M/D) x$$. Then
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     M \succ 0
     &\iff \forall x,y: f(x,y) \geq f(x,y_*) > 0 \\
     &\iff (M/D) \succ 0.
-\end{aligned}
-$$
+\end{aligned}$$
 
 Since $$M \succ 0 \implies D \succ 0$$ (by the previous lemma), this proves the second part of (1). Replacing $$(\succ, >)$$ with $$(\succeq, \geq)$$ in the statement above gives (3).
 
@@ -491,7 +464,7 @@ Since $$M \succ 0 \implies D \succ 0$$ (by the previous lemma), this proves the 
 
 ## Generalized Schur Complements
 
-This section explores generalized Schur complements when $$A$$ and $$D$$ are not invertible. To do so, we rely on their pseudoinverses, which we define in terms of their singular value decomposition (SVD).
+This section explores generalized Schur complements when $$A$$ and $$D$$ are not invertible. To do so, we rely on their pseudoinverses, which we define in terms of their singular value decomposition (SVD). For background on the SVD, see LADR 7.80.
 
 ### SVD and Pseudoinverses
 
@@ -502,8 +475,7 @@ Every matrix $$P \in \F^{n \times m}$$ with $$\rank P = r$$ has a **compact SVD*
 
 This compact SVD can be extended to a **full SVD**
 
-$$
-\begin{alignat*}{4}
+$$\begin{alignat*}{4}
     P &= \bar{U} \bar{\Sigma} \bar{V}^* \\
     \bar{U} &= \begin{bmatrix} U & u_{r+1}, \dotsc, u_n \end{bmatrix}
         &&\in \F^{n \times n} \\
@@ -511,8 +483,7 @@ $$
         &&\in \R^{n \times m} \\
     \bar{V} &= \begin{bmatrix} V & v_{r+1}, \dotsc, v_m \end{bmatrix}
         &&\in \F^{m \times m}
-\end{alignat*}
-$$
+\end{alignat*}$$
 
 where $$\bar{U}$$, $$\bar{V}$$ are unitary matrices.
 
@@ -526,8 +497,7 @@ $$
 
 Using the compact SVD of $$\bar{\Sigma}$$, we can derive its pseudoinverse
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     \bar{\Sigma}
     &= \begin{bmatrix} I_r \\ \zero_{(n-r) \times r} \end{bmatrix}
        \Sigma
@@ -538,68 +508,268 @@ $$
        \Sigma^{-1}
        \begin{bmatrix} I_r & \zero_{r \times (n-r)} \end{bmatrix} \\
     &= \begin{bmatrix} \Sigma^{-1} & \zero \\ \zero & \zero_{(m-r) \times (n-r)} \end{bmatrix}.
-\end{aligned}
-$$
+\end{aligned}$$
 
 Thus, the pseudoinverse of $$P$$ can also be expressed in terms of its full SVD:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     P^\dagger
     &= \bar{V} \bar{\Sigma}^\dagger \bar{U}^* \\
     &= \begin{bmatrix} V \Sigma^{-1} & \zero_{m \times (n-r)} \end{bmatrix} \bar{U}^* \\
     &= V \Sigma^{-1} U^*.
-\end{aligned}
-$$
+\end{aligned}$$
 
-The pseudoinverse satisfies
+**Lemma (Properties of the pseudoinverse)**: Let $$P \in \F^{n \times m}$$. Then,
 
-$$
-\begin{aligned}
+1. $$(P^\dagger)^\dagger = P$$.
+2. If $$P$$ is Hermitian, then $$P^\dagger$$ is also Hermitian.
+
+<details markdown="block" class="proof"><summary>Proof</summary>
+
+Let $$P = U \Sigma V^*$$ be the compact SVD of $$P$$.
+
+1. Because $$P^\dagger = V \Sigma^{-1} U^*$$ is the SVD form of $$P^\dagger$$,
+
+    $$
+        (P^\dagger)^\dagger
+        = (V \Sigma^{-1} U^*)^\dagger
+        = U \Sigma V^*
+        = P.
+    $$
+
+2. Suppose $$P$$ is Hermitian, so $$P = P^*$$.
+
+$$\begin{aligned}
+    P^* &= (U \Sigma V^*)^* = V \Sigma U^* \\
+    P^\dagger &= (P^*)^\dagger = U \Sigma^{-1} V^* = (V \Sigma^{-1} U^*)^* = (P^\dagger)^*
+\end{aligned}$$
+
+</details>
+
+**Lemma (Pseudoinverse identities)**: Let $$P \in \F^{n \times m}$$.
+
+$$\begin{alignat*}{6}
+    P &= P P^\dagger P &&= P P^* P^{\dagger *} &&= P^{\dagger *} P^* P
+    \\
+    P^\dagger &= P^\dagger P P^\dagger &&= P^\dagger P^{\dagger *} P^* &&= P^* P^{\dagger *} P^\dagger
+    \\
+    P^* &= P^* P^{\dagger *} P^* &&= P^\dagger P P^* &&= P^* P P^\dagger.
+\end{alignat*}$$
+
+<details markdown="block" class="proof"><summary>Proof</summary>
+
+Let $$P = U \Sigma V^*$$ be the compact SVD of $$P$$, and let $$\rank P = r$$.
+
+For the first line of identities for $$P$$:
+
+$$\begin{aligned}
     P P^\dagger P
     &= (U \Sigma V^*) (V \Sigma^{-1} U^*) (U \Sigma V^*) \\
     &= U \Sigma I_r \Sigma^{-1} I_r \Sigma V^* \\
     &= U \Sigma V^* = P
     \\
-    P^\dagger P P^\dagger
-    &= (V \Sigma^{-1} U^*) (U \Sigma V^*) (V \Sigma^{-1} U^*) \\
-    &= V \Sigma^{-1} I_r \Sigma I_r \Sigma^{-1} U^* \\
-    &= V \Sigma^{-1} U^* = P^\dagger.
-\end{aligned}
-$$
+    P P^* P^{\dagger *}
+    &= (U \Sigma V^*) (V \Sigma U^*) (U \Sigma^{-1} V^*) \\
+    &= U \Sigma I_r \Sigma I_r \Sigma^{-1} V^* \\
+    &= U \Sigma V^* = P
+    \\
+    P^{\dagger *} P^* P
+    &= (U \Sigma^{-1} V^*) (V \Sigma U^*) (U \Sigma V^*) \\
+    &= U \Sigma^{-1} I_r \Sigma I_r \Sigma V^* \\
+    &= U \Sigma V^* = P.
+\end{aligned}$$
 
-Furthermore, if $$P$$ is Hermitian, then $$P^\dagger$$ is also Hermitian:
+The identities for $$P^\dagger$$ come from replacing $$P$$ with $$P^\dagger$$ in the first line, then using $$(P^\dagger)^\dagger = P$$.
 
-$$
-\begin{aligned}
-    P^* &= (U \Sigma V^*)^* = V \Sigma U^* \\
-    P^\dagger &= (P^*)^\dagger = U \Sigma^{-1} V^* = (V \Sigma^{-1} U^*)^* = (P^\dagger)^*
-\end{aligned}
-$$
+The identities for $$P^*$$ come from taking the conjugate transpose of the first line, then using $$(P^*)^* = P$$.
+</details>
 
-**Lemma (Range of $$P$$ and $$P P^\dagger$$)**: For any $$P \in \F^{n \times m}$$ and $$y \in \F^n$$,
+**Lemma (Orthogonal projection)**: Let $$V$$ denote an inner-product space, and let $$P: V \to V$$ be a linear map, where $$\range P$$ is a finite-dimensional subspace. The following are equivalent, and in every case, $$P$$ is called an **orthogonal projection** (onto $$\range P$$).
 
-$$ y \in \range P \iff P P^\dagger y = y. $$
+1. $$P$$ is idempotent ($$P = P^2$$) and Hermitian ($$P = P^*$$).
+2. There exists a finite-dimensional subspace $$S \subseteq V$$ such that $$V = S \oplus S^\perp$$ and for every $$x \in V$$ with orthogonal decomposition $$x = s + s^\perp$$ where $$s \in S$$ and $$s^\perp \in S^\perp$$, $$P x = s$$.
+3. For every $$x \in V$$ and $$y \in \range P$$, $$\inner{x - P x}{y} = 0$$.
+4. $$I - P$$ is an orthogonal projection.
 
-It is sometimes convenient to write this as $$(I - P P^\dagger) y = \zero$$. A corollary is that $$\range P = \range P P^\dagger$$.
+Furthermore, if $$P$$ is an orthogonal projection, then
+
+5. $$(\nullspace P)^\perp = \range P = \nullspace(I - P) = (\range(I - P))^\perp$$.
 
 <details markdown="block" class="proof"><summary>Proof</summary>
 
-First, suppose $$y \in \range P$$, so there exists $$x \in \F^m$$ such that $$Px = y$$. Then
-
-$$ P P^\dagger y = P P^\dagger P x = P x = y. $$
-
-Next, suppose $$P (P^\dagger y) = y$$. Clearly $$y \in \range P$$.
-
-It is obvious that $$\range P P^\dagger \subseteq \range P$$. But
+**(1 $$\implies$$ 2)** Since $$P$$ is Hermitian, we have
 
 $$
-    y \in \range P
-    \iff P P^\dagger y = y
-    \implies y \in \range P P^\dagger,
+    \range P
+    = (\nullspace P^*)^\perp
+    = (\nullspace P)^\perp.
 $$
 
-so $$\range P \subseteq \range P P^\dagger$$.
+Since $$\range P$$ is finite-dimensional, $$V = \range P \oplus (\range P)^\perp = \range P \oplus \nullspace P$$.
+
+Let $$S = \range P$$, so $$S^\perp = \nullspace P$$. For every $$x \in V$$, let $$x = s + s^\perp$$ be its orthogonal decomposition where $$s \in S$$ and $$s^\perp \in S^\perp$$. Since $$s \in S = \range P$$, there exists some $$z \in V$$ such that $$Pz = s$$. Then, using the idempotence of $$P$$,
+
+$$
+    Px
+    = P(s + s^\perp)
+    = P (Pz) + P s^\perp
+    = Pz + 0
+    = s.
+$$
+
+**(2 $$\implies$$ 3)** First, observe that $$\range P = S$$. For every $$x \in V$$ and $$y \in \range P = S$$, let $$x = s + s^\perp$$ be the orthogonal decomposition of $$x$$ where $$s \in S$$ and $$s^\perp \in S^\perp$$. Then,
+
+$$
+    \inner{x - P x}{y}
+    = \inner{s^\perp}{y}
+    = 0.
+$$
+
+**(3 $$\implies$$ 1)** First, we show idempotence. Fix $$x \in V$$. For every $$y \in \range P$$, we have
+
+$$
+    \inner{(Px) - P(Px)}{y}
+    = \inner{(P - P^2) x}{y}
+    = 0.
+$$
+
+This states that $$(P - P^2) x$$ is orthogonal to every vector in $$\range P$$. However, $$(P - P^2) x$$ is itself in $$\range P$$. The only vector that is orthogonal to itself is the zero vector, so $$(P - P^2) x = \zero$$. Since this holds for arbitrary $$x \in V$$, we have $$P = P^2$$.
+
+Next, we show that $$P$$ is Hermitian. For every $$x, z \in V$$, we have
+
+$$\begin{aligned}
+    \inner{P x}{z}
+    &= \inner{P x}{P z + (z - P z)}
+    = \inner{P x}{P z} + \inner{P x}{z - P z}
+    = \inner{P x}{P z}, \\
+    \inner{x}{P z}
+    &= \inner{P x + (x - P x)}{P z}
+    = \inner{P x}{P z} + \inner{x - P x}{P z}
+    = \inner{P x}{P z}.
+\end{aligned}$$
+
+Thus, $$\inner{P x}{z} = \inner{x}{P z}$$ for all $$x, z \in V$$, which shows that $$P = P^*$$.
+
+**(1 $$\iff$$ 4)** The following two equivalences show that $$I - P$$ is idempotent and Hermitian if and only if $$P$$ is idempotent and Hermitian:
+
+$$\begin{aligned}
+    P = P^2
+    &\iff
+    (I - P)^2 = I - 2P + P^2 = I - P
+    \\
+    P = P^*
+    &\iff
+    (I - P)^* = I - P^* = I - P.
+\end{aligned}$$
+
+**(1 $$\implies$$ 5)** Suppose $$y \in \range P$$. Then, there exists $$x \in V$$ such that $$P x = y$$. Using the idempotence of $$P$$,
+
+$$
+    (I - P) y
+    = (I - P) (P x)
+    = P x - P^2 x
+    = P x - P x
+    = \zero,
+$$
+
+so $$y \in \nullspace(I - P)$$. Conversely, suppose $$y \in \nullspace(I - P)$$. Then,
+
+$$
+    P y
+    = y - (I - P) y
+    = y - \zero
+    = y,
+$$
+
+so $$y \in \range P$$. Thus, $$\range P = \nullspace(I - P)$$. Since $$P$$ is Hermitian, we have
+
+$$
+    (\nullspace P)^\perp
+    = \range P
+    = \nullspace(I - P)
+    = (\range(I - P))^\perp.
+$$
+
+</details>
+
+**Lemma (Pseudoinverse projections)**: For any $$P \in \F^{n \times m}$$,
+
+1. $$P P^\dagger$$ is the orthogonal projection onto $$\range P P^\dagger = \nullspace (I - P P^\dagger) = \range P$$.
+2. $$P^\dagger P$$ is the orthogonal projection onto $$\range P^\dagger P = \nullspace (I - P^\dagger P) = \range P^* = \range P^\dagger$$.
+3. $$(I - P P^\dagger)$$ is the orthogonal projection onto $$\range (I - P P^\dagger) = \nullspace P P^\dagger = \nullspace P^* = \nullspace P^\dagger$$.
+4. $$(I - P^\dagger P)$$ is the orthogonal projection onto $$\range (I - P^\dagger P) = \nullspace P^\dagger P = \nullspace P$$.
+
+<details markdown="block" class="proof"><summary>Proof</summary>
+
+1. First, we show that $$P P^\dagger$$ is an orthogonal projection. Using the pseudoinverse identities from the previous lemma, we have
+
+    $$\begin{aligned}
+        (P P^\dagger)^2
+        &= (P P^\dagger P) P^\dagger
+        = P P^\dagger
+        \\
+        (P P^\dagger)^*
+        &= P^{\dagger *} P^*
+        = P^{\dagger *} (P^* P P^\dagger)
+        = (P^{\dagger *} P^* P) P^\dagger
+        = P P^\dagger.
+    \end{aligned}$$
+
+    Next, since $$P P^\dagger$$ is an orthogonal projection, by the previous lemma we have $$\range P P^\dagger = \nullspace(I - P P^\dagger)$$.
+
+    Finally, we show that $$\range P P^\dagger = \range P$$. Clearly, $$\range P P^\dagger \subseteq \range P$$. Conversely, for every $$x \in \F^m$$,
+
+    $$
+        P x
+        = P P^\dagger P x
+        = P P^\dagger (P x)
+    $$
+
+    so $$\range P \subseteq \range P P^\dagger$$. Therefore, $$\range P P^\dagger = \range P$$.
+
+2. A similar argument shows that $$P^\dagger P$$ is an orthogonal projection onto $$\range P^\dagger P = \nullspace(I - P^\dagger P)$$. Furthermore, for every $$x \in \F^n$$,
+
+    $$\begin{aligned}
+        P^* x &= P^\dagger P P^* x, \\
+        P^\dagger x &= P^\dagger P P^\dagger x,
+    \end{aligned}$$
+
+    so $$\range P^* \subseteq \range P^\dagger P$$ and $$\range P^\dagger \subseteq \range P^\dagger P$$. Conversely, for every $$y \in \range P^\dagger P$$, there exists $$x \in \F^m$$ such that
+
+    $$
+        y
+        = P^\dagger P x = P^\dagger (P P^* P^{\dagger *}) x
+        = P^* (P^{\dagger *} x)
+    $$
+
+    so $$\range P^\dagger P \subseteq \range P^*$$ and $$\range P^\dagger P \subseteq \range P^\dagger$$. Therefore, $$\range P^\dagger P = \range P^* = \range P^\dagger$$.
+
+3. Since $$P P^\dagger$$ is an orthogonal projection, by the previous lemma, $$(I - P P^\dagger)$$ is an orthogonal projection onto $$\range (I - P P^\dagger) = \nullspace P P^\dagger$$. Furthermore, for every $$x \in \nullspace P P^\dagger$$
+
+    $$\begin{aligned}
+        P^* x &= P^* P P^\dagger x = \zero, \\
+        P^\dagger x &= P^\dagger P P^\dagger x = \zero,
+    \end{aligned}$$
+
+    so $$\nullspace P P^\dagger \subseteq \nullspace P^*$$ and $$\nullspace P P^\dagger \subseteq \nullspace P^\dagger$$. Conversely, for every $$y \in \nullspace P^*$$,
+
+    $$
+        P P^\dagger y
+        = P P^\dagger P^{\dagger *} P^* y
+        = \zero
+    $$
+
+    so $$\nullspace P^* \subseteq \nullspace P P^\dagger$$, and naturally $$\nullspace P^\dagger \subseteq \nullspace P P^\dagger$$. Therefore, $$\nullspace P P^\dagger = \nullspace P^* = \nullspace P^\dagger$$.
+
+4. Since $$P^\dagger P$$ is an orthogonal projection, by the previous lemma, $$(I - P^\dagger P)$$ is an orthogonal projection onto $$\range (I - P^\dagger P) = \nullspace P^\dagger P$$. Clearly, $$\nullspace P \subseteq \nullspace P^\dagger P$$. Conversely, for every $$x \in \nullspace P^\dagger P$$,
+
+    $$
+        P x
+        = P P^\dagger P x
+        = \zero,
+    $$
+
+    so $$\nullspace P^\dagger P \subseteq \nullspace P$$. Therefore, $$\nullspace P^\dagger P = \nullspace P$$.
 
 </details>
 
@@ -668,47 +838,38 @@ $$
 
 Therefore,
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     f(x)
     &= (x + P^\dagger b)^\top P (x + P^\dagger b) - 2 x^\top P P^\dagger b - b^\top P^\dagger b + 2 x^\top b \\
     &= (x + P^\dagger b)^\top P (x + P^\dagger b) + 2 x^\top (I - P P^\dagger) b - b^\top P^\dagger b.
-\end{aligned}
-$$
+\end{aligned}$$
 
 First, we show that if $$f$$ has a minimum value, then both $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. We will show this via contrapositive: if either $$P \not\succeq 0$$ or $$(I - P P^\dagger) b \neq \zero$$, then $$f$$ is unbounded below. We start with the case that $$P \not\succeq 0$$, so $$P$$ has a negative eigenvalue $$\lambda < 0$$. Let $$v \neq \zero$$ be a corresponding eigenvector, so $$Pv = \lambda v$$. For any $$a \in \R$$, if we let $$x = av - P^\dagger b$$, then
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     f(x)
     &= av^\top P av + 2 (av - P^\dagger b)^\top (I - P P^\dagger) b - b^\top P^\dagger b \\
     &= a^2 \lambda \norm{v}_2^2 + 2a v^\top (I - P P^\dagger) b - 2 b^\top \underbrace{P^\dagger (I - P P^\dagger)}_{=\zero} b - b^\top P^\dagger b \\
     &= a^2 \lambda \norm{v}_2^2 + 2a v^\top (I - P P^\dagger) b - b^\top P^\dagger b \\
-\end{aligned}
-$$
+\end{aligned}$$
 
-Since $$\lambda < 0$$ and $$\norm{v}_2 > 0$$, this is a parabola in $$a$$ with a negative leading coefficient. As $$a$$ can be made arbitrarily large, $$f$$ is evidently unbounded below. Therefore, at least one of $$P \succeq 0$$ or $$(I - P P^\dagger) b = \zero$$ must be true.
-
-Now, suppose $$(I - P P^\dagger) b = \zero$$, but $$P$$ has a negative eigenvalue. Then, the expression above remains a concave parabola in $$a$$, so $$f$$ is still unbounded below. Therefore, if $$f$$ has a minimum value and $$(I - P P^\dagger) b = \zero$$, then $$P$$ must only have nonnegative eigenvalues, i.e., $$P \succeq 0$$.
+Since $$\lambda < 0$$ and $$\norm{v}_2 > 0$$, this is a concave parabola in $$a$$ with a negative leading coefficient. As $$a$$ can be made arbitrarily large, $$f$$ is evidently unbounded below.
 
 Instead, suppose that $$P \succeq 0$$, but $$(I - P P^\dagger) b \neq \zero$$, so $$b \neq \zero$$. Let $$r = \rank P < n$$. (If $$\rank P = n$$, then $$P$$ would be invertible and $$I - P P^\dagger = \zero$$ which contradicts the assumption.) By the Real Spectral Theorem (LADR 7.29), there exists an orthonormal basis $$v_1, \dotsc, v_n$$ consisting of eigenvectors of $$P$$. Let $$v_1, \dotsc, v_r$$ correspond to positive eigenvalues, and let $$v_{r+1}, \dotsc, v_n$$ correspond to the 0 eigenvalue. Note that
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     \range P &= \spanset{v_1, \dotsc, v_r} \\
     \nullspace P &= \spanset{v_{r+1}, \dotsc, v_n}
 \end{aligned}$$
 
 and every element in $$\nullspace P$$ is an eigenvector of $$P$$ with eigenvalue 0. Since $$b \not\in \range P$$ (by a previous lemma) and $$v_1, \dotsc, v_n$$ is a basis of $$\R^n$$, this means $$b \in \spanset{v_{r+1}, \dotsc, v_n} = \nullspace P$$. Therefore, $$b$$ is an eigenvector of $$P$$ corresponding to eigenvalue 0. For every $$v \in \nullspace P$$,
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     v^\top (I - P P^\dagger) b
     &= v^\top b - v^\top P P^\dagger b \\
     &= v^\top b - b^\top P^\dagger Pv \\
     &= v^\top b.
-\end{aligned}
-$$
+\end{aligned}$$
 
 In particular, choosing $$x = ab - P^\dagger b$$ yields $$f(x) = 2a \norm{b}_2^2 - b^\top P^\dagger b$$ which is unbounded below as $$a \to -\infty$$.
 
@@ -720,13 +881,10 @@ In particular, choosing $$x = ab - P^\dagger b$$ yields $$f(x) = 2a \norm{b}_2^2
 
 We have thus shown
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     &f \text{ has a minimum value} \\
-    &\implies P \succeq 0 \text{ or } (I - P P^\dagger) b = \zero \\
     &\implies P \succeq 0 \text{ and } (I - P P^\dagger) b = \zero.
-\end{aligned}
-$$
+\end{aligned}$$
 
 The converse is simpler. If both $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$, then
 
@@ -737,15 +895,13 @@ Since $$(x + P^\dagger b)^\top P (x + P^\dagger b) \geq 0$$ for all $$x$$, it is
 We have shown that $$f$$ has a minimum value if and only if $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. Furthermore, the minimum is achieved by any $$x_*$$ such that $$x_* + P^\dagger b \in \nullspace P$$. For all $$x_*$$ of the form $$x_* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}$$,
  we have
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     P (x_* + P^\dagger b)
     &= P Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}
     = Q D Q^\top Q \begin{bmatrix} \zero_r \\ z \end{bmatrix} \\
     &= Q D \begin{bmatrix} \zero_r \\ z \end{bmatrix}
     = \zero
-\end{aligned}
-$$
+\end{aligned}$$
 
 since $$Q^\top Q = I$$ and $$D = \diag(\sigma_1, \dotsc, \sigma_r, 0_{r+1}, \dots, 0_n)$$. Therefore, $$x_* + P^\dagger b \in \nullspace P$$, so $$f$$ is minimized by all $$x_*$$ of the form above.
 
@@ -777,14 +933,12 @@ $$ f(x) = (x + P^{-1} b)^\top P (x + P^{-1} b) - b^\top P^{-1} b. $$
 
 First, we show that if $$f$$ has a minimum value, then we must have $$P \succ 0$$. By contrapositive, suppose that $$P$$ has a negative eigenvalue $$\lambda < 0$$ with a corresponding eigenvector $$v$$, so $$Pv = \lambda v$$. For any $$\alpha \in \R$$, if we let $$x = \alpha v - P^{-1} b$$, then
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     f(x)
     &= (x + P^{-1} b)^\top P (x + P^{-1} b) - b^\top P^{-1} b \\
     &= \alpha v^\top P \alpha v - b^\top P^{-1} b \\
     &= \alpha^2 \lambda \norm{v}_2^2 - b^\top P^{-1} b.
-\end{aligned}
-$$
+\end{aligned}$$
 
 Since $$\lambda < 0$$ and $$\alpha$$ can be made arbitrarily large, evidently $$f$$ is unbounded below. Therefore, if $$f$$ has a minimum, then $$P$$ must only have nonnegative eigenvalues. Furthermore, since $$P$$ is invertible, it has no zero eigenvalues. Thus, $$P \succ 0$$.
 
@@ -853,8 +1007,7 @@ $$
 
 If $$M \succeq 0$$, then it has the following factorizations:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
     M
     &= \begin{bmatrix} I & \zero \\ B^\top A^\dagger & I \end{bmatrix}
        \begin{bmatrix} A & \zero \\ \zero & D - B^\top A^\dagger B \end{bmatrix}
@@ -862,8 +1015,7 @@ $$
     &= \begin{bmatrix} I & B D^\dagger \\ \zero & I \end{bmatrix}
        \begin{bmatrix} A - B D^\dagger B^\top & \zero \\ \zero & D \end{bmatrix}
        \begin{bmatrix} I & \zero \\ D^\dagger B^\top & I \end{bmatrix}.
-\end{aligned}
-$$
+\end{aligned}$$
 
 
 ## References
@@ -892,7 +1044,7 @@ $$
   - [Invertible matrix: Blockwise inversion](https://en.wikipedia.org/wiki/Invertible_matrix#Blockwise_inversion): shows the correspondence between the two inverses of $$M$$ used in the matrix inversion lemma, but misses proof details.
   - [Woodbury matrix identity](https://en.wikipedia.org/wiki/Woodbury_matrix_identity): gives a direct proof of the Woodbury matrix identity without discussing Schur complements.
 
-* S. Axler. *Linear Algebra Done Right, 3e*, 2015. [https://linear.axler.net/](https://linear.axler.net/).
+* S. Axler. *Linear Algebra Done Right, 4e*, 2024. [https://linear.axler.net/](https://linear.axler.net/).
   - General linear algebra reference, abbreviated as LADR in this post.
 
 * Another interesting matrix inversion lemma which considers $$M^\top M$$ is provided on StackExchange [here](https://math.stackexchange.com/a/412136), although I haven't taken the time to verify it completely.
