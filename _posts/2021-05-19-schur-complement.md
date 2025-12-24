@@ -3,7 +3,7 @@ title: Schur Complements and the Matrix Inversion Lemma
 layout: post
 use_math: true
 use_toc: true
-last_updated: 2025-12-22
+last_updated: 2025-12-24
 tags: [math]
 pin: true
 excerpt: I prove key properties of Schur Complements and use them to derive the matrix inversion lemma.
@@ -539,10 +539,10 @@ Let $$P = U \Sigma V^*$$ be the compact SVD of $$P$$.
 
 2. Suppose $$P$$ is Hermitian, so $$P = P^*$$.
 
-$$\begin{aligned}
-    P^* &= (U \Sigma V^*)^* = V \Sigma U^* \\
-    P^\dagger &= (P^*)^\dagger = U \Sigma^{-1} V^* = (V \Sigma^{-1} U^*)^* = (P^\dagger)^*
-\end{aligned}$$
+    $$\begin{aligned}
+        P^* &= (U \Sigma V^*)^* = V \Sigma U^* \\
+        P^\dagger &= (P^*)^\dagger = U \Sigma^{-1} V^* = (V \Sigma^{-1} U^*)^* = (P^\dagger)^*
+    \end{aligned}$$
 
 </details>
 
@@ -593,6 +593,9 @@ The identities for $$P^*$$ come from taking the conjugate transpose of the first
 
 Furthermore, if $$P$$ is an orthogonal projection, then
 
+<!-- CommonMark allows starting lists from arbitrary numbers, but Kramdown doesn't support this :(, so we resort to Kramdown's support for HTML attributes -->
+
+{:start="5"}
 5. $$(\nullspace P)^\perp = \range P = \nullspace(I - P) = (\range(I - P))^\perp$$.
 
 <details markdown="block" class="proof"><summary>Proof</summary>
@@ -819,15 +822,23 @@ $$ f(x) =  x^\top P x + 2 x^\top b$$
 
 has a minimum value if and only if $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$ (or equivalently, $$b \in \range P$$), in which case the minimum value is
 
-$$ p_* = -b^\top P^\dagger b. $$
+$$ \min_{x \in \R^n} f(x) = -b^\top P^\dagger b. $$
 
-Furthermore, if $$r = \rank P$$ and $$P = Q D Q^\top$$ is an eigendecomposition (equivalently, a full SVD) of $$P$$, then the optimal value is achieved by all $$x_* \in \R^n$$ of the following form for all $$z \in \R^{n-r}$$:
+This minimum value is attained by
 
-$$ x_* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}. $$
+$$\begin{aligned}
+    \argmin_{x \in \R^n} f(x)
+    &= \{ x \in \R^n \mid x + P^\dagger b \in \nullspace P \} \\
+    &= \{ -P^\dagger b + z \mid z \in \nullspace P \} \\
+    &= \{ -P^\dagger b + (I - P^\dagger P) z \mid z \in \R^n \} \\
+    &= \set{ -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix} \ \middle| \ z \in \R^{n-r} },
+\end{aligned}$$
+
+where $$r = \rank P$$ and $$P = Q D Q^\top$$ is an eigendecomposition (equivalently, a full SVD) of $$P$$.
 
 <details markdown="block" class="proof"><summary>Proof</summary>
 
-*Note: This proof is rather lengthy. For a warm-up, consider first reading through the proof of the next lemma, which uses many of the same ideas but with less notation.*
+*Note: This proof is rather lengthy. For a warm-up, consider first reading through the proof of the subsequent corollary, which uses many of the same ideas but with less notation.*
 
 Observe that
 
@@ -855,23 +866,16 @@ $$\begin{aligned}
 
 Since $$\lambda < 0$$ and $$\norm{v}_2 > 0$$, this is a concave parabola in $$a$$ with a negative leading coefficient. As $$a$$ can be made arbitrarily large, $$f$$ is evidently unbounded below.
 
-Instead, suppose that $$P \succeq 0$$, but $$(I - P P^\dagger) b \neq \zero$$, so $$b \neq \zero$$. Let $$r = \rank P < n$$. (If $$\rank P = n$$, then $$P$$ would be invertible and $$I - P P^\dagger = \zero$$ which contradicts the assumption.) By the Real Spectral Theorem (LADR 7.29), there exists an orthonormal basis $$v_1, \dotsc, v_n$$ consisting of eigenvectors of $$P$$. Let $$v_1, \dotsc, v_r$$ correspond to positive eigenvalues, and let $$v_{r+1}, \dotsc, v_n$$ correspond to the 0 eigenvalue. Note that
+Instead, suppose that $$P \succeq 0$$, but $$b_{\nullspace} := (I - P P^\dagger) b \neq \zero$$. An earlier lemma shows that $$(I - P P^\dagger)$$ is the orthogonal projection onto $$\nullspace P^*$$, and $$\nullspace P^* = \nullspace P$$ since $$P$$ here is symmetric, so $$b_{\nullspace} \in \nullspace P$$. Let $$x = a b_{\nullspace} - P^\dagger b$$ for some $$a \in \R$$. Substituting this into $$f(x)$$ gives
 
 $$\begin{aligned}
-    \range P &= \spanset{v_1, \dotsc, v_r} \\
-    \nullspace P &= \spanset{v_{r+1}, \dotsc, v_n}
+    f(x)
+    &= (a b_{\nullspace})^\top P (a b_{\nullspace}) + 2 (a b_{\nullspace} - P^\dagger b)^\top b_{\nullspace} - b^\top P^\dagger b \\
+    &= 0 + 2 a b_{\nullspace}^\top b_{\nullspace} - 2 b^\top P^\dagger b_{\nullspace} - b^\top P^\dagger b \\
+    &= 2 a \norm{b_{\nullspace}}_2^2 - 2 b^\top P^\dagger b_{\nullspace} - b^\top P^\dagger b,
 \end{aligned}$$
 
-and every element in $$\nullspace P$$ is an eigenvector of $$P$$ with eigenvalue 0. Since $$b \not\in \range P$$ (by a previous lemma) and $$v_1, \dotsc, v_n$$ is a basis of $$\R^n$$, this means $$b \in \spanset{v_{r+1}, \dotsc, v_n} = \nullspace P$$. Therefore, $$b$$ is an eigenvector of $$P$$ corresponding to eigenvalue 0. For every $$v \in \nullspace P$$,
-
-$$\begin{aligned}
-    v^\top (I - P P^\dagger) b
-    &= v^\top b - v^\top P P^\dagger b \\
-    &= v^\top b - b^\top P^\dagger Pv \\
-    &= v^\top b.
-\end{aligned}$$
-
-In particular, choosing $$x = ab - P^\dagger b$$ yields $$f(x) = 2a \norm{b}_2^2 - b^\top P^\dagger b$$ which is unbounded below as $$a \to -\infty$$.
+which is unbounded below as $$a \to -\infty$$.
 
 > Note: Using results from convexity can dramatically simplify the proof that if $$P \succeq 0$$, then $$f$$ has a minimum if and only if $$(I - P P^\dagger) b = \zero$$. If $$P \succeq 0$$, then $$f$$ is a convex function. The first order optimality condition states that $$f$$ attains a minimum at $$x_*$$ if and only if
 >
@@ -890,20 +894,41 @@ The converse is simpler. If both $$P \succeq 0$$ and $$(I - P P^\dagger) b = \ze
 
 $$ f(x) = (x + P^\dagger b)^\top P (x + P^\dagger b) - b^\top P^\dagger b. $$
 
-Since $$(x + P^\dagger b)^\top P (x + P^\dagger b) \geq 0$$ for all $$x$$, it is minimized with value 0 when $$P (x + P^\dagger b) = \zero$$. In other words, $$f$$ is minimized with value $$p_* = -b^\top P^\dagger b$$.
+Since $$(x + P^\dagger b)^\top P (x + P^\dagger b) \geq 0$$ for all $$x$$, it is minimized with value 0 when $$P (x + P^\dagger b) = \zero$$. In other words, the minimum value of $$f$$ is $$-b^\top P^\dagger b$$.
 
-We have shown that $$f$$ has a minimum value if and only if $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. Furthermore, the minimum is achieved by any $$x_*$$ such that $$x_* + P^\dagger b \in \nullspace P$$. For all $$x_*$$ of the form $$x_* = -P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}$$,
- we have
+We have shown that $$f$$ has a minimum value if and only if $$P \succeq 0$$ and $$(I - P P^\dagger) b = \zero$$. Furthermore, using the earlier result that $$(I - P^\dagger P)$$ is the orthogonal projection onto $$\nullspace P$$, we can characterize all minimizers of $$f$$:
 
 $$\begin{aligned}
-    P (x_* + P^\dagger b)
-    &= P Q \begin{bmatrix} \zero_r \\ z \end{bmatrix}
-    = Q D Q^\top Q \begin{bmatrix} \zero_r \\ z \end{bmatrix} \\
-    &= Q D \begin{bmatrix} \zero_r \\ z \end{bmatrix}
-    = \zero
+    \argmin_{x \in \R^n} f(x)
+    &= \{ x \in \R^n \mid x + P^\dagger b \in \nullspace P \} \\
+    &= \{ -P^\dagger b + z \mid z \in \nullspace P \} \\
+    &= \{ -P^\dagger b + (I - P^\dagger P) z \mid z \in \R^n \}.
 \end{aligned}$$
 
-since $$Q^\top Q = I$$ and $$D = \diag(\sigma_1, \dotsc, \sigma_r, 0_{r+1}, \dots, 0_n)$$. Therefore, $$x_* + P^\dagger b \in \nullspace P$$, so $$f$$ is minimized by all $$x_*$$ of the form above.
+Finally, let $$P = Q D Q^\top$$ be an eigendecomposition of $$P$$ where $$D = \diag(\sigma_1, \dotsc, \sigma_r, 0_{r+1}, \dots, 0_n)$$ and $$Q$$ is orthogonal, so $$Q^\top Q = I$$. Then
+
+$$\begin{aligned}
+    I - P^\dagger P
+    &= I - Q D^\dagger Q^\top Q D Q^\top \\
+    &= Q (I - D^\dagger D) Q^\top \\
+    &= Q \begin{bmatrix} \zero_r & \zero \\ \zero & I_{n-r} \end{bmatrix} Q^\top.
+\end{aligned}$$
+
+Since $$Q$$ is full rank,
+
+$$\begin{aligned}
+    & \{ (I - P^\dagger P) z \mid z \in \R^n \} \\
+    &= \set{ Q \begin{bmatrix} \zero_r & \zero \\ \zero & I_{n-r} \end{bmatrix} Q^\top z \ \middle| \ z \in \R^n } \\
+    &= \set{ Q \begin{bmatrix} \zero_r & \zero \\ \zero & I_{n-r} \end{bmatrix} z \ \middle| \ z \in \R^n } \\
+    &= \set{ Q \begin{bmatrix} \zero_r \\ z \end{bmatrix} \ \middle| \ z \in \R^{n-r} }.
+\end{aligned}$$
+
+Thus, the set of minimizers can be expressed as
+
+$$
+    \argmin_{x \in \R^n} f(x)
+    = \set{ - P^\dagger b + Q \begin{bmatrix} \zero_r \\ z \end{bmatrix} \ \middle| \ z \in \R^{n-r} }.
+$$
 
 *Source*: This lemma is stated as Proposition 15.2 in Gallier's *Geometric Methods and Applications* and as Proposition 4.2 in Gallier's "The Schur Complement" ([References](#references)), but the proof is different. I find my proof more intuitive and direct than Gallier's. I avoid having to first prove the following corollary, and I also avoid the clunky notation of block matrices and vectors.
 
