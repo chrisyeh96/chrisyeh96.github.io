@@ -10,71 +10,83 @@
 # - code
 
 # ==================
-# 2025
+# 2026
 # ==================
 
 - formatted: |
     **Improving EV Aggregate Flexibility with End-to-End Learning**\
     A. Thanvantri, **C. Yeh**, N. Christianson, A. Wierman\
-    Under review
+    L4DC 2026
   citation: |
-    A. Thanvantri, C. Yeh, N. Christianson, and A. Wierman\, "Improving EV Aggregate Flexibility with End-to-End Learning," Nov. 2025.
+    A. Thanvantri, C. Yeh, N. Christianson, and A. Wierman\, "Improving EV Aggregate Flexibility with End-to-End Learning," Jun. 2026.
   bibtex: |
-    @unpublished{thanvantri2025improving,
-        title = {Improving EV Aggregate Flexibility with End-to-End Learning},
+    @inproceedings{thanvantri2026improving,
+        title = {Improving {EV} Aggregate Flexibility with End-to-End Learning},
         author = {Thanvantri, Apoorva and Yeh, Christopher and Christianson, Nicolas and Wierman, Adam},
-        year = 2025,
-        month = nov,
+        year = 2026,
+        month = jun
     }
-  venue_type: preprint
+  venue_type: conference
 
 - formatted: |
     **Diffusion-DFL: Decision-focused Diffusion Models for Stochastic Optimization**\
     Z. Zhao, **C. Yeh**, L. Kong, K. Wang\
-    Under review
+    ICLR 2026
   citation: |
-    Z. Zhao, C. Yeh, L. K. Kong, and K. Wang, "Diffusion-DFL: Decision-focused diffusion models for stochastic optimization," Sep. 2025.
+    Z. Zhao, C. Yeh, L. K. Kong, and K. Wang, "Diffusion-DFL: Decision-focused diffusion models for stochastic optimization," in _The Fourteenth International Conference on Learning Representations_, Apr. 2026. [Online]. Available: [https://openreview.net/forum?id=uhv3f80jmG](https://openreview.net/forum?id=uhv3f80jmG).
   bibtex: |
-    @unpublished{zhao2025diffusion,
-        title = {{Diffusion-DFL}: Decision-focused Diffusion Models for Stochastic Optimization},
+    @inproceedings{zhao2026diffusion,
+        title = {Diffusion-{DFL}: Decision-focused Diffusion Models for Stochastic Optimization},
         author = {Zhao, Zihao and Yeh, Christopher and Kong, Lingkai Kong and Wang, Kai},
-        year = 2025,
-        month = sep,
+        year = 2026,
+        month = apr,
+        booktitle = {The Fourteenth International Conference on Learning Representations},
+        url = {https://openreview.net/forum?id=uhv3f80jmG}
     }
   media:
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2510.11590
-  venue_type: preprint
+  venue_type: conference
+  pin: true
 
 - formatted: |
     **Distributionally Robust Cooperative Multi-agent Reinforcement Learning with Value Factorization**\
     C. Qu, **C. Yeh**, K. Panaganti, E. Mazumdar, A. Wierman\
-    Under review
+    ICLR 2026
   citation: |
-    C. Qu, C. Yeh, K. Panaganti, E. Mazumdar, and A. Wierman, "Distributionally robust cooperative multi-agent reinforcement learning with value factorization," Sep. 2025.
+    C. Qu, C. Yeh, K. Panaganti, E. Mazumdar, and A. Wierman, "Distributionally robust cooperative multi-agent reinforcement learning with value factorization," in _The Fourteenth International Conference on Learning Representations_, Apr. 2026. [Online]. Available: [https://openreview.net/forum?id=2T3LOpqIOO](https://openreview.net/forum?id=2T3LOpqIOO).
   bibtex: |
-    @unpublished{qu2025distributionally,
+    @inproceedings{qu2026distributionally,
         title = {Distributionally Robust Cooperative Multi-agent Reinforcement Learning with Value Factorization},
         author = {Qu, Chengrui and Yeh, Christopher and Panaganti, Kishan and Mazumdar, Eric and Wierman, Adam},
-        year = 2025,
-        month = sep,
+        year = 2026,
+        month = apr,
+        booktitle = {The Fourteenth International Conference on Learning Representations},
+        url = {https://openreview.net/forum?id=2T3LOpqIOO}
     }
-  venue_type: preprint
+  venue_type: conference
+  pin: true
+
+# ==================
+# 2025
+# ==================
 
 - formatted: |
     **End-to-End Conformal Calibration for Optimization Under Uncertainty**\
     **C. Yeh\***, N. Christianson\*, A. Wu, A. Wierman, Y. Yue\
-    _Transactions on Machine Learning Research_, November 2025
+    _Transactions on Machine Learning Research_, December 2025
   citation: |
-    C. Yeh, N. Christianson, A. Wu, A. Wierman, and Y. Yue, End-to-end conformal calibration for optimization under uncertainty, 2024. DOI: 10.48550/arXiv.2409.20534. [Online]. Available: [https://arxiv.org/abs/2409.20534](https://arxiv.org/abs/2409.20534).
+    C. Yeh, N. Christianson, A. Wu, A. Wierman, and Y. Yue, "End-to-end conformal calibration for optimization under uncertainty," _Transactions on Machine Learning Research_, Dec. 2025. [Online]. Available: [https://openreview.net/forum?id=yM8qkT0f9H](https://openreview.net/forum?id=yM8qkT0f9H).
   bibtex: |
-    @misc{yeh2024endtoendarxiv,
+    @article{yeh2025endtoend,
         title = {End-to-End Conformal Calibration for Optimization Under Uncertainty},
-        author = {Yeh, Christopher and Christianson, Nicolas and Wu, Alan and Wierman, Adam and Yue, Yisong},
-        year = 2024,
-        doi = {10.48550/arXiv.2409.20534},
-        url = {https://arxiv.org/abs/2409.20534}
+        author = {Christopher Yeh and Nicolas Christianson and Alan Wu and Adam Wierman and Yisong Yue},
+        year = 2025,
+        month = dec,
+        journal = {Transactions on Machine Learning Research},
+        issn = {2835-8856},
+        url = {https://openreview.net/forum?id=yM8qkT0f9H}
     }
   media:
     - type: pdf
@@ -90,7 +102,6 @@
       name: Code
       url: https://github.com/chrisyeh96/e2e-conformal
   venue_type: journal
-  pin: true
 
 - formatted: |
     **Robust Energy Storage Operation via Generative Wasserstein Distributionally Robust Optimization**\
@@ -182,7 +193,6 @@
       name: Code
       url: https://github.com/yihenglin97/Prediction-Power
   venue_type: conference
-  pin: true
 
 - formatted: |
     **Robust machine-learned algorithms for efficient grid operation**\
