@@ -65,6 +65,10 @@
         booktitle = {The Fourteenth International Conference on Learning Representations},
         url = {https://openreview.net/forum?id=2T3LOpqIOO}
     }
+  media:
+    - type: url
+      name: arXiv
+      url: https://arxiv.org/abs/2602.11437
   venue_type: conference
   pin: true
 
