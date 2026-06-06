@@ -29,6 +29,25 @@
   venue_type: conference
 
 - formatted: |
+    **Learning Decision-Focused Uncertainty Representations: Theory and Applications in Sustainability**\
+    **C. Yeh**\
+    PhD thesis, California Institute of Technology, 2026
+  citation: |
+    C. T. Yeh, "Learning Decision-Focused Uncertainty Representations: Theory and Applications in Sustainability," PhD, California Institute of Technology, 2026. [Online]. Available: [https://resolver.caltech.edu/CaltechTHESIS:02182026-000452469](https://resolver.caltech.edu/CaltechTHESIS:02182026-000452469).
+  bibtex: |
+    @phdthesis{yeh2026learning,
+        title = {Learning {Decision}-{Focused} {Uncertainty} {Representations}: {Theory} and {Applications} in {Sustainability}},
+        shorttitle = {Learning {Decision}-{Focused} {Uncertainty} {Representations}},
+        author = {Yeh, Christopher T.},
+        year = 2026,
+        doi = {10.7907/h9fw-bq37},
+        url = {https://resolver.caltech.edu/CaltechTHESIS:02182026-000452469},
+        type = {PhD},
+        school = {California Institute of Technology}
+    }
+  venue_type: other
+
+- formatted: |
     **Diffusion-DFL: Decision-focused Diffusion Models for Stochastic Optimization**\
     Z. Zhao, **C. Yeh**, L. Kong, K. Wang\
     ICLR 2026
