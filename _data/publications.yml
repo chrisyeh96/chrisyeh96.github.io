@@ -18,14 +18,31 @@
     A. Thanvantri, **C. Yeh**, N. Christianson, A. Wierman\
     L4DC 2026
   citation: |
-    A. Thanvantri, C. Yeh, N. Christianson, and A. Wierman\, "Improving EV Aggregate Flexibility with End-to-End Learning," Jun. 2026.
+    A. Thanvantri, C. Yeh, N. Christianson, and A. Wierman, "Improving EV aggregate flexibility with end-to-end learning," in _Proceedings of The 8th Annual Learning for Dynamics and Control Conference_, ser. Proceedings of Machine Learning Research, G. Sukhatme, L. Lindemann, S. Tu, A. Wierman, and N. Atanasov, Eds., vol. 331. PMLR, 17-19 Jun 2026, pp. 624-639. [Online]. Available: [https://proceedings.mlr.press/v331/thanvantri26a.html](https://proceedings.mlr.press/v331/thanvantri26a.html).
   bibtex: |
     @inproceedings{thanvantri2026improving,
         title = {Improving {EV} Aggregate Flexibility with End-to-End Learning},
         author = {Thanvantri, Apoorva and Yeh, Christopher and Christianson, Nicolas and Wierman, Adam},
         year = 2026,
-        month = jun
+        month = {17--19 Jun},
+        booktitle = {Proceedings of The 8th Annual Learning for Dynamics and Control Conference},
+        publisher = {PMLR},
+        series = {Proceedings of Machine Learning Research},
+        volume = 331,
+        pages = {624--639},
+        url = {https://proceedings.mlr.press/v331/thanvantri26a.html},
+        editor = {Sukhatme, Gaurav and Lindemann, Lars and Tu, Stephen and Wierman, Adam and Atanasov, Nikolay}
     }
+  media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1GcI-UOSqnwjUJe7WmQPzPYoC_GP0dIBm/view
+    - type: url
+      name: PMLR
+      url: https://proceedings.mlr.press/v331/thanvantri26a.html
+    - type: github
+      name: Code
+      url: https://github.com/athanvan/ev-aggregate-flexibility
   venue_type: conference
 
 - formatted: |
