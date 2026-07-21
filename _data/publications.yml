@@ -40,6 +40,9 @@
     - type: url
       name: PMLR
       url: https://proceedings.mlr.press/v331/thanvantri26a.html
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1jg9Baze3Ci_dUyBj_4yyIeLmjuoT9bBO/view
     - type: github
       name: Code
       url: https://github.com/athanvan/ev-aggregate-flexibility
@@ -83,6 +86,9 @@
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2510.11590
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1FbZZ-Nh3FVhyJtlt8HTAoGUpzj5ZjEE9/view
   venue_type: conference
   pin: true
 
@@ -105,6 +111,9 @@
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2602.11437
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1-RIGj-cC7cCbkl0ILMhElgKVr5kxUcBq/view
   venue_type: conference
   pin: true
 
@@ -203,6 +212,9 @@
     - type: youtube
       name: Presentation
       url: https://youtu.be/j4TLPGzaAS8
+    - type: pdf
+      name : Poster
+      url: https://drive.google.com/file/d/1BJlej9fR3N1MuyOGl3Jzfh_Sw7wZlzlo/view
     - type: github
       name: Code
       url: https://github.com/chrisyeh96/conformal-risk-training
@@ -226,9 +238,15 @@
         volume = 38
     }
   media:
+    - type: pdf
+      name: PDF
+      url: https://drive.google.com/file/d/1wYGba1lyehdtsHnBbmYDbeYUvkLX-TIF/view
     - type: url
       name: arXiv
       url: https://arxiv.org/abs/2506.04497
+    - type: pdf
+      name: Poster
+      url: https://drive.google.com/file/d/1mXR8yzfvp6BUAyD8XbUPK_e2NEODmzTh/view
     - type: github
       name: Code
       url: https://github.com/yihenglin97/Prediction-Power
