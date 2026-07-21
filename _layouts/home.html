@@ -23,8 +23,8 @@ layout: default
 </div>
 
 <div class="border-bottom mb-3">
-  <h2>Selected publications</h2>
-  <p>For a complete list of my publications, see my <a href="{{ site.baseurl }}/publications.html">publications</a> page. <em>* denotes equal contribution</em></p>
+  <h2>Selected publications <span style="color: grey; font-size: 0.7em;">(<a href="{{ site.baseurl }}/publications">full list →</a>)</span></h2>
+  <p><em>* denotes equal contribution</em></p>
   <ol>
   {%- assign counter = 0 -%}
   {%- for pub in site.data.publications -%}
@@ -88,7 +88,7 @@ layout: default
 </div>
 
 <div class="mb-3">
-<h2>Featured Posts</h2>
+<h2>Featured Posts <span style="color: grey; font-size: 0.7em;">(<a href="{{ site.baseurl }}/blog">more →</a>)</span></h2>
 <ul class="post-list">
 {%- for post in site.posts -%}
   {%- if post.pin -%}

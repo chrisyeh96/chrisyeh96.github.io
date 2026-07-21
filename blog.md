@@ -1,6 +1,6 @@
 ---
 title: Blog
-permalink: /blog/
+permalink: /blog
 layout: post
 use_code: true
 use_fontawesome: true

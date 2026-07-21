@@ -1,5 +1,6 @@
 ---
 title: Publications
+permalink: /publications
 layout: post
 use_fontawesome: true
 ---

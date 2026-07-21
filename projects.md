@@ -1,5 +1,6 @@
 ---
 title: Projects
+permalink: /projects
 layout: post
 use_fontawesome: true
 categories:
