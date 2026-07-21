@@ -38,26 +38,34 @@ layout: default
 </div>
 
 {% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+{% capture one_year_ago %}{{ nowunix | minus: 31536000 }}{% endcapture %}
 
+{%- assign news_reverse = site.data.news | reverse -%}
+{%- assign upcoming_events = '' | split: '' -%}
+{%- for news_item in news_reverse -%}
+  {% capture news_date %}{{ news_item.date | date: '%s' }}{% endcapture %}
+  {%- if news_date >= nowunix -%}
+    {%- assign upcoming_events = upcoming_events | push: news_item -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if upcoming_events != empty -%}
 <div class="border-bottom mb-3">
   <h2>Upcoming events</h2>
   <ul class="post-list">
-    {%- assign news_reverse = site.data.news | reverse -%}
-    {%- for news_item in news_reverse -%}
-    {% capture news_date %}{{ news_item.date | date: '%s' }}{% endcapture %}
-    {%- if news_date >= nowunix -%}
+    {%- for news_item in upcoming_events -%}
     {% include news_item.html %}
-    {%- endif -%}
     {%- endfor -%}
   </ul>
 </div>
+{%- endif -%}
 
 <div class="border-bottom mb-3">
-  <h2>Recent news</h2>
+  <h2>Recent news <span style="color: grey; font-size: 0.7em;">(<a href="{{ site.baseurl }}/news">older →</a>)</span></h2>
   <ul class="post-list">
     {%- for news_item in site.data.news -%}
     {% capture news_date %}{{ news_item.date | date: '%s' }}{% endcapture %}
-    {%- if news_date < nowunix -%}
+    {%- if news_date >= one_year_ago and news_date < nowunix -%}
     {% include news_item.html %}
     {%- endif -%}
     {%- endfor -%}
